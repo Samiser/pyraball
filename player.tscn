@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccdc33vpni5bd"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_sh265"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4flbx"]
+
+[node name="Player" type="RigidBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_sh265")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_4flbx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.874323, 0.485344, 0, -0.485344, 0.874323, 0, 1.88998, 2.78866)
