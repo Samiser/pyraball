@@ -1,6 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccdc33vpni5bd"]
+[gd_scene load_steps=8 format=3 uid="uid://ccdc33vpni5bd"]
 
 [ext_resource type="Script" uid="uid://dj4hr00xw01je" path="res://player.gd" id="1_4flbx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4flbx"]
+friction = 158.85
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_sh265"]
 frequency = 0.0033
@@ -25,6 +28,7 @@ material = SubResource("StandardMaterial3D_sh265")
 [sub_resource type="SphereShape3D" id="SphereShape3D_4flbx"]
 
 [node name="Player" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_4flbx")
 script = ExtResource("1_4flbx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -37,3 +41,6 @@ shape = SubResource("SphereShape3D_4flbx")
 
 [node name="Camera3D" type="Camera3D" parent="CameraTarget"]
 transform = Transform3D(1, 0, 0, 0, 0.874323, 0.485344, 0, -0.485344, 0.874323, 0, 1.88998, 2.78866)
+
+[node name="FloorCheck" type="RayCast3D" parent="."]
+target_position = Vector3(0, -0.62, 0)
