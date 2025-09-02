@@ -1,10 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccdc33vpni5bd"]
+[gd_scene load_steps=7 format=3 uid="uid://ccdc33vpni5bd"]
+
+[ext_resource type="Script" uid="uid://dj4hr00xw01je" path="res://player.gd" id="1_4flbx"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sh265"]
+frequency = 0.0033
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4flbx"]
+seamless = true
+noise = SubResource("FastNoiseLite_sh265")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sh265"]
+transparency = 1
+albedo_color = Color(0.73, 0.874, 1, 0.686275)
+metallic = 0.4
+roughness = 0.85
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_4flbx")
+heightmap_scale = 9.923
 
 [sub_resource type="SphereMesh" id="SphereMesh_sh265"]
+material = SubResource("StandardMaterial3D_sh265")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4flbx"]
 
 [node name="Player" type="RigidBody3D"]
+script = ExtResource("1_4flbx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_sh265")
@@ -12,5 +33,7 @@ mesh = SubResource("SphereMesh_sh265")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_4flbx")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="CameraTarget" type="Marker3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraTarget"]
 transform = Transform3D(1, 0, 0, 0, 0.874323, 0.485344, 0, -0.485344, 0.874323, 0, 1.88998, 2.78866)
