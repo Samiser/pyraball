@@ -1,33 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxt4ae0qrgpd0"]
+[gd_scene load_steps=4 format=3 uid="uid://bxt4ae0qrgpd0"]
 
 [ext_resource type="PackedScene" uid="uid://ccdc33vpni5bd" path="res://player.tscn" id="1_ig7tw"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
-size = Vector2(50, 50)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h2yge"]
-points = PackedVector3Array(25.3919, 0.396748, 25.3919, -25.3919, -0.396748, -25.3919, -25.3919, 0.396748, -25.3919, 25.3919, -0.396748, -25.3919, -25.3919, -0.396748, 25.3919, -25.3919, 0.396748, 25.3919, 25.3919, 0.396748, -25.3919, 25.3919, -0.396748, 25.3919)
+[ext_resource type="PackedScene" uid="uid://dp7qio86hk64j" path="res://pyra_world.fbx" id="2_0xm2m"]
 
 [sub_resource type="Environment" id="Environment_ig7tw"]
 background_mode = 1
 background_color = Color(0.4015, 0.724525, 0.73, 1)
 tonemap_mode = 2
+tonemap_white = 1.2
 
 [node name="Main" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("PlaneMesh_0xm2m")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_h2yge")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.0369, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ig7tw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.617613, 0.786483, 0, -0.786483, 0.617613, 0, 10.4477, 12.4516)
+light_energy = 0.4
+light_indirect_energy = 0.4
+
+[node name="pyra_world" parent="." instance=ExtResource("2_0xm2m")]
