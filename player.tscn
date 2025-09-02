@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://dj4hr00xw01je" path="res://player.gd" id="1_4flbx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4flbx"]
-friction = 158.85
+friction = 500.0
+rough = true
+bounce = 0.3
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_sh265"]
 frequency = 0.0033
@@ -39,8 +41,12 @@ shape = SubResource("SphereShape3D_4flbx")
 
 [node name="CameraTarget" type="Marker3D" parent="."]
 
-[node name="Camera3D" type="Camera3D" parent="CameraTarget"]
-transform = Transform3D(1, 0, 0, 0, 0.874323, 0.485344, 0, -0.485344, 0.874323, 0, 1.88998, 2.78866)
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraTarget"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+spring_length = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraTarget/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 0.946812, 0.321787, 0, -0.321787, 0.946812, 0, 1.88998, 2.78866)
 
 [node name="FloorCheck" type="RayCast3D" parent="."]
 target_position = Vector3(0, -0.62, 0)
