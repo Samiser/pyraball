@@ -1,4 +1,5 @@
 extends RigidBody3D
+class_name Player
 
 var rolling_force: float = 50.0
 
@@ -9,9 +10,21 @@ var rolling_force: float = 50.0
 @onready var camera_target: Marker3D = $CameraTarget
 @onready var spring_arm: SpringArm3D = $CameraTarget/SpringArm3D
 
+signal rotate(direction: String, player_position: Vector3)
+
 func _ready() -> void:
 	camera_target.top_level = true
 	floor_check.top_level = true
+
+func _rotate(direction: String) -> void:
+	freeze = true
+	rotate.emit(direction, global_position)
+
+func on_rotation_completed(old_position: Vector3) -> void:
+	var tween := create_tween()
+	tween.tween_property(self, "global_position", old_position, 0.5)
+	await tween.finished
+	freeze = false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -20,6 +33,10 @@ func _input(event: InputEvent) -> void:
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("rotate_left"):
+		_rotate("left")
+	elif event.is_action_pressed("rotate_right"):
+		_rotate("right")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
