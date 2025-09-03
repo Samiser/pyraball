@@ -42,6 +42,8 @@ func rotation_completed(old_position: Vector3) -> void:
 func set_new_scale(new_scale: float) -> void:
 	$MeshInstance3D.mesh.radius = new_scale
 	$MeshInstance3D.mesh.height = new_scale * 2
+	$MeshInstance3D/Reflection_Mesh.mesh.radius = new_scale * 0.95
+	$MeshInstance3D/Reflection_Mesh.mesh.height = new_scale * 2 * 0.95
 	$CollisionShape3D.shape.radius = new_scale
 	spring_arm.spring_length = 6.0 * new_scale
 	spring_arm.transform.origin.y = 2.0 * new_scale
