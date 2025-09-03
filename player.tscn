@@ -35,7 +35,7 @@ frequency = 0.0032
 noise = SubResource("FastNoiseLite_4flbx")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sh265"]
-transparency = 1
+transparency = 4
 albedo_color = Color(1, 0.785613, 0.862197, 0.686275)
 albedo_texture = SubResource("GradientTexture1D_onrkg")
 metallic = 0.92
@@ -48,7 +48,6 @@ heightmap_scale = 9.923
 backlight_enabled = true
 backlight = Color(0.625822, 0.00356957, 0.941546, 1)
 backlight_texture = SubResource("NoiseTexture2D_i3pqv")
-refraction_enabled = true
 refraction_scale = 0.6
 refraction_texture = SubResource("NoiseTexture2D_onrkg")
 distance_fade_mode = 1
