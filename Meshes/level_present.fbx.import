@@ -52,6 +52,18 @@ _subresources={
 "PATH:Level/level_present/broken_bridge/pasted__level_past/pasted__bridge_part3": {
 "generate/physics": true
 },
+"PATH:Level/level_present/group1/pasted__level_past3/pasted__tree5/pasted__tree_base9": {
+"generate/physics": true
+},
+"PATH:Level/level_present/group2/pasted__level_past4/pasted__platform": {
+"generate/physics": true
+},
+"PATH:Level/level_present/group2/pasted__level_past4/pasted__platform2": {
+"generate/physics": true
+},
+"PATH:Level/level_present/group2/pasted__level_past4/pasted__platform3": {
+"generate/physics": true
+},
 "PATH:Level/level_present/island1": {
 "generate/physics": true
 },

@@ -30,3 +30,11 @@ transform = Transform3D(0.42284, -0.906205, 0, 0.906205, 0.42284, 0, 0, 0, 1, 0,
 
 [node name="Level" parent="PyraWorld" instance=ExtResource("4_1bvp3")]
 transform = Transform3D(0.446197, 0.894934, 0, -0.894934, 0.446197, 0, 0, 0, 1, 71.6352, 12.2824, 0)
+selected_level = 1
+
+[node name="Level2" parent="PyraWorld" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(0, -4.47035e-08, 1, -0.894934, 0.446197, 0, -0.446197, -0.894934, -4.37114e-08, -0.0867333, 12.2619, -71.292)
+
+[node name="Level3" parent="PyraWorld" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(2.98023e-08, -4.47035e-08, -1, -0.894934, 0.446197, 0, 0.446197, 0.894934, -4.37114e-08, -0.0867338, 12.2619, 71.2545)
+selected_level = 2
