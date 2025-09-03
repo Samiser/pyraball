@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ccdc33vpni5bd"]
+[gd_scene load_steps=16 format=3 uid="uid://ccdc33vpni5bd"]
 
 [ext_resource type="Script" uid="uid://dj4hr00xw01je" path="res://player.gd" id="1_4flbx"]
 
@@ -61,6 +61,10 @@ rings = 16
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4flbx"]
 
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_4flbx"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 1.16
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_onrkg"]
 viewport_path = NodePath("MeshInstance3D/SubViewport")
 
@@ -88,6 +92,7 @@ spring_length = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraTarget/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 0.946812, 0.321787, 0, -0.321787, 0.946812, 0, 1.88998, 2.78866)
+attributes = SubResource("CameraAttributesPractical_4flbx")
 
 [node name="FloorCheck" type="RayCast3D" parent="."]
 target_position = Vector3(0, -0.62, 0)
