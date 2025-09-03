@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1ft78rr6ksxt"]
+
+[ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="1_nok4b"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hym66"]
+radius = 1.16259
+
+[node name="TimeCrystal" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+modulate = Color(0.617667, 0.38, 1, 0.772549)
+billboard = 2
+texture = ExtResource("1_nok4b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_hym66")
