@@ -1,20 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cci0w05llgk4j"]
+[gd_scene load_steps=3 format=3 uid="uid://cci0w05llgk4j"]
 
-[ext_resource type="Script" uid="uid://cn1dxroiw2037" path="res://Level/level.gd" id="1_5noo7"]
+[ext_resource type="Script" path="res://Level/level.gd" id="1_5noo7"]
 [ext_resource type="PackedScene" uid="uid://cia0h2woeo7he" path="res://Meshes/level_base.fbx" id="1_a526m"]
-[ext_resource type="PackedScene" uid="uid://b5l63wppcor0" path="res://Meshes/level_past.fbx" id="2_i5eh5"]
-[ext_resource type="PackedScene" uid="uid://djn8bw605daet" path="res://Meshes/level_present.fbx" id="3_5noo7"]
-[ext_resource type="PackedScene" uid="uid://bw4ccyfx7fuyc" path="res://Meshes/level_future.fbx" id="4_u0wck"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_5noo7")
 
 [node name="level_base" parent="." instance=ExtResource("1_a526m")]
-
-[node name="level_past" parent="." groups=["level"] instance=ExtResource("2_i5eh5")]
-
-[node name="level_present" parent="." groups=["level"] instance=ExtResource("3_5noo7")]
-visible = false
-
-[node name="level_future" parent="." groups=["level"] instance=ExtResource("4_u0wck")]
-visible = false

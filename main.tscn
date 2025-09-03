@@ -1,15 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxt4ae0qrgpd0"]
+[gd_scene load_steps=8 format=3 uid="uid://bxt4ae0qrgpd0"]
 
 [ext_resource type="Script" uid="uid://bu7eh1ydu658n" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://ccdc33vpni5bd" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dp7qio86hk64j" path="res://Meshes/pyra_world.fbx" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cci0w05llgk4j" path="res://Level/Level.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://p3txqf0mjxo3" path="res://drop_kill_zone.gd" id="5_lquwl"]
 
 [sub_resource type="Environment" id="Environment_ig7tw"]
 background_mode = 1
-background_color = Color(0.4015, 0.724525, 0.73, 1)
+background_color = Color(0.573216, 0.662119, 0.842046, 1)
+background_energy_multiplier = 0.3
 tonemap_mode = 2
 tonemap_white = 1.2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.619587, 0.389972, 1, 1)
+fog_sun_scatter = 0.39
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1bvp3"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_h2yge")
@@ -21,9 +29,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 65.5844, 0)
 environment = SubResource("Environment_ig7tw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.617613, 0.786483, 0, -0.786483, 0.617613, 0, 10.4477, 12.4516)
-light_energy = 0.4
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.4477, 12.4516)
+light_energy = 0.3
 light_indirect_energy = 0.4
+shadow_enabled = true
+shadow_opacity = 0.74
 
 [node name="PyraWorld" parent="." instance=ExtResource("2_0xm2m")]
 transform = Transform3D(0.42284, -0.906205, 0, 0.906205, 0.42284, 0, 0, 0, 1, 0, 0, 0)
@@ -38,3 +48,13 @@ transform = Transform3D(0, -4.47035e-08, 1, -0.894934, 0.446197, 0, -0.446197, -
 [node name="Level3" parent="PyraWorld" instance=ExtResource("4_1bvp3")]
 transform = Transform3D(2.98023e-08, -4.47035e-08, -1, -0.894934, 0.446197, 0, 0.446197, 0.894934, -4.37114e-08, -0.0867338, 12.2619, 71.2545)
 selected_level = 2
+
+[node name="Drop_KillZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -162, 0)
+script = ExtResource("5_lquwl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drop_KillZone"]
+shape = SubResource("WorldBoundaryShape3D_1bvp3")
+debug_color = Color(0.970763, 0, 0.452533, 0.42)
+
+[connection signal="body_entered" from="Drop_KillZone" to="Drop_KillZone" method="_on_body_entered"]

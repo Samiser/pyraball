@@ -16,10 +16,10 @@ seamless = true
 noise = SubResource("FastNoiseLite_sh265")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sh265"]
-transparency = 1
+transparency = 4
 albedo_color = Color(0.73, 0.874, 1, 0.686275)
-metallic = 0.4
-roughness = 0.85
+metallic = 0.81
+roughness = 0.11
 normal_enabled = true
 normal_texture = SubResource("NoiseTexture2D_4flbx")
 heightmap_scale = 9.923
@@ -29,7 +29,7 @@ material = SubResource("StandardMaterial3D_sh265")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4flbx"]
 
-[node name="Player" type="RigidBody3D"]
+[node name="Player" type="RigidBody3D" groups=["player"]]
 physics_material_override = SubResource("PhysicsMaterial_4flbx")
 script = ExtResource("1_4flbx")
 
