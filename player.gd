@@ -15,8 +15,8 @@ var rolling_force: float = 50
 @onready var camera_target: Marker3D = $CameraTarget
 @onready var spring_arm: SpringArm3D = $CameraTarget/SpringArm3D
 @onready var camera: Camera3D = $CameraTarget/SpringArm3D/Camera3D
-@onready var reflection_cam: Camera3D = $MeshInstance3D/SubViewport/reflection_cam
-#@onready var reflection_mesh: MeshInstance3D = $MeshInstance3D/Refraction_Mesh
+@onready var reflection_cam: Camera3D = $MeshInstance3D/Reflection_Mesh/SubViewport/reflection_cam
+@onready var reflection_mesh: MeshInstance3D = $MeshInstance3D/Reflection_Mesh
 
 signal rotate(direction: String, player_position: Vector3)
 
@@ -91,5 +91,4 @@ func _physics_process(delta: float) -> void:
 	
 	reflection_cam.global_position = global_position
 	reflection_cam.global_rotation = camera.global_rotation
-	reflection_cam.global_rotation.y += 180.0
 	#reflection_mesh.global_position = global_position
