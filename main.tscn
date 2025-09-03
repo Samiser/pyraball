@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxt4ae0qrgpd0"]
 
-[ext_resource type="Script" uid="uid://bu7eh1ydu658n" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="Script" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://ccdc33vpni5bd" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dp7qio86hk64j" path="res://pyra_world.fbx" id="2_0xm2m"]
 
@@ -14,7 +14,7 @@ tonemap_white = 1.2
 script = ExtResource("1_h2yge")
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.64144, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 148.112, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ig7tw")
@@ -25,4 +25,3 @@ light_energy = 0.4
 light_indirect_energy = 0.4
 
 [node name="PyraWorld" parent="." instance=ExtResource("2_0xm2m")]
-transform = Transform3D(-0.442679, -0.89668, -1.79057e-05, 0.89668, -0.442679, -8.46276e-05, 6.7962e-05, -5.35126e-05, 1, 0, -0.413994, 0)

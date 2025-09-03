@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dp7qio86hk64j"
-path="res://.godot/imported/pyra_world.fbx-41f8b856a6b16472d08b501c5c860d05.scn"
+uid="uid://djn8bw605daet"
+path="res://.godot/imported/level_present.fbx-d473d28c487df903f390541368da75d0.scn"
 
 [deps]
 
-source_file="res://pyra_world.fbx"
-dest_files=["res://.godot/imported/pyra_world.fbx-41f8b856a6b16472d08b501c5c860d05.scn"]
+source_file="res://level_present.fbx"
+dest_files=["res://.godot/imported/level_present.fbx-d473d28c487df903f390541368da75d0.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=256.0
+nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
@@ -32,13 +32,7 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:world_base": {
-"generate/physics": true
-}
-}
-}
+_subresources={}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
