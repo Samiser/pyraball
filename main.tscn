@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ccdc33vpni5bd" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dp7qio86hk64j" path="res://Meshes/pyra_world.fbx" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cci0w05llgk4j" path="res://Level/Level.tscn" id="4_1bvp3"]
-[ext_resource type="Script" path="res://drop_kill_zone.gd" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://p3txqf0mjxo3" path="res://drop_kill_zone.gd" id="5_lquwl"]
 
 [sub_resource type="Environment" id="Environment_ig7tw"]
 background_mode = 1
