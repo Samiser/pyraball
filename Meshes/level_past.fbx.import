@@ -1,0 +1,233 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://b5l63wppcor0"
+path="res://.godot/imported/level_past.fbx-f64401bd783ebf5816477de38aea9207.scn"
+
+[deps]
+
+source_file="res://Meshes/level_past.fbx"
+dest_files=["res://.godot/imported/level_past.fbx-f64401bd783ebf5816477de38aea9207.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=186.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:Level/level_past/bridge_part": {
+"generate/physics": true
+},
+"PATH:Level/level_past/bridge_part1": {
+"generate/physics": true
+},
+"PATH:Level/level_past/bridge_part2": {
+"generate/physics": true
+},
+"PATH:Level/level_past/bridge_part3": {
+"generate/physics": true
+},
+"PATH:Level/level_past/platform": {
+"generate/physics": true
+},
+"PATH:Level/level_past/platform2": {
+"generate/physics": true
+},
+"PATH:Level/level_past/platform3": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree/tree_base": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree/tree_leaves": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree/tree_leaves1": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree1/tree_base2": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree1/tree_leaves12": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree1/tree_leaves2": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree10/tree_base11": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree10/tree_leaves11": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree10/tree_leaves111": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree11/tree_base12": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree11/tree_leaves112": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree11/tree_leaves20": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree12/tree_base13": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree12/tree_leaves113": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree12/tree_leaves21": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree13/tree_base14": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree13/tree_leaves114": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree13/tree_leaves22": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree14/tree_base15": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree14/tree_leaves115": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree14/tree_leaves23": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree15/tree_base16": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree15/tree_leaves116": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree15/tree_leaves24": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree16/tree_base17": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree16/tree_leaves117": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree16/tree_leaves25": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree17/tree_base18": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree17/tree_leaves118": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree17/tree_leaves26": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree18/tree_base19": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree18/tree_leaves119": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree18/tree_leaves27": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree2/tree_base3": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree2/tree_leaves13": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree2/tree_leaves3": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree3/tree_base4": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree3/tree_leaves14": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree3/tree_leaves4": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree4/tree_base5": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree4/tree_leaves15": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree4/tree_leaves5": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree5/tree_base6": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree5/tree_leaves16": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree5/tree_leaves6": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree6/tree_base7": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree6/tree_leaves17": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree6/tree_leaves7": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree7/tree_base8": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree7/tree_leaves18": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree7/tree_leaves8": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree8/tree_base9": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree8/tree_leaves19": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree8/tree_leaves9": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree9/tree_base10": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree9/tree_leaves10": {
+"generate/physics": true
+},
+"PATH:Level/level_past/tree9/tree_leaves110": {
+"generate/physics": true
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1

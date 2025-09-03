@@ -4,19 +4,19 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dp7qio86hk64j"
-path="res://.godot/imported/pyra_world.fbx-41f8b856a6b16472d08b501c5c860d05.scn"
+path="res://.godot/imported/pyra_world.fbx-69743b0259a94821a7ecab578f2b43d4.scn"
 
 [deps]
 
-source_file="res://pyra_world.fbx"
-dest_files=["res://.godot/imported/pyra_world.fbx-41f8b856a6b16472d08b501c5c860d05.scn"]
+source_file="res://Meshes/pyra_world.fbx"
+dest_files=["res://.godot/imported/pyra_world.fbx-69743b0259a94821a7ecab578f2b43d4.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=256.0
+nodes/root_scale=186.0
 nodes/import_as_skeleton_bones=false
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
