@@ -12,19 +12,23 @@ var rolling_force: float = 50.0
 
 signal rotate(direction: String, player_position: Vector3)
 
+var last_linear_velocity: Vector3
+var last_angular_velocity: Vector3
+
 func _ready() -> void:
 	camera_target.top_level = true
 	floor_check.top_level = true
 
 func _rotate(direction: String) -> void:
+	last_linear_velocity = linear_velocity
+	last_angular_velocity = angular_velocity
 	freeze = true
 	rotate.emit(direction, global_position)
 
 func on_rotation_completed(old_position: Vector3) -> void:
-	var tween := create_tween()
-	tween.tween_property(self, "global_position", old_position, 0.5)
-	await tween.finished
 	freeze = false
+	linear_velocity = last_linear_velocity
+	angular_velocity = last_angular_velocity
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
