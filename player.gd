@@ -1,7 +1,7 @@
 extends RigidBody3D
 class_name Player
 
-var rolling_force: float = 50.0
+var rolling_force: float = 60.0
 
 @export_range(0.0, 0.1) var mouse_sensitivity: float = 0.01
 @export var tilt_limit: float = deg_to_rad(75)
@@ -34,10 +34,19 @@ func _rotate(direction: String) -> void:
 	freeze = true
 	rotate.emit(direction, global_position)
 
-func on_rotation_completed(old_position: Vector3) -> void:
+func rotation_completed(old_position: Vector3) -> void:
 	freeze = false
 	linear_velocity = last_linear_velocity
 	angular_velocity = last_angular_velocity
+
+func set_new_scale(new_scale: float) -> void:
+	$MeshInstance3D.mesh.radius = new_scale
+	$MeshInstance3D.mesh.height = new_scale * 2
+	$CollisionShape3D.shape.radius = new_scale
+	spring_arm.spring_length = 6.0 * new_scale
+	spring_arm.transform.origin.y = 2.0 * new_scale
+	$FloorCheck.target_position.y = -1.25 * new_scale
+	rolling_force = (1.0 / new_scale) * 30
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
