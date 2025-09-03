@@ -26,7 +26,7 @@ light_energy = 0.4
 light_indirect_energy = 0.4
 
 [node name="PyraWorld" parent="." instance=ExtResource("2_0xm2m")]
-transform = Transform3D(0.42284, -0.906205, 0, 0.906205, 0.42284, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.422618, -0.906308, 0, 0.906308, 0.422618, 0, 0, 0)
 
 [node name="Level" parent="PyraWorld" instance=ExtResource("4_1bvp3")]
 transform = Transform3D(0.446197, 0.894934, 0, -0.894934, 0.446197, 0, 0, 0, 1, 71.6352, 12.2824, 0)
@@ -38,3 +38,16 @@ transform = Transform3D(0, -4.47035e-08, 1, -0.894934, 0.446197, 0, -0.446197, -
 [node name="Level3" parent="PyraWorld" instance=ExtResource("4_1bvp3")]
 transform = Transform3D(2.98023e-08, -4.47035e-08, -1, -0.894934, 0.446197, 0, 0.446197, 0.894934, -4.37114e-08, -0.0867338, 12.2619, 71.2545)
 selected_level = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 316.0
+offset_bottom = 280.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+size = Vector2i(316, 280)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.99993, 0.010128, -0.0060855, 0.000100841, 0.507704, 0.861531, 0.0118152, -0.861472, 0.507668, 0, 529.766, 285.392)
+fov = 28.3684
