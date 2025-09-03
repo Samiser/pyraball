@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ccdc33vpni5bd"]
+[gd_scene load_steps=15 format=3 uid="uid://ccdc33vpni5bd"]
 
 [ext_resource type="Script" uid="uid://dj4hr00xw01je" path="res://player.gd" id="1_4flbx"]
 
@@ -7,12 +7,8 @@ friction = 500.0
 rough = true
 bounce = 0.3
 
-[sub_resource type="Gradient" id="Gradient_4flbx"]
-offsets = PackedFloat32Array(0, 0.511211, 1)
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_onrkg"]
-gradient = SubResource("Gradient_4flbx")
+[sub_resource type="ViewportTexture" id="ViewportTexture_4flbx"]
+viewport_path = NodePath("MeshInstance3D/SubViewport")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_onrkg"]
 frequency = 0.0035
@@ -35,9 +31,9 @@ frequency = 0.0032
 noise = SubResource("FastNoiseLite_4flbx")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sh265"]
-transparency = 4
-albedo_color = Color(1, 0.785613, 0.862197, 0.686275)
-albedo_texture = SubResource("GradientTexture1D_onrkg")
+resource_local_to_scene = true
+albedo_color = Color(1, 0.784314, 0.862745, 1)
+albedo_texture = SubResource("ViewportTexture_4flbx")
 metallic = 0.92
 roughness = 0.11
 normal_scale = 0.1
@@ -50,15 +46,22 @@ backlight = Color(0.625822, 0.00356957, 0.941546, 1)
 backlight_texture = SubResource("NoiseTexture2D_i3pqv")
 refraction_scale = 0.6
 refraction_texture = SubResource("NoiseTexture2D_onrkg")
+billboard_mode = 1
 distance_fade_mode = 1
 distance_fade_max_distance = 2.4
 
 [sub_resource type="SphereMesh" id="SphereMesh_sh265"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_sh265")
 radial_segments = 32
 rings = 16
 
+[sub_resource type="Environment" id="Environment_4flbx"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_4flbx"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_onrkg"]
+viewport_path = NodePath("MeshInstance3D/SubViewport")
 
 [node name="Player" type="RigidBody3D" groups=["player"]]
 physics_material_override = SubResource("PhysicsMaterial_4flbx")
@@ -66,6 +69,12 @@ script = ExtResource("1_4flbx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_sh265")
+
+[node name="SubViewport" type="SubViewport" parent="MeshInstance3D"]
+render_target_update_mode = 4
+
+[node name="reflection_cam" type="Camera3D" parent="MeshInstance3D/SubViewport"]
+environment = SubResource("Environment_4flbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_4flbx")
@@ -81,3 +90,18 @@ transform = Transform3D(1, 0, 0, 0, 0.946812, 0.321787, 0, -0.321787, 0.946812, 
 
 [node name="FloorCheck" type="RayCast3D" parent="."]
 target_position = Vector3(0, -0.62, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 945.0
+offset_top = 18.0
+offset_right = 1136.0
+offset_bottom = 190.0
+texture = SubResource("ViewportTexture_onrkg")
+expand_mode = 3

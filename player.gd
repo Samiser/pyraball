@@ -15,6 +15,8 @@ var rolling_force: float = 50.0
 @onready var camera_target: Marker3D = $CameraTarget
 @onready var spring_arm: SpringArm3D = $CameraTarget/SpringArm3D
 @onready var camera: Camera3D = $CameraTarget/SpringArm3D/Camera3D
+@onready var reflection_cam: Camera3D = $MeshInstance3D/SubViewport/reflection_cam
+@onready var mesh: MeshInstance3D = $MeshInstance3D
 
 signal rotate(direction: String, player_position: Vector3)
 
@@ -73,6 +75,9 @@ func _physics_process(delta: float) -> void:
 	
 	var input_vector: Vector2 = Input.get_vector("forward", "back", "right", "left")
 	angular_velocity += Vector3(input_vector.x, 0, input_vector.y).rotated(Vector3.UP, spring_arm.rotation.y) * rolling_force * delta
-
+	
+	reflection_cam.global_position = global_position
+	reflection_cam.rotation = camera.rotation
+	
 	if Input.is_action_just_pressed("jump") and floor_check.is_colliding():
 		apply_impulse(Vector3.UP * mass * 10)
