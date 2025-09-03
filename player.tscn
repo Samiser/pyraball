@@ -1,6 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://ccdc33vpni5bd"]
+[gd_scene load_steps=21 format=3 uid="uid://ccdc33vpni5bd"]
 
 [ext_resource type="Script" uid="uid://dj4hr00xw01je" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="2_onrkg"]
+[ext_resource type="AudioStream" uid="uid://cnq7ivmp32tgp" path="res://Audio/SoundFX/jump.mp3" id="2_sweqy"]
+[ext_resource type="AudioStream" uid="uid://d4k5qwdw5ufjn" path="res://Audio/SoundFX/ball_impact.mp3" id="3_2hs0m"]
+[ext_resource type="AudioStream" uid="uid://bdsmrl04kpxbj" path="res://Audio/SoundFX/ball_roll.mp3" id="3_i3pqv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4flbx"]
 friction = 500.0
@@ -83,12 +87,13 @@ rings = 16
 dof_blur_far_enabled = true
 dof_blur_far_distance = 1.16
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_onrkg"]
-viewport_path = NodePath("MeshInstance3D/Reflection_Mesh/SubViewport")
-
 [node name="Player" type="RigidBody3D" groups=["player"]]
 physics_material_override = SubResource("PhysicsMaterial_4flbx")
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_4flbx")
+jump_sfx = ExtResource("2_sweqy")
+impact_sfx = ExtResource("3_2hs0m")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_sh265")
@@ -101,6 +106,7 @@ skeleton = NodePath("../..")
 render_target_update_mode = 4
 
 [node name="reflection_cam" type="Camera3D" parent="MeshInstance3D/Reflection_Mesh/SubViewport"]
+cull_mask = 1048573
 environment = SubResource("Environment_4flbx")
 fov = 37.5
 
@@ -115,22 +121,26 @@ spring_length = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraTarget/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 0.946812, 0.321787, 0, -0.321787, 0.946812, 0, 1.88998, 2.78866)
+cull_mask = 1048573
 attributes = SubResource("CameraAttributesPractical_4flbx")
 
 [node name="FloorCheck" type="RayCast3D" parent="."]
 target_position = Vector3(0, -0.62, 0)
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="map_marker" type="Sprite3D" parent="."]
+layers = 2
+modulate = Color(0, 1, 0, 1)
+pixel_size = 0.02
+billboard = 1
+no_depth_test = true
+render_priority = 127
+texture = ExtResource("2_onrkg")
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_left = 945.0
-offset_top = 18.0
-offset_right = 1136.0
-offset_bottom = 190.0
-texture = SubResource("ViewportTexture_onrkg")
-expand_mode = 3
+[node name="sfx_stream" type="AudioStreamPlayer3D" parent="."]
+
+[node name="sfx_roll_stream" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_i3pqv")
+autoplay = true
+parameters/looping = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

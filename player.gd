@@ -18,6 +18,11 @@ var rolling_force: float = 50
 @onready var reflection_cam: Camera3D = $MeshInstance3D/Reflection_Mesh/SubViewport/reflection_cam
 @onready var reflection_mesh: MeshInstance3D = $MeshInstance3D/Reflection_Mesh
 
+@export var jump_sfx : AudioStream
+@export var impact_sfx : AudioStream
+@onready var sfx_stream : AudioStreamPlayer3D = $sfx_stream
+@onready var roll_sfx_stream : AudioStreamPlayer3D = $sfx_roll_stream
+
 signal rotate(direction: String, player_position: Vector3)
 
 var last_linear_velocity: Vector3
@@ -90,7 +95,19 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("jump") and floor_check.is_colliding():
 		apply_impulse(Vector3.UP * mass * 10)
+		sfx_stream.pitch_scale = 1.0
+		sfx_stream.stream = jump_sfx
+		sfx_stream.play()
+	
+	roll_sfx_stream.stream_paused = !floor_check.is_colliding()
+	var roll_sfx_pitch := clampf(speed * 0.1, 0.0001, 4.0)
+	roll_sfx_stream.pitch_scale = roll_sfx_pitch
 	
 	reflection_cam.global_position = global_position
 	reflection_cam.global_rotation = camera.global_rotation
-	#reflection_mesh.global_position = global_position
+
+func _on_body_entered(body: Node) -> void:
+	if linear_velocity.length() > 0.4:
+		sfx_stream.pitch_scale = randf_range(0.8, 1.2)
+		sfx_stream.stream = impact_sfx
+		sfx_stream.play()
