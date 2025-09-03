@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ccdc33vpni5bd"]
+[gd_scene load_steps=18 format=3 uid="uid://ccdc33vpni5bd"]
 
 [ext_resource type="Script" uid="uid://dj4hr00xw01je" path="res://player.gd" id="1_4flbx"]
 
@@ -7,53 +7,71 @@ friction = 500.0
 rough = true
 bounce = 0.3
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4flbx"]
-viewport_path = NodePath("MeshInstance3D/SubViewport")
+[sub_resource type="Gradient" id="Gradient_4flbx"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_onrkg"]
+gradient = SubResource("Gradient_4flbx")
+fill_from = Vector2(0, 0.5)
+fill_to = Vector2(0, 1)
+repeat = 2
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_onrkg"]
-frequency = 0.0035
+frequency = 0.004
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_i3pqv"]
+invert = true
+seamless = true
 noise = SubResource("FastNoiseLite_onrkg")
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_sh265"]
-frequency = 0.0051
-fractal_octaves = 1
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4flbx"]
-seamless = true
-noise = SubResource("FastNoiseLite_sh265")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_4flbx"]
-frequency = 0.0032
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_onrkg"]
-noise = SubResource("FastNoiseLite_4flbx")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sh265"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4flbx"]
 resource_local_to_scene = true
-transparency = 4
-albedo_color = Color(1, 0.784314, 0.862745, 1)
-albedo_texture = SubResource("ViewportTexture_4flbx")
-metallic = 0.92
-roughness = 0.11
-normal_scale = 0.1
-normal_texture = SubResource("NoiseTexture2D_4flbx")
+transparency = 1
+albedo_color = Color(0.763635, 0.263049, 1, 0.619608)
+metallic = 1.0
+roughness_texture = SubResource("NoiseTexture2D_i3pqv")
+emission = Color(1, 0, 0.701961, 1)
+emission_operator = 1
+emission_texture = SubResource("GradientTexture2D_onrkg")
 rim_enabled = true
-rim_tint = 0.0
-heightmap_scale = 9.923
-backlight_enabled = true
-backlight = Color(0.625822, 0.00356957, 0.941546, 1)
-backlight_texture = SubResource("NoiseTexture2D_i3pqv")
-refraction_scale = 0.6
-refraction_texture = SubResource("NoiseTexture2D_onrkg")
-billboard_mode = 1
-distance_fade_mode = 1
-distance_fade_max_distance = 2.4
+rim_tint = 1.0
+backlight = Color(1, 1, 1, 1)
+grow = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_sh265"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_sh265")
+material = SubResource("StandardMaterial3D_4flbx")
+radial_segments = 32
+rings = 16
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_i3pqv"]
+viewport_path = NodePath("MeshInstance3D/Reflection_Mesh/SubViewport")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4flbx"]
+frequency = 0.0009
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_onrkg"]
+in_3d_space = true
+seamless = true
+as_normal_map = true
+bump_strength = 2.0
+noise = SubResource("FastNoiseLite_4flbx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqtel"]
+resource_local_to_scene = true
+albedo_color = Color(1, 1, 1, 0.619608)
+albedo_texture = SubResource("ViewportTexture_i3pqv")
+roughness = 0.0
+normal_enabled = true
+normal_scale = 16.0
+normal_texture = SubResource("NoiseTexture2D_onrkg")
+uv1_offset = Vector3(0.5, 0, 0)
+billboard_mode = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_sweqy"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_hqtel")
+radius = 0.48
+height = 0.92
 radial_segments = 32
 rings = 16
 
@@ -66,7 +84,7 @@ dof_blur_far_enabled = true
 dof_blur_far_distance = 1.16
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_onrkg"]
-viewport_path = NodePath("MeshInstance3D/SubViewport")
+viewport_path = NodePath("MeshInstance3D/Reflection_Mesh/SubViewport")
 
 [node name="Player" type="RigidBody3D" groups=["player"]]
 physics_material_override = SubResource("PhysicsMaterial_4flbx")
@@ -75,11 +93,16 @@ script = ExtResource("1_4flbx")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_sh265")
 
-[node name="SubViewport" type="SubViewport" parent="MeshInstance3D"]
+[node name="Reflection_Mesh" type="MeshInstance3D" parent="MeshInstance3D"]
+mesh = SubResource("SphereMesh_sweqy")
+skeleton = NodePath("../..")
+
+[node name="SubViewport" type="SubViewport" parent="MeshInstance3D/Reflection_Mesh"]
 render_target_update_mode = 4
 
-[node name="reflection_cam" type="Camera3D" parent="MeshInstance3D/SubViewport"]
+[node name="reflection_cam" type="Camera3D" parent="MeshInstance3D/Reflection_Mesh/SubViewport"]
 environment = SubResource("Environment_4flbx")
+fov = 37.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_4flbx")
