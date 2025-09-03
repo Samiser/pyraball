@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var player: Player = $Player
 
-enum Level {BACK, PRESENT, FORWARD, VOID}
+enum Level {BACK, PRESENT, FORWARD}
 var current_level: Level = Level.BACK
 
 func get_level_rotation(level: Level) -> Vector3:
@@ -13,13 +13,16 @@ func get_level_rotation(level: Level) -> Vector3:
 			return Vector3(0, deg_to_rad(90), deg_to_rad(65))
 		Level.FORWARD:
 			return Vector3(-deg_to_rad(65), deg_to_rad(180), 0)
-		Level.VOID:
-			return Vector3(0, deg_to_rad(270), -deg_to_rad(65))
+		#Level.VOID:
+			#return Vector3(0, deg_to_rad(270), -deg_to_rad(65))
 	
 	return Vector3.ZERO
 
 func _on_rotation(direction: String, player_position: Vector3) -> void:
-	current_level = (current_level + 1) % 4
+	if direction == "left":
+		current_level = posmod(current_level - 1, 3)
+	elif direction == "right":
+		current_level = posmod(current_level + 1, 3)
 	print(current_level)
 	var tween := create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
