@@ -6,9 +6,15 @@ var rolling_force: float = 50.0
 @export_range(0.0, 0.1) var mouse_sensitivity: float = 0.01
 @export var tilt_limit: float = deg_to_rad(75)
 
+@export_range(1.0, 179.0) var base_fov: float = 75.0
+@export_range(1.0, 179.0) var max_fov: float = 110.0
+@export var max_speed: float = 30.0
+@export var smooth: float = 8.0
+
 @onready var floor_check: RayCast3D = $FloorCheck
 @onready var camera_target: Marker3D = $CameraTarget
 @onready var spring_arm: SpringArm3D = $CameraTarget/SpringArm3D
+@onready var camera: Camera3D = $CameraTarget/SpringArm3D/Camera3D
 
 signal rotate(direction: String, player_position: Vector3)
 
@@ -51,8 +57,17 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	camera_target.global_transform.origin = lerp(
 		camera_target.global_transform.origin,
-		global_transform.origin, 0.1
+		global_transform.origin, 0.2
 	)
+	
+	var v := linear_velocity
+	v.y = 0.0
+	var speed: float = clamp(v.length(), 0, max_speed)
+	var t := speed / max_speed
+	var target_fov: float = lerp(base_fov, max_fov, t)
+
+	var alpha := 1.0 - exp(-smooth * delta)
+	camera.fov = lerp(camera.fov, target_fov, alpha)
 	
 	floor_check.global_transform.origin = global_transform.origin
 	
