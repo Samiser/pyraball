@@ -1,15 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1ft78rr6ksxt"]
+[gd_scene load_steps=5 format=3 uid="uid://c1ft78rr6ksxt"]
 
 [ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="1_nok4b"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hym66"]
 radius = 0.204951
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nok4b"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.658824)
+emission_enabled = true
+emission = Color(0.520823, 0.403236, 0.823447, 1)
+emission_energy_multiplier = 1.6
+
+[sub_resource type="SphereMesh" id="SphereMesh_hym66"]
+material = SubResource("StandardMaterial3D_nok4b")
+radius = 0.03
+height = 0.06
+
 [node name="TimeCrystal" type="Node3D" groups=["time_crystal"]]
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
-modulate = Color(0.617667, 0.38, 1, 0.811765)
+modulate = Color(0.618, 0.38, 66.299, 0.889)
 billboard = 2
 texture = ExtResource("1_nok4b")
 
@@ -17,3 +29,20 @@ texture = ExtResource("1_nok4b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_hym66")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+lifetime = 1.2
+speed_scale = 0.5
+mesh = SubResource("SphereMesh_hym66")
+emission_shape = 1
+emission_sphere_radius = 0.25
+direction = Vector3(1, 0, 1)
+spread = 180.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_max = 0.6
+scale_amount_min = 0.8
+scale_amount_max = 1.2
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.619608, 0.380392, 1, 1)
+omni_range = 1.47831

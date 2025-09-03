@@ -1,7 +1,7 @@
 extends RigidBody3D
 class_name Player
 
-var rolling_force: float = 60.0
+var rolling_force: float = 50
 
 @export_range(0.0, 0.1) var mouse_sensitivity: float = 0.01
 @export var tilt_limit: float = deg_to_rad(75)
@@ -46,7 +46,7 @@ func set_new_scale(new_scale: float) -> void:
 	spring_arm.spring_length = 6.0 * new_scale
 	spring_arm.transform.origin.y = 2.0 * new_scale
 	$FloorCheck.target_position.y = -1.25 * new_scale
-	rolling_force = (1.0 / new_scale) * 30
+	rolling_force = (1.0 / new_scale) * 25
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
