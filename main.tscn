@@ -21,6 +21,12 @@ fog_density = 0.052
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1bvp3"]
 
 [sub_resource type="Environment" id="Environment_lquwl"]
+ambient_light_source = 1
+ambient_light_color = Color(0.947199, 0.947199, 0.947199, 1)
+glow_hdr_threshold = 0.4
+adjustment_enabled = true
+adjustment_brightness = 1.4
+adjustment_contrast = 1.2
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_h2yge")
@@ -61,19 +67,21 @@ shape = SubResource("WorldBoundaryShape3D_1bvp3")
 debug_color = Color(0.970763, 0, 0.452533, 0.42)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-offset_right = 316.0
-offset_bottom = 280.0
+offset_right = 388.0
+offset_bottom = 338.0
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(316, 280)
+size = Vector2i(388, 338)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(0.99993, 0.010128, -0.0060855, 0.000100841, 0.507704, 0.861531, 0.0118152, -0.861472, 0.507668, 0, 529.766, 285.392)
+transform = Transform3D(-1, 8.60946e-08, -1.51808e-08, 0, 0.173648, 0.984808, 8.74228e-08, 0.984807, -0.173648, 0, 260, -60)
 environment = SubResource("Environment_lquwl")
+projection = 1
 fov = 28.3684
+size = 256.0
 
 [connection signal="body_entered" from="Drop_KillZone" to="Drop_KillZone" method="_on_body_entered"]
