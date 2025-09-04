@@ -88,6 +88,8 @@ dof_blur_far_enabled = true
 dof_blur_far_distance = 1.16
 
 [node name="Player" type="RigidBody3D" groups=["player"]]
+collision_layer = 5
+collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_4flbx")
 contact_monitor = true
 max_contacts_reported = 1
