@@ -1,6 +1,8 @@
 extends Node3D
 class_name TriangleButton
 
+@export var color: Color = Color.RED
+
 @onready var press_area: Area3D = $PressArea
 @onready var actuator: RigidBody3D = $Actuator
 @onready var actuator_mesh: MeshInstance3D = $"Actuator/Cone-col-rigid"
@@ -14,12 +16,12 @@ func _tween_actuator_color(to_color: Color, duration: float = 0.2) -> void:
 
 func _on_press_area_entered(body: Node3D) -> void:
 	if body == actuator:
-		_tween_actuator_color(Color.RED)
+		_tween_actuator_color(color)
 		emit_signal("pressed")
 
 func _on_press_area_exited(body: Node3D) -> void:
 	if body == actuator:
-		_tween_actuator_color(Color.WHITE)
+		_tween_actuator_color(color.lightened(0.5))
 
 func set_freeze(value: bool) -> void:
 	actuator.position = Vector3(0., 0.373, 0.)
@@ -32,3 +34,5 @@ func _ready() -> void:
 		0,
 		actuator_mesh.get_active_material(0).duplicate()
 	)
+	var material := actuator_mesh.get_surface_override_material(0)
+	material.albedo_color = color.lightened(0.5)
