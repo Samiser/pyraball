@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxt4ae0qrgpd0"]
+[gd_scene load_steps=11 format=3 uid="uid://bxt4ae0qrgpd0"]
 
 [ext_resource type="Script" uid="uid://bu7eh1ydu658n" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://ccdc33vpni5bd" path="res://player.tscn" id="1_ig7tw"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cfinh2lxfg31r" path="res://world.gd" id="3_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cci0w05llgk4j" path="res://Level/Level.tscn" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://p3txqf0mjxo3" path="res://drop_kill_zone.gd" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="7_272bh"]
 
 [sub_resource type="Environment" id="Environment_ig7tw"]
 background_mode = 1
@@ -91,5 +92,39 @@ environment = SubResource("Environment_lquwl")
 projection = 1
 fov = 28.3684
 size = 256.0
+
+[node name="Skeleton3D" type="Skeleton3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 150.95, 0)
+
+[node name="LookAtModifier3D" type="LookAtModifier3D" parent="Skeleton3D"]
+origin_from = 2
+origin_external_node = NodePath("../../Player")
+
+[node name="Sprite3D" type="Sprite3D" parent="Skeleton3D/LookAtModifier3D"]
+texture = ExtResource("7_272bh")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Skeleton3D/LookAtModifier3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1771, 32.8415, 8.79985)
+pixel_size = 0.04
+texture = ExtResource("7_272bh")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Skeleton3D/LookAtModifier3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8229, 32.8415, 8.79985)
+pixel_size = 0.04
+texture = ExtResource("7_272bh")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Skeleton3D/LookAtModifier3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1771, 35.3859, -0.696182)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.02
+billboard = 1
+texture = ExtResource("7_272bh")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Skeleton3D/LookAtModifier3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8229, 35.3859, -0.696182)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.02
+billboard = 1
+texture = ExtResource("7_272bh")
 
 [connection signal="body_entered" from="World/Drop_KillZone" to="World/Drop_KillZone" method="_on_body_entered"]

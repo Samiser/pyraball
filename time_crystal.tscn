@@ -22,7 +22,7 @@ height = 0.06
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 modulate = Color(0.618, 0.38, 66.299, 0.889)
-billboard = 2
+billboard = 1
 texture = ExtResource("1_nok4b")
 
 [node name="Area3D" type="Area3D" parent="." groups=["time_crystal"]]
