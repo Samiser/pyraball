@@ -98,12 +98,10 @@ size = 256.0
 transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 150.95, 0)
 
 [node name="LookAtModifier3D" type="LookAtModifier3D" parent="Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 origin_from = 2
 origin_external_node = NodePath("../../Player")
 
 [node name="Sprite3D" type="Sprite3D" parent="Skeleton3D/LookAtModifier3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 texture = ExtResource("7_272bh")
 
 [node name="Sprite3D2" type="Sprite3D" parent="Skeleton3D/LookAtModifier3D"]
