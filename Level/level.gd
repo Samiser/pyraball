@@ -4,9 +4,9 @@ extends Node3D
 const LEVEL_GROUPS: Array[String] = ["past", "present", "future"]
 
 var levels: Array[PackedScene] = [
-	preload("res://Meshes/level_past.fbx"),
-	preload("res://Meshes/level_present.fbx"),
-	preload("res://Meshes/level_future.fbx"),
+	preload("res://Meshes/level_past.blend"),
+	preload("res://Meshes/level_present.blend"),
+	preload("res://Meshes/level_future.blend"),
 ]
 
 @export_enum("Past", "Present", "Future")
