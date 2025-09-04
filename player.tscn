@@ -137,9 +137,11 @@ render_priority = 127
 texture = ExtResource("2_onrkg")
 
 [node name="sfx_stream" type="AudioStreamPlayer3D" parent="."]
+volume_db = -80.0
 
 [node name="sfx_roll_stream" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_i3pqv")
+volume_db = -80.0
 autoplay = true
 parameters/looping = true
 
