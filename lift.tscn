@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbc7h7oiowpka"]
+
+[ext_resource type="Script" uid="uid://v8qrlwm7igbe" path="res://lift.gd" id="1_6rdgm"]
+[ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://button.tscn" id="2_jtgx6"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_i5eh5"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5noo7"]
+albedo_color = Color(0.419333, 0.33, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i5eh5"]
+size = Vector3(4.99365, 0.574707, 5.00635)
+
+[node name="Lift" type="AnimatableBody3D"]
+transform = Transform3D(0.995627, 0, 0.0934132, 0, 1, 0, -0.0934132, 0, 0.995627, 0, 0, 0)
+visible = false
+collision_layer = 0
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("1_6rdgm")
+lower_position = Vector3(-23.0555, -13.4279, 17.7558)
+lower_rotation = Vector3(0, -0.483456, 0)
+upper_position = Vector3(-34.8921, -5.43995, 21.0903)
+upper_rotation = Vector3(0, 0.0935496, 0)
+starting_position = 1
+metadata/_layer = 1
+metadata/_mask = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("PrismMesh_i5eh5")
+surface_material_override/0 = SubResource("StandardMaterial3D_5noo7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.00219725, 0.212646, 0.00219727)
+visible = false
+shape = SubResource("BoxShape3D_i5eh5")
+
+[node name="Button" parent="." instance=ExtResource("2_jtgx6")]
+transform = Transform3D(0.706737, 0, 0.707477, 0, 1, 0, -0.707477, 0, 0.706737, 1.14591, 0.462917, 1.11617)
+visible = false
