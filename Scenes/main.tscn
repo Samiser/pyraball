@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bxt4ae0qrgpd0"]
+[gd_scene load_steps=40 format=3 uid="uid://bxt4ae0qrgpd0"]
 
 [ext_resource type="Script" uid="uid://bu7eh1ydu658n" path="res://Scripts/main.gd" id="1_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://ccdc33vpni5bd" path="res://Scenes/player.tscn" id="2_hptm8"]
@@ -6,11 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dp7qio86hk64j" path="res://Meshes/pyra_world.fbx" id="4_6iyac"]
 [ext_resource type="PackedScene" uid="uid://bb28plwvmfby2" path="res://Level/Level.tscn" id="5_fdnlq"]
 [ext_resource type="Script" uid="uid://p3txqf0mjxo3" path="res://Scripts/drop_kill_zone.gd" id="6_jkdf5"]
+[ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="7_wsu2k"]
 [ext_resource type="Script" uid="uid://sx5ad0yhjku8" path="res://Scripts/ui.gd" id="8_k12tt"]
 [ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="9_h1bgf"]
 [ext_resource type="Shader" uid="uid://twjxjt5ypucs" path="res://Scenes/warp.gdshader" id="10_hptm8"]
-[ext_resource type="PackedScene" uid="uid://bh72vwki5ojnd" path="res://reflector.tscn" id="11_6iyac"]
-[ext_resource type="PackedScene" uid="uid://gewj4ymntyra" path="res://sundial.tscn" id="11_d1ilt"]
+[ext_resource type="PackedScene" path="res://reflector.tscn" id="11_6iyac"]
+[ext_resource type="PackedScene" path="res://sundial.tscn" id="11_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://Scenes/button.tscn" id="12_6iyac"]
 
 [sub_resource type="Environment" id="Environment_ig7tw"]
@@ -46,6 +47,128 @@ shader_parameter/offset = Vector2(0, 0)
 shader_parameter/use_screen_uv = 0
 shader_parameter/radius = 0.45
 shader_parameter/center = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_fdnlq"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wp1u0"]
+gradient = SubResource("Gradient_fdnlq")
+
+[sub_resource type="Curve" id="Curve_jkdf5"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502146, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.561798), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_2ld0w"]
+curve = SubResource("Curve_jkdf5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wsu2k"]
+emission_shape_offset = Vector3(0, -32, 0)
+emission_shape_scale = Vector3(256, 256, 256)
+emission_shape = 2
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -1.0
+radial_accel_max = 0.999998
+scale_min = 6.0
+scale_max = 12.0
+scale_curve = SubResource("CurveTexture_2ld0w")
+color_ramp = SubResource("GradientTexture1D_wp1u0")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k12tt"]
+load_path = "res://.godot/imported/pentagon.png-95562367171be486132d22f667fe6739.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ul75j"]
+transparency = 1
+shading_mode = 0
+disable_fog = true
+albedo_color = Color(1, 1, 1, 0.0980392)
+albedo_texture = SubResource("CompressedTexture2D_k12tt")
+
+[sub_resource type="QuadMesh" id="QuadMesh_h1bgf"]
+material = SubResource("StandardMaterial3D_ul75j")
+
+[sub_resource type="Gradient" id="Gradient_b3802"]
+offsets = PackedFloat32Array(0, 0.492754, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2ld0w"]
+gradient = SubResource("Gradient_b3802")
+
+[sub_resource type="Curve" id="Curve_fevyy"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502146, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.561798), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_66v8m"]
+curve = SubResource("Curve_fevyy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hibaj"]
+emission_shape_offset = Vector3(0, 16, 0)
+emission_shape_scale = Vector3(300, 16, 300)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(1, 0, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+attractor_interaction_enabled = false
+scale_min = 32.0
+scale_max = 84.0
+scale_curve = SubResource("CurveTexture_66v8m")
+color_ramp = SubResource("GradientTexture1D_2ld0w")
+turbulence_noise_strength = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wp1u0"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.662745)
+albedo_texture = ExtResource("7_wsu2k")
+distance_fade_mode = 2
+distance_fade_min_distance = 4.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_pdsj5"]
+material = SubResource("StandardMaterial3D_wp1u0")
+flip_faces = true
+orientation = 1
+
+[sub_resource type="Gradient" id="Gradient_ee4r6"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6fg3j"]
+gradient = SubResource("Gradient_ee4r6")
+
+[sub_resource type="Curve" id="Curve_gt3je"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502146, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_32x38"]
+curve = SubResource("Curve_gt3je")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3pmx8"]
+emission_shape_offset = Vector3(0, -32, 0)
+emission_shape_scale = Vector3(40, 6, 100)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.07288e-05
+angle_max = 720.0
+gravity = Vector3(-8, 0, 0)
+radial_accel_min = -1.0
+radial_accel_max = 0.999998
+scale_min = 4.0
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_32x38")
+color_ramp = SubResource("GradientTexture1D_6fg3j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chl2c"]
+transparency = 1
+diffuse_mode = 3
+albedo_color = Color(0.448183, 0.300033, 1.44392e-07, 0.176471)
+albedo_texture = ExtResource("7_wsu2k")
+metallic_specular = 1.0
+proximity_fade_distance = 0.01
+distance_fade_mode = 1
+distance_fade_min_distance = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_u50mg"]
+material = SubResource("StandardMaterial3D_chl2c")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_ynf5e")
@@ -167,5 +290,41 @@ button = NodePath("../Button")
 [node name="Button" parent="." instance=ExtResource("12_6iyac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8626, 45.2364, -117.771)
 color = Color(0, 0.600216, 0.692913, 1)
+
+[node name="stars" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48.7183, -42.597)
+amount = 16
+lifetime = 14.0
+preprocess = 1.0
+fixed_fps = 12
+interpolate = false
+visibility_aabb = AABB(-128, -128, -128, 256, 256, 256)
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_wsu2k")
+draw_pass_1 = SubResource("QuadMesh_h1bgf")
+
+[node name="clouds" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 88.1322, -41.9729)
+amount = 16
+lifetime = 24.0
+preprocess = 4.0
+fixed_fps = 16
+interpolate = false
+visibility_aabb = AABB(-128, -128, -128, 256, 256, 256)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_hibaj")
+draw_pass_1 = SubResource("QuadMesh_pdsj5")
+
+[node name="desert_wind" type="GPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.78577, 80.4289, -89.0279)
+amount = 128
+lifetime = 4.0
+preprocess = 1.0
+fixed_fps = 18
+interpolate = false
+visibility_aabb = AABB(-50, -40, -80, 100, 32, 160)
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_3pmx8")
+draw_pass_1 = SubResource("QuadMesh_u50mg")
 
 [connection signal="body_entered" from="World/Drop_KillZone" to="World/Drop_KillZone" method="_on_body_entered"]
