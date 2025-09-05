@@ -34,9 +34,13 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"standardSurface8": {
+"Material": {
 "use_external/enabled": true,
-"use_external/path": "res://Meshes/standardSurface8.tres"
+"use_external/path": "res://Meshes/Material.tres"
+},
+"Transparent_Material": {
+"use_external/enabled": true,
+"use_external/path": "res://Meshes/Transparent_Material.tres"
 }
 }
 }
