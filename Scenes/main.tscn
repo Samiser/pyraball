@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bxt4ae0qrgpd0"]
+[gd_scene load_steps=17 format=3 uid="uid://bxt4ae0qrgpd0"]
 
 [ext_resource type="Script" uid="uid://bu7eh1ydu658n" path="res://Scripts/main.gd" id="1_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://ccdc33vpni5bd" path="res://Scenes/player.tscn" id="2_hptm8"]
@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dp7qio86hk64j" path="res://Meshes/pyra_world.fbx" id="4_6iyac"]
 [ext_resource type="PackedScene" uid="uid://bb28plwvmfby2" path="res://Level/Level.tscn" id="5_fdnlq"]
 [ext_resource type="Script" uid="uid://p3txqf0mjxo3" path="res://Scripts/drop_kill_zone.gd" id="6_jkdf5"]
-[ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="7_wsu2k"]
 [ext_resource type="Script" uid="uid://sx5ad0yhjku8" path="res://Scripts/ui.gd" id="8_k12tt"]
 [ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="9_h1bgf"]
 [ext_resource type="Shader" uid="uid://twjxjt5ypucs" path="res://Scenes/warp.gdshader" id="10_hptm8"]
+[ext_resource type="PackedScene" uid="uid://bh72vwki5ojnd" path="res://reflector.tscn" id="11_6iyac"]
+[ext_resource type="PackedScene" uid="uid://gewj4ymntyra" path="res://sundial.tscn" id="11_d1ilt"]
+[ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://Scenes/button.tscn" id="12_6iyac"]
 
 [sub_resource type="Environment" id="Environment_ig7tw"]
 background_mode = 1
@@ -49,7 +51,7 @@ shader_parameter/center = Vector2(0.5, 0.5)
 script = ExtResource("1_ynf5e")
 
 [node name="Player" parent="." instance=ExtResource("2_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 65.5844, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6748, 49.6713, -105.302)
 
 [node name="World" type="Node3D" parent="." node_paths=PackedStringArray("player", "minimap_camera")]
 script = ExtResource("3_d1ilt")
@@ -87,40 +89,6 @@ script = ExtResource("6_jkdf5")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Drop_KillZone"]
 shape = SubResource("WorldBoundaryShape3D_1bvp3")
 debug_color = Color(0.970763, 0, 0.452533, 0.42)
-
-[node name="Skeleton3D" type="Skeleton3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 150.95, 0)
-
-[node name="LookAtModifier3D" type="LookAtModifier3D" parent="Skeleton3D"]
-origin_from = 2
-origin_external_node = NodePath("../../Player")
-
-[node name="Sprite3D" type="Sprite3D" parent="Skeleton3D/LookAtModifier3D"]
-texture = ExtResource("7_wsu2k")
-
-[node name="Sprite3D2" type="Sprite3D" parent="Skeleton3D/LookAtModifier3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1771, 32.8415, 8.79985)
-pixel_size = 0.04
-texture = ExtResource("7_wsu2k")
-
-[node name="Sprite3D3" type="Sprite3D" parent="Skeleton3D/LookAtModifier3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8229, 32.8415, 8.79985)
-pixel_size = 0.04
-texture = ExtResource("7_wsu2k")
-
-[node name="Sprite3D4" type="Sprite3D" parent="Skeleton3D/LookAtModifier3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1771, 35.3859, -0.696182)
-modulate = Color(0, 0, 0, 1)
-pixel_size = 0.02
-billboard = 1
-texture = ExtResource("7_wsu2k")
-
-[node name="Sprite3D5" type="Sprite3D" parent="Skeleton3D/LookAtModifier3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8229, 35.3859, -0.696182)
-modulate = Color(0, 0, 0, 1)
-pixel_size = 0.02
-billboard = 1
-texture = ExtResource("7_wsu2k")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -175,5 +143,29 @@ pivot_offset = Vector2(25, 25)
 texture = ExtResource("9_h1bgf")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="Sundial" parent="." instance=ExtResource("11_d1ilt")]
+transform = Transform3D(1, 0, 0, 0, 0.999657, -0.0261769, 0, 0.0261769, 0.999657, 27, 45.1, -112)
+
+[node name="Reflector" parent="." node_paths=PackedStringArray("sundial") instance=ExtResource("11_6iyac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.9186, 46.4949, -99.1844)
+sundial = NodePath("../Sundial")
+
+[node name="Reflector2" parent="." node_paths=PackedStringArray("sundial") instance=ExtResource("11_6iyac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5837, 46.4949, -99.1844)
+sundial = NodePath("../Sundial")
+
+[node name="Reflector3" parent="." node_paths=PackedStringArray("sundial") instance=ExtResource("11_6iyac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8696, 46.4949, -99.1844)
+sundial = NodePath("../Sundial")
+
+[node name="Reflector4" parent="." node_paths=PackedStringArray("sundial", "button") instance=ExtResource("11_6iyac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8696, 46.4949, -118.658)
+sundial = NodePath("../Sundial")
+button = NodePath("../Button")
+
+[node name="Button" parent="." instance=ExtResource("12_6iyac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8626, 45.2364, -117.771)
+color = Color(0, 0.600216, 0.692913, 1)
 
 [connection signal="body_entered" from="World/Drop_KillZone" to="World/Drop_KillZone" method="_on_body_entered"]

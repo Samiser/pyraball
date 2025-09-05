@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://gewj4ymntyra"]
+
+[ext_resource type="PackedScene" uid="uid://hxlx84tjlowl" path="res://pyramid.tscn" id="1_rmrnt"]
+[ext_resource type="Script" uid="uid://bukhau85bssm8" path="res://sundial.gd" id="1_x2mgy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x2mgy"]
+size = Vector3(0.270569, 1, 9.46289)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x2mgy"]
+radius = 0.371383
+
+[sub_resource type="SphereMesh" id="SphereMesh_x2mgy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2p86u"]
+albedo_color = Color(0.51, 1, 0.918333, 1)
+metallic = 1.0
+metallic_specular = 0.6
+roughness = 0.4
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.5
+
+[node name="Sundial" type="Node3D"]
+script = ExtResource("1_x2mgy")
+
+[node name="Gnomon" parent="." instance=ExtResource("1_rmrnt")]
+base_size = 0.5
+height = 10.0
+color = Color(0.83, 0.50215, 0.1743, 1)
+
+[node name="LightPivot" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LightPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.203, -2.794)
+shadow_enabled = true
+omni_range = 20.3488
+omni_attenuation = 0.599
+
+[node name="Shadow" type="Area3D" parent="LightPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.28764)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightPivot/Shadow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0145569, 0, 0.000306129)
+shape = SubResource("BoxShape3D_x2mgy")
+
+[node name="Twelve" parent="." groups=["clock_marker"] instance=ExtResource("1_rmrnt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+base_size = 0.8
+height = 0.2
+color = Color(0.83, 0.50215, 0.1743, 1)
+
+[node name="Area3D" type="Area3D" parent="Twelve"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Twelve/Area3D"]
+shape = SubResource("SphereShape3D_x2mgy")
+
+[node name="Three" parent="." groups=["clock_marker"] instance=ExtResource("1_rmrnt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+base_size = 0.8
+height = 0.2
+color = Color(0.83, 0.50215, 0.1743, 1)
+
+[node name="Area3D" type="Area3D" parent="Three"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Three/Area3D"]
+shape = SubResource("SphereShape3D_x2mgy")
+
+[node name="Six" parent="." groups=["clock_marker"] instance=ExtResource("1_rmrnt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+base_size = 0.8
+height = 0.2
+color = Color(0.83, 0.50215, 0.1743, 1)
+
+[node name="Area3D" type="Area3D" parent="Six"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Six/Area3D"]
+shape = SubResource("SphereShape3D_x2mgy")
+
+[node name="Nine" parent="." groups=["clock_marker"] instance=ExtResource("1_rmrnt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+base_size = 0.8
+height = 0.2
+color = Color(0.83, 0.50215, 0.1743, 1)
+
+[node name="Area3D" type="Area3D" parent="Nine"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Nine/Area3D"]
+shape = SubResource("SphereShape3D_x2mgy")
+
+[node name="TargetSphere" type="MeshInstance3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TargetSphere"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.2271, 0)
+mesh = SubResource("SphereMesh_x2mgy")
+surface_material_override/0 = SubResource("StandardMaterial3D_2p86u")
+
+[connection signal="area_entered" from="LightPivot/Shadow" to="." method="_on_shadow_area_entered"]
+[connection signal="area_exited" from="LightPivot/Shadow" to="." method="_on_shadow_area_exited"]

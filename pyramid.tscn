@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://hxlx84tjlowl"]
+
+[ext_resource type="Script" uid="uid://b56o7ydetro7p" path="res://pyramid.gd" id="1_1ho82"]
+
+[node name="Pyramid" type="StaticBody3D"]
+script = ExtResource("1_1ho82")
