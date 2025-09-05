@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bb28plwvmfby2"]
+[gd_scene load_steps=12 format=3 uid="uid://bb28plwvmfby2"]
 
 [ext_resource type="Script" uid="uid://cn1dxroiw2037" path="res://Level/level.gd" id="1_5noo7"]
 [ext_resource type="PackedScene" uid="uid://c1ft78rr6ksxt" path="res://Scenes/time_crystal.tscn" id="3_cyxyq"]
@@ -7,6 +7,21 @@
 [ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://Scenes/button.tscn" id="4_i5eh5"]
 [ext_resource type="PackedScene" uid="uid://dbc7h7oiowpka" path="res://Scenes/lift.tscn" id="5_5noo7"]
 [ext_resource type="PackedScene" uid="uid://baiey8j7n8tal" path="res://Meshes/epic_tree.glb" id="7_j3llj"]
+[ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="8_6lumq"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j3llj"]
+emission_shape_offset = Vector3(0, -32, 0)
+emission_shape_scale = Vector3(256, 256, 256)
+emission_shape = 1
+emission_sphere_radius = 1.0
+scale_max = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chl2c"]
+transparency = 1
+albedo_texture = ExtResource("8_6lumq")
+
+[sub_resource type="QuadMesh" id="QuadMesh_6lumq"]
+material = SubResource("StandardMaterial3D_chl2c")
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_5noo7")
@@ -39,3 +54,9 @@ upper_button = NodePath("../LiftButton2")
 
 [node name="epic_tree" parent="." groups=["present"] instance=ExtResource("7_j3llj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.7736, -4.89427, 28.0573)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 32
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_j3llj")
+draw_pass_1 = SubResource("QuadMesh_6lumq")

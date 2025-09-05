@@ -84,7 +84,6 @@ rings = 16
 [sub_resource type="SphereShape3D" id="SphereShape3D_4flbx"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_4flbx"]
-dof_blur_far_enabled = true
 dof_blur_far_distance = 1.16
 
 [node name="Player" type="RigidBody3D" groups=["player"]]
@@ -139,7 +138,7 @@ render_priority = 127
 texture = ExtResource("2_onrkg")
 
 [node name="sfx_stream" type="AudioStreamPlayer3D" parent="."]
-volume_db = -20.0
+volume_db = -80.0
 
 [node name="sfx_roll_stream" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_i3pqv")
