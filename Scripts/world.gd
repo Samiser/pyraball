@@ -37,16 +37,16 @@ func _apply_world_changes() -> void:
 	match current_level:
 		Level.BACK:
 			player.set_new_scale(0.2)
-			_tween_fog_color(Color.from_hsv(0.6, 0.6, 1.0), 0.15)
+			_tween_fog_color(Color.from_hsv(0.6, 0.6, 1.0), 0.015)
 		Level.PRESENT:
 			player.set_new_scale(0.5)
-			_tween_fog_color(Color.from_hsv(0.7, 0.6, 1.0), 0.05)
+			_tween_fog_color(Color.from_hsv(0.7, 0.6, 1.0), 0.005)
 		Level.FORWARD:
 			player.set_new_scale(3)
-			_tween_fog_color(Color.from_hsv(0.95, 0.6, 1.0), 0.01)
+			_tween_fog_color(Color.from_hsv(0.95, 0.6, 1.0), 0.001)
 		Level.VOID:
 			player.set_new_scale(10)
-			_tween_fog_color(Color.from_hsv(0.5, 0.4, 1.0), 0.01)
+			_tween_fog_color(Color.from_hsv(0.5, 0.4, 1.0), 0.001)
 
 func _change_current_level(direction: String) -> void:
 	if direction == "left":
