@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dv7isl1uvbrjv"]
 
-[ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://button.tscn" id="1_kfw04"]
-[ext_resource type="Script" uid="uid://bugr0mlreuw6q" path="res://simon_says.gd" id="1_tssl7"]
+[ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://Scenes/button.tscn" id="1_kfw04"]
+[ext_resource type="Script" uid="uid://bugr0mlreuw6q" path="res://Scripts/simon_says.gd" id="1_tssl7"]
 
 [node name="SimonSays" type="Node3D" groups=["future", "past", "present"]]
 script = ExtResource("1_tssl7")

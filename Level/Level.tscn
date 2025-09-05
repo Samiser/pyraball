@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://bb28plwvmfby2"]
 
 [ext_resource type="Script" uid="uid://cn1dxroiw2037" path="res://Level/level.gd" id="1_5noo7"]
-[ext_resource type="PackedScene" uid="uid://c1ft78rr6ksxt" path="res://time_crystal.tscn" id="3_cyxyq"]
+[ext_resource type="PackedScene" uid="uid://c1ft78rr6ksxt" path="res://Scenes/time_crystal.tscn" id="3_cyxyq"]
 [ext_resource type="PackedScene" uid="uid://gpwfm6f76n8p" path="res://Meshes/level_base.blend" id="3_j3llj"]
-[ext_resource type="PackedScene" uid="uid://dv7isl1uvbrjv" path="res://simon_says.tscn" id="4_6lumq"]
-[ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://button.tscn" id="4_i5eh5"]
-[ext_resource type="PackedScene" uid="uid://dbc7h7oiowpka" path="res://lift.tscn" id="5_5noo7"]
-[ext_resource type="PackedScene" uid="uid://c8ajs5k432v2j" path="res://HollowPlanet.tscn" id="6_u0wck"]
+[ext_resource type="PackedScene" uid="uid://dv7isl1uvbrjv" path="res://Scenes/simon_says.tscn" id="4_6lumq"]
+[ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://Scenes/button.tscn" id="4_i5eh5"]
+[ext_resource type="PackedScene" uid="uid://dbc7h7oiowpka" path="res://Scenes/lift.tscn" id="5_5noo7"]
+[ext_resource type="PackedScene" uid="uid://c8ajs5k432v2j" path="res://Scenes/HollowPlanet.tscn" id="6_u0wck"]
 [ext_resource type="PackedScene" uid="uid://baiey8j7n8tal" path="res://Meshes/epic_tree.glb" id="7_j3llj"]
 
 [node name="Level" type="Node3D"]

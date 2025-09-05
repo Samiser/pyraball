@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://dgsj7t1qj4utm"]
 
-[ext_resource type="Script" uid="uid://cmhefusdoyl0w" path="res://button.gd" id="1_r04n3"]
+[ext_resource type="Script" uid="uid://cmhefusdoyl0w" path="res://Scripts/button.gd" id="1_1cmwl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r04n3"]
 resource_name = "Material.001"
@@ -51,7 +51,7 @@ size = Vector3(2.00194, 0.143372, 1.99674)
 size = Vector3(1.3927, 0.578186, 1.37695)
 
 [node name="Button" type="Node3D"]
-script = ExtResource("1_r04n3")
+script = ExtResource("1_1cmwl")
 
 [node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0589867, 0)

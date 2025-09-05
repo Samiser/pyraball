@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c1ft78rr6ksxt"]
 
-[ext_resource type="Script" uid="uid://70wj61rg7o8a" path="res://time_crystal.gd" id="1_hym66"]
-[ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="1_nok4b"]
+[ext_resource type="Script" uid="uid://70wj61rg7o8a" path="res://Scripts/time_crystal.gd" id="1_y1l36"]
+[ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="2_ln717"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hym66"]
 radius = 0.204951
@@ -28,15 +28,15 @@ _data = [Vector2(0.568182, 1), 0.0, 1.29562, 0, 0, Vector2(1, 0), 0.116325, 0.0,
 point_count = 2
 
 [node name="TimeCrystal" type="Node3D" groups=["time_crystal"]]
-script = ExtResource("1_hym66")
+script = ExtResource("1_y1l36")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 modulate = Color(0.2838, 0.66, 0.61611, 0.909804)
 billboard = 1
-texture = ExtResource("1_nok4b")
+texture = ExtResource("2_ln717")
 
-[node name="Area3D" type="Area3D" parent="." groups=["time_crystal"]]
+[node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_hym66")

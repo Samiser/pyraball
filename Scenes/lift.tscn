@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dbc7h7oiowpka"]
 
-[ext_resource type="Script" uid="uid://v8qrlwm7igbe" path="res://lift.gd" id="1_6rdgm"]
-[ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://button.tscn" id="2_jtgx6"]
+[ext_resource type="Script" uid="uid://v8qrlwm7igbe" path="res://Scripts/lift.gd" id="1_6rdgm"]
+[ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://Scenes/button.tscn" id="2_jtgx6"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_i5eh5"]
 size = Vector3(5, 1, 5)

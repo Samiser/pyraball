@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://ccdc33vpni5bd"]
 
-[ext_resource type="Script" uid="uid://dj4hr00xw01je" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://dj4hr00xw01je" path="res://Scripts/player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="2_onrkg"]
 [ext_resource type="AudioStream" uid="uid://cnq7ivmp32tgp" path="res://Audio/SoundFX/jump.mp3" id="2_sweqy"]
 [ext_resource type="AudioStream" uid="uid://d4k5qwdw5ufjn" path="res://Audio/SoundFX/ball_impact.mp3" id="3_2hs0m"]
