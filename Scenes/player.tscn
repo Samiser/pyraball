@@ -128,7 +128,8 @@ attributes = SubResource("CameraAttributesPractical_4flbx")
 [node name="FloorCheck" type="RayCast3D" parent="."]
 target_position = Vector3(0, -0.62, 0)
 
-[node name="map_marker" type="Sprite3D" parent="."]
+[node name="MapMarker" type="Sprite3D" parent="."]
+visible = false
 layers = 2
 modulate = Color(0, 1, 0, 1)
 pixel_size = 0.02

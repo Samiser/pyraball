@@ -34,6 +34,7 @@ var last_angular_velocity: Vector3
 func _ready() -> void:
 	camera_target.top_level = true
 	floor_check.top_level = true
+	$MapMarker.visible = true
 
 func _rotate(direction: String) -> void:
 	last_linear_velocity = linear_velocity
