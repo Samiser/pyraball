@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bxt4ae0qrgpd0"]
+[gd_scene load_steps=15 format=3 uid="uid://bxt4ae0qrgpd0"]
 
 [ext_resource type="Script" uid="uid://bu7eh1ydu658n" path="res://Scripts/main.gd" id="1_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://ccdc33vpni5bd" path="res://Scenes/player.tscn" id="2_hptm8"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="7_wsu2k"]
 [ext_resource type="Script" uid="uid://sx5ad0yhjku8" path="res://Scripts/ui.gd" id="8_k12tt"]
 [ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="9_h1bgf"]
+[ext_resource type="Shader" uid="uid://twjxjt5ypucs" path="res://Scenes/warp.gdshader" id="10_hptm8"]
 
 [sub_resource type="Environment" id="Environment_ig7tw"]
 background_mode = 1
@@ -34,6 +35,15 @@ fog_density = 0.0004
 adjustment_enabled = true
 adjustment_brightness = 1.4
 adjustment_contrast = 1.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d1ilt"]
+shader = ExtResource("10_hptm8")
+shader_parameter/speed = 1.0
+shader_parameter/scale = 1.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/use_screen_uv = 0
+shader_parameter/radius = 0.45
+shader_parameter/center = Vector2(0.5, 0.5)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_ynf5e")
@@ -154,12 +164,13 @@ stretch_mode = 4
 
 [node name="ProgressInner" type="TextureRect" parent="UI"]
 modulate = Color(0.478, 0.46, 1, 0.764706)
+material = SubResource("ShaderMaterial_d1ilt")
 layout_mode = 0
 offset_left = 521.0
 offset_top = 4.0
 offset_right = 571.0
 offset_bottom = 54.0
-scale = Vector2(0.805, 0.805)
+scale = Vector2(1.13, 1.13)
 pivot_offset = Vector2(25, 25)
 texture = ExtResource("9_h1bgf")
 expand_mode = 1

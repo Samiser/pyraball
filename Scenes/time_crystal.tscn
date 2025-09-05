@@ -34,7 +34,9 @@ script = ExtResource("1_y1l36")
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 modulate = Color(0.2838, 0.66, 0.61611, 0.909804)
 billboard = 1
+alpha_cut = 1
 texture = ExtResource("2_ln717")
+region_rect = Rect2(0, 10.5, 916, 864.5)
 
 [node name="Area3D" type="Area3D" parent="."]
 

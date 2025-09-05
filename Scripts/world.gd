@@ -4,7 +4,7 @@ extends Node3D
 @export var player: Player
 @export var minimap_camera: Camera3D
 
-enum Level {BACK, PRESENT, FORWARD}
+enum Level {BACK, PRESENT, FORWARD, VOID}
 var current_level: Level = Level.PRESENT
 
 func get_level_rotation(level: Level) -> Vector3:
@@ -15,8 +15,8 @@ func get_level_rotation(level: Level) -> Vector3:
 			return Vector3(0, deg_to_rad(90), deg_to_rad(65))
 		Level.FORWARD:
 			return Vector3(-deg_to_rad(65), deg_to_rad(180), 0)
-		#Level.VOID:
-			#return Vector3(0, deg_to_rad(270), -deg_to_rad(65))
+		Level.VOID:
+			return Vector3(0, deg_to_rad(270), -deg_to_rad(65))
 	
 	return Vector3.ZERO
 
@@ -44,6 +44,9 @@ func _apply_world_changes() -> void:
 		Level.FORWARD:
 			player.set_new_scale(3)
 			_tween_fog_color(Color.from_hsv(0.95, 0.6, 1.0), 0.01)
+		Level.VOID:
+			player.set_new_scale(10)
+			_tween_fog_color(Color.from_hsv(0.5, 0.4, 1.0), 0.01)
 
 func _change_current_level(direction: String) -> void:
 	if direction == "left":
@@ -55,6 +58,13 @@ func _on_rotation(direction: String, player_position: Vector3) -> void:
 	_change_current_level(direction)
 	_apply_world_changes()
 	await _tween_rotation(get_level_rotation(current_level))
+	player.rotation_completed(player_position)
+
+func _on_all_crystals_collected(player_position: Vector3) -> void:
+	current_level = 3
+	_apply_world_changes()
+	await _tween_rotation(get_level_rotation(current_level))
+	player_position = Vector3(0, 0, 0)
 	player.rotation_completed(player_position)
 
 func _ready() -> void:

@@ -23,7 +23,10 @@ var rolling_force: float = 50
 @onready var sfx_stream : AudioStreamPlayer3D = $sfx_stream
 @onready var roll_sfx_stream : AudioStreamPlayer3D = $sfx_roll_stream
 
+var all_crystals_are_collected: bool = false
+
 signal rotate(direction: String, player_position: Vector3)
+signal all_crystals_collected(player_position: Vector3)
 
 var last_linear_velocity: Vector3
 var last_angular_velocity: Vector3
@@ -31,7 +34,6 @@ var last_angular_velocity: Vector3
 func _ready() -> void:
 	camera_target.top_level = true
 	floor_check.top_level = true
-	#reflection_mesh.top_level = true
 
 func _rotate(direction: String) -> void:
 	last_linear_velocity = linear_velocity
@@ -56,7 +58,13 @@ func set_new_scale(new_scale: float) -> void:
 	rolling_force = (1.0 / new_scale) * 25
 
 func collect_crystal() -> void:
-	print("collected")
+	var crystals: Array = get_tree().get_nodes_in_group("time_crystal").filter(
+		func(crystal: TimeCrystal) -> bool: return !crystal.is_collected
+	)
+	
+	if crystals.size() == 0:
+		all_crystals_collected.emit(position)
+		all_crystals_are_collected = true
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -65,9 +73,9 @@ func _input(event: InputEvent) -> void:
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			get_viewport().set_input_as_handled()
-	elif event.is_action_pressed("rotate_left"):
+	elif event.is_action_pressed("rotate_left") and not all_crystals_are_collected:
 		_rotate("left")
-	elif event.is_action_pressed("rotate_right"):
+	elif event.is_action_pressed("rotate_right") and not all_crystals_are_collected:
 		_rotate("right")
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -108,8 +116,6 @@ func _physics_process(delta: float) -> void:
 	
 	reflection_cam.global_position = global_position
 	reflection_cam.global_rotation = camera.global_rotation
-
-
 
 func _on_body_entered(body: Node) -> void:
 	if linear_velocity.length() > 0.4:

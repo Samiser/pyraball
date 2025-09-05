@@ -35,6 +35,14 @@ func _apply_group_activity() -> void:
 		var is_active: bool = n.is_in_group(active_group)
 		_set_subtree_active_guarded(n, is_active, candidates)
 
+func _warn_untagged_once(n: Node) -> void:
+	if n.has_meta("_ungrouped_warned"):
+		return
+	n.set_meta("_ungrouped_warned", true)
+	var msg := "Node '%s' is not in any level group %s; hiding it by default." % [n.get_path(), LEVEL_GROUPS]
+	if Engine.is_editor_hint():
+		push_warning(msg)
+
 func _collect_group_nodes(root: Node) -> Dictionary:
 	var set := {}
 	var stack: Array[Node] = [root]
@@ -72,6 +80,11 @@ func _toggle_node(n: Node, active: bool) -> void:
 			if !b.has_meta("_mask"):  b.set_meta("_mask",  b.collision_mask)
 			b.collision_layer = 0
 			b.collision_mask  = 0
+	
+	if n is TimeCrystal :
+		print(n)
+		n.is_collected = !active
+		print(n.is_collected)
 
 func _ready() -> void:
 	_update_visibility()
