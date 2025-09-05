@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cnq7ivmp32tgp" path="res://Audio/SoundFX/jump.mp3" id="2_sweqy"]
 [ext_resource type="AudioStream" uid="uid://d4k5qwdw5ufjn" path="res://Audio/SoundFX/ball_impact.mp3" id="3_2hs0m"]
 [ext_resource type="AudioStream" uid="uid://bdsmrl04kpxbj" path="res://Audio/SoundFX/ball_roll.mp3" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="6_x3wgy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4flbx"]
 friction = 500.0
@@ -19,27 +20,17 @@ fill_from = Vector2(0, 0.5)
 fill_to = Vector2(0, 1)
 repeat = 2
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_onrkg"]
-frequency = 0.004
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_i3pqv"]
-invert = true
-seamless = true
-noise = SubResource("FastNoiseLite_onrkg")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4flbx"]
 resource_local_to_scene = true
 transparency = 1
+shading_mode = 2
 albedo_color = Color(0.763635, 0.263049, 1, 0.619608)
 metallic = 1.0
-roughness_texture = SubResource("NoiseTexture2D_i3pqv")
 emission = Color(1, 0, 0.701961, 1)
 emission_operator = 1
 emission_texture = SubResource("GradientTexture2D_onrkg")
 rim_enabled = true
 rim_tint = 1.0
-backlight = Color(1, 1, 1, 1)
-grow = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_sh265"]
 resource_local_to_scene = true
@@ -50,24 +41,12 @@ rings = 16
 [sub_resource type="ViewportTexture" id="ViewportTexture_i3pqv"]
 viewport_path = NodePath("MeshInstance3D/Reflection_Mesh/SubViewport")
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_4flbx"]
-frequency = 0.0009
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_onrkg"]
-in_3d_space = true
-seamless = true
-as_normal_map = true
-bump_strength = 2.0
-noise = SubResource("FastNoiseLite_4flbx")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqtel"]
 resource_local_to_scene = true
+shading_mode = 2
 albedo_color = Color(1, 1, 1, 0.619608)
 albedo_texture = SubResource("ViewportTexture_i3pqv")
 roughness = 0.0
-normal_enabled = true
-normal_scale = 16.0
-normal_texture = SubResource("NoiseTexture2D_onrkg")
 uv1_offset = Vector3(0.5, 0, 0)
 billboard_mode = 1
 
@@ -76,8 +55,6 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_hqtel")
 radius = 0.48
 height = 0.92
-radial_segments = 32
-rings = 16
 
 [sub_resource type="Environment" id="Environment_4flbx"]
 
@@ -85,6 +62,24 @@ rings = 16
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_4flbx"]
 dof_blur_far_distance = 1.16
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3smsa"]
+emission_shape_scale = Vector3(0.2, 0.02, 0.2)
+velocity_pivot = Vector3(0, 1, 0)
+direction = Vector3(0, 0, 0)
+spread = 20.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, -2, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8erm5"]
+transparency = 1
+albedo_color = Color(0.341176, 0.341176, 0.341176, 0.733333)
+albedo_texture = ExtResource("6_x3wgy")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_f1ek2"]
+material = SubResource("StandardMaterial3D_8erm5")
+size = Vector2(0.04, 0.04)
 
 [node name="Player" type="RigidBody3D" groups=["player"]]
 collision_layer = 5
@@ -146,5 +141,12 @@ stream = ExtResource("3_i3pqv")
 volume_db = -20.0
 autoplay = true
 parameters/looping = true
+
+[node name="roll_particles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984793, 0.173734, 0, -0.173734, 0.984793, 0, 0, 0)
+amount = 16
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_3smsa")
+draw_pass_1 = SubResource("QuadMesh_f1ek2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
