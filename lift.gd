@@ -22,7 +22,7 @@ func _move_to(new_position: Vector3, new_rotation: Vector3) -> void:
 	moving = false
 	current_position = !current_position
 
-func _lift_button_pressed() -> void:
+func _lift_button_pressed(_button: TriangleButton) -> void:
 	if moving:
 		return
 
@@ -32,7 +32,7 @@ func _lift_button_pressed() -> void:
 		_move_to(lower_position, lower_rotation)
 
 func _ready() -> void:
-	lower_button.pressed.connect(func() -> void: if current_position: _move_to(lower_position, lower_rotation))
-	upper_button.pressed.connect(func() -> void: if !current_position: _move_to(upper_position, upper_rotation))
+	lower_button.pressed.connect(func(_button: TriangleButton) -> void: if current_position: _move_to(lower_position, lower_rotation))
+	upper_button.pressed.connect(func(_button: TriangleButton) -> void: if !current_position: _move_to(upper_position, upper_rotation))
 	button.pressed.connect(_lift_button_pressed)
 	current_position = starting_position

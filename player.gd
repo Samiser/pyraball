@@ -55,6 +55,9 @@ func set_new_scale(new_scale: float) -> void:
 	$FloorCheck.target_position.y = -1.25 * new_scale
 	rolling_force = (1.0 / new_scale) * 25
 
+func collect_crystal() -> void:
+	print("collected")
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -105,6 +108,8 @@ func _physics_process(delta: float) -> void:
 	
 	reflection_cam.global_position = global_position
 	reflection_cam.global_rotation = camera.global_rotation
+
+
 
 func _on_body_entered(body: Node) -> void:
 	if linear_velocity.length() > 0.4:

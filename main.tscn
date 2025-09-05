@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxt4ae0qrgpd0"]
+[gd_scene load_steps=12 format=3 uid="uid://bxt4ae0qrgpd0"]
 
 [ext_resource type="Script" uid="uid://bu7eh1ydu658n" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://ccdc33vpni5bd" path="res://player.tscn" id="1_ig7tw"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bb28plwvmfby2" path="res://Level/Level.tscn" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://p3txqf0mjxo3" path="res://drop_kill_zone.gd" id="5_lquwl"]
 [ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="7_272bh"]
+[ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="8_5vw27"]
 
 [sub_resource type="Environment" id="Environment_ig7tw"]
 background_mode = 1
@@ -42,7 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 65.5844, 0)
 [node name="World" type="Node3D" parent="." node_paths=PackedStringArray("player", "minimap_camera")]
 script = ExtResource("3_7mycd")
 player = NodePath("../Player")
-minimap_camera = NodePath("../SubViewportContainer/SubViewport/Camera3D")
+minimap_camera = NodePath("../UI/SubViewportContainer/SubViewport/Camera3D")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
 environment = SubResource("Environment_ig7tw")
@@ -75,24 +76,6 @@ script = ExtResource("5_lquwl")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Drop_KillZone"]
 shape = SubResource("WorldBoundaryShape3D_1bvp3")
 debug_color = Color(0.970763, 0, 0.452533, 0.42)
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-offset_right = 120.0
-offset_bottom = 117.0
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(120, 117)
-render_target_update_mode = 4
-
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(-1, 8.60946e-08, -1.51808e-08, 0, 0.173648, 0.984808, 8.74228e-08, 0.984807, -0.173648, 0, 260, -60)
-environment = SubResource("Environment_lquwl")
-projection = 1
-fov = 28.3684
-size = 256.0
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 150.95, 0)
@@ -127,5 +110,56 @@ modulate = Color(0, 0, 0, 1)
 pixel_size = 0.02
 billboard = 1
 texture = ExtResource("7_272bh")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="UI"]
+offset_right = 120.0
+offset_bottom = 117.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="UI/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(120, 117)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="UI/SubViewportContainer/SubViewport"]
+transform = Transform3D(-1, 8.60946e-08, -1.51808e-08, 0, 0.173648, 0.984808, 8.74228e-08, 0.984807, -0.173648, 0, 260, -60)
+environment = SubResource("Environment_lquwl")
+projection = 1
+fov = 28.3684
+size = 256.0
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+modulate = Color(0.652, 0.64, 1, 1)
+layout_mode = 0
+offset_left = 521.0
+offset_top = 4.0
+offset_right = 571.0
+offset_bottom = 54.0
+texture = ExtResource("8_5vw27")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="UI"]
+modulate = Color(0.478, 0.46, 1, 0.764706)
+layout_mode = 0
+offset_left = 521.0
+offset_top = 4.0
+offset_right = 571.0
+offset_bottom = 54.0
+scale = Vector2(0.805, 0.805)
+pivot_offset = Vector2(25, 25)
+texture = ExtResource("8_5vw27")
+expand_mode = 1
+stretch_mode = 4
 
 [connection signal="body_entered" from="World/Drop_KillZone" to="World/Drop_KillZone" method="_on_body_entered"]

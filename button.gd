@@ -7,7 +7,7 @@ class_name TriangleButton
 @onready var actuator: RigidBody3D = $Actuator
 @onready var actuator_mesh: MeshInstance3D = $"Actuator/Cone-col-rigid"
 
-signal pressed
+signal pressed(button: TriangleButton)
 
 func _tween_actuator_color(to_color: Color, duration: float = 0.2) -> void:
 	var material := actuator_mesh.get_surface_override_material(0)
@@ -17,7 +17,7 @@ func _tween_actuator_color(to_color: Color, duration: float = 0.2) -> void:
 func _on_press_area_entered(body: Node3D) -> void:
 	if body == actuator:
 		_tween_actuator_color(color)
-		emit_signal("pressed")
+		emit_signal("pressed", self)
 
 func _on_press_area_exited(body: Node3D) -> void:
 	if body == actuator:
