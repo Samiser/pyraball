@@ -1,9 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://bxt4ae0qrgpd0"]
+[gd_scene load_steps=33 format=3 uid="uid://bxt4ae0qrgpd0"]
 
 [ext_resource type="Script" uid="uid://bu7eh1ydu658n" path="res://Scripts/main.gd" id="1_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://ccdc33vpni5bd" path="res://Scenes/player.tscn" id="2_hptm8"]
 [ext_resource type="PackedScene" uid="uid://drslnmwg3sumf" path="res://Scenes/world.tscn" id="3_6bp64"]
 [ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="7_wsu2k"]
+[ext_resource type="AudioStream" uid="uid://t5wlstexka75" path="res://Audio/Music/minimal_drums.wav" id="8_344ge"]
 [ext_resource type="Script" uid="uid://sx5ad0yhjku8" path="res://Scripts/ui.gd" id="8_k12tt"]
 [ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="9_h1bgf"]
 [ext_resource type="Shader" uid="uid://twjxjt5ypucs" path="res://Scenes/warp.gdshader" id="10_hptm8"]
@@ -250,3 +251,6 @@ visibility_aabb = AABB(-50, -40, -80, 100, 32, 160)
 transform_align = 3
 process_material = SubResource("ParticleProcessMaterial_3pmx8")
 draw_pass_1 = SubResource("QuadMesh_u50mg")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_344ge")

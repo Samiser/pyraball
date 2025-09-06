@@ -8,6 +8,8 @@ var original_marker_color: Color = Color.WHITE
 var speed: float = -0.3
 var backwards: bool = false
 
+signal completed
+
 func change_speed(amount: float) -> void:
 	speed += amount
 
@@ -36,6 +38,7 @@ func _animate_reversal() -> void:
 	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "speed", 20, 5)
 	tween.tween_property(self, "speed", 0.3, 3)
+	await tween.finished
 
 func _all_reflectors_oriented() -> bool:
 	var all_oriented: bool = true
@@ -54,7 +57,8 @@ func _on_button_pressed(_button: TriangleButton) -> void:
 		change_speed(0.09)
 	else:
 		backwards = true
-		_animate_reversal()
+		await _animate_reversal()
+		completed.emit()
 
 func _on_button_released(_button: TriangleButton) -> void:
 	if backwards:

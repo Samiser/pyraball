@@ -7,6 +7,8 @@ extends Node3D
 enum LevelEnum {BACK, PRESENT, FORWARD, VOID}
 var current_level: LevelEnum = LevelEnum.PRESENT
 
+signal puzzle_completed(name: String)
+
 func get_level_rotation(level: LevelEnum) -> Vector3:
 	match level:
 		LevelEnum.BACK:
@@ -69,3 +71,5 @@ func _on_all_crystals_collected(player_position: Vector3) -> void:
 
 func _ready() -> void:
 	_apply_world_changes()
+	for world: Level in [$PyraWorld/Past, $PyraWorld/Present, $PyraWorld/Future]:
+		world.puzzle_completed.connect(func(name: String) -> void: puzzle_completed.emit(name))

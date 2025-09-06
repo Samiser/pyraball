@@ -14,6 +14,8 @@ var levels: Array[PackedScene] = [
 @export var present: Level
 @export var future: Level
 
+signal puzzle_completed(name: String)
+
 func get_counterpart(node_in_self: Node, in_level: Level) -> Node:
 	var path: NodePath = get_path_to(node_in_self)
 	return in_level.get_node_or_null(path)
@@ -97,3 +99,4 @@ func _toggle_node(n: Node, active: bool) -> void:
 
 func _ready() -> void:
 	_update_visibility()
+	$SundialPuzzle/Sundial.completed.connect(func() -> void: puzzle_completed.emit("sundial"))
