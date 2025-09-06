@@ -122,6 +122,8 @@ transform = Transform3D(0.922018, 0, 0.387146, 0, 1, 0, -0.387146, 0, 0.922018, 
 
 [node name="Lift" parent="." node_paths=PackedStringArray("lower_button", "upper_button") groups=["past", "present"] instance=ExtResource("5_5noo7")]
 transform = Transform3D(0.687924, 0, 0.725782, 0, 1, 0, -0.725782, 0, 0.687924, 74.7518, -20.7674, 34.3069)
+collision_layer = 1
+collision_mask = 1
 lower_position = Vector3(74.7518, -26.8195, 34.3069)
 lower_rotation = Vector3(0, 0.812172, 0)
 upper_position = Vector3(74.7518, -20.7674, 34.3069)
