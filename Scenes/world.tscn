@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=3 uid="uid://drslnmwg3sumf"]
+
+[ext_resource type="Script" uid="uid://cfinh2lxfg31r" path="res://Scripts/world.gd" id="1_fo5ed"]
+[ext_resource type="PackedScene" uid="uid://dp7qio86hk64j" path="res://Meshes/pyra_world.fbx" id="2_5ukr8"]
+[ext_resource type="PackedScene" uid="uid://bb28plwvmfby2" path="res://Level/Level.tscn" id="3_o06y3"]
+[ext_resource type="Script" uid="uid://p3txqf0mjxo3" path="res://Scripts/drop_kill_zone.gd" id="4_k7acu"]
+[ext_resource type="PackedScene" uid="uid://c1ft78rr6ksxt" path="res://Scenes/time_crystal.tscn" id="5_5v1tr"]
+
+[sub_resource type="Environment" id="Environment_ig7tw"]
+background_mode = 1
+background_color = Color(0.573216, 0.662119, 0.842046, 1)
+background_energy_multiplier = 0.3
+tonemap_mode = 2
+tonemap_white = 1.2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.512, 0.39, 1, 1)
+fog_sun_scatter = 0.39
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1bvp3"]
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_fo5ed")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ig7tw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.4477, 12.4516)
+light_energy = 0.3
+light_indirect_energy = 0.4
+shadow_enabled = true
+shadow_opacity = 0.74
+
+[node name="PyraWorld" parent="." instance=ExtResource("2_5ukr8")]
+transform = Transform3D(-1.95039e-08, 3.91188e-08, 1, 0.894934, 0.446198, 0, -0.446198, 0.894934, -4.37114e-08, 0, 0, 0)
+
+[node name="Present" parent="PyraWorld" instance=ExtResource("3_o06y3")]
+transform = Transform3D(0.446198, 0.894934, 0, -0.894934, 0.446198, 0, 3.55271e-15, 1.18852e-16, 1, 71.3547, 12.1426, 2.84217e-13)
+
+[node name="Past" parent="PyraWorld" instance=ExtResource("3_o06y3")]
+transform = Transform3D(0, -4.47035e-08, 1, -0.894934, 0.446197, 0, -0.446197, -0.894934, -4.37114e-08, 0, 12.143, -71.355)
+selected_level = 0
+
+[node name="Future" parent="PyraWorld" instance=ExtResource("3_o06y3")]
+transform = Transform3D(2.98023e-08, -4.47035e-08, -1, -0.894934, 0.446197, 0, 0.446197, 0.894934, -4.37114e-08, 0, 12.143, 71.355)
+selected_level = 2
+
+[node name="Drop_KillZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -162, 0)
+script = ExtResource("4_k7acu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drop_KillZone"]
+shape = SubResource("WorldBoundaryShape3D_1bvp3")
+debug_color = Color(0.970763, 0, 0.452533, 0.42)
+
+[node name="Crystals" type="Node3D" parent="."]
+
+[node name="TimeCrystal" parent="Crystals" groups=["present"] instance=ExtResource("5_5v1tr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -47.941, 44.8241, -97.3597)
+
+[node name="TimeCrystal3" parent="Crystals" groups=["present"] instance=ExtResource("5_5v1tr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -47.941, 44.8241, -93.7646)
+
+[node name="TimeCrystal4" parent="Crystals" groups=["present"] instance=ExtResource("5_5v1tr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -44.587, 47.5956, -90.6249)
+
+[node name="TimeCrystal5" parent="Crystals" groups=["present"] instance=ExtResource("5_5v1tr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -44.587, 47.5956, -100.586)
+
+[node name="TimeCrystal6" parent="Crystals" groups=["present"] instance=ExtResource("5_5v1tr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -51.7001, 47.5956, -90.6249)
+
+[node name="TimeCrystal7" parent="Crystals" groups=["present"] instance=ExtResource("5_5v1tr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -51.7001, 47.5956, -100.586)
+
+[node name="TimeCrystal8" parent="Crystals" groups=["present"] instance=ExtResource("5_5v1tr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.5862, 45.1474, -103.401)
+
+[node name="TimeCrystal9" parent="Crystals" groups=["present"] instance=ExtResource("5_5v1tr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.2613, 48.5164, -93.044)
+
+[node name="TimeCrystal10" parent="Crystals" groups=["present"] instance=ExtResource("5_5v1tr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -37.258, 49.2966, -80.3735)
+
+[node name="TimeCrystal11" parent="Crystals" groups=["present"] instance=ExtResource("5_5v1tr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -50.7427, 50.3737, -79.6553)
+
+[node name="TimeCrystal13" parent="Crystals" groups=["present"] instance=ExtResource("5_5v1tr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -62.3292, 52.2811, -88.5082)
+
+[node name="TimeCrystal14" parent="Crystals" groups=["present"] instance=ExtResource("5_5v1tr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -62.2038, 55.0758, -99.7278)
+
+[node name="TimeCrystal15" parent="Crystals" groups=["present"] instance=ExtResource("5_5v1tr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -44.7401, 61.0058, -101.622)
+
+[node name="TimeCrystal16" parent="Crystals" groups=["present"] instance=ExtResource("5_5v1tr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -40.5145, 61.0058, -102.645)
+
+[node name="TimeCrystal17" parent="Crystals" groups=["present"] instance=ExtResource("5_5v1tr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -41.6346, 61.0058, -99.6645)
+
+[node name="TimeCrystal12" parent="Crystals" groups=["present"] instance=ExtResource("5_5v1tr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -54.7167, 50.3737, -77.0011)
+
+[connection signal="body_entered" from="Drop_KillZone" to="Drop_KillZone" method="_on_body_entered"]

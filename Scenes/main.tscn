@@ -1,28 +1,12 @@
-[gd_scene load_steps=37 format=3 uid="uid://bxt4ae0qrgpd0"]
+[gd_scene load_steps=32 format=3 uid="uid://bxt4ae0qrgpd0"]
 
 [ext_resource type="Script" uid="uid://bu7eh1ydu658n" path="res://Scripts/main.gd" id="1_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://ccdc33vpni5bd" path="res://Scenes/player.tscn" id="2_hptm8"]
-[ext_resource type="Script" uid="uid://cfinh2lxfg31r" path="res://Scripts/world.gd" id="3_d1ilt"]
-[ext_resource type="PackedScene" uid="uid://dp7qio86hk64j" path="res://Meshes/pyra_world.fbx" id="4_6iyac"]
-[ext_resource type="PackedScene" uid="uid://bb28plwvmfby2" path="res://Level/Level.tscn" id="5_fdnlq"]
-[ext_resource type="Script" uid="uid://p3txqf0mjxo3" path="res://Scripts/drop_kill_zone.gd" id="6_jkdf5"]
+[ext_resource type="PackedScene" uid="uid://drslnmwg3sumf" path="res://Scenes/world.tscn" id="3_6bp64"]
 [ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="7_wsu2k"]
 [ext_resource type="Script" uid="uid://sx5ad0yhjku8" path="res://Scripts/ui.gd" id="8_k12tt"]
 [ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="9_h1bgf"]
 [ext_resource type="Shader" uid="uid://twjxjt5ypucs" path="res://Scenes/warp.gdshader" id="10_hptm8"]
-
-[sub_resource type="Environment" id="Environment_ig7tw"]
-background_mode = 1
-background_color = Color(0.573216, 0.662119, 0.842046, 1)
-background_energy_multiplier = 0.3
-tonemap_mode = 2
-tonemap_white = 1.2
-glow_enabled = true
-fog_enabled = true
-fog_light_color = Color(0.512, 0.39, 1, 1)
-fog_sun_scatter = 0.39
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1bvp3"]
 
 [sub_resource type="Environment" id="Environment_lquwl"]
 ambient_light_source = 1
@@ -171,44 +155,11 @@ material = SubResource("StandardMaterial3D_chl2c")
 script = ExtResource("1_ynf5e")
 
 [node name="Player" parent="." instance=ExtResource("2_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.3851, 45.586, -101.997)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.5016, 59.7907, -105.129)
 
-[node name="World" type="Node3D" parent="." node_paths=PackedStringArray("player", "minimap_camera")]
-script = ExtResource("3_d1ilt")
+[node name="World" parent="." node_paths=PackedStringArray("player", "minimap_camera") instance=ExtResource("3_6bp64")]
 player = NodePath("../Player")
 minimap_camera = NodePath("../UI/SubViewportContainer/SubViewport/Camera3D")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
-environment = SubResource("Environment_ig7tw")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.4477, 12.4516)
-light_energy = 0.3
-light_indirect_energy = 0.4
-shadow_enabled = true
-shadow_opacity = 0.74
-
-[node name="PyraWorld" parent="World" instance=ExtResource("4_6iyac")]
-transform = Transform3D(-1.95039e-08, 3.91188e-08, 1, 0.894934, 0.446198, 0, -0.446198, 0.894934, -4.37114e-08, 0, 0, 0)
-
-[node name="Present" parent="World/PyraWorld" instance=ExtResource("5_fdnlq")]
-transform = Transform3D(0.446198, 0.894934, 0, -0.894934, 0.446198, 0, 3.55271e-15, 1.18852e-16, 1, 71.3547, 12.1426, 2.84217e-13)
-
-[node name="Past" parent="World/PyraWorld" instance=ExtResource("5_fdnlq")]
-transform = Transform3D(0, -4.47035e-08, 1, -0.894934, 0.446197, 0, -0.446197, -0.894934, -4.37114e-08, -0.0867333, 12.2619, -71.292)
-selected_level = 0
-
-[node name="Future" parent="World/PyraWorld" instance=ExtResource("5_fdnlq")]
-transform = Transform3D(2.98023e-08, -4.47035e-08, -1, -0.894934, 0.446197, 0, 0.446197, 0.894934, -4.37114e-08, -0.0867338, 12.2619, 71.2545)
-selected_level = 2
-
-[node name="Drop_KillZone" type="Area3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -162, 0)
-script = ExtResource("6_jkdf5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Drop_KillZone"]
-shape = SubResource("WorldBoundaryShape3D_1bvp3")
-debug_color = Color(0.970763, 0, 0.452533, 0.42)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -299,5 +250,3 @@ visibility_aabb = AABB(-50, -40, -80, 100, 32, 160)
 transform_align = 3
 process_material = SubResource("ParticleProcessMaterial_3pmx8")
 draw_pass_1 = SubResource("QuadMesh_u50mg")
-
-[connection signal="body_entered" from="World/Drop_KillZone" to="World/Drop_KillZone" method="_on_body_entered"]
