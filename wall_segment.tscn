@@ -1,0 +1,142 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca4jbwb7djuc8"]
+
+[ext_resource type="Script" uid="uid://cp85ah556m177" path="res://wall_segment.gd" id="1_d84ds"]
+[ext_resource type="PackedScene" uid="uid://hxlx84tjlowl" path="res://Scenes/pyramid.tscn" id="1_fwoq4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fwoq4"]
+size = Vector3(14.4996, 14.3159, 34.1011)
+
+[node name="WallSegment" type="Node3D"]
+script = ExtResource("1_d84ds")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65817, 6.65796, 0.488037)
+shape = SubResource("BoxShape3D_fwoq4")
+
+[node name="Wall" type="Node3D" parent="."]
+transform = Transform3D(0.745, 0, 0, 0, 0.743979, 0.0389903, 0, -0.0389903, 0.743979, 0, 0, 0)
+
+[node name="Pyramid2" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 11.5558, -12.2181)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid4" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 9.56575, -12.2181)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid6" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 7.53911, -12.2181)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid3" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 5.57027, -12.2181)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid5" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 3.58025, -12.2181)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid7" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 1.55355, -12.2181)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid10" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 8.56475, 12.2065)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid12" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 10.5991, 12.2065)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid11" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 4.5448, 12.2065)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid13" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 6.57915, 12.2065)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid14" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 0.472746, 12.2065)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid15" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 2.5071, 12.2065)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid8" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 11.5558, -12.2181)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid9" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 9.56575, -12.2181)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid16" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 7.53911, -12.2181)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid17" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 5.57027, -12.2181)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid18" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 3.58025, -12.2181)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid19" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 1.55355, -12.2181)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid20" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 8.56475, 12.2065)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid21" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 10.5991, 12.2065)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid22" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 4.5448, 12.2065)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid23" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 6.57915, 12.2065)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid24" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 0.472746, 12.2065)
+sync_to_physics = false
+height = 20.0
+
+[node name="Pyramid25" parent="Wall" instance=ExtResource("1_fwoq4")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 2.5071, 12.2065)
+sync_to_physics = false
+height = 20.0
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

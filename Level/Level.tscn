@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dbc7h7oiowpka" path="res://Scenes/lift.tscn" id="5_5noo7"]
 [ext_resource type="PackedScene" uid="uid://gewj4ymntyra" path="res://Scenes/sundial.tscn" id="8_chl2c"]
 [ext_resource type="PackedScene" uid="uid://bh72vwki5ojnd" path="res://Scenes/reflector.tscn" id="9_wp1u0"]
-[ext_resource type="PackedScene" uid="uid://dyaciql4aoajy" path="res://Scenes/wall.tscn" id="10_wp1u0"]
+[ext_resource type="PackedScene" uid="uid://ca4jbwb7djuc8" path="res://wall_segment.tscn" id="10_wp1u0"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wp1u0"]
 emission_shape_offset = Vector3(0, -6, 0)
@@ -101,7 +101,7 @@ sundial = NodePath("../Sundial")
 button = NodePath("../ReflectorButton")
 
 [node name="ReflectorButton" parent="SundialPuzzle" instance=ExtResource("4_i5eh5")]
-transform = Transform3D(0.529609, 0, -0.848243, 0, 1, 0, 0.848243, 0, 0.529609, -9.00732, 16.2758, -68.1811)
+transform = Transform3D(0.529609, 0, -0.848243, 0, 1, 0, 0.848243, 0, 0.529609, -9.00732, 16.3194, -68.1811)
 color = Color(0, 0.600216, 0.692913, 1)
 
 [node name="Reflector2" parent="SundialPuzzle" node_paths=PackedStringArray("sundial", "button") instance=ExtResource("9_wp1u0")]
@@ -117,9 +117,6 @@ color = Color(0, 0.600216, 0.692913, 1)
 transform = Transform3D(0.082843, 0, -0.996563, 0, 1, 0, 0.996562, 0, 0.082843, -3.40466, -2.32235, 4.7885)
 color = Color(0, 0.600216, 0.692913, 1)
 
-[node name="Wall" parent="." instance=ExtResource("10_wp1u0")]
-transform = Transform3D(0.999789, 0, -0.0205229, 0, 1, 0, 0.0205229, 0, 0.999789, 32.6779, -25.8125, -0.746015)
-
 [node name="Lift" parent="." node_paths=PackedStringArray("lower_button", "upper_button") groups=["past", "present"] instance=ExtResource("5_5noo7")]
 transform = Transform3D(0.687924, 0, 0.725782, 0, 1, 0, -0.725782, 0, 0.687924, 74.7518, -20.7674, 34.3069)
 collision_layer = 1
@@ -132,7 +129,31 @@ lower_button = NodePath("../lift_lower_button")
 upper_button = NodePath("../lift_raise_button")
 
 [node name="lift_lower_button" parent="." groups=["past", "present"] instance=ExtResource("4_i5eh5")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 91.5117, -27.3852, 36.3924)
+transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 91.5117, -27.4352, 36.3924)
 
 [node name="lift_raise_button" parent="." groups=["past", "present"] instance=ExtResource("4_i5eh5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.6355, -20.2977, 37.418)
+
+[node name="Wall" type="Node3D" parent="."]
+transform = Transform3D(0.958322, 0, -0.0567334, 0, 0.96, 0, 0.0567334, 0, 0.958322, 1.11006, -0.985922, -1.4902)
+
+[node name="WallSegment" parent="Wall" instance=ExtResource("10_wp1u0")]
+transform = Transform3D(0.995619, 0, 0.0935001, 0, 1, 0, -0.0935001, 0, 0.995619, 32.7009, -27.385, 17.3003)
+
+[node name="WallSegment4" parent="Wall" instance=ExtResource("10_wp1u0")]
+transform = Transform3D(0.999669, 0, -0.0257408, 0, 1, 0, 0.0257408, 0, 0.999669, 32.2143, -27.385, -1.01867)
+
+[node name="WallSegment5" parent="Wall" instance=ExtResource("10_wp1u0")]
+transform = Transform3D(0.999669, 0, -0.0257408, 0, 1, 0, 0.0257408, 0, 0.999669, 32.6008, -27.385, -19.3677)
+
+[node name="WallSegment6" parent="Wall" instance=ExtResource("10_wp1u0")]
+transform = Transform3D(0.999589, 0, 0.0286718, 0, 1, 0, -0.0286718, 0, 0.999589, 32.6008, -27.385, -37.865)
+
+[node name="WallSegment7" parent="Wall" instance=ExtResource("10_wp1u0")]
+transform = Transform3D(0.999589, 0, 0.0286718, 0, 1, 0, -0.0286718, 0, 0.999589, 32.1346, -27.385, -56.1256)
+
+[node name="WallSegment2" parent="Wall" instance=ExtResource("10_wp1u0")]
+transform = Transform3D(0.997659, 0, -0.068381, 0, 1, 0, 0.068381, 0, 0.997659, 32.8788, -27.3242, 35.5828)
+
+[node name="WallSegment3" parent="Wall" instance=ExtResource("10_wp1u0")]
+transform = Transform3D(0.985357, 0, 0.170502, 0, 1, 0, -0.170502, 0, 0.985357, 34.2419, -27.3304, 53.7647)

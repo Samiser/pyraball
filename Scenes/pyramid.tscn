@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://b56o7ydetro7p" path="res://Scripts/pyramid.gd" id="1_1ho82"]
 
-[node name="Pyramid" type="StaticBody3D"]
+[node name="Pyramid" type="AnimatableBody3D"]
 script = ExtResource("1_1ho82")

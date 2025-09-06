@@ -1,5 +1,5 @@
 @tool
-extends StaticBody3D
+extends AnimatableBody3D
 class_name Pyramid
 
 @export_range(0.01, 1024.0, 0.01) var base_size: float = 2.0 : set = _set_base_size
@@ -27,6 +27,7 @@ func _enter_tree() -> void:
 	_rebuild_all()
 
 func _ready() -> void:
+	sync_to_physics = false
 	if Engine.is_editor_hint():
 		_rebuild_all()
 
