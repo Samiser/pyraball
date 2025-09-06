@@ -87,7 +87,7 @@ func set_new_scale(new_scale: float, level: int) -> void:
 		1: # present/medium
 			mass = 4.0
 			rolling_force = 40.0
-			jump_force = 34.0
+			jump_force = 35.0
 			air_control_force = 1124.0
 			shadow_sprite.pixel_size = 0.0012
 			shadow_sprite.material_override.distance_fade_min_distance = 4.4

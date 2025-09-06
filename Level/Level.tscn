@@ -47,7 +47,7 @@ selected_level = 1
 [node name="Base" parent="." instance=ExtResource("3_j3llj")]
 
 [node name="Portal" parent="." node_paths=PackedStringArray("dest") instance=ExtResource("4_chl2c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.695, -12.5942, -47.7873)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.695, -13.8422, -47.7873)
 dest = NodePath("Node3D")
 
 [node name="Node3D" type="Node3D" parent="Portal"]

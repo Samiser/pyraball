@@ -8,6 +8,7 @@ enum LevelEnum {BACK, PRESENT, FORWARD, VOID}
 var current_level: LevelEnum = LevelEnum.PRESENT
 
 signal puzzle_completed(name: String)
+signal portalled
 
 func get_level_rotation(level: LevelEnum) -> Vector3:
 	match level:
@@ -73,3 +74,4 @@ func _ready() -> void:
 	_apply_world_changes()
 	for world: Level in [$PyraWorld/Past, $PyraWorld/Present, $PyraWorld/Future]:
 		world.puzzle_completed.connect(func(name: String) -> void: puzzle_completed.emit(name))
+		world.portalled.connect(func() -> void: portalled.emit())
