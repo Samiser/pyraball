@@ -12,11 +12,11 @@ func get_level_rotation(level: Level) -> Vector3:
 		Level.BACK:
 			return Vector3(deg_to_rad(65), 0, 0)
 		Level.PRESENT:
-			return Vector3(0, deg_to_rad(90), deg_to_rad(65))
+			return Vector3(0, deg_to_rad(90), deg_to_rad(63.5))
 		Level.FORWARD:
-			return Vector3(-deg_to_rad(65), deg_to_rad(180), 0)
+			return Vector3(-deg_to_rad(63.5), deg_to_rad(180), 0)
 		Level.VOID:
-			return Vector3(0, deg_to_rad(270), -deg_to_rad(65))
+			return Vector3(0, deg_to_rad(270), -deg_to_rad(63.5))
 	
 	return Vector3.ZERO
 

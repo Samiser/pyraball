@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bb28plwvmfby2"]
+[gd_scene load_steps=11 format=3 uid="uid://bb28plwvmfby2"]
 
 [ext_resource type="Script" uid="uid://cn1dxroiw2037" path="res://Level/level.gd" id="1_5noo7"]
 [ext_resource type="PackedScene" uid="uid://c1ft78rr6ksxt" path="res://Scenes/time_crystal.tscn" id="3_cyxyq"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cjtk4yijo8t5r" path="res://Scenes/Portal.tscn" id="4_chl2c"]
 [ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://Scenes/button.tscn" id="4_i5eh5"]
 [ext_resource type="PackedScene" uid="uid://dbc7h7oiowpka" path="res://Scenes/lift.tscn" id="5_5noo7"]
+[ext_resource type="PackedScene" uid="uid://gewj4ymntyra" path="res://sundial.tscn" id="8_chl2c"]
+[ext_resource type="PackedScene" uid="uid://bh72vwki5ojnd" path="res://reflector.tscn" id="9_wp1u0"]
+[ext_resource type="PackedScene" uid="uid://dyaciql4aoajy" path="res://wall.tscn" id="10_wp1u0"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_5noo7")
@@ -61,3 +64,27 @@ collision_layer = 1
 collision_mask = 1
 lower_button = NodePath("../LiftButton")
 upper_button = NodePath("../LiftButton2")
+
+[node name="SundialPuzzle" type="Node3D" parent="." groups=["present"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.512, -25.1253, 27.4014)
+
+[node name="Sundial" parent="SundialPuzzle" node_paths=PackedStringArray("button", "reflectors") instance=ExtResource("8_chl2c")]
+transform = Transform3D(0.082843, 0, -0.996562, 0, 1, 0, 0.996563, 0, 0.0828429, 0.0121002, -2.29754, 0.0447464)
+button = NodePath("../SundialButton")
+reflectors = [NodePath("../Reflector")]
+
+[node name="Reflector" parent="SundialPuzzle" node_paths=PackedStringArray("sundial", "button") instance=ExtResource("9_wp1u0")]
+transform = Transform3D(0.082843, 0, -0.996563, 0, 1, 0, 0.996563, 0, 0.082843, 6.38788, -0.902639, -3.62646)
+sundial = NodePath("../Sundial")
+button = NodePath("../ReflectorButton")
+
+[node name="ReflectorButton" parent="SundialPuzzle" instance=ExtResource("4_i5eh5")]
+transform = Transform3D(0.082843, 0, -0.996563, 0, 1, 0, 0.996563, 0, 0.082843, 5.25483, -2.31733, -6.54964)
+color = Color(0, 0.600216, 0.692913, 1)
+
+[node name="SundialButton" parent="SundialPuzzle" instance=ExtResource("4_i5eh5")]
+transform = Transform3D(0.082843, 0, -0.996563, 0, 1, 0, 0.996562, 0, 0.082843, -3.40466, -2.32235, 4.7885)
+color = Color(0, 0.600216, 0.692913, 1)
+
+[node name="Wall" parent="." instance=ExtResource("10_wp1u0")]
+transform = Transform3D(0.922018, 0, 0.387146, 0, 1, 0, -0.387146, 0, 0.922018, 24.7423, -27.7898, -18.0853)
