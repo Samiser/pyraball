@@ -20,6 +20,7 @@ script = ExtResource("1_fdm13")
 
 [node name="Pyramid" parent="." instance=ExtResource("2_biis1")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+sync_to_physics = false
 base_size = 1.5
 height = 0.5
 color = Color(0.52325, 0.2898, 0.69, 1)

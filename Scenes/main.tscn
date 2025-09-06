@@ -157,7 +157,7 @@ material = SubResource("StandardMaterial3D_chl2c")
 script = ExtResource("1_ynf5e")
 
 [node name="Player" parent="." instance=ExtResource("2_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.7278, 42.9714, -102.487)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8799, 42.9714, -102.487)
 
 [node name="World" parent="." node_paths=PackedStringArray("player", "minimap_camera") instance=ExtResource("3_6bp64")]
 player = NodePath("../Player")

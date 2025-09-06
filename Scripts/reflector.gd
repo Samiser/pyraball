@@ -3,6 +3,7 @@ class_name Reflector
 
 @export var sundial: Sundial
 @export var button: TriangleButton
+@export var light_shaft: MeshInstance3D
 
 @onready var mirror_mesh := $MeshInstance3D
 
@@ -33,12 +34,23 @@ func _face_sundial(_button: TriangleButton) -> void:
 			self.global_transform = xf
 	, 0.0, 1.0, 3)
 	tween.parallel().tween_property(mirror_mesh.get_surface_override_material(0), "emission_energy_multiplier", 5.5, 3)
+	#light_shaft.visible = true
+	tween.tween_property(light_shaft.get_surface_override_material(0), "shader_parameter/far_fade_end", 100.0, 1)
 
 func _ready() -> void:
 	mirror_mesh.set_surface_override_material(
 		0,
 		mirror_mesh.get_active_material(0).duplicate()
 	)
+	
+	light_shaft.set_surface_override_material(
+		0,
+		light_shaft.get_active_material(0).duplicate()
+	)
+	
+	light_shaft.visible = false
+	
+	print(light_shaft.visible)
 	
 	if button:
 		button.pressed.connect(_face_sundial)
