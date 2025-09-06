@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ccdc33vpni5bd"]
+[gd_scene load_steps=35 format=3 uid="uid://ccdc33vpni5bd"]
 
 [ext_resource type="Script" uid="uid://dj4hr00xw01je" path="res://Scripts/player.gd" id="1_4flbx"]
 [ext_resource type="AudioStream" uid="uid://cnq7ivmp32tgp" path="res://Audio/SoundFX/jump.mp3" id="2_sweqy"]
@@ -106,6 +106,31 @@ height = 0.92
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_4flbx"]
 dof_blur_far_distance = 1.16
 
+[sub_resource type="Curve" id="Curve_x3wgy"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.497854, 1), 0.0727216, 0.0727216, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_3smsa"]
+curve = SubResource("Curve_x3wgy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8erm5"]
+emission_shape = 2
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_max = 0.02
+scale_curve = SubResource("CurveTexture_3smsa")
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1ek2"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.607843)
+albedo_texture = ExtResource("6_x3wgy")
+
+[sub_resource type="QuadMesh" id="QuadMesh_tx1dd"]
+material = SubResource("StandardMaterial3D_f1ek2")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3smsa"]
 emission_shape_scale = Vector3(0.2, 0.02, 0.2)
 velocity_pivot = Vector3(0, 1, 0)
@@ -171,6 +196,15 @@ spring_length = 3.0
 transform = Transform3D(1, 0, 0, 0, 0.946812, 0.321787, 0, -0.321787, 0.946812, 0, 1.88998, 2.78866)
 cull_mask = 1048565
 attributes = SubResource("CameraAttributesPractical_4flbx")
+
+[node name="dust_particles" type="GPUParticles3D" parent="CameraTarget/SpringArm3D/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.946812, -0.321787, 0, 0.321787, 0.946812, 0, 0, 0)
+lifetime = 6.0
+fixed_fps = 18
+interpolate = false
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_8erm5")
+draw_pass_1 = SubResource("QuadMesh_tx1dd")
 
 [node name="FloorCheck" type="RayCast3D" parent="."]
 target_position = Vector3(0, -0.62, 0)
