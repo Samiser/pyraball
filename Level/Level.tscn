@@ -119,3 +119,20 @@ color = Color(0, 0.600216, 0.692913, 1)
 
 [node name="Wall" parent="." instance=ExtResource("10_wp1u0")]
 transform = Transform3D(0.999789, 0, -0.0205229, 0, 1, 0, 0.0205229, 0, 0.999789, 32.6779, -25.8125, -0.746015)
+
+[node name="Lift" parent="." node_paths=PackedStringArray("lower_button", "upper_button") groups=["past", "present"] instance=ExtResource("5_5noo7")]
+transform = Transform3D(0.687924, 0, 0.725782, 0, 1, 0, -0.725782, 0, 0.687924, 74.7518, -20.7674, 34.3069)
+collision_layer = 1
+collision_mask = 1
+lower_position = Vector3(74.7518, -26.8195, 34.3069)
+lower_rotation = Vector3(0, 0.812172, 0)
+upper_position = Vector3(74.7518, -20.7674, 34.3069)
+upper_rotation = Vector3(0, 0.812172, 0)
+lower_button = NodePath("../lift_lower_button")
+upper_button = NodePath("../lift_raise_button")
+
+[node name="lift_lower_button" parent="." groups=["past", "present"] instance=ExtResource("4_i5eh5")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 91.5117, -27.3852, 36.3924)
+
+[node name="lift_raise_button" parent="." groups=["past", "present"] instance=ExtResource("4_i5eh5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.6355, -20.2977, 37.418)
