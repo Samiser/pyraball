@@ -17,6 +17,7 @@ var rolling_force: float = 50
 @onready var camera: Camera3D = $CameraTarget/SpringArm3D/Camera3D
 @onready var reflection_cam: Camera3D = $MeshInstance3D/Reflection_Mesh/SubViewport/reflection_cam
 @onready var reflection_mesh: MeshInstance3D = $MeshInstance3D/Reflection_Mesh
+@onready var roll_particles : GPUParticles3D = $roll_particles
 
 @export var jump_sfx : AudioStream
 @export var impact_sfx : AudioStream
@@ -35,6 +36,7 @@ func _ready() -> void:
 	camera_target.top_level = true
 	floor_check.top_level = true
 	$MapMarker.visible = true
+	roll_particles.top_level = true
 
 func _rotate(direction: String) -> void:
 	last_linear_velocity = linear_velocity
@@ -114,6 +116,9 @@ func _physics_process(delta: float) -> void:
 	roll_sfx_stream.stream_paused = !floor_check.is_colliding()
 	var roll_sfx_pitch := clampf(speed * 0.1, 0.0001, 4.0)
 	roll_sfx_stream.pitch_scale = roll_sfx_pitch
+	
+	roll_particles.emitting = floor_check.is_colliding() && speed > 12.0
+	roll_particles.global_position = global_position - Vector3(0.0, 0.6, 0.0)
 	
 	reflection_cam.global_position = global_position
 	reflection_cam.global_rotation = camera.global_rotation

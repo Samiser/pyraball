@@ -10,8 +10,8 @@
 [ext_resource type="Script" uid="uid://sx5ad0yhjku8" path="res://Scripts/ui.gd" id="8_k12tt"]
 [ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="9_h1bgf"]
 [ext_resource type="Shader" uid="uid://twjxjt5ypucs" path="res://Scenes/warp.gdshader" id="10_hptm8"]
-[ext_resource type="PackedScene" uid="uid://bh72vwki5ojnd" path="res://reflector.tscn" id="11_6iyac"]
-[ext_resource type="PackedScene" uid="uid://gewj4ymntyra" path="res://sundial.tscn" id="11_d1ilt"]
+[ext_resource type="PackedScene" path="res://reflector.tscn" id="11_6iyac"]
+[ext_resource type="PackedScene" path="res://sundial.tscn" id="11_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://Scenes/button.tscn" id="12_6iyac"]
 
 [sub_resource type="Environment" id="Environment_ig7tw"]
