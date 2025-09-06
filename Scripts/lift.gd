@@ -39,7 +39,7 @@ func _move_to(new_position: Vector3, new_rotation: Vector3) -> void:
 		present_lift._snap_to(new_position, new_rotation)
 	
 	if future_lift:
-		present_lift._snap_to(new_position, new_rotation)
+		future_lift._snap_to(new_position, new_rotation)
 	
 	var tween := create_tween()
 	moving = true
