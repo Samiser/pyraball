@@ -1,7 +1,9 @@
 extends RigidBody3D
 class_name Player
 
-var rolling_force: float = 50
+var rolling_force: float = 50.0
+var jump_force : float = 20.0
+var air_control_force : float = 256.0
 
 @export_range(0.0, 0.1) var mouse_sensitivity: float = 0.01
 @export var tilt_limit: float = deg_to_rad(75)
@@ -27,6 +29,7 @@ var rolling_force: float = 50
 @onready var sfx_stream : AudioStreamPlayer3D = $sfx_stream
 @onready var roll_sfx_stream : AudioStreamPlayer3D = $sfx_roll_stream
 
+var current_level : Level
 var all_crystals_are_collected: bool = false
 
 signal rotate(direction: String, player_position: Vector3)
@@ -59,7 +62,7 @@ func rotation_completed(old_position: Vector3) -> void:
 	linear_velocity = last_linear_velocity
 	angular_velocity = last_angular_velocity
 
-func set_new_scale(new_scale: float) -> void:
+func set_new_scale(new_scale: float, level: int) -> void:
 	$MeshInstance3D.mesh.radius = new_scale
 	$MeshInstance3D.mesh.height = new_scale * 2
 	$MeshInstance3D/Reflection_Mesh.mesh.radius = new_scale * 0.95
@@ -68,7 +71,23 @@ func set_new_scale(new_scale: float) -> void:
 	spring_arm.spring_length = 6.0 * new_scale
 	spring_arm.transform.origin.y = 2.0 * new_scale
 	$FloorCheck.target_position.y = -1.25 * new_scale
-	rolling_force = (1.0 / new_scale) * 25
+
+	match level:
+		0: # past/small
+			mass = 0.5
+			rolling_force = 42.0
+			jump_force = 2.8
+			air_control_force = 128.0
+		1: # present/medium
+			mass = 4.0
+			rolling_force = 40.0
+			jump_force = 34.0
+			air_control_force = 1124.0
+		2: # future/big
+			mass = 20.0
+			rolling_force = 10.0
+			jump_force = 80.0
+			air_control_force = 512.0
 
 func collect_crystal() -> void:
 	var crystals: Array = get_tree().get_nodes_in_group("time_crystal").filter(
@@ -120,20 +139,20 @@ func _physics_process(delta: float) -> void:
 	
 	var input_vector: Vector2 = Input.get_vector("forward", "back", "right", "left")
 	if !floor_check.is_colliding(): # slow spin force while airborne
-		input_vector *= 0.2
+		input_vector *= 0.4
 	angular_velocity += Vector3(input_vector.x, 0, input_vector.y).rotated(Vector3.UP, spring_arm.rotation.y) * rolling_force * delta
 	
 	# air control
 	if !floor_check.is_colliding():
 		var air_control_vector := Vector3(-input_vector.y, 0, input_vector.x).rotated(Vector3.UP, spring_arm.rotation.y)
-		apply_force(air_control_vector * 256.0 * delta)
+		apply_force(air_control_vector * air_control_force * delta)
 		if !was_grounded:
 			coyote_timer = 0.2
 			was_grounded = true
 		coyote_timer -= delta
 	
 	if Input.is_action_just_pressed("jump") and (floor_check.is_colliding() || (coyote_timer > 0.0 and !has_jumped)):
-		apply_impulse(Vector3.UP * mass * 10)
+		apply_impulse(Vector3.UP * jump_force)
 		sfx_stream.pitch_scale = 1.0
 		sfx_stream.stream = jump_sfx
 		sfx_stream.play()

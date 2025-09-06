@@ -36,16 +36,16 @@ func _tween_rotation(new_rotation: Vector3) -> void:
 func _apply_world_changes() -> void:
 	match current_level:
 		LevelEnum.BACK:
-			player.set_new_scale(0.2)
+			player.set_new_scale(0.2, current_level)
 			_tween_fog_color(Color.from_hsv(0.6, 0.6, 1.0), 0.015)
 		LevelEnum.PRESENT:
-			player.set_new_scale(0.5)
+			player.set_new_scale(0.5, current_level)
 			_tween_fog_color(Color.from_hsv(0.7, 0.6, 1.0), 0.005)
 		LevelEnum.FORWARD:
-			player.set_new_scale(3)
+			player.set_new_scale(3, current_level)
 			_tween_fog_color(Color.from_hsv(0.95, 0.6, 1.0), 0.001)
 		LevelEnum.VOID:
-			player.set_new_scale(10)
+			player.set_new_scale(10, current_level)
 			_tween_fog_color(Color.from_hsv(0.5, 0.4, 1.0), 0.001)
 
 func _change_current_level(direction: String) -> void:

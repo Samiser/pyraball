@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="6_x3wgy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4flbx"]
-friction = 500.0
+friction = 520.0
 rough = true
-bounce = 0.3
+bounce = 0.24
 
 [sub_resource type="Gradient" id="Gradient_fkybt"]
 colors = PackedColorArray(0, 0, 0, 1, 0.413673, 0.24425, 1, 1)
