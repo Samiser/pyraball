@@ -4,18 +4,18 @@ extends Node3D
 @export var player: Player
 @export var minimap_camera: Camera3D
 
-enum Level {BACK, PRESENT, FORWARD, VOID}
-var current_level: Level = Level.PRESENT
+enum LevelEnum {BACK, PRESENT, FORWARD, VOID}
+var current_level: LevelEnum = LevelEnum.PRESENT
 
-func get_level_rotation(level: Level) -> Vector3:
+func get_level_rotation(level: LevelEnum) -> Vector3:
 	match level:
-		Level.BACK:
+		LevelEnum.BACK:
 			return Vector3(deg_to_rad(63.5), 0, 0)
-		Level.PRESENT:
+		LevelEnum.PRESENT:
 			return Vector3(0, deg_to_rad(90), deg_to_rad(63.5))
-		Level.FORWARD:
+		LevelEnum.FORWARD:
 			return Vector3(-deg_to_rad(63.5), deg_to_rad(180), 0)
-		Level.VOID:
+		LevelEnum.VOID:
 			return Vector3(0, deg_to_rad(270), -deg_to_rad(63.5))
 	
 	return Vector3.ZERO
@@ -35,16 +35,16 @@ func _tween_rotation(new_rotation: Vector3) -> void:
 
 func _apply_world_changes() -> void:
 	match current_level:
-		Level.BACK:
+		LevelEnum.BACK:
 			player.set_new_scale(0.2)
 			_tween_fog_color(Color.from_hsv(0.6, 0.6, 1.0), 0.015)
-		Level.PRESENT:
+		LevelEnum.PRESENT:
 			player.set_new_scale(0.5)
 			_tween_fog_color(Color.from_hsv(0.7, 0.6, 1.0), 0.005)
-		Level.FORWARD:
+		LevelEnum.FORWARD:
 			player.set_new_scale(3)
 			_tween_fog_color(Color.from_hsv(0.95, 0.6, 1.0), 0.001)
-		Level.VOID:
+		LevelEnum.VOID:
 			player.set_new_scale(10)
 			_tween_fog_color(Color.from_hsv(0.5, 0.4, 1.0), 0.001)
 

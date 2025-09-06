@@ -4,146 +4,496 @@
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Pyramid2" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(-0.950776, -0.30988, 1.35453e-08, 3.82137e-15, 4.37114e-08, 1, -0.30988, 0.950776, -4.15597e-08, 7.76705, 13.8713, -36.2009)
+[node name="WallSegment" type="Node3D" parent="."]
+
+[node name="Pyramid2" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 9.52653, -12.2181)
 height = 20.0
 
-[node name="Pyramid4" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(-0.950776, -0.30988, 1.35453e-08, 3.82137e-15, 4.37114e-08, 1, -0.30988, 0.950776, -4.15597e-08, 7.76705, 11.8812, -36.2009)
+[node name="Pyramid4" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 7.53643, -12.2181)
 height = 20.0
 
-[node name="Pyramid6" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(-0.950776, -0.30988, 1.35453e-08, 3.82137e-15, 4.37114e-08, 1, -0.30988, 0.950776, -4.15597e-08, 7.76705, 9.85456, -36.2009)
+[node name="Pyramid6" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 5.50979, -12.2181)
 height = 20.0
 
-[node name="Pyramid3" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(-0.950776, -0.30988, 1.35453e-08, 3.82137e-15, 4.37114e-08, 1, -0.30988, 0.950776, -4.15597e-08, 7.76705, 7.88572, -36.2009)
+[node name="Pyramid3" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 3.54095, -12.2181)
 height = 20.0
 
-[node name="Pyramid5" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(-0.950776, -0.30988, 1.35453e-08, 3.82137e-15, 4.37114e-08, 1, -0.30988, 0.950776, -4.15597e-08, 7.76705, 5.8957, -36.2009)
+[node name="Pyramid5" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 1.55093, -12.2181)
 height = 20.0
 
-[node name="Pyramid7" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(-0.950776, -0.30988, 1.35453e-08, 3.82137e-15, 4.37114e-08, 1, -0.30988, 0.950776, -4.15597e-08, 7.76705, 3.86901, -36.2009)
+[node name="Pyramid7" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, -0.475762, -12.2181)
 height = 20.0
 
-[node name="Pyramid10" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(0.950776, 0.30988, 1.35453e-08, 0, -4.37114e-08, 1, 0.30988, -0.950776, -4.15597e-08, 0.198348, 10.8802, -12.9786)
+[node name="Pyramid10" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 6.53543, 12.2065)
 height = 20.0
 
-[node name="Pyramid12" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(0.950776, 0.30988, 1.35453e-08, 0, -4.37114e-08, 1, 0.30988, -0.950776, -4.15597e-08, 0.198348, 12.9146, -12.9786)
+[node name="Pyramid12" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 8.56983, 12.2065)
 height = 20.0
 
-[node name="Pyramid11" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(0.950776, 0.30988, 1.35453e-08, 0, -4.37114e-08, 1, 0.30988, -0.950776, -4.15597e-08, 0.198348, 6.86025, -12.9786)
+[node name="Pyramid11" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 2.51548, 12.2065)
 height = 20.0
 
-[node name="Pyramid13" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(0.950776, 0.30988, 1.35453e-08, 0, -4.37114e-08, 1, 0.30988, -0.950776, -4.15597e-08, 0.198348, 8.8946, -12.9786)
+[node name="Pyramid13" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 4.54983, 12.2065)
 height = 20.0
 
-[node name="Pyramid14" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(0.950776, 0.30988, 1.35453e-08, 0, -4.37114e-08, 1, 0.30988, -0.950776, -4.15597e-08, 0.198348, 2.7882, -12.9786)
+[node name="Pyramid14" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, -1.55657, 12.2065)
 height = 20.0
 
-[node name="Pyramid15" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(0.950776, 0.30988, 1.35453e-08, 0, -4.37114e-08, 1, 0.30988, -0.950776, -4.15597e-08, 0.198348, 4.82256, -12.9786)
+[node name="Pyramid15" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 0.477787, 12.2065)
 height = 20.0
 
-[node name="Pyramid8" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(-0.999833, 0.0182552, -7.97958e-10, 2.65898e-15, 4.37114e-08, 1, 0.0182552, 0.999833, -4.37041e-08, 0.146036, 13.292, -12.6637)
+[node name="Pyramid8" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 9.52653, -12.2181)
 height = 20.0
 
-[node name="Pyramid9" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(-0.999833, 0.0182552, -7.97958e-10, 2.65898e-15, 4.37114e-08, 1, 0.0182552, 0.999833, -4.37041e-08, 0.146036, 11.3019, -12.6637)
+[node name="Pyramid9" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 7.53643, -12.2181)
 height = 20.0
 
-[node name="Pyramid16" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(-0.999833, 0.0182552, -7.97958e-10, 2.65898e-15, 4.37114e-08, 1, 0.0182552, 0.999833, -4.37041e-08, 0.146036, 9.27524, -12.6637)
+[node name="Pyramid16" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 5.50979, -12.2181)
 height = 20.0
 
-[node name="Pyramid17" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(-0.999833, 0.0182552, -7.97958e-10, 2.65898e-15, 4.37114e-08, 1, 0.0182552, 0.999833, -4.37041e-08, 0.146036, 7.3064, -12.6637)
+[node name="Pyramid17" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 3.54095, -12.2181)
 height = 20.0
 
-[node name="Pyramid18" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(-0.999833, 0.0182552, -7.97958e-10, 2.65898e-15, 4.37114e-08, 1, 0.0182552, 0.999833, -4.37041e-08, 0.146036, 5.31639, -12.6637)
+[node name="Pyramid18" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 1.55093, -12.2181)
 height = 20.0
 
-[node name="Pyramid19" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(-0.999833, 0.0182552, -7.97958e-10, 2.65898e-15, 4.37114e-08, 1, 0.0182552, 0.999833, -4.37041e-08, 0.146036, 3.2897, -12.6637)
+[node name="Pyramid19" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, -0.475762, -12.2181)
 height = 20.0
 
-[node name="Pyramid20" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(0.999833, -0.0182551, -7.97955e-10, 0, -4.37114e-08, 1, -0.0182551, -0.999833, -4.37041e-08, 0.59191, 10.3009, 11.7568)
+[node name="Pyramid20" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 6.53543, 12.2065)
 height = 20.0
 
-[node name="Pyramid21" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(0.999833, -0.0182551, -7.97955e-10, 0, -4.37114e-08, 1, -0.0182551, -0.999833, -4.37041e-08, 0.59191, 12.3352, 11.7568)
+[node name="Pyramid21" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 8.56983, 12.2065)
 height = 20.0
 
-[node name="Pyramid22" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(0.999833, -0.0182551, -7.97955e-10, 0, -4.37114e-08, 1, -0.0182551, -0.999833, -4.37041e-08, 0.59191, 6.28093, 11.7568)
+[node name="Pyramid22" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 2.51548, 12.2065)
 height = 20.0
 
-[node name="Pyramid23" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(0.999833, -0.0182551, -7.97955e-10, 0, -4.37114e-08, 1, -0.0182551, -0.999833, -4.37041e-08, 0.59191, 8.31528, 11.7568)
+[node name="Pyramid23" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 4.54983, 12.2065)
 height = 20.0
 
-[node name="Pyramid24" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(0.999833, -0.0182551, -7.97955e-10, 0, -4.37114e-08, 1, -0.0182551, -0.999833, -4.37041e-08, 0.59191, 2.20889, 11.7568)
+[node name="Pyramid24" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, -1.55657, 12.2065)
 height = 20.0
 
-[node name="Pyramid25" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(0.999833, -0.0182551, -7.97955e-10, 0, -4.37114e-08, 1, -0.0182551, -0.999833, -4.37041e-08, 0.59191, 4.24324, 11.7568)
+[node name="Pyramid25" parent="WallSegment" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 0.477787, 12.2065)
 height = 20.0
 
-[node name="Pyramid26" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(-0.9193, 0.393557, -1.72029e-08, 5.00042e-15, 4.37114e-08, 1, 0.393557, 0.9193, -4.01839e-08, 0.651487, 13.292, 12.1814)
+[node name="WallSegment2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24.9669)
+
+[node name="Pyramid2" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 9.52653, -12.2181)
 height = 20.0
 
-[node name="Pyramid27" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(-0.9193, 0.393557, -1.72029e-08, 5.00042e-15, 4.37114e-08, 1, 0.393557, 0.9193, -4.01839e-08, 0.651487, 11.3019, 12.1814)
+[node name="Pyramid4" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 7.53643, -12.2181)
 height = 20.0
 
-[node name="Pyramid28" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(-0.9193, 0.393557, -1.72029e-08, 5.00042e-15, 4.37114e-08, 1, 0.393557, 0.9193, -4.01839e-08, 0.651487, 9.27524, 12.1814)
+[node name="Pyramid6" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 5.50979, -12.2181)
 height = 20.0
 
-[node name="Pyramid29" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(-0.9193, 0.393557, -1.72029e-08, 5.00042e-15, 4.37114e-08, 1, 0.393557, 0.9193, -4.01839e-08, 0.651487, 7.3064, 12.1814)
+[node name="Pyramid3" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 3.54095, -12.2181)
 height = 20.0
 
-[node name="Pyramid30" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(-0.9193, 0.393557, -1.72029e-08, 5.00042e-15, 4.37114e-08, 1, 0.393557, 0.9193, -4.01839e-08, 0.651487, 5.31639, 12.1814)
+[node name="Pyramid5" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 1.55093, -12.2181)
 height = 20.0
 
-[node name="Pyramid31" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(-0.9193, 0.393557, -1.72029e-08, 5.00042e-15, 4.37114e-08, 1, 0.393557, 0.9193, -4.01839e-08, 0.651487, 3.2897, 12.1814)
+[node name="Pyramid7" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, -0.475762, -12.2181)
 height = 20.0
 
-[node name="Pyramid32" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(0.9193, -0.393557, -1.72029e-08, 0, -4.37114e-08, 1, -0.393557, -0.9193, -4.01839e-08, 10.264, 10.3009, 34.635)
+[node name="Pyramid10" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 6.53543, 12.2065)
 height = 20.0
 
-[node name="Pyramid33" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(0.9193, -0.393557, -1.72029e-08, 0, -4.37114e-08, 1, -0.393557, -0.9193, -4.01839e-08, 10.264, 12.3352, 34.635)
+[node name="Pyramid12" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 8.56983, 12.2065)
 height = 20.0
 
-[node name="Pyramid34" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(0.9193, -0.393557, -1.72029e-08, 0, -4.37114e-08, 1, -0.393557, -0.9193, -4.01839e-08, 10.264, 6.28093, 34.635)
+[node name="Pyramid11" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 2.51548, 12.2065)
 height = 20.0
 
-[node name="Pyramid35" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(0.9193, -0.393557, -1.72029e-08, 0, -4.37114e-08, 1, -0.393557, -0.9193, -4.01839e-08, 10.264, 8.31528, 34.635)
+[node name="Pyramid13" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 4.54983, 12.2065)
 height = 20.0
 
-[node name="Pyramid36" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(0.9193, -0.393557, -1.72029e-08, 0, -4.37114e-08, 1, -0.393557, -0.9193, -4.01839e-08, 10.264, 2.20889, 34.635)
+[node name="Pyramid14" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, -1.55657, 12.2065)
 height = 20.0
 
-[node name="Pyramid37" parent="." instance=ExtResource("1_d155t")]
-transform = Transform3D(0.9193, -0.393557, -1.72029e-08, 0, -4.37114e-08, 1, -0.393557, -0.9193, -4.01839e-08, 10.264, 4.24324, 34.635)
+[node name="Pyramid15" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 0.477787, 12.2065)
+height = 20.0
+
+[node name="Pyramid8" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 9.52653, -12.2181)
+height = 20.0
+
+[node name="Pyramid9" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 7.53643, -12.2181)
+height = 20.0
+
+[node name="Pyramid16" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 5.50979, -12.2181)
+height = 20.0
+
+[node name="Pyramid17" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 3.54095, -12.2181)
+height = 20.0
+
+[node name="Pyramid18" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 1.55093, -12.2181)
+height = 20.0
+
+[node name="Pyramid19" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, -0.475762, -12.2181)
+height = 20.0
+
+[node name="Pyramid20" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 6.53543, 12.2065)
+height = 20.0
+
+[node name="Pyramid21" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 8.56983, 12.2065)
+height = 20.0
+
+[node name="Pyramid22" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 2.51548, 12.2065)
+height = 20.0
+
+[node name="Pyramid23" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 4.54983, 12.2065)
+height = 20.0
+
+[node name="Pyramid24" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, -1.55657, 12.2065)
+height = 20.0
+
+[node name="Pyramid25" parent="WallSegment2" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 0.477787, 12.2065)
+height = 20.0
+
+[node name="WallSegment3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25.0127)
+
+[node name="Pyramid2" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 9.52653, -12.2181)
+height = 20.0
+
+[node name="Pyramid4" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 7.53643, -12.2181)
+height = 20.0
+
+[node name="Pyramid6" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 5.50979, -12.2181)
+height = 20.0
+
+[node name="Pyramid3" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 3.54095, -12.2181)
+height = 20.0
+
+[node name="Pyramid5" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 1.55093, -12.2181)
+height = 20.0
+
+[node name="Pyramid7" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, -0.475762, -12.2181)
+height = 20.0
+
+[node name="Pyramid10" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 6.53543, 12.2065)
+height = 20.0
+
+[node name="Pyramid12" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 8.56983, 12.2065)
+height = 20.0
+
+[node name="Pyramid11" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 2.51548, 12.2065)
+height = 20.0
+
+[node name="Pyramid13" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 4.54983, 12.2065)
+height = 20.0
+
+[node name="Pyramid14" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, -1.55657, 12.2065)
+height = 20.0
+
+[node name="Pyramid15" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 0.477787, 12.2065)
+height = 20.0
+
+[node name="Pyramid8" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 9.52653, -12.2181)
+height = 20.0
+
+[node name="Pyramid9" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 7.53643, -12.2181)
+height = 20.0
+
+[node name="Pyramid16" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 5.50979, -12.2181)
+height = 20.0
+
+[node name="Pyramid17" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 3.54095, -12.2181)
+height = 20.0
+
+[node name="Pyramid18" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 1.55093, -12.2181)
+height = 20.0
+
+[node name="Pyramid19" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, -0.475762, -12.2181)
+height = 20.0
+
+[node name="Pyramid20" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 6.53543, 12.2065)
+height = 20.0
+
+[node name="Pyramid21" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 8.56983, 12.2065)
+height = 20.0
+
+[node name="Pyramid22" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 2.51548, 12.2065)
+height = 20.0
+
+[node name="Pyramid23" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 4.54983, 12.2065)
+height = 20.0
+
+[node name="Pyramid24" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, -1.55657, 12.2065)
+height = 20.0
+
+[node name="Pyramid25" parent="WallSegment3" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 0.477787, 12.2065)
+height = 20.0
+
+[node name="WallSegment4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50.063)
+
+[node name="Pyramid2" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 9.52653, -12.2181)
+height = 20.0
+
+[node name="Pyramid4" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 7.53643, -12.2181)
+height = 20.0
+
+[node name="Pyramid6" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 5.50979, -12.2181)
+height = 20.0
+
+[node name="Pyramid3" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 3.54095, -12.2181)
+height = 20.0
+
+[node name="Pyramid5" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 1.55093, -12.2181)
+height = 20.0
+
+[node name="Pyramid7" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, -0.475762, -12.2181)
+height = 20.0
+
+[node name="Pyramid10" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 6.53543, 12.2065)
+height = 20.0
+
+[node name="Pyramid12" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 8.56983, 12.2065)
+height = 20.0
+
+[node name="Pyramid11" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 2.51548, 12.2065)
+height = 20.0
+
+[node name="Pyramid13" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 4.54983, 12.2065)
+height = 20.0
+
+[node name="Pyramid14" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, -1.55657, 12.2065)
+height = 20.0
+
+[node name="Pyramid15" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 0.477787, 12.2065)
+height = 20.0
+
+[node name="Pyramid8" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 9.52653, -12.2181)
+height = 20.0
+
+[node name="Pyramid9" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 7.53643, -12.2181)
+height = 20.0
+
+[node name="Pyramid16" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 5.50979, -12.2181)
+height = 20.0
+
+[node name="Pyramid17" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 3.54095, -12.2181)
+height = 20.0
+
+[node name="Pyramid18" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 1.55093, -12.2181)
+height = 20.0
+
+[node name="Pyramid19" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, -0.475762, -12.2181)
+height = 20.0
+
+[node name="Pyramid20" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 6.53543, 12.2065)
+height = 20.0
+
+[node name="Pyramid21" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 8.56983, 12.2065)
+height = 20.0
+
+[node name="Pyramid22" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 2.51548, 12.2065)
+height = 20.0
+
+[node name="Pyramid23" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 4.54983, 12.2065)
+height = 20.0
+
+[node name="Pyramid24" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, -1.55657, 12.2065)
+height = 20.0
+
+[node name="Pyramid25" parent="WallSegment4" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 0.477787, 12.2065)
+height = 20.0
+
+[node name="WallSegment5" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -49.9837)
+
+[node name="Pyramid2" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 9.52653, -12.2181)
+height = 20.0
+
+[node name="Pyramid4" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 7.53643, -12.2181)
+height = 20.0
+
+[node name="Pyramid6" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 5.50979, -12.2181)
+height = 20.0
+
+[node name="Pyramid3" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 3.54095, -12.2181)
+height = 20.0
+
+[node name="Pyramid5" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 1.55093, -12.2181)
+height = 20.0
+
+[node name="Pyramid7" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, -0.475762, -12.2181)
+height = 20.0
+
+[node name="Pyramid10" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 6.53543, 12.2065)
+height = 20.0
+
+[node name="Pyramid12" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 8.56983, 12.2065)
+height = 20.0
+
+[node name="Pyramid11" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 2.51548, 12.2065)
+height = 20.0
+
+[node name="Pyramid13" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 4.54983, 12.2065)
+height = 20.0
+
+[node name="Pyramid14" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, -1.55657, 12.2065)
+height = 20.0
+
+[node name="Pyramid15" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 0.477787, 12.2065)
+height = 20.0
+
+[node name="Pyramid8" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 9.52653, -12.2181)
+height = 20.0
+
+[node name="Pyramid9" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 7.53643, -12.2181)
+height = 20.0
+
+[node name="Pyramid16" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 5.50979, -12.2181)
+height = 20.0
+
+[node name="Pyramid17" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 3.54095, -12.2181)
+height = 20.0
+
+[node name="Pyramid18" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, 1.55093, -12.2181)
+height = 20.0
+
+[node name="Pyramid19" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(-0.999999, 0.00143127, -6.2539e-11, 3.76364e-15, 4.37114e-08, 1, 0.00143127, 0.999999, -4.37113e-08, -0.0198125, -0.475762, -12.2181)
+height = 20.0
+
+[node name="Pyramid20" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 6.53543, 12.2065)
+height = 20.0
+
+[node name="Pyramid21" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 8.56983, 12.2065)
+height = 20.0
+
+[node name="Pyramid22" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 2.51548, 12.2065)
+height = 20.0
+
+[node name="Pyramid23" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 4.54983, 12.2065)
+height = 20.0
+
+[node name="Pyramid24" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, -1.55657, 12.2065)
+height = 20.0
+
+[node name="Pyramid25" parent="WallSegment5" instance=ExtResource("1_d155t")]
+transform = Transform3D(0.999999, -0.00143127, -6.2539e-11, 5.77259e-17, -4.37114e-08, 1, -0.00143127, -0.999999, -4.37113e-08, 0.0151328, 0.477787, 12.2065)
 height = 20.0

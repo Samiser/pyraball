@@ -1,5 +1,6 @@
 @tool
 extends Node3D
+class_name Level
 
 const LEVEL_GROUPS: Array[String] = ["past", "present", "future"]
 
@@ -8,6 +9,14 @@ var levels: Array[PackedScene] = [
 	preload("res://Meshes/level_present.blend"),
 	preload("res://Meshes/level_future.blend"),
 ]
+
+@export var past: Level
+@export var present: Level
+@export var future: Level
+
+func get_counterpart(node_in_self: Node, in_level: Level) -> Node:
+	var path: NodePath = get_path_to(node_in_self)
+	return in_level.get_node_or_null(path)
 
 @export_enum("Past", "Present", "Future")
 var selected_level: int = 0:
