@@ -22,6 +22,7 @@ var air_control_force : float = 256.0
 @onready var roll_particles : GPUParticles3D = $roll_particles
 @onready var shadow_ray : RayCast3D = $shadow_ray
 @onready var shadow_sprite : Sprite3D = $shadow_ray/player_shadow
+@onready var dust := $CameraTarget/SpringArm3D/Camera3D/dust_particles
 
 @export var jump_sfx : AudioStream
 @export var impact_sfx : AudioStream
@@ -74,28 +75,29 @@ func set_new_scale(new_scale: float, level: int) -> void:
 	spring_arm.spring_length = 6.0 * new_scale
 	spring_arm.transform.origin.y = 2.0 * new_scale
 	$FloorCheck.target_position.y = -1.25 * new_scale
-
+	dust.emitting = false
 	match level:
 		0: # past/small
-			mass = 0.5
-			rolling_force = 42.0
-			jump_force = 2.8
-			air_control_force = 128.0
+			# mass = 0.5
+			rolling_force = 28.0
+			jump_force = 5.8
+			air_control_force = 468.0
 			shadow_sprite.pixel_size = 0.0004
 			shadow_sprite.material_override.distance_fade_min_distance = 1.4
 			shadow_sprite.material_override.distance_fade_max_distance = 8.0
+			dust.emitting = true
 		1: # present/medium
-			mass = 4.0
-			rolling_force = 40.0
-			jump_force = 35.0
-			air_control_force = 1124.0
+			# mass = 4.0
+			rolling_force = 32.0
+			jump_force = 8.4
+			air_control_force = 700.0
 			shadow_sprite.pixel_size = 0.0012
 			shadow_sprite.material_override.distance_fade_min_distance = 4.4
 			shadow_sprite.material_override.distance_fade_max_distance = 8.0
 		2: # future/big
-			mass = 20.0
+			# mass = 20.0
 			rolling_force = 10.0
-			jump_force = 80.0
+			jump_force = 4.0
 			air_control_force = 512.0
 			shadow_sprite.pixel_size = 0.007
 			shadow_sprite.material_override.distance_fade_min_distance = 22.0
@@ -175,6 +177,7 @@ func _physics_process(delta: float) -> void:
 	var roll_sfx_pitch := clampf(speed * 0.1, 0.0001, 4.0)
 	roll_sfx_stream.pitch_scale = roll_sfx_pitch
 	
+	# speedy ball particles
 	roll_particles.emitting = floor_check.is_colliding() && speed > 12.0
 	roll_particles.global_position = global_position - Vector3(0.0, 0.6, 0.0)
 	
