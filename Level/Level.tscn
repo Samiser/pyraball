@@ -1,15 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://bb28plwvmfby2"]
+[gd_scene load_steps=10 format=3 uid="uid://bb28plwvmfby2"]
 
 [ext_resource type="Script" uid="uid://cn1dxroiw2037" path="res://Level/level.gd" id="1_5noo7"]
-[ext_resource type="PackedScene" uid="uid://c1ft78rr6ksxt" path="res://Scenes/time_crystal.tscn" id="3_cyxyq"]
 [ext_resource type="PackedScene" uid="uid://gpwfm6f76n8p" path="res://Meshes/level_base.blend" id="3_j3llj"]
 [ext_resource type="PackedScene" uid="uid://dv7isl1uvbrjv" path="res://Scenes/simon_says.tscn" id="4_6lumq"]
 [ext_resource type="PackedScene" uid="uid://cjtk4yijo8t5r" path="res://Scenes/Portal.tscn" id="4_chl2c"]
 [ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://Scenes/button.tscn" id="4_i5eh5"]
 [ext_resource type="PackedScene" uid="uid://dbc7h7oiowpka" path="res://Scenes/lift.tscn" id="5_5noo7"]
-[ext_resource type="PackedScene" uid="uid://gewj4ymntyra" path="res://sundial.tscn" id="8_chl2c"]
-[ext_resource type="PackedScene" uid="uid://bh72vwki5ojnd" path="res://reflector.tscn" id="9_wp1u0"]
-[ext_resource type="PackedScene" uid="uid://dyaciql4aoajy" path="res://wall.tscn" id="10_wp1u0"]
+[ext_resource type="PackedScene" uid="uid://gewj4ymntyra" path="res://Scenes/sundial.tscn" id="8_chl2c"]
+[ext_resource type="PackedScene" uid="uid://bh72vwki5ojnd" path="res://Scenes/reflector.tscn" id="9_wp1u0"]
+[ext_resource type="PackedScene" uid="uid://dyaciql4aoajy" path="res://Scenes/wall.tscn" id="10_wp1u0"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_5noo7")
@@ -23,29 +22,6 @@ dest = NodePath("Node3D")
 
 [node name="Node3D" type="Node3D" parent="Portal"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.21808, 2.66521)
-
-[node name="Crystals" type="Node3D" parent="."]
-
-[node name="TimeCrystal2" parent="Crystals" groups=["future", "past", "present"] instance=ExtResource("3_cyxyq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.934, -12.5704, -13.9211)
-
-[node name="TimeCrystal" parent="Crystals" groups=["present"] instance=ExtResource("3_cyxyq")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 76.4249, -24.1104, -47.6887)
-
-[node name="TimeCrystal3" parent="Crystals" groups=["present"] instance=ExtResource("3_cyxyq")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 72.8298, -24.1104, -47.6887)
-
-[node name="TimeCrystal4" parent="Crystals" groups=["present"] instance=ExtResource("3_cyxyq")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 69.6901, -21.3389, -44.3347)
-
-[node name="TimeCrystal5" parent="Crystals" groups=["present"] instance=ExtResource("3_cyxyq")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 79.6516, -21.3389, -44.3347)
-
-[node name="TimeCrystal6" parent="Crystals" groups=["present"] instance=ExtResource("3_cyxyq")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 69.6901, -21.3389, -51.4478)
-
-[node name="TimeCrystal7" parent="Crystals" groups=["present"] instance=ExtResource("3_cyxyq")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 79.6516, -21.3389, -51.4478)
 
 [node name="SimonSays" parent="." instance=ExtResource("4_6lumq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.26944, -12.9458, -16.1084)
@@ -71,15 +47,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.512, -25.1253, 27.4014)
 [node name="Sundial" parent="SundialPuzzle" node_paths=PackedStringArray("button", "reflectors") instance=ExtResource("8_chl2c")]
 transform = Transform3D(0.082843, 0, -0.996562, 0, 1, 0, 0.996563, 0, 0.0828429, 0.0121002, -2.29754, 0.0447464)
 button = NodePath("../SundialButton")
-reflectors = [NodePath("../Reflector")]
+reflectors = [NodePath("../Reflector"), NodePath("../Reflector2")]
 
 [node name="Reflector" parent="SundialPuzzle" node_paths=PackedStringArray("sundial", "button") instance=ExtResource("9_wp1u0")]
-transform = Transform3D(0.082843, 0, -0.996563, 0, 1, 0, 0.996563, 0, 0.082843, 6.38788, -0.902639, -3.62646)
+transform = Transform3D(0.498609, 0, 0.866827, 0, 1, 0, -0.866827, 0, 0.498609, -2.74638, 17.6905, -69.71)
 sundial = NodePath("../Sundial")
 button = NodePath("../ReflectorButton")
 
 [node name="ReflectorButton" parent="SundialPuzzle" instance=ExtResource("4_i5eh5")]
-transform = Transform3D(0.082843, 0, -0.996563, 0, 1, 0, 0.996563, 0, 0.082843, 5.25483, -2.31733, -6.54964)
+transform = Transform3D(0.529609, 0, -0.848243, 0, 1, 0, 0.848243, 0, 0.529609, -9.00732, 16.2758, -68.1811)
+color = Color(0, 0.600216, 0.692913, 1)
+
+[node name="Reflector2" parent="SundialPuzzle" node_paths=PackedStringArray("sundial", "button") instance=ExtResource("9_wp1u0")]
+transform = Transform3D(0.552054, 0, 0.833809, 0, 1, 0, -0.833809, 0, 0.552054, -34.2249, -0.919416, -1.25554)
+sundial = NodePath("../Sundial")
+button = NodePath("../ReflectorButton2")
+
+[node name="ReflectorButton2" parent="SundialPuzzle" instance=ExtResource("4_i5eh5")]
+transform = Transform3D(0.082843, 0, -0.996563, 0, 1, 0, 0.996563, 0, 0.082843, -35.358, -2.33411, -4.17871)
 color = Color(0, 0.600216, 0.692913, 1)
 
 [node name="SundialButton" parent="SundialPuzzle" instance=ExtResource("4_i5eh5")]

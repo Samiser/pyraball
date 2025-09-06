@@ -1,21 +1,24 @@
 [gd_scene load_steps=5 format=3 uid="uid://bh72vwki5ojnd"]
 
-[ext_resource type="PackedScene" uid="uid://hxlx84tjlowl" path="res://pyramid.tscn" id="1_e20rs"]
-[ext_resource type="Script" uid="uid://cwqu8knwflr66" path="res://reflector.gd" id="1_ex3ff"]
+[ext_resource type="Script" uid="uid://cwqu8knwflr66" path="res://Scripts/reflector.gd" id="1_fdm13"]
+[ext_resource type="PackedScene" uid="uid://hxlx84tjlowl" path="res://Scenes/pyramid.tscn" id="2_biis1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ex3ff"]
 albedo_color = Color(0.750574, 0.543451, 0.889616, 1)
 metallic = 1.0
 roughness = 0.37
+emission_enabled = true
+emission = Color(0.408329, 0.408329, 0.408329, 1)
+emission_energy_multiplier = 0.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lqsla"]
 material = SubResource("StandardMaterial3D_ex3ff")
 size = Vector2(1.5, 1.5)
 
 [node name="Reflector" type="Node3D"]
-script = ExtResource("1_ex3ff")
+script = ExtResource("1_fdm13")
 
-[node name="Pyramid" parent="." instance=ExtResource("1_e20rs")]
+[node name="Pyramid" parent="." instance=ExtResource("2_biis1")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 base_size = 1.5
 height = 0.5

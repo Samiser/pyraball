@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://gewj4ymntyra"]
 
-[ext_resource type="PackedScene" uid="uid://hxlx84tjlowl" path="res://pyramid.tscn" id="1_rmrnt"]
-[ext_resource type="Script" uid="uid://bukhau85bssm8" path="res://sundial.gd" id="1_x2mgy"]
+[ext_resource type="Script" uid="uid://bukhau85bssm8" path="res://Scripts/sundial.gd" id="1_nwh05"]
+[ext_resource type="PackedScene" uid="uid://hxlx84tjlowl" path="res://Scenes/pyramid.tscn" id="2_wwrjg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x2mgy"]
 size = Vector3(0.270569, 1, 9.46289)
@@ -20,9 +20,9 @@ emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.5
 
 [node name="Sundial" type="Node3D"]
-script = ExtResource("1_x2mgy")
+script = ExtResource("1_nwh05")
 
-[node name="Gnomon" parent="." instance=ExtResource("1_rmrnt")]
+[node name="Gnomon" parent="." instance=ExtResource("2_wwrjg")]
 base_size = 0.5
 height = 10.0
 color = Color(0.83, 0.50215, 0.1743, 1)
@@ -42,7 +42,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.28764)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0145569, 0, 0.000306129)
 shape = SubResource("BoxShape3D_x2mgy")
 
-[node name="Twelve" parent="." groups=["clock_marker"] instance=ExtResource("1_rmrnt")]
+[node name="Twelve" parent="." groups=["clock_marker"] instance=ExtResource("2_wwrjg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
 base_size = 0.8
 height = 0.2
@@ -53,7 +53,7 @@ color = Color(0.83, 0.50215, 0.1743, 1)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Twelve/Area3D"]
 shape = SubResource("SphereShape3D_x2mgy")
 
-[node name="Three" parent="." groups=["clock_marker"] instance=ExtResource("1_rmrnt")]
+[node name="Three" parent="." groups=["clock_marker"] instance=ExtResource("2_wwrjg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 base_size = 0.8
 height = 0.2
@@ -64,7 +64,7 @@ color = Color(0.83, 0.50215, 0.1743, 1)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Three/Area3D"]
 shape = SubResource("SphereShape3D_x2mgy")
 
-[node name="Six" parent="." groups=["clock_marker"] instance=ExtResource("1_rmrnt")]
+[node name="Six" parent="." groups=["clock_marker"] instance=ExtResource("2_wwrjg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 base_size = 0.8
 height = 0.2
@@ -75,7 +75,7 @@ color = Color(0.83, 0.50215, 0.1743, 1)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Six/Area3D"]
 shape = SubResource("SphereShape3D_x2mgy")
 
-[node name="Nine" parent="." groups=["clock_marker"] instance=ExtResource("1_rmrnt")]
+[node name="Nine" parent="." groups=["clock_marker"] instance=ExtResource("2_wwrjg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 base_size = 0.8
 height = 0.2

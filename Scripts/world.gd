@@ -10,7 +10,7 @@ var current_level: Level = Level.PRESENT
 func get_level_rotation(level: Level) -> Vector3:
 	match level:
 		Level.BACK:
-			return Vector3(deg_to_rad(65), 0, 0)
+			return Vector3(deg_to_rad(63.5), 0, 0)
 		Level.PRESENT:
 			return Vector3(0, deg_to_rad(90), deg_to_rad(63.5))
 		Level.FORWARD:
@@ -29,7 +29,7 @@ func _tween_fog_color(new_color: Color, new_density: float) -> void:
 func _tween_rotation(new_rotation: Vector3) -> void:
 	var tween := create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
-	tween.tween_property($PyraWorld, "rotation", get_level_rotation(current_level), 0.3)
+	tween.tween_property($PyraWorld, "rotation", get_level_rotation(current_level), 2)
 	await tween.finished
 	return
 
