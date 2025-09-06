@@ -192,7 +192,7 @@ shadow_opacity = 0.74
 transform = Transform3D(-1.95039e-08, 3.91188e-08, 1, 0.894934, 0.446198, 0, -0.446198, 0.894934, -4.37114e-08, 0, 0, 0)
 
 [node name="Present" parent="World/PyraWorld" instance=ExtResource("5_fdnlq")]
-transform = Transform3D(0.446197, 0.894934, 0, -0.894934, 0.446197, 0, 0, 0, 1, 71.6352, 12.2824, 0)
+transform = Transform3D(0.446198, 0.894934, 0, -0.894934, 0.446198, 0, 3.55271e-15, 1.18852e-16, 1, 71.3547, 12.1426, 2.84217e-13)
 
 [node name="Past" parent="World/PyraWorld" instance=ExtResource("5_fdnlq")]
 transform = Transform3D(0, -4.47035e-08, 1, -0.894934, 0.446197, 0, -0.446197, -0.894934, -4.37114e-08, -0.0867333, 12.2619, -71.292)
