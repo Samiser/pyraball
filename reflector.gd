@@ -1,4 +1,5 @@
 extends Node3D
+class_name Reflector
 
 @export var sundial: Sundial
 @export var button: TriangleButton

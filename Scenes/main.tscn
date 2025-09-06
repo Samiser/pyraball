@@ -174,7 +174,7 @@ material = SubResource("StandardMaterial3D_chl2c")
 script = ExtResource("1_ynf5e")
 
 [node name="Player" parent="." instance=ExtResource("2_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8708, 46.3339, -109.374)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2095, 46.3339, -101.997)
 
 [node name="World" type="Node3D" parent="." node_paths=PackedStringArray("player", "minimap_camera")]
 script = ExtResource("3_d1ilt")
@@ -267,28 +267,22 @@ texture = ExtResource("9_h1bgf")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Sundial" parent="." instance=ExtResource("11_d1ilt")]
+[node name="Sundial" parent="." node_paths=PackedStringArray("button", "reflectors") instance=ExtResource("11_d1ilt")]
 transform = Transform3D(1, 0, 0, 0, 0.999657, -0.0261769, 0, 0.0261769, 0.999657, 27, 45.1, -112)
+button = NodePath("../Button2")
+reflectors = [NodePath("../Reflector")]
 
-[node name="Reflector" parent="." node_paths=PackedStringArray("sundial") instance=ExtResource("11_6iyac")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.9186, 46.4949, -99.1844)
-sundial = NodePath("../Sundial")
-
-[node name="Reflector2" parent="." node_paths=PackedStringArray("sundial") instance=ExtResource("11_6iyac")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5837, 46.4949, -99.1844)
-sundial = NodePath("../Sundial")
-
-[node name="Reflector3" parent="." node_paths=PackedStringArray("sundial") instance=ExtResource("11_6iyac")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8696, 46.4949, -99.1844)
-sundial = NodePath("../Sundial")
-
-[node name="Reflector4" parent="." node_paths=PackedStringArray("sundial", "button") instance=ExtResource("11_6iyac")]
+[node name="Reflector" parent="." node_paths=PackedStringArray("sundial", "button") instance=ExtResource("11_6iyac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8696, 46.4949, -118.658)
 sundial = NodePath("../Sundial")
 button = NodePath("../Button")
 
 [node name="Button" parent="." instance=ExtResource("12_6iyac")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8626, 45.2364, -117.771)
+transform = Transform3D(1, 0, 0, 0, 0.999904, -0.0138575, 0, 0.0138575, 0.999904, 20.8626, 45.2364, -117.771)
+color = Color(0, 0.600216, 0.692913, 1)
+
+[node name="Button2" parent="." instance=ExtResource("12_6iyac")]
+transform = Transform3D(1, 0, 0, 0, 0.999517, -0.0310793, 0, 0.0310793, 0.999517, 31.4444, 44.9594, -108.202)
 color = Color(0, 0.600216, 0.692913, 1)
 
 [node name="stars" type="GPUParticles3D" parent="."]
