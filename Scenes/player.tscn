@@ -1,7 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://ccdc33vpni5bd"]
+[gd_scene load_steps=28 format=3 uid="uid://ccdc33vpni5bd"]
 
 [ext_resource type="Script" uid="uid://dj4hr00xw01je" path="res://Scripts/player.gd" id="1_4flbx"]
-[ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="2_onrkg"]
 [ext_resource type="AudioStream" uid="uid://cnq7ivmp32tgp" path="res://Audio/SoundFX/jump.mp3" id="2_sweqy"]
 [ext_resource type="AudioStream" uid="uid://d4k5qwdw5ufjn" path="res://Audio/SoundFX/ball_impact.mp3" id="3_2hs0m"]
 [ext_resource type="AudioStream" uid="uid://bdsmrl04kpxbj" path="res://Audio/SoundFX/ball_roll.mp3" id="3_i3pqv"]
@@ -12,6 +11,18 @@ friction = 500.0
 rough = true
 bounce = 0.3
 
+[sub_resource type="Gradient" id="Gradient_fkybt"]
+colors = PackedColorArray(0, 0, 0, 1, 0.413673, 0.24425, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_x3wgy"]
+noise_type = 2
+frequency = 0.0013
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3smsa"]
+seamless = true
+color_ramp = SubResource("Gradient_fkybt")
+noise = SubResource("FastNoiseLite_x3wgy")
+
 [sub_resource type="Gradient" id="Gradient_4flbx"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_onrkg"]
@@ -20,17 +31,47 @@ fill_from = Vector2(0, 0.5)
 fill_to = Vector2(0, 1)
 repeat = 2
 
+[sub_resource type="Gradient" id="Gradient_x3wgy"]
+offsets = PackedFloat32Array(0.511211, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3smsa"]
+noise_type = 4
+frequency = 0.0459
+fractal_weighted_strength = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8erm5"]
+seamless = true
+color_ramp = SubResource("Gradient_x3wgy")
+noise = SubResource("FastNoiseLite_3smsa")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fkybt"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x3wgy"]
+seamless = true
+noise = SubResource("FastNoiseLite_fkybt")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4flbx"]
 resource_local_to_scene = true
 transparency = 1
-shading_mode = 2
+diffuse_mode = 3
+specular_mode = 1
 albedo_color = Color(0.763635, 0.263049, 1, 0.619608)
-metallic = 1.0
+metallic = 0.76
+roughness = 0.3
+roughness_texture = SubResource("NoiseTexture2D_x3wgy")
 emission = Color(1, 0, 0.701961, 1)
 emission_operator = 1
 emission_texture = SubResource("GradientTexture2D_onrkg")
+normal_scale = 0.54
 rim_enabled = true
 rim_tint = 1.0
+heightmap_scale = 16.0
+heightmap_texture = SubResource("NoiseTexture2D_8erm5")
+backlight_enabled = true
+backlight = Color(1, 0.203511, 0.738689, 1)
+detail_mask = SubResource("NoiseTexture2D_3smsa")
+detail_blend_mode = 1
 
 [sub_resource type="SphereMesh" id="SphereMesh_sh265"]
 resource_local_to_scene = true
@@ -43,10 +84,11 @@ viewport_path = NodePath("MeshInstance3D/Reflection_Mesh/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqtel"]
 resource_local_to_scene = true
-shading_mode = 2
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
 albedo_color = Color(1, 1, 1, 0.619608)
 albedo_texture = SubResource("ViewportTexture_i3pqv")
-roughness = 0.0
 uv1_offset = Vector3(0.5, 0, 0)
 billboard_mode = 1
 
@@ -126,12 +168,12 @@ target_position = Vector3(0, -0.62, 0)
 [node name="MapMarker" type="Sprite3D" parent="."]
 visible = false
 layers = 2
-modulate = Color(0, 1, 0, 1)
+modulate = Color(0.858824, 0, 1, 1)
 pixel_size = 0.02
 billboard = 1
 no_depth_test = true
 render_priority = 127
-texture = ExtResource("2_onrkg")
+texture = ExtResource("6_x3wgy")
 
 [node name="sfx_stream" type="AudioStreamPlayer3D" parent="."]
 volume_db = -20.0
@@ -148,5 +190,13 @@ amount = 16
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_3smsa")
 draw_pass_1 = SubResource("QuadMesh_f1ek2")
+
+[node name="player_shadow" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.465263, 0)
+flip_h = true
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.0012
+render_priority = 1
+texture = ExtResource("6_x3wgy")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

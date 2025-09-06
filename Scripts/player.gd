@@ -18,6 +18,7 @@ var rolling_force: float = 50
 @onready var reflection_cam: Camera3D = $MeshInstance3D/Reflection_Mesh/SubViewport/reflection_cam
 @onready var reflection_mesh: MeshInstance3D = $MeshInstance3D/Reflection_Mesh
 @onready var roll_particles : GPUParticles3D = $roll_particles
+@onready var shadow_sprite : Sprite3D = $player_shadow
 
 @export var jump_sfx : AudioStream
 @export var impact_sfx : AudioStream
@@ -33,10 +34,12 @@ var last_linear_velocity: Vector3
 var last_angular_velocity: Vector3
 
 func _ready() -> void:
+	$MapMarker.visible = true
+		
 	camera_target.top_level = true
 	floor_check.top_level = true
-	$MapMarker.visible = true
 	roll_particles.top_level = true
+	shadow_sprite.top_level = true
 
 func _rotate(direction: String) -> void:
 	last_linear_velocity = linear_velocity
@@ -107,12 +110,18 @@ func _physics_process(delta: float) -> void:
 	var input_vector: Vector2 = Input.get_vector("forward", "back", "right", "left")
 	angular_velocity += Vector3(input_vector.x, 0, input_vector.y).rotated(Vector3.UP, spring_arm.rotation.y) * rolling_force * delta
 	
+	# air control
+	if !floor_check.is_colliding():
+		var air_control_vector := Vector3(-input_vector.y, 0, input_vector.x).rotated(Vector3.UP, spring_arm.rotation.y)
+		apply_force(air_control_vector * 256.0 * delta)
+	
 	if Input.is_action_just_pressed("jump") and floor_check.is_colliding():
 		apply_impulse(Vector3.UP * mass * 10)
 		sfx_stream.pitch_scale = 1.0
 		sfx_stream.stream = jump_sfx
 		sfx_stream.play()
 	
+	# audio stuff
 	roll_sfx_stream.stream_paused = !floor_check.is_colliding()
 	var roll_sfx_pitch := clampf(speed * 0.1, 0.0001, 4.0)
 	roll_sfx_stream.pitch_scale = roll_sfx_pitch
@@ -120,8 +129,17 @@ func _physics_process(delta: float) -> void:
 	roll_particles.emitting = floor_check.is_colliding() && speed > 12.0
 	roll_particles.global_position = global_position - Vector3(0.0, 0.6, 0.0)
 	
+	# fake refraction stuff
 	reflection_cam.global_position = global_position
 	reflection_cam.global_rotation = camera.global_rotation
+	
+	# blob shadow
+	var space_state := get_world_3d().direct_space_state
+	var query := PhysicsRayQueryParameters3D.create(global_position, global_position + Vector3(0.0, -99.0, 0.0))
+	var collision := space_state.intersect_ray(query)
+	if collision:
+		shadow_sprite.global_position = collision.position + Vector3(0.0, 0.1, 0.0)
+		print("player pos: ", global_position, ", shadow pos: ", collision.position)
 
 func _on_body_entered(body: Node) -> void:
 	if linear_velocity.length() > 0.4:
