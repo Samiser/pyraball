@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bxt4ae0qrgpd0"]
+[gd_scene load_steps=34 format=3 uid="uid://bxt4ae0qrgpd0"]
 
 [ext_resource type="Script" uid="uid://bu7eh1ydu658n" path="res://Scripts/main.gd" id="1_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://ccdc33vpni5bd" path="res://Scenes/player.tscn" id="2_hptm8"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://t5wlstexka75" path="res://Audio/Music/minimal_drums.wav" id="8_344ge"]
 [ext_resource type="Script" uid="uid://sx5ad0yhjku8" path="res://Scripts/ui.gd" id="8_k12tt"]
 [ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="9_h1bgf"]
+[ext_resource type="AudioStream" uid="uid://dic7k3dm0buwh" path="res://Audio/Music/breakbeat.wav" id="9_ynf5e"]
 [ext_resource type="Shader" uid="uid://twjxjt5ypucs" path="res://Scenes/warp.gdshader" id="10_hptm8"]
 
 [sub_resource type="Environment" id="Environment_lquwl"]
@@ -254,3 +255,8 @@ draw_pass_1 = SubResource("QuadMesh_u50mg")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_344ge")
+volume_db = -8.432
+
+[node name="Music2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ynf5e")
+volume_db = -8.432

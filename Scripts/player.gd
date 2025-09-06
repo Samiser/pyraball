@@ -51,6 +51,9 @@ func _ready() -> void:
 	shadow_ray.top_level = true
 	shadow_sprite.top_level = true
 
+func on_puzzle_completed(name: String) -> void:
+	print(name)
+
 func _rotate(direction: String) -> void:
 	last_linear_velocity = linear_velocity
 	last_angular_velocity = angular_velocity
