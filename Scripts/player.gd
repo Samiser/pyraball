@@ -77,25 +77,25 @@ func set_new_scale(new_scale: float, level: int) -> void:
 
 	match level:
 		0: # past/small
-			mass = 0.5
-			rolling_force = 42.0
-			jump_force = 2.8
-			air_control_force = 128.0
+			# mass = 0.5
+			rolling_force = 28.0
+			jump_force = 5.8
+			air_control_force = 468.0
 			shadow_sprite.pixel_size = 0.0004
 			shadow_sprite.material_override.distance_fade_min_distance = 1.4
 			shadow_sprite.material_override.distance_fade_max_distance = 8.0
 		1: # present/medium
-			mass = 4.0
-			rolling_force = 40.0
-			jump_force = 35.0
-			air_control_force = 1124.0
+			# mass = 4.0
+			rolling_force = 32.0
+			jump_force = 8.4
+			air_control_force = 700.0
 			shadow_sprite.pixel_size = 0.0012
 			shadow_sprite.material_override.distance_fade_min_distance = 4.4
 			shadow_sprite.material_override.distance_fade_max_distance = 8.0
 		2: # future/big
-			mass = 20.0
+			# mass = 20.0
 			rolling_force = 10.0
-			jump_force = 80.0
+			jump_force = 4.0
 			air_control_force = 512.0
 			shadow_sprite.pixel_size = 0.007
 			shadow_sprite.material_override.distance_fade_min_distance = 22.0
