@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bxt4ae0qrgpd0"]
+[gd_scene load_steps=41 format=3 uid="uid://bxt4ae0qrgpd0"]
 
 [ext_resource type="Script" uid="uid://bu7eh1ydu658n" path="res://Scripts/main.gd" id="1_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://ccdc33vpni5bd" path="res://Scenes/player.tscn" id="2_hptm8"]
@@ -10,9 +10,10 @@
 [ext_resource type="Script" uid="uid://sx5ad0yhjku8" path="res://Scripts/ui.gd" id="8_k12tt"]
 [ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="9_h1bgf"]
 [ext_resource type="Shader" uid="uid://twjxjt5ypucs" path="res://Scenes/warp.gdshader" id="10_hptm8"]
-[ext_resource type="PackedScene" path="res://reflector.tscn" id="11_6iyac"]
-[ext_resource type="PackedScene" path="res://sundial.tscn" id="11_d1ilt"]
+[ext_resource type="PackedScene" uid="uid://bh72vwki5ojnd" path="res://reflector.tscn" id="11_6iyac"]
+[ext_resource type="PackedScene" uid="uid://gewj4ymntyra" path="res://sundial.tscn" id="11_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://Scenes/button.tscn" id="12_6iyac"]
+[ext_resource type="PackedScene" uid="uid://dyaciql4aoajy" path="res://wall.tscn" id="14_jkdf5"]
 
 [sub_resource type="Environment" id="Environment_ig7tw"]
 background_mode = 1
@@ -174,7 +175,7 @@ material = SubResource("StandardMaterial3D_chl2c")
 script = ExtResource("1_ynf5e")
 
 [node name="Player" parent="." instance=ExtResource("2_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2095, 46.3339, -101.997)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.5614, 45.586, -101.997)
 
 [node name="World" type="Node3D" parent="." node_paths=PackedStringArray("player", "minimap_camera")]
 script = ExtResource("3_d1ilt")
@@ -320,5 +321,8 @@ visibility_aabb = AABB(-50, -40, -80, 100, 32, 160)
 transform_align = 3
 process_material = SubResource("ParticleProcessMaterial_3pmx8")
 draw_pass_1 = SubResource("QuadMesh_u50mg")
+
+[node name="Node3D" parent="." instance=ExtResource("14_jkdf5")]
+transform = Transform3D(0.205179, 0, 0.978724, 0, 1, 0, -0.978724, 0, 0.205179, 24.7423, 42.2847, -49.6346)
 
 [connection signal="body_entered" from="World/Drop_KillZone" to="World/Drop_KillZone" method="_on_body_entered"]
