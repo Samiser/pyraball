@@ -23,6 +23,7 @@ var rolling_force: float = 50
 
 @export var jump_sfx : AudioStream
 @export var impact_sfx : AudioStream
+@export var crystal_pickup_sfx : AudioStream
 @onready var sfx_stream : AudioStreamPlayer3D = $sfx_stream
 @onready var roll_sfx_stream : AudioStreamPlayer3D = $sfx_roll_stream
 
@@ -73,6 +74,10 @@ func collect_crystal() -> void:
 	var crystals: Array = get_tree().get_nodes_in_group("time_crystal").filter(
 		func(crystal: TimeCrystal) -> bool: return !crystal.is_collected
 	)
+	
+	sfx_stream.pitch_scale = 1.0
+	sfx_stream.stream = crystal_pickup_sfx
+	sfx_stream.play()
 	
 	if crystals.size() == 0:
 		all_crystals_collected.emit(position)
