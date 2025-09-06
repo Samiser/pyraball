@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ccdc33vpni5bd"]
+[gd_scene load_steps=29 format=3 uid="uid://ccdc33vpni5bd"]
 
 [ext_resource type="Script" uid="uid://dj4hr00xw01je" path="res://Scripts/player.gd" id="1_4flbx"]
 [ext_resource type="AudioStream" uid="uid://cnq7ivmp32tgp" path="res://Audio/SoundFX/jump.mp3" id="2_sweqy"]
@@ -123,6 +123,14 @@ billboard_mode = 1
 material = SubResource("StandardMaterial3D_8erm5")
 size = Vector2(0.04, 0.04)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkybt"]
+transparency = 1
+albedo_color = Color(0, 0, 0, 0.52549)
+albedo_texture = ExtResource("6_x3wgy")
+distance_fade_mode = 2
+distance_fade_min_distance = 4.0
+distance_fade_max_distance = 8.0
+
 [node name="Player" type="RigidBody3D" groups=["player"]]
 collision_layer = 5
 collision_mask = 5
@@ -191,11 +199,17 @@ lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_3smsa")
 draw_pass_1 = SubResource("QuadMesh_f1ek2")
 
-[node name="player_shadow" type="Sprite3D" parent="."]
+[node name="shadow_ray" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.465263, 0)
-flip_h = true
-modulate = Color(0, 0, 0, 1)
-pixel_size = 0.0012
+target_position = Vector3(0, 0, 128)
+hit_back_faces = false
+
+[node name="player_shadow" type="Sprite3D" parent="shadow_ray"]
+transform = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_fkybt")
+modulate = Color(0.991164, 0.991164, 0.991164, 1)
+pixel_size = 0.001
+texture_filter = 0
 render_priority = 1
 texture = ExtResource("6_x3wgy")
 

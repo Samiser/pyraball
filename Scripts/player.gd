@@ -18,7 +18,8 @@ var rolling_force: float = 50
 @onready var reflection_cam: Camera3D = $MeshInstance3D/Reflection_Mesh/SubViewport/reflection_cam
 @onready var reflection_mesh: MeshInstance3D = $MeshInstance3D/Reflection_Mesh
 @onready var roll_particles : GPUParticles3D = $roll_particles
-@onready var shadow_sprite : Sprite3D = $player_shadow
+@onready var shadow_ray : RayCast3D = $shadow_ray
+@onready var shadow_sprite : Sprite3D = $shadow_ray/player_shadow
 
 @export var jump_sfx : AudioStream
 @export var impact_sfx : AudioStream
@@ -33,12 +34,17 @@ signal all_crystals_collected(player_position: Vector3)
 var last_linear_velocity: Vector3
 var last_angular_velocity: Vector3
 
+var was_grounded := false
+var has_jumped := false
+var coyote_timer := 0.0
+
 func _ready() -> void:
 	$MapMarker.visible = true
 		
 	camera_target.top_level = true
 	floor_check.top_level = true
 	roll_particles.top_level = true
+	shadow_ray.top_level = true
 	shadow_sprite.top_level = true
 
 func _rotate(direction: String) -> void:
@@ -108,18 +114,25 @@ func _physics_process(delta: float) -> void:
 	floor_check.global_transform.origin = global_transform.origin
 	
 	var input_vector: Vector2 = Input.get_vector("forward", "back", "right", "left")
+	if !floor_check.is_colliding(): # slow spin force while airborne
+		input_vector *= 0.2
 	angular_velocity += Vector3(input_vector.x, 0, input_vector.y).rotated(Vector3.UP, spring_arm.rotation.y) * rolling_force * delta
 	
 	# air control
 	if !floor_check.is_colliding():
 		var air_control_vector := Vector3(-input_vector.y, 0, input_vector.x).rotated(Vector3.UP, spring_arm.rotation.y)
 		apply_force(air_control_vector * 256.0 * delta)
+		if !was_grounded:
+			coyote_timer = 0.2
+			was_grounded = true
+		coyote_timer -= delta
 	
-	if Input.is_action_just_pressed("jump") and floor_check.is_colliding():
+	if Input.is_action_just_pressed("jump") and (floor_check.is_colliding() || (coyote_timer > 0.0 and !has_jumped)):
 		apply_impulse(Vector3.UP * mass * 10)
 		sfx_stream.pitch_scale = 1.0
 		sfx_stream.stream = jump_sfx
 		sfx_stream.play()
+		has_jumped = true
 	
 	# audio stuff
 	roll_sfx_stream.stream_paused = !floor_check.is_colliding()
@@ -134,14 +147,15 @@ func _physics_process(delta: float) -> void:
 	reflection_cam.global_rotation = camera.global_rotation
 	
 	# blob shadow
-	var space_state := get_world_3d().direct_space_state
-	var query := PhysicsRayQueryParameters3D.create(global_position, global_position + Vector3(0.0, -99.0, 0.0))
-	var collision := space_state.intersect_ray(query)
-	if collision:
-		shadow_sprite.global_position = collision.position + Vector3(0.0, 0.1, 0.0)
-		print("player pos: ", global_position, ", shadow pos: ", collision.position)
+	shadow_ray.global_position = global_position
+	if shadow_ray.is_colliding():
+		shadow_sprite.global_position = shadow_ray.get_collision_point() + shadow_ray.get_collision_normal() * 0.01
+		shadow_sprite.look_at(shadow_ray.get_collision_point() + shadow_ray.get_collision_normal())
 
 func _on_body_entered(body: Node) -> void:
+	if floor_check.is_colliding():
+		was_grounded = false
+		has_jumped = false
 	if linear_velocity.length() > 0.4:
 		sfx_stream.pitch_scale = randf_range(0.8, 1.2)
 		sfx_stream.stream = impact_sfx
