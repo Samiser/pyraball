@@ -1,11 +1,13 @@
-[gd_scene load_steps=35 format=3 uid="uid://ccdc33vpni5bd"]
+[gd_scene load_steps=36 format=3 uid="uid://ccdc33vpni5bd"]
 
 [ext_resource type="Script" uid="uid://dj4hr00xw01je" path="res://Scripts/player.gd" id="1_4flbx"]
 [ext_resource type="AudioStream" uid="uid://cnq7ivmp32tgp" path="res://Audio/SoundFX/jump.mp3" id="2_sweqy"]
 [ext_resource type="AudioStream" uid="uid://d4k5qwdw5ufjn" path="res://Audio/SoundFX/ball_impact.mp3" id="3_2hs0m"]
 [ext_resource type="AudioStream" uid="uid://bdsmrl04kpxbj" path="res://Audio/SoundFX/ball_roll.mp3" id="3_i3pqv"]
 [ext_resource type="AudioStream" uid="uid://mcjf4yij1asd" path="res://Audio/SoundFX/crystal_pickup.mp3" id="4_x3wgy"]
+[ext_resource type="AudioStream" uid="uid://dbs5o1qe2ngpd" path="res://Audio/SoundFX/respawn.mp3" id="5_8erm5"]
 [ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="6_x3wgy"]
+[ext_resource type="PackedScene" uid="uid://crib7luyq5nj1" path="res://Meshes/hand.glb" id="7_3smsa"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4flbx"]
 friction = 520.0
@@ -103,9 +105,6 @@ height = 0.92
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4flbx"]
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_4flbx"]
-dof_blur_far_distance = 1.16
-
 [sub_resource type="Curve" id="Curve_x3wgy"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.497854, 1), 0.0727216, 0.0727216, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -176,6 +175,7 @@ mesh = SubResource("SphereMesh_sweqy")
 skeleton = NodePath("../..")
 
 [node name="SubViewport" type="SubViewport" parent="MeshInstance3D/Reflection_Mesh"]
+size = Vector2i(256, 256)
 render_target_update_mode = 4
 
 [node name="reflection_cam" type="Camera3D" parent="MeshInstance3D/Reflection_Mesh/SubViewport"]
@@ -195,7 +195,6 @@ spring_length = 3.0
 [node name="Camera3D" type="Camera3D" parent="CameraTarget/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 0.946812, 0.321787, 0, -0.321787, 0.946812, 0, 1.88998, 2.78866)
 cull_mask = 1048565
-attributes = SubResource("CameraAttributesPractical_4flbx")
 
 [node name="dust_particles" type="GPUParticles3D" parent="CameraTarget/SpringArm3D/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.946812, -0.321787, 0, 0.321787, 0.946812, 0, 0, 0)
@@ -221,6 +220,7 @@ texture = ExtResource("6_x3wgy")
 
 [node name="sfx_stream" type="AudioStreamPlayer3D" parent="."]
 volume_db = -20.0
+max_polyphony = 12
 
 [node name="sfx_roll_stream" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_i3pqv")
@@ -248,5 +248,20 @@ pixel_size = 0.001
 texture_filter = 0
 render_priority = 1
 texture = ExtResource("6_x3wgy")
+
+[node name="respawn_hand" parent="." instance=ExtResource("7_3smsa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+visible = false
+
+[node name="respawn_sfx" type="AudioStreamPlayer3D" parent="respawn_hand"]
+stream = ExtResource("5_8erm5")
+volume_db = 10.0
+max_distance = 20.0
+
+[node name="light" type="OmniLight3D" parent="."]
+light_color = Color(0.882353, 0.360784, 1, 1)
+light_energy = 0.8
+distance_fade_enabled = true
+omni_range = 10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

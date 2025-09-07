@@ -29,6 +29,11 @@ func _tween_fog_color(new_color: Color, new_density: float) -> void:
 	tween.parallel().tween_property(environment, "fog_density", new_density, 1)
 	tween.parallel().tween_property(minimap_camera, "environment:fog_light_color", new_color, 1)
 
+func _tween_daylight(new_rot: Vector3, new_colour: Color) -> void:
+	var tween := create_tween()
+	tween.tween_property($DirectionalLight3D as Node3D, "rotation_degrees", new_rot, 1.0)
+	tween.parallel().tween_property($DirectionalLight3D as DirectionalLight3D, "light_color", new_colour, 1.0)
+
 func _tween_rotation(new_rotation: Vector3) -> void:
 	var tween := create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
@@ -41,15 +46,19 @@ func _apply_world_changes() -> void:
 		LevelEnum.BACK:
 			player.set_new_scale(0.2, current_level)
 			_tween_fog_color(Color.from_hsv(0.6, 0.6, 1.0), 0.015)
+			_tween_daylight(Vector3(-90.0, 0.0, 0.0), Color.WHITE)
 		LevelEnum.PRESENT:
 			player.set_new_scale(0.5, current_level)
-			_tween_fog_color(Color.from_hsv(0.7, 0.6, 1.0), 0.005)
+			_tween_fog_color(Color.from_hsv(0.7, 0.6, 0.6), 0.005)
+			_tween_daylight(Vector3(-172.0, 0.0, 0.0), Color.BLUE_VIOLET)
 		LevelEnum.FORWARD:
 			player.set_new_scale(3, current_level)
 			_tween_fog_color(Color.from_hsv(0.95, 0.6, 1.0), 0.001)
+			_tween_daylight(Vector3(-40.0, 0.0, 0.0), Color.FLORAL_WHITE)
 		LevelEnum.VOID:
 			player.set_new_scale(10, current_level)
 			_tween_fog_color(Color.from_hsv(0.5, 0.4, 1.0), 0.001)
+			_tween_daylight(Vector3(0.0, 0.0, 0.0), Color.BLUE_VIOLET)
 
 func _change_current_level(direction: String) -> void:
 	if direction == "left":

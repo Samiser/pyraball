@@ -1,32 +1,117 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjtk4yijo8t5r"]
+[gd_scene load_steps=13 format=3 uid="uid://cjtk4yijo8t5r"]
 
 [ext_resource type="Script" uid="uid://bfy05rt0v6is2" path="res://Scenes/portal.gd" id="1_lvd5j"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_lvd5j"]
-viewport_path = NodePath("SubViewport")
+[ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="2_mdgx6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lvd5j"]
-radius = 1.2
+radius = 1.4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bseyl"]
+emission_shape_offset = Vector3(0, -6, 0)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 90, 1)
+emission_ring_height = 2.0
+emission_ring_radius = 8.0
+emission_ring_inner_radius = 7.63
+emission_ring_cone_angle = 90.0
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.02
+scale_max = 0.12
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ld0w"]
+transparency = 1
+albedo_texture = ExtResource("2_mdgx6")
+emission_enabled = true
+emission = Color(0.341176, 0, 1, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_mtwac"]
+material = SubResource("StandardMaterial3D_2ld0w")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bseyl"]
+frequency = 0.0043
+fractal_lacunarity = 2.155
+fractal_gain = 1.12
+fractal_weighted_strength = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mtwac"]
+seamless = true
+noise = SubResource("FastNoiseLite_bseyl")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rf6x2"]
+frequency = 0.0057
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_av48w"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_rf6x2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_koq56"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.396078, 0.121569, 1, 0.670588)
+roughness = 0.15
+emission_enabled = true
+emission = Color(0.844395, 0.0019774, 0.999666, 1)
+emission_energy_multiplier = 2.0
+emission_texture = SubResource("NoiseTexture2D_mtwac")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_av48w")
+rim_tint = 1.0
+backlight = Color(0.404511, 0.404511, 0.404511, 1)
+proximity_fade_distance = 10.0
+distance_fade_mode = 2
+distance_fade_min_distance = 24.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mdgx6"]
+material = SubResource("StandardMaterial3D_koq56")
+top_radius = 0.0
+bottom_radius = 1.4
+radial_segments = 4
+cap_top = false
 
 [node name="Portal" type="Node3D"]
 script = ExtResource("1_lvd5j")
-
-[node name="SubViewport" type="SubViewport" parent="."]
-handle_input_locally = false
-render_target_update_mode = 4
-
-[node name="Camera3D" type="Camera3D" parent="SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0948719, 2.02527)
-cull_mask = 1048545
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-pixel_size = 0.006
-billboard = 1
-texture = SubResource("ViewportTexture_lvd5j")
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_lvd5j")
+
+[node name="portal_particles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.52251, 0)
+amount = 32
+preprocess = 1.0
+speed_scale = 0.5
+randomness = 0.13
+interpolate = false
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_bseyl")
+draw_pass_1 = SubResource("QuadMesh_mtwac")
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.941698, 0)
+strength = 128.0
+radius = 40.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_mdgx6")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.858032, 0)
+light_color = Color(0.851431, 0.347182, 1, 1)
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 20.0
+distance_fade_shadow = 40.0
+omni_range = 16.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

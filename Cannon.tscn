@@ -1,32 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://0p11ariwu823"]
+[gd_scene load_steps=7 format=3 uid="uid://0p11ariwu823"]
 
 [ext_resource type="Script" uid="uid://51ars4r44ojp" path="res://cannon.gd" id="1_4ogkl"]
+[ext_resource type="AudioStream" uid="uid://cs1cmgtpj1wpo" path="res://Audio/SoundFX/cannon_turn.mp3" id="2_i175o"]
+[ext_resource type="AudioStream" uid="uid://da5y1q3ibhcds" path="res://Audio/SoundFX/cannon_fire.mp3" id="2_ria0b"]
 
-[sub_resource type="PrismMesh" id="PrismMesh_i175o"]
-size = Vector3(0.4, 0.4, 0.4)
+[sub_resource type="CylinderMesh" id="CylinderMesh_pu81y"]
+top_radius = 0.0
+bottom_radius = 0.2
+height = 0.4
+radial_segments = 4
+cap_top = false
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ria0b"]
-top_radius = 0.2
-bottom_radius = 0.1
-height = 1.0
+top_radius = 0.4
+bottom_radius = 0.0
+height = 0.8
+radial_segments = 4
+cap_bottom = false
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pu81y"]
 
 [node name="Cannon" type="Node3D"]
 script = ExtResource("1_4ogkl")
+fire_sfx = ExtResource("2_ria0b")
+turn_sfx = ExtResource("2_i175o")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.200132, 0)
-mesh = SubResource("PrismMesh_i175o")
+mesh = SubResource("CylinderMesh_pu81y")
 
 [node name="barrel" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, -6.66413e-17, 2.91299e-24, 0, -4.37114e-08, -1, 6.66413e-17, 1, -4.37114e-08, 0, 0.49592, 0)
+transform = Transform3D(1, -6.66413e-17, 2.91298e-24, 0, -4.37114e-08, -1, 6.66413e-17, 1, -4.37114e-08, 0, 0.49592, 0)
 mesh = SubResource("CylinderMesh_ria0b")
+
+[node name="fire_spot" type="Node3D" parent="barrel"]
+transform = Transform3D(1, 6.66413e-17, -6.66413e-17, -6.66413e-17, -4.37114e-08, -1, -6.66413e-17, 1, -4.37114e-08, 5.69934e-17, 0.855226, -2.98023e-08)
 
 [node name="StaticBody3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0580885, 0.544384, 0.00598674)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_pu81y")
+
+[node name="turn_sfx_stream" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_i175o")
+pitch_scale = 0.8
 
 [connection signal="body_entered" from="StaticBody3D" to="." method="_on_static_body_3d_body_entered"]

@@ -32,6 +32,7 @@ color = Color(0.83, 0.50215, 0.1743, 1)
 [node name="OmniLight3D" type="OmniLight3D" parent="LightPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.203, -2.794)
 shadow_enabled = true
+distance_fade_enabled = true
 omni_range = 20.3488
 omni_attenuation = 0.599
 

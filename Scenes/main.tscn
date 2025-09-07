@@ -11,16 +11,13 @@
 [ext_resource type="Shader" uid="uid://twjxjt5ypucs" path="res://Scenes/warp.gdshader" id="10_hptm8"]
 
 [sub_resource type="Environment" id="Environment_lquwl"]
-ambient_light_source = 1
+ambient_light_source = 2
 ambient_light_color = Color(0.947199, 0.947199, 0.947199, 1)
-reflected_light_source = 1
 glow_hdr_threshold = 0.4
-fog_enabled = true
 fog_light_color = Color(0.384632, 0.551863, 0.818752, 1)
 fog_density = 0.0004
 adjustment_enabled = true
-adjustment_brightness = 1.4
-adjustment_contrast = 1.2
+adjustment_brightness = 1.2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d1ilt"]
 shader = ExtResource("10_hptm8")
@@ -52,6 +49,7 @@ emission_sphere_radius = 1.0
 gravity = Vector3(0, 0, 0)
 radial_accel_min = -1.0
 radial_accel_max = 0.999998
+attractor_interaction_enabled = false
 scale_min = 6.0
 scale_max = 12.0
 scale_curve = SubResource("CurveTexture_2ld0w")
@@ -100,7 +98,10 @@ color_ramp = SubResource("GradientTexture1D_2ld0w")
 turbulence_noise_strength = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wp1u0"]
-transparency = 1
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.662745)
 albedo_texture = ExtResource("7_wsu2k")
@@ -135,6 +136,7 @@ angle_max = 720.0
 gravity = Vector3(-8, 0, 0)
 radial_accel_min = -1.0
 radial_accel_max = 0.999998
+attractor_interaction_enabled = false
 scale_min = 4.0
 scale_max = 8.0
 scale_curve = SubResource("CurveTexture_32x38")
@@ -157,7 +159,7 @@ material = SubResource("StandardMaterial3D_chl2c")
 script = ExtResource("1_ynf5e")
 
 [node name="Player" parent="." instance=ExtResource("2_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8799, 42.9714, -102.487)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9475, 42.5794, -97.4137)
 
 [node name="World" parent="." node_paths=PackedStringArray("player", "minimap_camera") instance=ExtResource("3_6bp64")]
 player = NodePath("../Player")
@@ -182,11 +184,19 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="UI/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
+canvas_item_default_texture_filter = 0
+positional_shadow_atlas_16_bits = false
+positional_shadow_atlas_quad_0 = 0
+positional_shadow_atlas_quad_1 = 0
+positional_shadow_atlas_quad_2 = 0
+positional_shadow_atlas_quad_3 = 0
+canvas_cull_mask = 4294967269
 size = Vector2i(120, 117)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="UI/SubViewportContainer/SubViewport"]
 transform = Transform3D(-1, 8.60946e-08, -1.51808e-08, 0, 0.173648, 0.984808, 8.74228e-08, 0.984807, -0.173648, 0, 260, -60)
+cull_mask = 1048559
 environment = SubResource("Environment_lquwl")
 projection = 1
 fov = 28.3684
@@ -219,6 +229,7 @@ stretch_mode = 4
 
 [node name="stars" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48.7183, -42.597)
+layers = 16
 amount = 16
 lifetime = 14.0
 preprocess = 1.0
@@ -231,6 +242,7 @@ draw_pass_1 = SubResource("QuadMesh_h1bgf")
 
 [node name="clouds" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 88.1322, -41.9729)
+layers = 16
 amount = 16
 lifetime = 24.0
 preprocess = 4.0
@@ -243,6 +255,7 @@ draw_pass_1 = SubResource("QuadMesh_pdsj5")
 
 [node name="desert_wind" type="GPUParticles3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.78577, 80.4289, -89.0279)
+layers = 16
 amount = 128
 lifetime = 4.0
 preprocess = 1.0

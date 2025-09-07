@@ -4,6 +4,9 @@ class_name TimeCrystal
 var is_collected: bool = false
 signal collected
 
+func _ready() -> void:
+	$MapMarker.visible = true
+
 func _animate_collection() -> void:
 	$Gradual.emitting = false
 	$Explosion.emitting = true

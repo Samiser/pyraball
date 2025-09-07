@@ -23,11 +23,13 @@ var air_control_force : float = 256.0
 @onready var shadow_ray : RayCast3D = $shadow_ray
 @onready var shadow_sprite : Sprite3D = $shadow_ray/player_shadow
 @onready var dust := $CameraTarget/SpringArm3D/Camera3D/dust_particles
+@onready var collider := $CollisionShape3D
 
 @export var jump_sfx : AudioStream
 @export var impact_sfx : AudioStream
 @export var crystal_pickup_sfx : AudioStream
 @onready var sfx_stream : AudioStreamPlayer3D = $sfx_stream
+@onready var respawn_sfx : AudioStreamPlayer3D = $respawn_hand/respawn_sfx
 @onready var roll_sfx_stream : AudioStreamPlayer3D = $sfx_roll_stream
 
 var current_level : Level
@@ -38,6 +40,11 @@ signal all_crystals_collected(player_position: Vector3)
 
 var last_linear_velocity: Vector3
 var last_angular_velocity: Vector3
+
+var last_safe_pos : Vector3
+var is_respawning := false
+var respawn_camera := false
+@onready var hand_mesh := $respawn_hand
 
 var was_grounded := false
 var has_jumped := false
@@ -51,6 +58,9 @@ func _ready() -> void:
 	roll_particles.top_level = true
 	shadow_ray.top_level = true
 	shadow_sprite.top_level = true
+	hand_mesh.top_level = true
+	
+	spring_arm.add_excluded_object(self)
 
 func on_puzzle_completed(name: String) -> void:
 	print(name)
@@ -59,10 +69,12 @@ func _rotate(direction: String) -> void:
 	last_linear_velocity = linear_velocity
 	last_angular_velocity = angular_velocity
 	freeze = true
+	collider.disabled = true
 	rotate.emit(direction, global_position)
 
 func rotation_completed(old_position: Vector3) -> void:
 	freeze = false
+	collider.disabled = false
 	linear_velocity = last_linear_velocity
 	angular_velocity = last_angular_velocity
 
@@ -76,6 +88,7 @@ func set_new_scale(new_scale: float, level: int) -> void:
 	spring_arm.transform.origin.y = 2.0 * new_scale
 	$FloorCheck.target_position.y = -1.25 * new_scale
 	dust.emitting = false
+	$light.hide()
 	match level:
 		0: # past/small
 			# mass = 0.5
@@ -94,6 +107,7 @@ func set_new_scale(new_scale: float, level: int) -> void:
 			shadow_sprite.pixel_size = 0.0012
 			shadow_sprite.material_override.distance_fade_min_distance = 4.4
 			shadow_sprite.material_override.distance_fade_max_distance = 8.0
+			$light.show()
 		2: # future/big
 			# mass = 20.0
 			rolling_force = 10.0
@@ -129,11 +143,19 @@ func _input(event: InputEvent) -> void:
 		_rotate("right")
 
 func _unhandled_input(event: InputEvent) -> void:
+	if is_respawning:
+		return
+		
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		spring_arm.rotation.x -= event.relative.y * mouse_sensitivity
 		spring_arm.rotation.x = clampf(spring_arm.rotation.x, -tilt_limit, tilt_limit)
 		spring_arm.rotation.y += -event.relative.x * mouse_sensitivity
 
+func _process(delta: float) -> void:
+	if respawn_camera:
+		var new_rot := camera.transform.looking_at(transform.origin, Vector3.UP)
+		camera.transform = camera.transform.interpolate_with(new_rot, 4.0 * delta)
+		
 func _physics_process(delta: float) -> void:
 	camera_target.global_transform.origin = lerp(
 		camera_target.global_transform.origin,
@@ -154,6 +176,10 @@ func _physics_process(delta: float) -> void:
 	var input_vector: Vector2 = Input.get_vector("forward", "back", "right", "left")
 	if !floor_check.is_colliding(): # slow spin force while airborne
 		input_vector *= 0.4
+	else:
+		if global_position.y > 42.0:
+			last_safe_pos = global_position # used for respawning
+	
 	angular_velocity += Vector3(input_vector.x, 0, input_vector.y).rotated(Vector3.UP, spring_arm.rotation.y) * rolling_force * delta
 	
 	# air control
@@ -187,9 +213,14 @@ func _physics_process(delta: float) -> void:
 	
 	# blob shadow
 	shadow_ray.global_position = global_position
-	if shadow_ray.is_colliding():
+	var shadow_hitting : bool = shadow_ray.is_colliding()
+	shadow_sprite.visible = shadow_hitting
+	if shadow_hitting:
 		shadow_sprite.global_position = shadow_ray.get_collision_point() + shadow_ray.get_collision_normal() * 0.01
-		shadow_sprite.look_at(shadow_ray.get_collision_point() + shadow_ray.get_collision_normal())
+		if !shadow_ray.get_collision_normal().is_equal_approx(Vector3.UP):
+			shadow_sprite.look_at(shadow_ray.get_collision_point() + shadow_ray.get_collision_normal())
+		else:
+			shadow_sprite.rotation_degrees = Vector3(90.0, 0.0, 0.0)
 
 func _on_body_entered(body: Node) -> void:
 	if floor_check.is_colliding():
@@ -199,3 +230,64 @@ func _on_body_entered(body: Node) -> void:
 		sfx_stream.pitch_scale = randf_range(0.8, 1.2)
 		sfx_stream.stream = impact_sfx
 		sfx_stream.play()
+
+func respawn_player() -> void:
+	is_respawning = true
+	freeze = true
+	linear_velocity = Vector3.ZERO
+	angular_velocity = Vector3.ZERO
+		
+	hand_mesh.visible = true
+	hand_mesh.scale = Vector3.ZERO
+	hand_mesh.position = global_position + Vector3.UP * 10.0
+	hand_mesh.global_rotation_degrees.z = -90.0
+	
+	var fall_pos := global_position
+	var safe_height := last_safe_pos.y
+	last_safe_pos += (last_safe_pos - fall_pos).normalized() * 2.0
+	last_safe_pos.y = safe_height
+	
+	respawn_sfx.play()
+	
+	# hand comes down
+	var tween := get_tree().create_tween()
+	tween.tween_property(hand_mesh, "scale", Vector3.ONE, 0.6)
+	tween.tween_property(hand_mesh, "global_position", global_position, 1.0)
+	tween.parallel().tween_property(hand_mesh, "global_rotation_degrees:z", 0.0, 1.0)
+	
+	var original_cam_trans := camera.transform
+	camera.reparent(get_tree().root)
+	respawn_camera = true # smooth look-at logic is in process
+	
+	# hand moves up
+	tween.tween_property(hand_mesh, "global_position:y", last_safe_pos.y + 10.0, 2.0)
+	tween.parallel().tween_property(hand_mesh, "global_rotation_degrees:z", -45.0, 2.0)
+	tween.parallel().tween_property(self, "global_position:y", last_safe_pos.y + 10.0, 2.0)
+	
+	# hand moves to drop pos
+	await tween.finished
+	tween = get_tree().create_tween()
+	camera.global_position = last_safe_pos + Vector3.RIGHT * 4.0 + Vector3.UP * 6.0
+	tween.tween_property(hand_mesh, "global_position", last_safe_pos, 2.0)
+	tween.parallel().tween_property(self, "global_position", last_safe_pos, 2.0)
+	
+	# hand leaves
+	tween.tween_property(hand_mesh, "global_position", last_safe_pos + Vector3.UP * 10.0, 1.0)
+	tween.parallel().tween_property(hand_mesh, "global_rotation_degrees:z", -90.0, 1.0)
+	tween.tween_property(hand_mesh, "scale", Vector3.ZERO, 0.6)
+
+	await tween.finished
+	
+	respawn_sfx.stop()
+	
+	# camera move back to player view
+	respawn_camera = false
+	camera.reparent(spring_arm)
+	tween = get_tree().create_tween()
+	tween.parallel().tween_property(camera, "transform", original_cam_trans, 0.6)
+
+	await tween.finished
+	
+	hand_mesh.visible = false
+	freeze = false
+	is_respawning = false
