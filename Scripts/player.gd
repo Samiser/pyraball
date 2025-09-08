@@ -56,6 +56,7 @@ var was_grounded := false
 var has_jumped := false
 var coyote_timer := 0.0
 var respawn_time := 0.0
+var is_colliding := false
 
 func _ready() -> void:
 	$MapMarker.visible = true
@@ -99,7 +100,7 @@ func set_new_scale(new_scale: float, level: int) -> void:
 	match level:
 		0: # past/small
 			# mass = 0.5
-			rolling_force = 28.0
+			rolling_force = 64.0
 			jump_force = 5.8
 			air_control_force = 468.0
 			shadow_sprite.pixel_size = 0.0004
@@ -206,7 +207,7 @@ func _physics_process(delta: float) -> void:
 		has_jumped = true
 	
 	# audio stuff
-	roll_sfx_stream.stream_paused = !floor_check.is_colliding()
+	roll_sfx_stream.stream_paused = !is_colliding
 	var roll_sfx_pitch := clampf(speed * 0.1, 0.0001, 4.0)
 	roll_sfx_stream.pitch_scale = roll_sfx_pitch
 	
@@ -228,15 +229,6 @@ func _physics_process(delta: float) -> void:
 			shadow_sprite.look_at(shadow_ray.get_collision_point() + shadow_ray.get_collision_normal())
 		else:
 			shadow_sprite.rotation_degrees = Vector3(90.0, 0.0, 0.0)
-
-func _on_body_entered(body: Node) -> void:
-	if floor_check.is_colliding():
-		was_grounded = false
-		has_jumped = false
-	if linear_velocity.length() > 0.4:
-		sfx_stream.pitch_scale = randf_range(0.8, 1.2)
-		sfx_stream.stream = impact_sfx
-		sfx_stream.play()
 
 func respawn_player() -> void:
 	is_respawning = true
@@ -307,3 +299,17 @@ func respawn_player() -> void:
 	freeze = false
 	respawn_time = Time.get_ticks_msec()
 	is_respawning = false
+
+
+func _on_body_entered(body: Node) -> void:
+	is_colliding = true
+	if floor_check.is_colliding():
+		was_grounded = false
+		has_jumped = false
+	if !sfx_stream.playing && linear_velocity.length() > 1.2:
+		sfx_stream.pitch_scale = randf_range(0.8, 1.2)
+		sfx_stream.stream = impact_sfx
+		sfx_stream.play()
+
+func _on_body_exited(body: Node) -> void:
+	is_colliding = false

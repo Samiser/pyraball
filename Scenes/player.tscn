@@ -207,6 +207,7 @@ draw_pass_1 = SubResource("QuadMesh_tx1dd")
 
 [node name="FloorCheck" type="RayCast3D" parent="."]
 target_position = Vector3(0, -0.62, 0)
+collision_mask = 5
 
 [node name="MapMarker" type="Sprite3D" parent="."]
 visible = false
@@ -265,3 +266,4 @@ distance_fade_enabled = true
 omni_range = 10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
