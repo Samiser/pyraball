@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8ajs5k432v2j"]
+[gd_scene load_steps=10 format=3 uid="uid://c8ajs5k432v2j"]
 
 [ext_resource type="Script" uid="uid://dpwjlmp2wbf2r" path="res://Scripts/hollow_planet.gd" id="1_m4nmd"]
 [ext_resource type="PackedScene" uid="uid://cjtk4yijo8t5r" path="res://Scenes/Portal.tscn" id="3_i46i6"]
@@ -12,10 +12,28 @@ frequency = 0.0034
 seamless = true
 noise = SubResource("FastNoiseLite_i46i6")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2byep"]
+noise_type = 2
+frequency = 0.0042
+fractal_octaves = 10
+fractal_lacunarity = 1.68
+fractal_gain = 1.535
+fractal_weighted_strength = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_po57b"]
+generate_mipmaps = false
+seamless = true
+noise = SubResource("FastNoiseLite_2byep")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_leuxk"]
 transparency = 1
 albedo_color = Color(0, 1, 1, 0.580392)
 albedo_texture = SubResource("NoiseTexture2D_2byep")
+emission_enabled = true
+emission = Color(0.533392, 0.501215, 1, 1)
+emission_energy_multiplier = 2.0
+emission_operator = 1
+emission_texture = SubResource("NoiseTexture2D_po57b")
 rim_enabled = true
 rim = 0.11
 rim_tint = 0.4
