@@ -3,9 +3,13 @@
 [ext_resource type="Script" uid="uid://cmkewieunc5jw" path="res://Scenes/maze_part.gd" id="1_m1q3c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tpyry"]
-size = Vector3(0.6, 1, 0.6)
+size = Vector3(0.6, 0.4, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1q3c"]
+transparency = 1
+albedo_color = Color(4.69275e-07, 0.490135, 9.62615e-07, 0.596078)
+metallic = 0.35
+roughness = 0.25
 emission_enabled = true
 emission = Color(0, 1, 0, 1)
 emission_energy_multiplier = 4.0
@@ -21,6 +25,7 @@ script = ExtResource("1_m1q3c")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.126246, 0)
 shape = SubResource("BoxShape3D_tpyry")
 
 [node name="indicator" type="MeshInstance3D" parent="."]

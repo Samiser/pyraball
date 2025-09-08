@@ -1,6 +1,6 @@
 extends Node3D
 var correct_parts : Array = [24, 20, 15, 10, 11, 12, 13, 8, 3, 2, 1, 0]
-var correct_in_a_row := 0
+var parts_hit : Array
 var won := false
 
 func _ready() -> void:
@@ -17,9 +17,12 @@ func child_hit(index: int) -> void:
 	if !correct_parts.has(index):
 		_reset()
 		return
-		
-	correct_in_a_row += 1
-	if correct_in_a_row == 12:
+	
+	if parts_hit.has(index):
+		return
+	
+	parts_hit.insert(0, index)
+	if parts_hit.size() == 12:
 		_win()
 
 func _win() -> void:
@@ -32,6 +35,6 @@ func _win() -> void:
 func _reset() -> void:
 	for child: MazePart in $parts.get_children():
 		child.reset()
-	correct_in_a_row = 0
+	parts_hit.clear()
 	$AudioStreamPlayer3D.stream = load("res://Audio/SoundFX/maze_flip_off.mp3")
 	$AudioStreamPlayer3D.play()
