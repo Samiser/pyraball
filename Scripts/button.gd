@@ -11,26 +11,35 @@ class_name TriangleButton
 @onready var press_area: Area3D = $PressArea
 @onready var actuator: RigidBody3D = $Actuator
 @onready var actuator_mesh: MeshInstance3D = $"Actuator/Cone-col-rigid"
+var is_pressed := false
 
 var material: Material 
+var time := 0.0
+var tween : Tween
 
 signal pressed(button: TriangleButton)
 signal released(button: TriangleButton)
 
 func _tween_actuator_color(to_color: Color, duration: float = 0.2) -> void:
-	var material := actuator_mesh.get_surface_override_material(0)
-	var tween := create_tween()
+	material.emission_energy_multiplier = 0.0
+	tween = create_tween()
 	tween.tween_property(material, "albedo_color", to_color, duration)
 
 func _on_press_area_entered(body: Node3D) -> void:
 	if body == actuator:
 		_tween_actuator_color(color)
 		emit_signal("pressed", self)
+		$AudioStreamPlayer3D.stream = load("res://Audio/SoundFX/button_press.mp3")
+		$AudioStreamPlayer3D.play()
+		is_pressed = true
 
 func _on_press_area_exited(body: Node3D) -> void:
 	if body == actuator:
 		_tween_actuator_color(color.lightened(0.5))
 		emit_signal("released", self)
+		$AudioStreamPlayer3D.stream = load("res://Audio/SoundFX/button_release.mp3")
+		$AudioStreamPlayer3D.play()
+		is_pressed = false
 
 func set_freeze(value: bool) -> void:
 	actuator.position = Vector3(0., 0.373, 0.)
@@ -45,3 +54,10 @@ func _ready() -> void:
 	)
 	material = actuator_mesh.get_surface_override_material(0)
 	material.albedo_color = color.lightened(0.5)
+
+func _process(delta: float) -> void:
+	if is_pressed:
+		return
+		
+	time += delta
+	material.emission_energy_multiplier = sin(time) * 0.4
