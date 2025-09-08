@@ -54,7 +54,7 @@ func _on_button_pressed(_button: TriangleButton) -> void:
 		return
 	
 	if not _all_reflectors_oriented():
-		change_speed(0.09)
+		change_speed(0.2)
 	else:
 		backwards = true
 		await _animate_reversal()
@@ -65,7 +65,7 @@ func _on_button_released(_button: TriangleButton) -> void:
 		return
 	
 	if not _all_reflectors_oriented():
-		change_speed(-0.09)
+		change_speed(-0.2)
 
 func _ready() -> void:
 	button.pressed.connect(_on_button_pressed)

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://hxlx84tjlowl" path="res://Scenes/pyramid.tscn" id="2_wwrjg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x2mgy"]
-size = Vector3(0.270569, 1, 9.46289)
+size = Vector3(1.52906, 1, 9.46289)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_x2mgy"]
 radius = 0.371383
@@ -30,21 +30,28 @@ color = Color(0.83, 0.50215, 0.1743, 1)
 [node name="LightPivot" type="Node3D" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="LightPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.203, -2.794)
-shadow_enabled = true
-distance_fade_enabled = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.203, -5.01858)
+light_energy = 1.762
+distance_fade_begin = 20.0
 omni_range = 20.3488
 omni_attenuation = 0.599
+
+[node name="SpotLight3D" type="SpotLight3D" parent="LightPivot"]
+transform = Transform3D(1, 0, 0, 0, -0.0697565, 0.997564, 0, -0.997564, -0.0697565, 0, 10.5035, 4.28487)
+light_energy = 9.99
+light_negative = true
+spot_range = 13.1749
+spot_angle = 8.29327
 
 [node name="Shadow" type="Area3D" parent="LightPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.28764)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LightPivot/Shadow"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0145569, 0, 0.000306129)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0808408, 0, 0.000306129)
 shape = SubResource("BoxShape3D_x2mgy")
 
 [node name="Twelve" parent="." groups=["clock_marker"] instance=ExtResource("2_wwrjg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 base_size = 0.8
 height = 0.2
 color = Color(0.83, 0.50215, 0.1743, 1)
@@ -66,7 +73,7 @@ color = Color(0.83, 0.50215, 0.1743, 1)
 shape = SubResource("SphereShape3D_x2mgy")
 
 [node name="Six" parent="." groups=["clock_marker"] instance=ExtResource("2_wwrjg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 base_size = 0.8
 height = 0.2
 color = Color(0.83, 0.50215, 0.1743, 1)
