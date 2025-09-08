@@ -51,8 +51,10 @@ var respawn_camera := false
 var backup_respawn_points :Array[Vector3]= [
 Vector3(-80, 44,-120),
 Vector3(80, 44,-120),
-Vector3(-50, 44,-45),
-Vector3(50, 44,-45),
+Vector3(-50, 44,-44),
+Vector3(50, 44,-44),
+Vector3(-50, 44,-58),
+Vector3(50, 44,-58),
 Vector3(0, 44,55)
 ]
 var was_grounded := false
@@ -255,7 +257,7 @@ func respawn_player() -> void:
 	if (Time.get_ticks_msec() - respawn_time) < 5000:
 		var closest_dist := 99999
 		for pos in backup_respawn_points:
-			var dist := global_position.distance_to(pos)
+			var dist := last_safe_pos.distance_to(pos)
 			if dist < closest_dist:
 				last_safe_pos = pos
 				closest_dist = dist
