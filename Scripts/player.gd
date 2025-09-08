@@ -160,6 +160,9 @@ func _input(event: InputEvent) -> void:
 		_rotate("left")
 	elif event.is_action_pressed("rotate_right") and not all_crystals_are_collected and past_unlocked:
 		_rotate("right")
+	elif event.is_action_pressed("unlock_all"):
+		past_unlocked = true
+		future_unlocked = true
 
 func _unhandled_input(event: InputEvent) -> void:
 	if is_respawning:

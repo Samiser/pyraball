@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://dgsj7t1qj4utm"]
+[gd_scene load_steps=9 format=4 uid="uid://dgsj7t1qj4utm"]
 
 [ext_resource type="Script" uid="uid://cmhefusdoyl0w" path="res://Scripts/button.gd" id="1_1cmwl"]
 
@@ -41,6 +41,14 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ox12w")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1cmwl"]
+resource_name = "Material.001"
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.5, 0.5, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_r04n3"]
 points = PackedVector3Array(0, 2, -0.5, 2, 0, -0.5, -2, 0, -0.5, 0, 0, 0.5, 0, -2, -0.5)
 
@@ -72,6 +80,7 @@ mass = 0.1
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("ArrayMesh_0vvm8")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_1cmwl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Actuator"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
