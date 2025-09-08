@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://rrr20x3dugm8"]
+
+[ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="1_jd8wx"]
+
+[resource]
+resource_name = "Transparent_Material"
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_jd8wx")
+metallic_specular = 0.0

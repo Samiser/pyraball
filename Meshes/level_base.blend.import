@@ -34,6 +34,10 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
+"Circle_Transparent_Mat": {
+"use_external/enabled": true,
+"use_external/path": "uid://rrr20x3dugm8"
+},
 "Material": {
 "use_external/enabled": true,
 "use_external/path": "res://Meshes/Material.tres"
