@@ -105,6 +105,7 @@ func set_new_scale(new_scale: float, level: int) -> void:
 	$FloorCheck.target_position.y = -1.25 * new_scale
 	dust.emitting = false
 	$light.hide()
+	constant_force = Vector3.ZERO
 	match level:
 		0: # past/small
 			# mass = 0.5
@@ -114,6 +115,8 @@ func set_new_scale(new_scale: float, level: int) -> void:
 			shadow_sprite.pixel_size = 0.0004
 			shadow_sprite.material_override.distance_fade_min_distance = 1.4
 			shadow_sprite.material_override.distance_fade_max_distance = 8.0
+			if global_position.z < -60:
+				add_constant_force(Vector3.LEFT)
 			dust.emitting = true
 		1: # present/medium
 			# mass = 4.0
@@ -177,6 +180,12 @@ func _physics_process(delta: float) -> void:
 		camera_target.global_transform.origin,
 		global_transform.origin, 0.2
 	)
+	
+	if jump_force == 5.8: # silly way of checking if player is da small ball
+		if global_position.z < -60:
+			add_constant_force(Vector3.LEFT)
+		else:
+			constant_force = Vector3.ZERO
 	
 	var v := linear_velocity
 	v.y = 0.0
