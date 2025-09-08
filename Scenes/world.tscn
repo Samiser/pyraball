@@ -309,4 +309,7 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -13.7928, 42.2251, 30.5
 [node name="TimeCrystal73" parent="Crystals" instance=ExtResource("5_5v1tr")]
 transform = Transform3D(1.98759, -1.05431e-07, -0.222452, 9.76478e-08, 2, -7.54258e-08, 0.222452, 6.40968e-08, 1.98759, -1.17268, 123.541, -7.37461)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
 [connection signal="body_entered" from="Drop_KillZone" to="Drop_KillZone" method="_on_body_entered"]

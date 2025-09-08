@@ -6,6 +6,7 @@ extends Node3D
 
 enum LevelEnum {BACK, PRESENT, FORWARD, VOID}
 var current_level: LevelEnum = LevelEnum.PRESENT
+var last_level := 0
 
 signal puzzle_completed(name: String)
 signal portalled
@@ -42,6 +43,14 @@ func _tween_rotation(new_rotation: Vector3) -> void:
 	return
 
 func _apply_world_changes() -> void:
+	var audio_stream :AudioStreamPlayer= $AudioStreamPlayer
+	if last_level < current_level:
+		audio_stream.stream = load("res://Audio/SoundFX/time_forward.mp3")
+	else:
+		audio_stream.stream = load("res://Audio/SoundFX/time_back.mp3")
+	audio_stream.play()
+	
+	last_level = current_level
 	match current_level:
 		LevelEnum.BACK:
 			player.set_new_scale(0.2, current_level)
