@@ -22,35 +22,35 @@ script = ExtResource("1_x53gr")
 [node name="Bars" type="Node3D" parent="."]
 
 [node name="Bar" parent="Bars" instance=ExtResource("1_p80af")]
-transform = Transform3D(1, -1.29405e-07, -7.66825e-08, -7.66826e-08, -0.877146, 0.480223, -1.29405e-07, -0.480223, -0.877146, 0, 0, 0)
+transform = Transform3D(1, -2.02639e-07, -1.4189e-07, -1.4189e-07, -0.939692, 0.34202, -2.02639e-07, -0.34202, -0.939692, 0, 0, 0)
 sync_to_physics = false
 
 [node name="Bar2" parent="Bars" instance=ExtResource("1_p80af")]
-transform = Transform3D(0.707106, 0.339158, 0.620461, 1.32493e-07, -0.877465, 0.479641, 0.707107, -0.339157, -0.620461, 0, 0, 0)
+transform = Transform3D(0.707106, 0.241845, 0.664463, 1.4189e-07, -0.939693, 0.34202, 0.707107, -0.241845, -0.664462, 0, 0, 0)
 sync_to_physics = false
 
 [node name="Bar3" parent="Bars" instance=ExtResource("1_p80af")]
-transform = Transform3D(-1.52776e-07, 0.479642, 0.877464, -7.67104e-08, -0.877464, 0.479642, 1, 5.9669e-09, 1.70849e-07, 0, 0, 0)
+transform = Transform3D(-1.43064e-07, 0.34202, 0.939692, -1.4189e-07, -0.939692, 0.34202, 1, -8.4402e-08, 1.82965e-07, 0, 0, 0)
 sync_to_physics = false
 
 [node name="Bar4" parent="Bars" instance=ExtResource("1_p80af")]
-transform = Transform3D(-0.707107, 0.339158, 0.620461, -7.67104e-08, -0.877464, 0.479642, 0.707107, 0.339158, 0.620461, 0, 0, 0)
+transform = Transform3D(-0.707107, 0.241845, 0.664463, -1.4189e-07, -0.939692, 0.34202, 0.707107, 0.241845, 0.664463, 0, 0, 0)
 sync_to_physics = false
 
 [node name="Bar5" parent="Bars" instance=ExtResource("1_p80af")]
-transform = Transform3D(-1, -4.19316e-08, -7.67104e-08, 0, -0.877464, 0.479642, -8.74228e-08, 0.479642, 0.877464, 0, 0, 0)
+transform = Transform3D(-1, 5.75224e-08, -8.21505e-08, -8.21505e-08, -0.939692, 0.34202, -5.75224e-08, 0.34202, 0.939692, 0, 0, 0)
 sync_to_physics = false
 
 [node name="Bar6" parent="Bars" instance=ExtResource("1_p80af")]
-transform = Transform3D(-0.707106, -0.339158, -0.620461, 2.10734e-08, -0.877464, 0.479642, -0.707107, 0.339158, 0.620461, 0, 0, 0)
+transform = Transform3D(-0.707106, -0.241845, -0.664463, -8.21505e-08, -0.939692, 0.34202, -0.707107, 0.241845, 0.664463, 0, 0, 0)
 sync_to_physics = false
 
 [node name="Bar7" parent="Bars" instance=ExtResource("1_p80af")]
-transform = Transform3D(1.31134e-07, -0.479642, -0.877464, 3.55271e-15, -0.877464, 0.479642, -1, -6.28974e-08, -1.15066e-07, 0, 0, 0)
+transform = Transform3D(1.3302e-07, -0.34202, -0.939692, -8.21505e-08, -0.939692, 0.34202, -1, 3.17006e-08, -1.53095e-07, 0, 0, 0)
 sync_to_physics = false
 
 [node name="Bar8" parent="Bars" instance=ExtResource("1_p80af")]
-transform = Transform3D(0.707107, -0.339157, -0.620461, 1.32493e-07, -0.877464, 0.479641, -0.707106, -0.339158, -0.620461, 0, 0, 0)
+transform = Transform3D(0.707107, -0.241844, -0.664462, 1.4189e-07, -0.939692, 0.34202, -0.707106, -0.241845, -0.664463, 0, 0, 0)
 sync_to_physics = false
 
 [node name="Ball" type="StaticBody3D" parent="."]

@@ -18,6 +18,9 @@ func reset() -> void:
 	for bar in bars:
 		bar.rotation.x = deg_to_rad(-28)
 
+func get_material() -> StandardMaterial3D:
+	return $Ball/MeshInstance3D.get_surface_override_material(0)
+
 func pulse(color: Color) -> void:
 	var material: Material = $Ball/MeshInstance3D.get_surface_override_material(0)
 	var tween := create_tween()
