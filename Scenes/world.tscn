@@ -113,4 +113,43 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -41.63
 [node name="TimeCrystal12" parent="Crystals" groups=["present"] instance=ExtResource("5_5v1tr")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -54.7167, 50.3737, -77.0011)
 
+[node name="TimeCrystal2" parent="Crystals" instance=ExtResource("5_5v1tr")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.339142, 42.3038, -98.5329)
+
+[node name="TimeCrystal18" parent="Crystals" instance=ExtResource("5_5v1tr")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.339142, 42.3038, -107.958)
+
+[node name="TimeCrystal21" parent="Crystals" instance=ExtResource("5_5v1tr")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.339142, 42.3038, -87.6334)
+
+[node name="TimeCrystal19" parent="Crystals" instance=ExtResource("5_5v1tr")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 8.36304, 42.3038, -103.99)
+
+[node name="TimeCrystal20" parent="Crystals" instance=ExtResource("5_5v1tr")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 8.36304, 42.3038, -93.6908)
+
+[node name="TimeCrystal22" parent="Crystals" instance=ExtResource("5_5v1tr")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -9.33945, 42.3038, -103.99)
+
+[node name="TimeCrystal23" parent="Crystals" instance=ExtResource("5_5v1tr")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -9.33945, 42.3038, -93.6908)
+
+[node name="TimeCrystal24" parent="Crystals" instance=ExtResource("5_5v1tr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.5233, 54.4223, -85.0854)
+
+[node name="TimeCrystal25" parent="Crystals" instance=ExtResource("5_5v1tr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.9235, 54.4223, -84.1849)
+
+[node name="TimeCrystal29" parent="Crystals" instance=ExtResource("5_5v1tr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.709, 52.3605, -79.2798)
+
+[node name="TimeCrystal26" parent="Crystals" instance=ExtResource("5_5v1tr")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 44.6681, 53.221, -87.2511)
+
+[node name="TimeCrystal27" parent="Crystals" instance=ExtResource("5_5v1tr")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 45.5854, 53.221, -86.5238)
+
+[node name="TimeCrystal28" parent="Crystals" instance=ExtResource("5_5v1tr")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 40.9277, 51.4723, -88.0976)
+
 [connection signal="body_entered" from="Drop_KillZone" to="Drop_KillZone" method="_on_body_entered"]

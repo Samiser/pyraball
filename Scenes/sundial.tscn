@@ -1,7 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://gewj4ymntyra"]
+[gd_scene load_steps=10 format=3 uid="uid://gewj4ymntyra"]
 
 [ext_resource type="Script" uid="uid://bukhau85bssm8" path="res://Scripts/sundial.gd" id="1_nwh05"]
+[ext_resource type="Material" uid="uid://c17d020x87c2y" path="res://Meshes/Transparent_Material.tres" id="2_57uoy"]
 [ext_resource type="PackedScene" uid="uid://hxlx84tjlowl" path="res://Scenes/pyramid.tscn" id="2_wwrjg"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nwh05"]
+material = ExtResource("2_57uoy")
+top_radius = 0.0
+height = 12.0
+radial_segments = 4
+rings = 0
+cap_top = false
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wwrjg"]
+data = PackedVector3Array(0, 6, 0, 0, 6, 0, 0, 3.6, 0.1, 0, 6, 0, 0.1, 3.6, 0, 0, 3.6, 0.1, 0, 6, 0, 0, 6, 0, 0.1, 3.6, 0, 0, 6, 0, 0, 3.6, -0.1, 0.1, 3.6, 0, 0, 6, 0, 0, 6, 0, 0, 3.6, -0.1, 0, 6, 0, -0.1, 3.6, 0, 0, 3.6, -0.1, 0, 6, 0, 0, 6, 0, -0.1, 3.6, 0, 0, 6, 0, 0, 3.6, 0.1, -0.1, 3.6, 0, 0, 3.6, 0.1, 0.1, 3.6, 0, 0, 1.2, 0.2, 0.1, 3.6, 0, 0.2, 1.2, 0, 0, 1.2, 0.2, 0.1, 3.6, 0, 0, 3.6, -0.1, 0.2, 1.2, 0, 0, 3.6, -0.1, 0, 1.2, -0.2, 0.2, 1.2, 0, 0, 3.6, -0.1, -0.1, 3.6, 0, 0, 1.2, -0.2, -0.1, 3.6, 0, -0.2, 1.2, 0, 0, 1.2, -0.2, -0.1, 3.6, 0, 0, 3.6, 0.1, -0.2, 1.2, 0, 0, 3.6, 0.1, 0, 1.2, 0.2, -0.2, 1.2, 0, 0, 1.2, 0.2, 0.2, 1.2, 0, 0, -1.2, 0.3, 0.2, 1.2, 0, 0.3, -1.2, 0, 0, -1.2, 0.3, 0.2, 1.2, 0, 0, 1.2, -0.2, 0.3, -1.2, 0, 0, 1.2, -0.2, 0, -1.2, -0.3, 0.3, -1.2, 0, 0, 1.2, -0.2, -0.2, 1.2, 0, 0, -1.2, -0.3, -0.2, 1.2, 0, -0.3, -1.2, 0, 0, -1.2, -0.3, -0.2, 1.2, 0, 0, 1.2, 0.2, -0.3, -1.2, 0, 0, 1.2, 0.2, 0, -1.2, 0.3, -0.3, -1.2, 0, 0, -1.2, 0.3, 0.3, -1.2, 0, 0, -3.6, 0.4, 0.3, -1.2, 0, 0.4, -3.6, 0, 0, -3.6, 0.4, 0.3, -1.2, 0, 0, -1.2, -0.3, 0.4, -3.6, 0, 0, -1.2, -0.3, 0, -3.6, -0.4, 0.4, -3.6, 0, 0, -1.2, -0.3, -0.3, -1.2, 0, 0, -3.6, -0.4, -0.3, -1.2, 0, -0.4, -3.6, 0, 0, -3.6, -0.4, -0.3, -1.2, 0, 0, -1.2, 0.3, -0.4, -3.6, 0, 0, -1.2, 0.3, 0, -3.6, 0.4, -0.4, -3.6, 0, 0, -3.6, 0.4, 0.4, -3.6, 0, 0, -6, 0.5, 0.4, -3.6, 0, 0.5, -6, 0, 0, -6, 0.5, 0.4, -3.6, 0, 0, -3.6, -0.4, 0.5, -6, 0, 0, -3.6, -0.4, 0, -6, -0.5, 0.5, -6, 0, 0, -3.6, -0.4, -0.4, -3.6, 0, 0, -6, -0.5, -0.4, -3.6, 0, -0.5, -6, 0, 0, -6, -0.5, -0.4, -3.6, 0, 0, -3.6, 0.4, -0.5, -6, 0, 0, -3.6, 0.4, 0, -6, 0.5, -0.5, -6, 0, 0, -6, 0, 0, -6, 0.5, 0.5, -6, 0, 0, -6, 0, 0.5, -6, 0, 0, -6, -0.5, 0, -6, 0, 0, -6, -0.5, -0.5, -6, 0, 0, -6, 0, -0.5, -6, 0, 0, -6, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x2mgy"]
 size = Vector3(1.52906, 1, 9.46289)
@@ -22,10 +34,16 @@ emission_energy_multiplier = 0.5
 [node name="Sundial" type="Node3D"]
 script = ExtResource("1_nwh05")
 
-[node name="Gnomon" parent="." instance=ExtResource("2_wwrjg")]
-base_size = 0.5
-height = 10.0
-color = Color(0.83, 0.50215, 0.1743, 1)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.16892, 0)
+mesh = SubResource("CylinderMesh_nwh05")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.16892, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wwrjg")
 
 [node name="LightPivot" type="Node3D" parent="."]
 

@@ -195,23 +195,23 @@ lower_button = NodePath("../lift_lower_button")
 upper_button = NodePath("../lift_raise_button")
 
 [node name="lift_lower_button" parent="FirstLift" groups=["past", "present"] instance=ExtResource("4_i5eh5")]
-transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 13.9561, -7.4661, 3.96421)
+transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 13.8984, -7.48629, 3.8876)
 
 [node name="lift_raise_button" parent="FirstLift" groups=["past", "present"] instance=ExtResource("4_i5eh5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.92007, -0.328598, 4.98981)
 
-[node name="Cannon" parent="." groups=["past", "present"] instance=ExtResource("12_2ld0w")]
+[node name="Cannon" parent="." groups=["present"] instance=ExtResource("12_2ld0w")]
 transform = Transform3D(-0.0784591, 0, -0.996917, 0, 1, 0, 0.996917, 0, -0.0784591, 61.4207, -15.2016, 56.6796)
 dir_y_degrees = 175.0
 dir_x_degrees = 50.0
 force = 25.0
 
-[node name="Cannon2" parent="." groups=["past", "present"] instance=ExtResource("12_2ld0w")]
+[node name="Cannon2" parent="." groups=["present"] instance=ExtResource("12_2ld0w")]
 transform = Transform3D(0.995263, 0, -0.0972182, 0, 1, 0, 0.0972182, 0, 0.995263, 65.4207, -5.4234, 13.6122)
 dir_y_degrees = -95.0
 force = 24.0
 
-[node name="Cannon3" parent="." instance=ExtResource("12_2ld0w")]
+[node name="Cannon3" parent="." groups=["present"] instance=ExtResource("12_2ld0w")]
 transform = Transform3D(-0.998597, 0, -0.0529633, 0, 1, 0, 0.0529633, 0, -0.998597, -2.05968, -27.4293, -33.3541)
 dir_y_degrees = 15.0
 dir_x_degrees = 80.0
