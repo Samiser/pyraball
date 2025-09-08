@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://Scenes/button.tscn" id="4_i5eh5"]
 [ext_resource type="PackedScene" uid="uid://dbc7h7oiowpka" path="res://Scenes/lift.tscn" id="5_5noo7"]
 [ext_resource type="PackedScene" uid="uid://gewj4ymntyra" path="res://Scenes/sundial.tscn" id="8_chl2c"]
-[ext_resource type="Shader" uid="uid://crn8m5dbsdkdg" path="res://Meshes/shaft_shader.gdshader" id="9_6fg3j"]
+[ext_resource type="Shader" path="res://Meshes/shaft_shader.gdshader" id="9_6fg3j"]
 [ext_resource type="PackedScene" uid="uid://bh72vwki5ojnd" path="res://Scenes/reflector.tscn" id="9_wp1u0"]
 [ext_resource type="PackedScene" uid="uid://ca4jbwb7djuc8" path="res://wall_segment.tscn" id="10_wp1u0"]
 [ext_resource type="PackedScene" uid="uid://0p11ariwu823" path="res://Cannon.tscn" id="12_2ld0w"]
