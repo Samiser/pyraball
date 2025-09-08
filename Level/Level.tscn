@@ -219,3 +219,19 @@ force = 42.0
 
 [node name="HollowPlanet" parent="." groups=["future", "past", "present"] instance=ExtResource("13_32x38")]
 transform = Transform3D(0.991669, 0, -0.128813, 0, 1, 0, 0.128813, 0, 0.991669, 1.39115, 32.1701, -26.0288)
+
+[node name="Portal3" parent="." node_paths=PackedStringArray("dest") groups=["past"] instance=ExtResource("4_chl2c")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 69.6981, -24.0411, 1.5068)
+visible = false
+dest = NodePath("../mini_pyramid_entry")
+
+[node name="mini_pyramid_entry" type="Node3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 72.3206, -26.5712, 1.5068)
+
+[node name="Portal4" parent="." node_paths=PackedStringArray("dest") groups=["past"] instance=ExtResource("4_chl2c")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 74.0729, -26.4454, 7.5068)
+visible = false
+dest = NodePath("../mini_pyramid_exit")
+
+[node name="mini_pyramid_exit" type="Node3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 68.279, -24.7121, 1.5068)

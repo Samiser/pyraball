@@ -95,10 +95,8 @@ func _toggle_node(n: Node, active: bool) -> void:
 			b.collision_layer = 0
 			b.collision_mask  = 0
 	
-	if n is TimeCrystal :
-		print(n)
-		n.is_collected = !active
-		print(n.is_collected)
+	if n is CollisionShape3D :
+		n.disabled = !active
 
 func _ready() -> void:
 	_update_visibility()
