@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh72vwki5ojnd"]
+[gd_scene load_steps=6 format=3 uid="uid://bh72vwki5ojnd"]
 
 [ext_resource type="Script" uid="uid://cwqu8knwflr66" path="res://Scripts/reflector.gd" id="1_fdm13"]
 [ext_resource type="PackedScene" uid="uid://hxlx84tjlowl" path="res://Scenes/pyramid.tscn" id="2_biis1"]
+[ext_resource type="AudioStream" uid="uid://brh26pugv2wl" path="res://Audio/SoundFX/mirror.mp3" id="3_biis1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ex3ff"]
 albedo_color = Color(0.750574, 0.543451, 0.889616, 1)
@@ -20,7 +21,6 @@ script = ExtResource("1_fdm13")
 
 [node name="Pyramid" parent="." instance=ExtResource("2_biis1")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-sync_to_physics = false
 base_size = 1.5
 height = 0.5
 color = Color(0.52325, 0.2898, 0.69, 1)
@@ -28,3 +28,6 @@ color = Color(0.52325, 0.2898, 0.69, 1)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.001)
 mesh = SubResource("PlaneMesh_lqsla")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_biis1")
