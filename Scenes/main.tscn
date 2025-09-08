@@ -106,7 +106,8 @@ shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.662745)
 albedo_texture = ExtResource("7_wsu2k")
 distance_fade_mode = 2
-distance_fade_min_distance = 4.0
+distance_fade_min_distance = 32.0
+distance_fade_max_distance = 64.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_pdsj5"]
 material = SubResource("StandardMaterial3D_wp1u0")
@@ -241,12 +242,12 @@ process_material = SubResource("ParticleProcessMaterial_wsu2k")
 draw_pass_1 = SubResource("QuadMesh_h1bgf")
 
 [node name="clouds" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 88.1322, -41.9729)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 98.3042, -41.9729)
 layers = 16
 amount = 16
 lifetime = 24.0
 preprocess = 4.0
-fixed_fps = 16
+fixed_fps = 18
 interpolate = false
 visibility_aabb = AABB(-128, -128, -128, 256, 256, 256)
 local_coords = true
