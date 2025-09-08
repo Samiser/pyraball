@@ -2,8 +2,6 @@ extends Node3D
 
 @onready var buttons: Array[TriangleButton] = [$Green, $Blue, $Red, $Yellow]
 
-
-
 func _on_button_pressed(button: TriangleButton) -> void:
 	print(button)
 

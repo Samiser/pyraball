@@ -82,7 +82,7 @@ dest = NodePath("../portal_2_dest")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.695, -24.6241, -47.8068)
 
 [node name="SimonSays" parent="." instance=ExtResource("4_6lumq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.26944, -12.9458, -16.1084)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.26944, -27.1076, -31.9239)
 
 [node name="PastSundial" type="Node3D" parent="." groups=["present"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.512, -25.1253, 27.4014)

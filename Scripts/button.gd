@@ -1,11 +1,18 @@
+@tool
 extends Node3D
 class_name TriangleButton
 
-@export var color: Color = Color.RED
+@export var color: Color = Color.RED:
+	set(value):
+		if material:
+			material.albedo_color = color.lightened(0.5)
+		color = value
 
 @onready var press_area: Area3D = $PressArea
 @onready var actuator: RigidBody3D = $Actuator
 @onready var actuator_mesh: MeshInstance3D = $"Actuator/Cone-col-rigid"
+
+var material: Material 
 
 signal pressed(button: TriangleButton)
 signal released(button: TriangleButton)
@@ -36,5 +43,5 @@ func _ready() -> void:
 		0,
 		actuator_mesh.get_active_material(0).duplicate()
 	)
-	var material := actuator_mesh.get_surface_override_material(0)
+	material = actuator_mesh.get_surface_override_material(0)
 	material.albedo_color = color.lightened(0.5)

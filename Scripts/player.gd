@@ -38,7 +38,7 @@ var future_unlocked: bool = false
 var current_level : Level
 var all_crystals_are_collected: bool = false
 
-signal rotate(direction: String, player_position: Vector3)
+signal rotate(direction: String, player_position: Vector3, levels_unlocked: int)
 signal all_crystals_collected(player_position: Vector3)
 
 var last_linear_velocity: Vector3
@@ -79,13 +79,16 @@ func on_puzzle_completed(name: String) -> void:
 	print(name)
 	if name == "PastSundial":
 		past_unlocked = true
+	elif name == "FutureSundial":
+		future_unlocked = true
 
 func _rotate(direction: String) -> void:
 	last_linear_velocity = linear_velocity
 	last_angular_velocity = angular_velocity
 	freeze = true
 	collider.disabled = true
-	rotate.emit(direction, global_position)
+	var levels_unlocked: int = 3 if future_unlocked and past_unlocked else 2
+	rotate.emit(direction, global_position, levels_unlocked)
 
 func rotation_completed(old_position: Vector3) -> void:
 	freeze = false
@@ -160,6 +163,9 @@ func _input(event: InputEvent) -> void:
 		_rotate("left")
 	elif event.is_action_pressed("rotate_right") and not all_crystals_are_collected and past_unlocked:
 		_rotate("right")
+	elif event.is_action_pressed("unlock_all"):
+		past_unlocked = true
+		future_unlocked = true
 
 func _unhandled_input(event: InputEvent) -> void:
 	if is_respawning:

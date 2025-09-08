@@ -60,14 +60,14 @@ func _apply_world_changes() -> void:
 			_tween_fog_color(Color.from_hsv(0.5, 0.4, 1.0), 0.001)
 			_tween_daylight(Vector3(0.0, 0.0, 0.0), Color.BLUE_VIOLET)
 
-func _change_current_level(direction: String) -> void:
+func _change_current_level(direction: String, levels_unlocked: int) -> void:
 	if direction == "left":
-		current_level = posmod(current_level - 1, 2)
+		current_level = posmod(current_level - 1, levels_unlocked)
 	elif direction == "right":
-		current_level = posmod(current_level + 1, 2)
+		current_level = posmod(current_level + 1, levels_unlocked)
 
-func _on_rotation(direction: String, player_position: Vector3) -> void:
-	_change_current_level(direction)
+func _on_rotation(direction: String, player_position: Vector3, levels_unlocked: int) -> void:
+	_change_current_level(direction, levels_unlocked)
 	_apply_world_changes()
 	await _tween_rotation(get_level_rotation(current_level))
 	player.rotation_completed(player_position)
