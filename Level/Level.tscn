@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bb28plwvmfby2"]
+[gd_scene load_steps=17 format=4 uid="uid://bb28plwvmfby2"]
 
 [ext_resource type="Script" uid="uid://cn1dxroiw2037" path="res://Level/level.gd" id="1_5noo7"]
 [ext_resource type="PackedScene" uid="uid://gpwfm6f76n8p" path="res://Meshes/level_base.blend" id="3_j3llj"]
@@ -7,11 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://Scenes/button.tscn" id="4_i5eh5"]
 [ext_resource type="PackedScene" uid="uid://dbc7h7oiowpka" path="res://Scenes/lift.tscn" id="5_5noo7"]
 [ext_resource type="PackedScene" uid="uid://gewj4ymntyra" path="res://Scenes/sundial.tscn" id="8_chl2c"]
-[ext_resource type="Shader" path="res://Meshes/shaft_shader.gdshader" id="9_6fg3j"]
+[ext_resource type="Shader" uid="uid://crn8m5dbsdkdg" path="res://Meshes/shaft_shader.gdshader" id="9_6fg3j"]
 [ext_resource type="PackedScene" uid="uid://bh72vwki5ojnd" path="res://Scenes/reflector.tscn" id="9_wp1u0"]
 [ext_resource type="PackedScene" uid="uid://ca4jbwb7djuc8" path="res://wall_segment.tscn" id="10_wp1u0"]
 [ext_resource type="PackedScene" uid="uid://0p11ariwu823" path="res://Cannon.tscn" id="12_2ld0w"]
 [ext_resource type="PackedScene" uid="uid://c8ajs5k432v2j" path="res://Scenes/hollow_planet.tscn" id="13_32x38"]
+[ext_resource type="PackedScene" uid="uid://c4emg8m1hqsra" path="res://cage.tscn" id="13_66v8m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6fg3j"]
 render_priority = 0
@@ -80,9 +81,6 @@ dest = NodePath("../portal_2_dest")
 
 [node name="portal_2_dest" type="Node3D" parent="." groups=["future", "past", "present"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.695, -24.6241, -47.8068)
-
-[node name="SimonSays" parent="." instance=ExtResource("4_6lumq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.26944, -27.1076, -31.9239)
 
 [node name="PastSundial" type="Node3D" parent="." groups=["present"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.512, -25.1253, 27.4014)
@@ -240,7 +238,7 @@ dest = NodePath("../mini_pyramid_exit")
 [node name="mini_pyramid_exit" type="Node3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 68.279, -24.7121, 1.5068)
 
-[node name="FutureSundial" type="Node3D" parent="."]
+[node name="FutureSundial" type="Node3D" parent="." groups=["present"]]
 
 [node name="Sundial" parent="FutureSundial" node_paths=PackedStringArray("button", "reflectors") instance=ExtResource("8_chl2c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9011, -27.4265, -3.96613)
@@ -265,13 +263,13 @@ mesh = SubResource("ArrayMesh_6fg3j")
 skeleton = NodePath("")
 
 [node name="Reflector2" parent="FutureSundial" node_paths=PackedStringArray("sundial", "button", "light_shaft") instance=ExtResource("9_wp1u0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.84844, -25.42, -22.7825)
+transform = Transform3D(-0.993957, 0, 0.109769, 0, 1, 0, -0.109769, 0, -0.993957, -3.11654, -25.42, -33.8185)
 sundial = NodePath("../Sundial")
 button = NodePath("../Button2")
 light_shaft = NodePath("../LightShaft2")
 
 [node name="Button2" parent="FutureSundial" instance=ExtResource("4_i5eh5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2636, -27.4688, -22.6016)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.61653, -27.4688, -28.9452)
 
 [node name="LightShaft2" type="MeshInstance3D" parent="FutureSundial"]
 transform = Transform3D(-1.35617, -0.348361, -3.12571, 3.12926, -0.490229, -1.30308, -0.314854, -3.37179, 0.512393, -61.667, -21.0975, 0.7651)
@@ -305,3 +303,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4521, -27.4688, -23.6383)
 transform = Transform3D(-1.35617, -0.348361, -3.12571, 3.12926, -0.490229, -1.30308, -0.314854, -3.37179, 0.512393, -72.1406, -21.0975, 0.7651)
 mesh = SubResource("ArrayMesh_6fg3j")
 skeleton = NodePath("")
+
+[node name="SimonSaysPuzzle" type="Node3D" parent="."]
+
+[node name="SimonSays" parent="SimonSaysPuzzle" node_paths=PackedStringArray("cage") instance=ExtResource("4_6lumq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.7332, -27.481, -28.9548)
+cage = NodePath("../Cage")
+
+[node name="Cage" parent="SimonSaysPuzzle" instance=ExtResource("13_66v8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.59807, -24.156, -28.9241)

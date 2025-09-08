@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5s56xjarcoai"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hbn0a"]
+metallic = 1.0
+roughness = 0.33
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gdv2k"]
+material = SubResource("StandardMaterial3D_hbn0a")
+top_radius = 0.0
+bottom_radius = 0.2
+height = 3.0
+radial_segments = 4
+rings = 0
+cap_top = false
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hbn0a"]
+data = PackedVector3Array(0, 1.5, 0, 0, 1.5, 0, 0, -1.5, 0.2, 0, 1.5, 0, 0.2, -1.5, 0, 0, -1.5, 0.2, 0, 1.5, 0, 0, 1.5, 0, 0.2, -1.5, 0, 0, 1.5, 0, 0, -1.5, -0.2, 0.2, -1.5, 0, 0, 1.5, 0, 0, 1.5, 0, 0, -1.5, -0.2, 0, 1.5, 0, -0.2, -1.5, 0, 0, -1.5, -0.2, 0, 1.5, 0, 0, 1.5, 0, -0.2, -1.5, 0, 0, 1.5, 0, 0, -1.5, 0.2, -0.2, -1.5, 0, 0, -1.5, 0, 0, -1.5, 0.2, 0.2, -1.5, 0, 0, -1.5, 0, 0.2, -1.5, 0, 0, -1.5, -0.2, 0, -1.5, 0, 0, -1.5, -0.2, -0.2, -1.5, 0, 0, -1.5, 0, -0.2, -1.5, 0, 0, -1.5, 0.2)
+
+[node name="Bar" type="AnimatableBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55362, 0)
+mesh = SubResource("CylinderMesh_gdv2k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55362, 0)
+shape = SubResource("ConcavePolygonShape3D_hbn0a")

@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4emg8m1hqsra"]
+
+[ext_resource type="PackedScene" uid="uid://c5s56xjarcoai" path="res://cage_bar.tscn" id="1_p80af"]
+[ext_resource type="Script" uid="uid://d3eleooqtq6go" path="res://cage.gd" id="1_x53gr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x53gr"]
+metallic = 0.75
+roughness = 0.41
+emission_enabled = true
+emission = Color(0.783998, 0, 0.130239, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_x53gr"]
+material = SubResource("StandardMaterial3D_x53gr")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p80af"]
+radius = 1.0
+
+[node name="Cage" type="Node3D"]
+script = ExtResource("1_x53gr")
+
+[node name="Bars" type="Node3D" parent="."]
+
+[node name="Bar" parent="Bars" instance=ExtResource("1_p80af")]
+transform = Transform3D(1, -1.29405e-07, -7.66825e-08, -7.66826e-08, -0.877146, 0.480223, -1.29405e-07, -0.480223, -0.877146, 0, 0, 0)
+sync_to_physics = false
+
+[node name="Bar2" parent="Bars" instance=ExtResource("1_p80af")]
+transform = Transform3D(0.707106, 0.339158, 0.620461, 1.32493e-07, -0.877465, 0.479641, 0.707107, -0.339157, -0.620461, 0, 0, 0)
+sync_to_physics = false
+
+[node name="Bar3" parent="Bars" instance=ExtResource("1_p80af")]
+transform = Transform3D(-1.52776e-07, 0.479642, 0.877464, -7.67104e-08, -0.877464, 0.479642, 1, 5.9669e-09, 1.70849e-07, 0, 0, 0)
+sync_to_physics = false
+
+[node name="Bar4" parent="Bars" instance=ExtResource("1_p80af")]
+transform = Transform3D(-0.707107, 0.339158, 0.620461, -7.67104e-08, -0.877464, 0.479642, 0.707107, 0.339158, 0.620461, 0, 0, 0)
+sync_to_physics = false
+
+[node name="Bar5" parent="Bars" instance=ExtResource("1_p80af")]
+transform = Transform3D(-1, -4.19316e-08, -7.67104e-08, 0, -0.877464, 0.479642, -8.74228e-08, 0.479642, 0.877464, 0, 0, 0)
+sync_to_physics = false
+
+[node name="Bar6" parent="Bars" instance=ExtResource("1_p80af")]
+transform = Transform3D(-0.707106, -0.339158, -0.620461, 2.10734e-08, -0.877464, 0.479642, -0.707107, 0.339158, 0.620461, 0, 0, 0)
+sync_to_physics = false
+
+[node name="Bar7" parent="Bars" instance=ExtResource("1_p80af")]
+transform = Transform3D(1.31134e-07, -0.479642, -0.877464, 3.55271e-15, -0.877464, 0.479642, -1, -6.28974e-08, -1.15066e-07, 0, 0, 0)
+sync_to_physics = false
+
+[node name="Bar8" parent="Bars" instance=ExtResource("1_p80af")]
+transform = Transform3D(0.707107, -0.339157, -0.620461, 1.32493e-07, -0.877464, 0.479641, -0.707106, -0.339158, -0.620461, 0, 0, 0)
+sync_to_physics = false
+
+[node name="Ball" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ball"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("SphereMesh_x53gr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
+shape = SubResource("SphereShape3D_p80af")
