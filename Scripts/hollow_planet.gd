@@ -12,3 +12,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		return
 		
 	has_player_entered = true
+
+func should_be_visible(level: String) -> bool:
+	var is_visible := get_groups().has(level)
+	sphere.use_collision = is_visible
+	return is_visible
