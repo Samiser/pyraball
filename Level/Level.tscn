@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://Scenes/button.tscn" id="4_i5eh5"]
 [ext_resource type="PackedScene" uid="uid://dbc7h7oiowpka" path="res://Scenes/lift.tscn" id="5_5noo7"]
 [ext_resource type="PackedScene" uid="uid://gewj4ymntyra" path="res://Scenes/sundial.tscn" id="8_chl2c"]
-[ext_resource type="Shader" uid="uid://crn8m5dbsdkdg" path="res://Meshes/shaft_shader.gdshader" id="9_6fg3j"]
+[ext_resource type="Shader" path="res://Meshes/shaft_shader.gdshader" id="9_6fg3j"]
 [ext_resource type="PackedScene" uid="uid://bh72vwki5ojnd" path="res://Scenes/reflector.tscn" id="9_wp1u0"]
 [ext_resource type="PackedScene" uid="uid://ca4jbwb7djuc8" path="res://wall_segment.tscn" id="10_wp1u0"]
 [ext_resource type="PackedScene" uid="uid://0p11ariwu823" path="res://Cannon.tscn" id="12_2ld0w"]
@@ -217,8 +217,12 @@ dir_y_degrees = 15.0
 dir_x_degrees = 80.0
 force = 42.0
 
-[node name="HollowPlanet" parent="." groups=["future", "past", "present"] instance=ExtResource("13_32x38")]
+[node name="HollowPlanet_Medium_Ball" parent="." groups=["present"] instance=ExtResource("13_32x38")]
 transform = Transform3D(0.991669, 0, -0.128813, 0, 1, 0, 0.128813, 0, 0.991669, 1.39115, 32.1701, -26.0288)
+
+[node name="HollowPlanet_Big_Ball" parent="." groups=["future"] instance=ExtResource("13_32x38")]
+transform = Transform3D(-0.264478, 0, 1.98244, 0, 2, 0, -1.98244, 0, -0.264478, 4.19885, 62.3718, 16.3152)
+visible = false
 
 [node name="Portal3" parent="." node_paths=PackedStringArray("dest") groups=["past"] instance=ExtResource("4_chl2c")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 69.6981, -24.0411, 1.5068)

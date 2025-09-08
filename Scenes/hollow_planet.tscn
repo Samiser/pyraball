@@ -1,12 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8ajs5k432v2j"]
+[gd_scene load_steps=8 format=3 uid="uid://c8ajs5k432v2j"]
 
 [ext_resource type="Script" uid="uid://dpwjlmp2wbf2r" path="res://Scripts/hollow_planet.gd" id="1_m4nmd"]
 [ext_resource type="PackedScene" uid="uid://cjtk4yijo8t5r" path="res://Scenes/Portal.tscn" id="3_i46i6"]
 [ext_resource type="PackedScene" uid="uid://0p11ariwu823" path="res://Cannon.tscn" id="4_2byep"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i46i6"]
+noise_type = 4
+frequency = 0.0034
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2byep"]
+seamless = true
+noise = SubResource("FastNoiseLite_i46i6")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_leuxk"]
 transparency = 1
 albedo_color = Color(0, 1, 1, 0.580392)
+albedo_texture = SubResource("NoiseTexture2D_2byep")
+rim_enabled = true
+rim = 0.11
+rim_tint = 0.4
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j1618"]
 radius = 14.0
