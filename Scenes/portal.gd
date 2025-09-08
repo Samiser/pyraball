@@ -12,6 +12,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Player:
 		body.global_position = dest.global_position
 		emit_signal("portalled")
+		$AudioStreamPlayer.play()
 
 func _process(delta: float) -> void:
 	time += delta
