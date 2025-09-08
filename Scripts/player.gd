@@ -32,6 +32,9 @@ var air_control_force : float = 256.0
 @onready var respawn_sfx : AudioStreamPlayer3D = $respawn_hand/respawn_sfx
 @onready var roll_sfx_stream : AudioStreamPlayer3D = $sfx_roll_stream
 
+var past_unlocked: bool = false
+var future_unlocked: bool = false
+
 var current_level : Level
 var all_crystals_are_collected: bool = false
 
@@ -72,6 +75,8 @@ func _ready() -> void:
 
 func on_puzzle_completed(name: String) -> void:
 	print(name)
+	if name == "PastSundial":
+		past_unlocked = true
 
 func _rotate(direction: String) -> void:
 	last_linear_velocity = linear_velocity
@@ -145,9 +150,9 @@ func _input(event: InputEvent) -> void:
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			get_viewport().set_input_as_handled()
-	elif event.is_action_pressed("rotate_left") and not all_crystals_are_collected:
+	elif event.is_action_pressed("rotate_left") and not all_crystals_are_collected and past_unlocked:
 		_rotate("left")
-	elif event.is_action_pressed("rotate_right") and not all_crystals_are_collected:
+	elif event.is_action_pressed("rotate_right") and not all_crystals_are_collected and past_unlocked:
 		_rotate("right")
 
 func _unhandled_input(event: InputEvent) -> void:

@@ -62,9 +62,9 @@ func _apply_world_changes() -> void:
 
 func _change_current_level(direction: String) -> void:
 	if direction == "left":
-		current_level = posmod(current_level - 1, 3)
+		current_level = posmod(current_level - 1, 2)
 	elif direction == "right":
-		current_level = posmod(current_level + 1, 3)
+		current_level = posmod(current_level + 1, 2)
 
 func _on_rotation(direction: String, player_position: Vector3) -> void:
 	_change_current_level(direction)

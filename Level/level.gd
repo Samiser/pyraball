@@ -14,7 +14,7 @@ var levels: Array[PackedScene] = [
 @export var present: Level
 @export var future: Level
 
-@onready var sundial := $SundialPuzzle/Sundial
+@onready var sundials := [$PastSundial/Sundial, $FutureSundial/Sundial]
 
 signal puzzle_completed(name: String)
 signal portalled
@@ -101,5 +101,6 @@ func _toggle_node(n: Node, active: bool) -> void:
 func _ready() -> void:
 	_update_visibility()
 	if not Engine.is_editor_hint():
-		sundial.completed.connect(func() -> void: puzzle_completed.emit("sundial"))
+		for sundial: Sundial in sundials:
+			sundial.completed.connect(func() -> void: puzzle_completed.emit(sundial.get_parent().name))
 		$Portal.portalled.connect(func() -> void: portalled.emit())
