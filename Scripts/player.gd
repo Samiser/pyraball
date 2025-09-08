@@ -98,7 +98,6 @@ func rotation_completed(old_position: Vector3) -> void:
 
 func set_new_scale(new_scale: float, level: int) -> void:
 	$MeshInstance3D.mesh.radius = new_scale
-	hand_mesh.scale = Vector3.ONE * level
 	$MeshInstance3D.mesh.height = new_scale * 2
 	$MeshInstance3D/Reflection_Mesh.mesh.radius = new_scale * 0.95
 	$MeshInstance3D/Reflection_Mesh.mesh.height = new_scale * 2 * 0.95
@@ -166,6 +165,8 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("unlock_all"):
 		past_unlocked = true
 		future_unlocked = true
+	elif event.is_action_pressed("respawn"):
+		respawn_player()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if is_respawning:
@@ -180,6 +181,9 @@ func _process(delta: float) -> void:
 	if respawn_camera:
 		var new_rot := camera.transform.looking_at(transform.origin, Vector3.UP)
 		camera.transform = camera.transform.interpolate_with(new_rot, 4.0 * delta)
+	else:
+		if Input.is_action_just_pressed("teleport"):
+			global_position += -camera.global_basis.z * 12.0
 		
 func _physics_process(delta: float) -> void:
 	camera_target.global_transform.origin = lerp(
@@ -252,6 +256,9 @@ func _physics_process(delta: float) -> void:
 			shadow_sprite.rotation_degrees = Vector3(90.0, 0.0, 0.0)
 
 func respawn_player() -> void:
+	if is_respawning:
+		return
+		
 	is_respawning = true
 	freeze = true
 	linear_velocity = Vector3.ZERO
@@ -280,7 +287,7 @@ func respawn_player() -> void:
 	
 	# hand comes down
 	var tween := get_tree().create_tween()
-	tween.tween_property(hand_mesh, "scale", Vector3.ONE, 0.6)
+	tween.tween_property(hand_mesh, "scale", Vector3.ONE * $MeshInstance3D.mesh.radius * 2.4, 0.6)
 	tween.tween_property(hand_mesh, "global_position", global_position, 1.0)
 	tween.parallel().tween_property(hand_mesh, "global_rotation_degrees:z", 0.0, 1.0)
 	

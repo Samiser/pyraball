@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bb28plwvmfby2"]
+[gd_scene load_steps=18 format=4 uid="uid://bb28plwvmfby2"]
 
 [ext_resource type="Script" uid="uid://cn1dxroiw2037" path="res://Level/level.gd" id="1_5noo7"]
 [ext_resource type="PackedScene" uid="uid://gpwfm6f76n8p" path="res://Meshes/level_base.blend" id="3_j3llj"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://0p11ariwu823" path="res://Cannon.tscn" id="12_2ld0w"]
 [ext_resource type="PackedScene" uid="uid://c8ajs5k432v2j" path="res://Scenes/hollow_planet.tscn" id="13_32x38"]
 [ext_resource type="PackedScene" uid="uid://c4emg8m1hqsra" path="res://cage.tscn" id="13_66v8m"]
+[ext_resource type="PackedScene" uid="uid://birwo03dt36aq" path="res://Scenes/mini_maze.tscn" id="13_66v8m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6fg3j"]
 render_priority = 0
@@ -312,3 +313,7 @@ cage = NodePath("../Cage")
 
 [node name="Cage" parent="SimonSaysPuzzle" instance=ExtResource("13_66v8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.59807, -24.156, -28.9241)
+
+[node name="MiniMaze" parent="." groups=["past"] instance=ExtResource("13_66v8m")]
+transform = Transform3D(1.86, 0, 0, 0, 1.86, 0, 0, 0, 1.86, -52.606, -26.6088, -19.2759)
+visible = false
