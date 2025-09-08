@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://birwo03dt36aq"]
+
+[ext_resource type="PackedScene" uid="uid://6c84sulosnrd" path="res://Scenes/maze_part.tscn" id="1_b8wuc"]
+[ext_resource type="Script" uid="uid://c26qwtkgee3dt" path="res://Scenes/mini_maze.gd" id="1_vw0ml"]
+
+[node name="MiniMaze" type="Node3D"]
+script = ExtResource("1_vw0ml")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="parts" type="Node3D" parent="."]
+
+[node name="MazePart" parent="parts" instance=ExtResource("1_b8wuc")]
+
+[node name="MazePart2" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="MazePart3" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="MazePart4" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="MazePart5" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="MazePart6" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="MazePart7" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="MazePart8" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="MazePart9" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1)
+
+[node name="MazePart10" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
+
+[node name="MazePart11" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="MazePart12" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="MazePart13" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="MazePart14" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 2)
+
+[node name="MazePart15" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+
+[node name="MazePart16" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="MazePart17" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="MazePart18" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="MazePart19" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+
+[node name="MazePart20" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3)
+
+[node name="MazePart21" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="MazePart22" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="MazePart23" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="MazePart24" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4)
+
+[node name="MazePart25" parent="parts" instance=ExtResource("1_b8wuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)

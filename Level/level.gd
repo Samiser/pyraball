@@ -83,6 +83,9 @@ func _set_subtree_active_guarded(root: Node, active: bool, candidates: Dictionar
 func _toggle_node(n: Node, active: bool) -> void:
 	if n is Node3D:
 		(n as Node3D).visible = active
+		if n.has_method("should_be_visible"):
+			var active_group := LEVEL_GROUPS[selected_level]
+			n.visible = n.should_be_visible(active_group)
 
 	if n is PhysicsBody3D:
 		var b := n as PhysicsBody3D

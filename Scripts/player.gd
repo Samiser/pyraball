@@ -180,6 +180,9 @@ func _process(delta: float) -> void:
 	if respawn_camera:
 		var new_rot := camera.transform.looking_at(transform.origin, Vector3.UP)
 		camera.transform = camera.transform.interpolate_with(new_rot, 4.0 * delta)
+	else:
+		if Input.is_action_just_pressed("teleport"):
+			global_position += -camera.global_basis.z * 12.0
 		
 func _physics_process(delta: float) -> void:
 	camera_target.global_transform.origin = lerp(
