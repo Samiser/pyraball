@@ -17,6 +17,8 @@ func _face_sundial(_button: TriangleButton) -> void:
 	if not sundial:
 		printerr("No sundial assigned to reflector node: ", self)
 		return
+		
+	$AudioStreamPlayer3D.play()
 	
 	facing_sundial = true
 	var target_position := sundial.get_target_position()
