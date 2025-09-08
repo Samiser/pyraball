@@ -12,7 +12,6 @@ func _animate_collection() -> void:
 	$Explosion.emitting = true
 	var tween := create_tween()
 	tween.tween_property($Sprite3D, "modulate:a", 0, 1.0)
-	tween.parallel().tween_property($OmniLight3D, "light_energy", 0, 1.0)
 	tween.tween_callback(queue_free)
 
 func _on_body_entered(body: Node3D) -> void:
