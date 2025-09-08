@@ -26,6 +26,7 @@ func _snap_to(new_position: Vector3, new_rotation: Vector3) -> void:
 	rotation = new_rotation
 
 func _move_to(new_position: Vector3, new_rotation: Vector3) -> void:
+	print(new_position)
 	var present_lift: Lift
 	var future_lift: Lift
 	
