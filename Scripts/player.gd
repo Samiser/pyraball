@@ -187,11 +187,9 @@ func _physics_process(delta: float) -> void:
 		global_transform.origin, 0.2
 	)
 	
-	if jump_force == 5.8: # silly way of checking if player is da small ball
+	if jump_force == 5.8: # silly way of checking if player is da small ball, for da wind
 		if global_position.z < -60:
-			add_constant_force(Vector3.LEFT)
-		else:
-			constant_force = Vector3.ZERO
+			angular_velocity += Vector3.LEFT * delta
 	
 	var v := linear_velocity
 	v.y = 0.0
