@@ -4,6 +4,9 @@ class_name Sundial
 @export var button: TriangleButton
 @export var reflectors: Array[Reflector]
 
+@onready var markers := [$Three, $Six, $Nine, $Twelve]
+var highlighted_markers: Array[Node3D] = []
+
 var original_marker_color: Color = Color.WHITE
 var speed: float = -0.3
 var backwards: bool = false
@@ -24,14 +27,14 @@ func _tween_color(marker: Pyramid, new_color: Color) -> void:
 	tween.tween_property(marker, "color", new_color, 0.5)
 
 func _on_shadow_area_entered(area: Area3D) -> void:
-	if area.get_parent().is_in_group("clock_marker"):
-		var marker: Pyramid = area.get_parent()
+	var marker: Node3D = area.get_parent()
+	if marker.is_in_group("clock_marker") and not marker in highlighted_markers:
 		original_marker_color = marker.color
 		_tween_color(marker, Color.CYAN)
 
 func _on_shadow_area_exited(area: Area3D) -> void:
-	if area.get_parent().is_in_group("clock_marker"):
-		var marker: Pyramid = area.get_parent()
+	var marker: Node3D = area.get_parent()
+	if marker.is_in_group("clock_marker") and not marker in highlighted_markers:
 		_tween_color(marker, original_marker_color)
 
 func _animate_reversal() -> void:
@@ -67,6 +70,20 @@ func _on_button_released(_button: TriangleButton) -> void:
 	if not _all_reflectors_oriented():
 		change_speed(-0.2)
 
+func _reflector_completed() -> void:
+	var count := 0
+
+	for reflector in reflectors:
+		if reflector.facing_sundial:
+			count += 1
+	
+	var marker: Node3D = markers[count - 1]
+	highlighted_markers.append(marker)
+	_tween_color(marker, Color.CYAN)
+
 func _ready() -> void:
 	button.pressed.connect(_on_button_pressed)
 	button.released.connect(_on_button_released)
+	
+	for reflector in reflectors:
+		reflector.completed.connect(_reflector_completed)

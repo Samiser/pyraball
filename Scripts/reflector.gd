@@ -8,6 +8,7 @@ class_name Reflector
 @onready var mirror_mesh := $MeshInstance3D
 
 var facing_sundial: bool = false
+signal completed
 
 func _face_sundial(_button: TriangleButton) -> void:
 	if facing_sundial:
@@ -36,6 +37,8 @@ func _face_sundial(_button: TriangleButton) -> void:
 	tween.parallel().tween_property(mirror_mesh.get_surface_override_material(0), "emission_energy_multiplier", 5.5, 3)
 	#light_shaft.visible = true
 	tween.tween_property(light_shaft.get_surface_override_material(0), "shader_parameter/far_fade_end", 100.0, 1)
+	await tween.finished
+	emit_signal("completed")
 
 func _ready() -> void:
 	mirror_mesh.set_surface_override_material(
