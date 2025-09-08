@@ -305,7 +305,7 @@ transform = Transform3D(-1.35617, -0.348361, -3.12571, 3.12926, -0.490229, -1.30
 mesh = SubResource("ArrayMesh_6fg3j")
 skeleton = NodePath("")
 
-[node name="SimonSaysPuzzle" type="Node3D" parent="."]
+[node name="SimonSaysPuzzle" type="Node3D" parent="." groups=["present"]]
 
 [node name="SimonSays" parent="SimonSaysPuzzle" node_paths=PackedStringArray("cage") instance=ExtResource("4_6lumq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.7332, -27.481, -28.9548)

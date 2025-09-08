@@ -4,7 +4,8 @@ class_name Cage
 @onready var bars := $Bars.get_children()
 
 func _ready() -> void:
-	print(bars)
+	$Ball/MeshInstance3D.set_surface_override_material(
+		0, $Ball/MeshInstance3D.get_active_material(0).duplicate())
 
 func open() -> void:
 	print(bars)
@@ -18,7 +19,7 @@ func reset() -> void:
 		bar.rotation.x = deg_to_rad(-28)
 
 func pulse(color: Color) -> void:
-	var material: Material = $Ball/MeshInstance3D.get_active_material(0)
+	var material: Material = $Ball/MeshInstance3D.get_surface_override_material(0)
 	var tween := create_tween()
 
 	material.emission = color
