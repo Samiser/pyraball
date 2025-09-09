@@ -89,7 +89,6 @@ shape = SubResource("SphereShape3D_lvd5j")
 
 [node name="portal_particles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.52251, 0)
-amount = 32
 preprocess = 1.0
 speed_scale = 0.5
 randomness = 0.13
@@ -104,6 +103,7 @@ strength = 128.0
 radius = 40.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 16
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_mdgx6")
 

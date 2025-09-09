@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c8ajs5k432v2j"]
 
 [ext_resource type="Script" uid="uid://dpwjlmp2wbf2r" path="res://Scripts/hollow_planet.gd" id="1_m4nmd"]
-[ext_resource type="PackedScene" uid="uid://cjtk4yijo8t5r" path="res://Scenes/portal.tscn" id="3_i46i6"]
+[ext_resource type="PackedScene" uid="uid://cjtk4yijo8t5r" path="res://Scenes/Portal.tscn" id="3_i46i6"]
 [ext_resource type="PackedScene" uid="uid://0p11ariwu823" path="res://Scenes/cannon.tscn" id="4_2byep"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i46i6"]
