@@ -78,6 +78,7 @@ func _ready() -> void:
 func on_puzzle_completed(name: String) -> void:
 	if name == "PastSundial":
 		past_unlocked = true
+		_rotate("left")
 	elif name == "FutureSundial":
 		future_unlocked = true
 
