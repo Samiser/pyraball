@@ -24,6 +24,7 @@ func _find_level() -> Level:
 func _snap_to(new_position: Vector3, new_rotation: Vector3) -> void:
 	position = new_position
 	rotation = new_rotation
+	current_position = !current_position
 
 func _move_to(new_position: Vector3, new_rotation: Vector3) -> void:
 	print(new_position)

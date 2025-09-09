@@ -1,0 +1,180 @@
+[gd_scene load_steps=9 format=3 uid="uid://duovf7tmdb7ct"]
+
+[ext_resource type="Script" uid="uid://diai0crqsm0ce" path="res://light.gd" id="1_hdgcg"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_eaa0b"]
+top_radius = 0.0
+bottom_radius = 0.2
+height = 0.4
+radial_segments = 4
+rings = 0
+cap_top = false
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hdgcg"]
+data = PackedVector3Array(0, 0.2, 0, 0, 0.2, 0, 0, -0.2, 0.2, 0, 0.2, 0, 0.2, -0.2, 0, 0, -0.2, 0.2, 0, 0.2, 0, 0, 0.2, 0, 0.2, -0.2, 0, 0, 0.2, 0, 0, -0.2, -0.2, 0.2, -0.2, 0, 0, 0.2, 0, 0, 0.2, 0, 0, -0.2, -0.2, 0, 0.2, 0, -0.2, -0.2, 0, 0, -0.2, -0.2, 0, 0.2, 0, 0, 0.2, 0, -0.2, -0.2, 0, 0, 0.2, 0, 0, -0.2, 0.2, -0.2, -0.2, 0, 0, -0.2, 0, 0, -0.2, 0.2, 0.2, -0.2, 0, 0, -0.2, 0, 0.2, -0.2, 0, 0, -0.2, -0.2, 0, -0.2, 0, 0, -0.2, -0.2, -0.2, -0.2, 0, 0, -0.2, 0, -0.2, -0.2, 0, 0, -0.2, 0.2)
+
+[sub_resource type="SphereMesh" id="SphereMesh_we4ua"]
+radius = 0.06
+height = 0.12
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5qqhr"]
+radius = 0.06
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hdgcg"]
+top_radius = 0.0
+bottom_radius = 0.2
+height = 4.0
+radial_segments = 4
+rings = 0
+cap_top = false
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_we4ua"]
+data = PackedVector3Array(0, 2, 0, 0, 2, 0, 0, -2, 0.2, 0, 2, 0, 0.2, -2, 0, 0, -2, 0.2, 0, 2, 0, 0, 2, 0, 0.2, -2, 0, 0, 2, 0, 0, -2, -0.2, 0.2, -2, 0, 0, 2, 0, 0, 2, 0, 0, -2, -0.2, 0, 2, 0, -0.2, -2, 0, 0, -2, -0.2, 0, 2, 0, 0, 2, 0, -0.2, -2, 0, 0, 2, 0, 0, -2, 0.2, -0.2, -2, 0, 0, -2, 0, 0, -2, 0.2, 0.2, -2, 0, 0, -2, 0, 0.2, -2, 0, 0, -2, -0.2, 0, -2, 0, 0, -2, -0.2, -0.2, -2, 0, 0, -2, 0, -0.2, -2, 0, 0, -2, 0.2)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hdgcg"]
+radius = 9.40249
+
+[node name="Light" type="Node3D"]
+script = ExtResource("1_hdgcg")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+sync_to_physics = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+mesh = SubResource("CylinderMesh_eaa0b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("ConcavePolygonShape3D_hdgcg")
+
+[node name="AnimatableBody3D2" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -0.2, 0)
+sync_to_physics = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AnimatableBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+mesh = SubResource("CylinderMesh_eaa0b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("ConcavePolygonShape3D_hdgcg")
+
+[node name="Balls" type="Node3D" parent="."]
+
+[node name="AnimatableBody3D3" type="AnimatableBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Balls/AnimatableBody3D3"]
+mesh = SubResource("SphereMesh_we4ua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/AnimatableBody3D3"]
+shape = SubResource("SphereShape3D_5qqhr")
+
+[node name="AnimatableBody3D9" type="AnimatableBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14, 0.356, 0.14)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Balls/AnimatableBody3D9"]
+mesh = SubResource("SphereMesh_we4ua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/AnimatableBody3D9"]
+shape = SubResource("SphereShape3D_5qqhr")
+
+[node name="AnimatableBody3D10" type="AnimatableBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, 0.356, 0.14)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Balls/AnimatableBody3D10"]
+mesh = SubResource("SphereMesh_we4ua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/AnimatableBody3D10"]
+shape = SubResource("SphereShape3D_5qqhr")
+
+[node name="AnimatableBody3D11" type="AnimatableBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, 0.356, -0.14)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Balls/AnimatableBody3D11"]
+mesh = SubResource("SphereMesh_we4ua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/AnimatableBody3D11"]
+shape = SubResource("SphereShape3D_5qqhr")
+
+[node name="AnimatableBody3D12" type="AnimatableBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14, 0.356, -0.14)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Balls/AnimatableBody3D12"]
+mesh = SubResource("SphereMesh_we4ua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/AnimatableBody3D12"]
+shape = SubResource("SphereShape3D_5qqhr")
+
+[node name="Balls2" type="Node3D" parent="."]
+
+[node name="AnimatableBody3D4" type="AnimatableBody3D" parent="Balls2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.66, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Balls2/AnimatableBody3D4"]
+mesh = SubResource("SphereMesh_we4ua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls2/AnimatableBody3D4"]
+shape = SubResource("SphereShape3D_5qqhr")
+
+[node name="AnimatableBody3D5" type="AnimatableBody3D" parent="Balls2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14, -0.356, 0.14)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Balls2/AnimatableBody3D5"]
+mesh = SubResource("SphereMesh_we4ua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls2/AnimatableBody3D5"]
+shape = SubResource("SphereShape3D_5qqhr")
+
+[node name="AnimatableBody3D6" type="AnimatableBody3D" parent="Balls2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, -0.356, 0.14)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Balls2/AnimatableBody3D6"]
+mesh = SubResource("SphereMesh_we4ua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls2/AnimatableBody3D6"]
+shape = SubResource("SphereShape3D_5qqhr")
+
+[node name="AnimatableBody3D7" type="AnimatableBody3D" parent="Balls2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, -0.356, -0.14)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Balls2/AnimatableBody3D7"]
+mesh = SubResource("SphereMesh_we4ua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls2/AnimatableBody3D7"]
+shape = SubResource("SphereShape3D_5qqhr")
+
+[node name="AnimatableBody3D8" type="AnimatableBody3D" parent="Balls2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14, -0.356, -0.14)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Balls2/AnimatableBody3D8"]
+mesh = SubResource("SphereMesh_we4ua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls2/AnimatableBody3D8"]
+shape = SubResource("SphereShape3D_5qqhr")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+visible = false
+light_color = Color(0.739333, 0.66, 1, 1)
+light_energy = 2.371
+omni_range = 12.2842
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.71722, 0)
+mesh = SubResource("CylinderMesh_hdgcg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.71722, 0)
+shape = SubResource("ConcavePolygonShape3D_we4ua")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_hdgcg")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
