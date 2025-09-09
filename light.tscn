@@ -65,6 +65,7 @@ shape = SubResource("ConcavePolygonShape3D_hdgcg")
 
 [node name="AnimatableBody3D3" type="AnimatableBody3D" parent="Balls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66, 0)
+sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls/AnimatableBody3D3"]
 mesh = SubResource("SphereMesh_we4ua")
@@ -74,6 +75,7 @@ shape = SubResource("SphereShape3D_5qqhr")
 
 [node name="AnimatableBody3D9" type="AnimatableBody3D" parent="Balls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14, 0.356, 0.14)
+sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls/AnimatableBody3D9"]
 mesh = SubResource("SphereMesh_we4ua")
@@ -83,6 +85,7 @@ shape = SubResource("SphereShape3D_5qqhr")
 
 [node name="AnimatableBody3D10" type="AnimatableBody3D" parent="Balls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, 0.356, 0.14)
+sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls/AnimatableBody3D10"]
 mesh = SubResource("SphereMesh_we4ua")
@@ -92,6 +95,7 @@ shape = SubResource("SphereShape3D_5qqhr")
 
 [node name="AnimatableBody3D11" type="AnimatableBody3D" parent="Balls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, 0.356, -0.14)
+sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls/AnimatableBody3D11"]
 mesh = SubResource("SphereMesh_we4ua")
@@ -101,6 +105,7 @@ shape = SubResource("SphereShape3D_5qqhr")
 
 [node name="AnimatableBody3D12" type="AnimatableBody3D" parent="Balls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14, 0.356, -0.14)
+sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls/AnimatableBody3D12"]
 mesh = SubResource("SphereMesh_we4ua")
@@ -112,6 +117,7 @@ shape = SubResource("SphereShape3D_5qqhr")
 
 [node name="AnimatableBody3D4" type="AnimatableBody3D" parent="Balls2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.66, 0)
+sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls2/AnimatableBody3D4"]
 mesh = SubResource("SphereMesh_we4ua")
@@ -121,6 +127,7 @@ shape = SubResource("SphereShape3D_5qqhr")
 
 [node name="AnimatableBody3D5" type="AnimatableBody3D" parent="Balls2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14, -0.356, 0.14)
+sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls2/AnimatableBody3D5"]
 mesh = SubResource("SphereMesh_we4ua")
@@ -130,6 +137,7 @@ shape = SubResource("SphereShape3D_5qqhr")
 
 [node name="AnimatableBody3D6" type="AnimatableBody3D" parent="Balls2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, -0.356, 0.14)
+sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls2/AnimatableBody3D6"]
 mesh = SubResource("SphereMesh_we4ua")
@@ -139,6 +147,7 @@ shape = SubResource("SphereShape3D_5qqhr")
 
 [node name="AnimatableBody3D7" type="AnimatableBody3D" parent="Balls2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, -0.356, -0.14)
+sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls2/AnimatableBody3D7"]
 mesh = SubResource("SphereMesh_we4ua")
@@ -148,6 +157,7 @@ shape = SubResource("SphereShape3D_5qqhr")
 
 [node name="AnimatableBody3D8" type="AnimatableBody3D" parent="Balls2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14, -0.356, -0.14)
+sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls2/AnimatableBody3D8"]
 mesh = SubResource("SphereMesh_we4ua")

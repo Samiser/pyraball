@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bb28plwvmfby2"]
+[gd_scene load_steps=22 format=4 uid="uid://bb28plwvmfby2"]
 
 [ext_resource type="Script" uid="uid://cn1dxroiw2037" path="res://Scripts/level.gd" id="1_c7le1"]
 [ext_resource type="PackedScene" uid="uid://gpwfm6f76n8p" path="res://Meshes/level_base.blend" id="2_2klc5"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c4emg8m1hqsra" path="res://Scenes/cage.tscn" id="13_53r2q"]
 [ext_resource type="PackedScene" uid="uid://birwo03dt36aq" path="res://Scenes/mini_maze.tscn" id="14_luodc"]
 [ext_resource type="PackedScene" uid="uid://duovf7tmdb7ct" path="res://light.tscn" id="15_1cgv8"]
+[ext_resource type="PackedScene" uid="uid://v1gobxma3w8e" path="res://Scenes/spinning_platform.tscn" id="16_2klc5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6fg3j"]
 render_priority = 0
@@ -402,3 +403,24 @@ force = 20.0
 [node name="Portal5" parent="CannonPuzzle" node_paths=PackedStringArray("dest") instance=ExtResource("3_nngtn")]
 transform = Transform3D(0.599177, 0, -3.95487, 0, 4, 0, 3.95487, 0, 0.599177, -68.5008, 52.9196, 72.7028)
 dest = NodePath("../../portal_1_dest")
+
+[node name="SpinningPlatform" parent="." instance=ExtResource("16_2klc5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.59037, -20.5967, 40.3617)
+
+[node name="SpinningPlatform2" parent="." instance=ExtResource("16_2klc5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.6918, -11.4707, 51.6153)
+clockwise = false
+
+[node name="SpinningPlatform3" parent="." instance=ExtResource("16_2klc5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.7198, -1.14643, 39.553)
+
+[node name="SpinningPlatform4" parent="." instance=ExtResource("16_2klc5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -57.388, -2.83423, 57.4811)
+clockwise = false
+
+[node name="SpinningPlatform5" parent="." instance=ExtResource("16_2klc5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.388, 6.94315, 57.4811)
+
+[node name="SpinningPlatform6" parent="." instance=ExtResource("16_2klc5")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -57.388, 13.5742, 57.4811)
+clockwise = false
