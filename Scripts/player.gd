@@ -17,9 +17,9 @@ var air_control_force : float = 256.0
 @onready var camera_target: Marker3D = $CameraTarget
 @onready var spring_arm: SpringArm3D = $CameraTarget/SpringArm3D
 @onready var camera: Camera3D = $CameraTarget/SpringArm3D/Camera3D
-@onready var reflection_cam: Camera3D = $MeshInstance3D/Reflection_Mesh/SubViewport/reflection_cam
-@onready var reflection_mesh: MeshInstance3D = $MeshInstance3D/Reflection_Mesh
-@onready var roll_particles : GPUParticles3D = $roll_particles
+#@onready var reflection_cam: Camera3D = $MeshInstance3D/Reflection_Mesh/SubViewport/reflection_cam
+#@onready var reflection_mesh: MeshInstance3D = $MeshInstance3D/Reflection_Mesh
+#@onready var roll_particles : GPUParticles3D = $roll_particles
 @onready var shadow_ray : RayCast3D = $shadow_ray
 @onready var shadow_sprite : Sprite3D = $shadow_ray/player_shadow
 @onready var dust := $CameraTarget/SpringArm3D/Camera3D/dust_particles
@@ -68,7 +68,7 @@ func _ready() -> void:
 		
 	camera_target.top_level = true
 	floor_check.top_level = true
-	roll_particles.top_level = true
+	#roll_particles.top_level = true
 	shadow_ray.top_level = true
 	shadow_sprite.top_level = true
 	hand_mesh.top_level = true
@@ -98,8 +98,8 @@ func rotation_completed(old_position: Vector3) -> void:
 func set_new_scale(new_scale: float, level: int) -> void:
 	$MeshInstance3D.mesh.radius = new_scale
 	$MeshInstance3D.mesh.height = new_scale * 2
-	$MeshInstance3D/Reflection_Mesh.mesh.radius = new_scale * 0.95
-	$MeshInstance3D/Reflection_Mesh.mesh.height = new_scale * 2 * 0.95
+	#$MeshInstance3D/Reflection_Mesh.mesh.radius = new_scale * 0.95
+	#$MeshInstance3D/Reflection_Mesh.mesh.height = new_scale * 2 * 0.95
 	$CollisionShape3D.shape.radius = new_scale
 	spring_arm.spring_length = 6.0 * new_scale
 	spring_arm.transform.origin.y = 2.0 * new_scale
@@ -236,12 +236,12 @@ func _physics_process(delta: float) -> void:
 	roll_sfx_stream.pitch_scale = roll_sfx_pitch
 	
 	# speedy ball particles
-	roll_particles.emitting = floor_check.is_colliding() && speed > 12.0
-	roll_particles.global_position = global_position - Vector3(0.0, 0.6, 0.0)
+	#roll_particles.emitting = floor_check.is_colliding() && speed > 12.0
+	#roll_particles.global_position = global_position - Vector3(0.0, 0.6, 0.0)
 	
 	# fake refraction stuff
-	reflection_cam.global_position = global_position
-	reflection_cam.global_rotation = camera.global_rotation
+	#reflection_cam.global_position = global_position
+	#reflection_cam.global_rotation = camera.global_rotation
 	
 	# blob shadow
 	shadow_ray.global_position = global_position

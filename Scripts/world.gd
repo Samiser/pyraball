@@ -38,7 +38,7 @@ func _tween_daylight(new_rot: Vector3, new_colour: Color) -> void:
 func _tween_rotation(new_rotation: Vector3) -> void:
 	var tween := create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
-	tween.tween_property($PyraWorld, "rotation", get_level_rotation(current_level), 2)
+	tween.tween_property($PyraWorld, "rotation", new_rotation, 2)
 	await tween.finished
 	return
 
