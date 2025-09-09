@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bxt4ae0qrgpd0"]
+[gd_scene load_steps=34 format=3 uid="uid://bxt4ae0qrgpd0"]
 
 [ext_resource type="Script" uid="uid://bu7eh1ydu658n" path="res://Scripts/main.gd" id="1_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://ccdc33vpni5bd" path="res://Scenes/player.tscn" id="2_hptm8"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://brta4jqtr7kal" path="res://Audio/SoundFX/desert_wind_ambience.mp3" id="10_d1ilt"]
 [ext_resource type="AudioStream" uid="uid://bnd8u2o8rub0e" path="res://Audio/SoundFX/ice_ambience.mp3" id="11_6iyac"]
 [ext_resource type="AudioStream" uid="uid://brh0k7g2n1c6l" path="res://Audio/SoundFX/forest_ambience.mp3" id="11_fdnlq"]
+[ext_resource type="PackedScene" uid="uid://dbud0mpfsj5tn" path="res://Scenes/main_menu.tscn" id="12_6iyac"]
 
 [sub_resource type="Gradient" id="Gradient_6iyac"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -147,13 +148,14 @@ material = SubResource("StandardMaterial3D_chl2c")
 script = ExtResource("1_ynf5e")
 
 [node name="Player" parent="." instance=ExtResource("2_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9475, 42.5794, -97.4137)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.8364, 42.5794, -97.3839)
 
 [node name="World" parent="." node_paths=PackedStringArray("player", "ui") instance=ExtResource("3_6bp64")]
 player = NodePath("../Player")
 ui = NodePath("../UI")
 
 [node name="UI" parent="." instance=ExtResource("4_d1ilt")]
+visible = false
 
 [node name="fire_flies" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.3318, 40.2464)
@@ -226,3 +228,11 @@ unit_size = 18.0
 autoplay = true
 max_distance = 107.08
 panning_strength = 0.1
+
+[node name="MainMenu" parent="." instance=ExtResource("12_6iyac")]
+
+[node name="MenuCamera" type="Camera3D" parent="."]
+transform = Transform3D(0.730162, 0.544968, -0.412156, 0, 0.603208, 0.797584, 0.683274, -0.582366, 0.44044, -51.8531, 54.2327, -91.1888)
+cull_mask = 1048573
+current = true
+fov = 100.5
