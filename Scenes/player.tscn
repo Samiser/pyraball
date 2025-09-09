@@ -258,6 +258,7 @@ texture = ExtResource("6_x3wgy")
 
 [node name="respawn_hand" parent="." instance=ExtResource("7_3smsa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+visible = false
 
 [node name="respawn_sfx" type="AudioStreamPlayer3D" parent="respawn_hand"]
 stream = ExtResource("5_8erm5")
