@@ -48,6 +48,10 @@ _subresources={
 }
 },
 "nodes": {
+"PATH:Base-col/level_base-col/hill_inside_006": {
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 0
+},
 "PATH:Base-col/level_base-col/pyramid_big_001": {
 "mesh_instance/layers": 8
 }
