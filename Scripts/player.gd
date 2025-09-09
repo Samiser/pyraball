@@ -6,6 +6,7 @@ var jump_force : float = 20.0
 var air_control_force : float = 256.0
 
 @export_range(0.0, 0.1) var mouse_sensitivity: float = 0.01
+@export_range(0.0, 0.1) var gamepad_sensitivity: float = 0.1
 @export var tilt_limit: float = deg_to_rad(75)
 
 @export_range(1.0, 179.0) var base_fov: float = 75.0
@@ -171,13 +172,21 @@ func _input(event: InputEvent) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if is_respawning:
 		return
-		
+	
+	var look_vec := Vector2.ZERO
+	
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		spring_arm.rotation.x -= event.relative.y * mouse_sensitivity
 		spring_arm.rotation.x = clampf(spring_arm.rotation.x, -tilt_limit, tilt_limit)
 		spring_arm.rotation.y += -event.relative.x * mouse_sensitivity
 
 func _process(delta: float) -> void:
+	var look_pad_vector: Vector2 = Input.get_vector("look_up", "look_down", "look_right", "look_left")
+	if look_pad_vector != Vector2.ZERO:
+		spring_arm.rotation.x -= look_pad_vector.x * gamepad_sensitivity
+		spring_arm.rotation.x = clampf(spring_arm.rotation.x, -tilt_limit, tilt_limit)
+		spring_arm.rotation.y += look_pad_vector.y * gamepad_sensitivity
+	
 	if respawn_camera:
 		var new_rot := camera.transform.looking_at(transform.origin, Vector3.UP)
 		camera.transform = camera.transform.interpolate_with(new_rot, 4.0 * delta)
