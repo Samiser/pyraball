@@ -153,13 +153,7 @@ func collect_crystal() -> void:
 		all_crystals_are_collected = true
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	elif event.is_action_pressed("click"):
-		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			get_viewport().set_input_as_handled()
-	elif event.is_action_pressed("rotate_left") and not all_crystals_are_collected and past_unlocked and not freeze:
+	if event.is_action_pressed("rotate_left") and not all_crystals_are_collected and past_unlocked and not freeze:
 		_rotate("left")
 	elif event.is_action_pressed("rotate_right") and not all_crystals_are_collected and past_unlocked and not freeze:
 		_rotate("right")
@@ -170,6 +164,13 @@ func _input(event: InputEvent) -> void:
 		respawn_player()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	elif event.is_action_pressed("click"):
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			get_viewport().set_input_as_handled()
+	
 	if is_respawning:
 		return
 	
