@@ -198,7 +198,7 @@ spring_length = 3.0
 [node name="Camera3D" type="Camera3D" parent="CameraTarget/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 0.946812, 0.321787, 0, -0.321787, 0.946812, 0, 1.88998, 2.78866)
 cull_mask = 1048565
-far = 1000.0
+far = 100.0
 
 [node name="dust_particles" type="GPUParticles3D" parent="CameraTarget/SpringArm3D/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.946812, -0.321787, 0, 0.321787, 0.946812, 0, 0, 0)

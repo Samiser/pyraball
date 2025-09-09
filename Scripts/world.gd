@@ -24,10 +24,11 @@ func get_level_rotation(level: LevelEnum) -> Vector3:
 	
 	return Vector3.ZERO
 
-func _tween_fog_color(new_color: Color, new_density: float) -> void:
+func _tween_fog_color(new_color: Color, fog_far_dist: float) -> void:
 	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(environment, "fog_light_color", new_color, 1)
-	tween.parallel().tween_property(environment, "fog_density", new_density, 1)
+	tween.parallel().tween_property(environment, "fog_depth_end", fog_far_dist, 1)
+	tween.parallel().tween_property(player.camera, "far", fog_far_dist, 1)
 
 func _tween_daylight(new_rot: Vector3, new_colour: Color) -> void:
 	var tween := create_tween()
@@ -53,19 +54,19 @@ func _apply_world_changes() -> void:
 	match current_level:
 		LevelEnum.BACK:
 			player.set_new_scale(0.2, current_level)
-			_tween_fog_color(Color.from_hsv(0.6, 0.6, 1.0), 0.015)
+			_tween_fog_color(Color.from_hsv(0.6, 0.6, 1.0), 32.0)
 			_tween_daylight(Vector3(-90.0, 0.0, 0.0), Color.WHITE)
 		LevelEnum.PRESENT:
 			player.set_new_scale(0.5, current_level)
-			_tween_fog_color(Color.from_hsv(0.7, 0.6, 0.6), 0.005)
+			_tween_fog_color(Color.from_hsv(0.7, 0.6, 0.6), 99.0)
 			_tween_daylight(Vector3(-172.0, 0.0, 0.0), Color.BLUE_VIOLET)
 		LevelEnum.FORWARD:
 			player.set_new_scale(3, current_level)
-			_tween_fog_color(Color.from_hsv(0.95, 0.6, 1.0), 0.001)
+			_tween_fog_color(Color.from_hsv(0.95, 0.6, 1.0), 99.0)
 			_tween_daylight(Vector3(-40.0, 0.0, 0.0), Color.FLORAL_WHITE)
 		LevelEnum.VOID:
 			player.set_new_scale(10, current_level)
-			_tween_fog_color(Color.from_hsv(0.5, 0.4, 1.0), 0.001)
+			_tween_fog_color(Color.from_hsv(0.5, 0.4, 1.0), 94.0)
 			_tween_daylight(Vector3(0.0, 0.0, 0.0), Color.BLUE_VIOLET)
 	
 	ui._on_time_change(current_level)
