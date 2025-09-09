@@ -3,6 +3,8 @@ var correct_parts : Array = [24, 20, 15, 10, 11, 12, 13, 8, 3, 2, 1, 0]
 var parts_hit : Array
 var won := false
 
+@export var cage: MazeCage
+
 func _ready() -> void:
 	var index := 0
 	for child: MazePart in $parts.get_children():
@@ -11,6 +13,7 @@ func _ready() -> void:
 		index += 1
 
 func child_hit(index: int) -> void:
+	cage.open()
 	if won:
 		return
 	
@@ -31,6 +34,7 @@ func _win() -> void:
 	$AudioStreamPlayer3D.play()
 	for child: MazePart in $parts.get_children():
 		child.game_won = true
+	cage.open()
 	
 func _reset() -> void:
 	for child: MazePart in $parts.get_children():

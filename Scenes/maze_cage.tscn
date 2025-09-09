@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://bo2qf5t2unrbk"]
+
+[ext_resource type="PackedScene" uid="uid://ca4jbwb7djuc8" path="res://Scenes/wall_segment.tscn" id="1_0wgkn"]
+[ext_resource type="Script" uid="uid://b413ysgg7b47r" path="res://Scripts/maze_cage.gd" id="1_hahhp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hahhp"]
+albedo_color = Color(1, 0.6, 0.2, 1)
+metallic = 0.92
+roughness = 0.25
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6n48v"]
+material = SubResource("StandardMaterial3D_hahhp")
+top_radius = 0.0
+bottom_radius = 15.0
+height = 4.0
+radial_segments = 4
+rings = 0
+cap_top = false
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hahhp"]
+data = PackedVector3Array(0, 2, 0, 0, 2, 0, 0, -2, 15, 0, 2, 0, 15, -2, 0, 0, -2, 15, 0, 2, 0, 0, 2, 0, 15, -2, 0, 0, 2, 0, 0, -2, -15, 15, -2, 0, 0, 2, 0, 0, 2, 0, 0, -2, -15, 0, 2, 0, -15, -2, 0, 0, -2, -15, 0, 2, 0, 0, 2, 0, -15, -2, 0, 0, 2, 0, 0, -2, 15, -15, -2, 0, 0, -2, 0, 0, -2, 15, 15, -2, 0, 0, -2, 0, 15, -2, 0, 0, -2, -15, 0, -2, 0, 0, -2, -15, -15, -2, 0, 0, -2, 0, -15, -2, 0, 0, -2, 15)
+
+[node name="MazeCage" type="Node3D" node_paths=PackedStringArray("door")]
+script = ExtResource("1_hahhp")
+door = NodePath("WallSegment4")
+
+[node name="WallSegment" parent="." instance=ExtResource("1_0wgkn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.80766, -0.0349429, 0.232137)
+flipping = false
+
+[node name="WallSegment2" parent="." instance=ExtResource("1_0wgkn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.146735, -0.0349429, -10.085)
+flipping = false
+
+[node name="WallSegment3" parent="." instance=ExtResource("1_0wgkn")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.78526, -0.0349429, -0.290251)
+flipping = false
+
+[node name="WallSegment4" parent="." instance=ExtResource("1_0wgkn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.734421, -0.0349429, 10.0269)
+flipping = false
+
+[node name="Roof" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.550624, 10.151, 0.00414991)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Roof"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 1.3819, 0)
+mesh = SubResource("CylinderMesh_6n48v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Roof"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 1.3819, 0)
+shape = SubResource("ConcavePolygonShape3D_hahhp")
