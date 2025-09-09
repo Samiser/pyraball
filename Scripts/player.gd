@@ -76,7 +76,6 @@ func _ready() -> void:
 	spring_arm.add_excluded_object(self)
 
 func on_puzzle_completed(name: String) -> void:
-	print(name)
 	if name == "PastSundial":
 		past_unlocked = true
 	elif name == "FutureSundial":

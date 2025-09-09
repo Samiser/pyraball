@@ -55,7 +55,5 @@ func _ready() -> void:
 	
 	light_shaft.visible = false
 	
-	print(light_shaft.visible)
-	
 	if button:
 		button.pressed.connect(_face_sundial)

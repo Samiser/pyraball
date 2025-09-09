@@ -32,7 +32,6 @@ func _start_game() -> void:
 	timer.start(3)
 	await timer.timeout
 	_add_random_button_to_sequence()
-	print(game_sequence)
 	_play_game_animation()
 
 func _button_to_color(button: TriangleButton) -> Color:

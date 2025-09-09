@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cjtk4yijo8t5r"]
 
-[ext_resource type="Script" uid="uid://bfy05rt0v6is2" path="res://Scenes/portal.gd" id="1_lvd5j"]
+[ext_resource type="Script" uid="uid://bfy05rt0v6is2" path="res://Scripts/portal.gd" id="1_lvd5j"]
 [ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="2_mdgx6"]
 [ext_resource type="AudioStream" uid="uid://bxx76ltowkhgp" path="res://Audio/SoundFX/teleport.mp3" id="3_bseyl"]
 

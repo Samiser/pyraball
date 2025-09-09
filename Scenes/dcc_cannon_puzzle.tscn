@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6t4qe4aepodu"]
 
-[ext_resource type="PackedScene" uid="uid://0p11ariwu823" path="res://Cannon.tscn" id="1_e0wam"]
-[ext_resource type="Script" uid="uid://0h8iplljwmvj" path="res://Scenes/dcc_cannon_puzzle.gd" id="1_uhppo"]
+[ext_resource type="PackedScene" uid="uid://0p11ariwu823" path="res://Scenes/cannon.tscn" id="1_e0wam"]
+[ext_resource type="Script" uid="uid://0h8iplljwmvj" path="res://Scripts/dcc_cannon_puzzle.gd" id="1_uhppo"]
 
 [node name="DccCannonPuzzle" type="Node3D"]
 script = ExtResource("1_uhppo")

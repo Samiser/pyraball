@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="9_h1bgf"]
 [ext_resource type="AudioStream" uid="uid://dic7k3dm0buwh" path="res://Audio/Music/breakbeat.wav" id="9_ynf5e"]
 [ext_resource type="AudioStream" uid="uid://brta4jqtr7kal" path="res://Audio/SoundFX/desert_wind_ambience.mp3" id="10_d1ilt"]
-[ext_resource type="Shader" uid="uid://twjxjt5ypucs" path="res://Scenes/warp.gdshader" id="10_hptm8"]
+[ext_resource type="Shader" uid="uid://twjxjt5ypucs" path="res://Scripts/warp.gdshader" id="10_hptm8"]
 [ext_resource type="AudioStream" uid="uid://bnd8u2o8rub0e" path="res://Audio/SoundFX/ice_ambience.mp3" id="11_6iyac"]
 [ext_resource type="AudioStream" uid="uid://brh0k7g2n1c6l" path="res://Audio/SoundFX/forest_ambience.mp3" id="11_fdnlq"]
 

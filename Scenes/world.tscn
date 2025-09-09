@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cfinh2lxfg31r" path="res://Scripts/world.gd" id="1_fo5ed"]
 [ext_resource type="PackedScene" uid="uid://dp7qio86hk64j" path="res://Meshes/pyra_world.fbx" id="2_5ukr8"]
-[ext_resource type="PackedScene" uid="uid://bb28plwvmfby2" path="res://Level/Level.tscn" id="3_o06y3"]
+[ext_resource type="PackedScene" uid="uid://bb28plwvmfby2" path="res://Scenes/level.tscn" id="3_o06y3"]
 [ext_resource type="Script" uid="uid://p3txqf0mjxo3" path="res://Scripts/drop_kill_zone.gd" id="4_k7acu"]
 [ext_resource type="PackedScene" uid="uid://c1ft78rr6ksxt" path="res://Scenes/time_crystal.tscn" id="5_5v1tr"]
 

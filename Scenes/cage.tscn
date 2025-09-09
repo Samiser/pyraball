@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c4emg8m1hqsra"]
 
-[ext_resource type="PackedScene" uid="uid://c5s56xjarcoai" path="res://cage_bar.tscn" id="1_p80af"]
-[ext_resource type="Script" uid="uid://d3eleooqtq6go" path="res://cage.gd" id="1_x53gr"]
+[ext_resource type="PackedScene" uid="uid://c5s56xjarcoai" path="res://Scenes/cage_bar.tscn" id="1_p80af"]
+[ext_resource type="Script" uid="uid://d3eleooqtq6go" path="res://Scripts/cage.gd" id="1_x53gr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x53gr"]
 metallic = 0.75

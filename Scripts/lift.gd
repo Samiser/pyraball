@@ -27,7 +27,6 @@ func _snap_to(new_position: Vector3, new_rotation: Vector3) -> void:
 	current_position = !current_position
 
 func _move_to(new_position: Vector3, new_rotation: Vector3) -> void:
-	print(new_position)
 	var present_lift: Lift
 	var future_lift: Lift
 	
@@ -73,4 +72,3 @@ func _ready() -> void:
 	upper_button.pressed.connect(_on_upper_pressed)
 	button.pressed.connect(_lift_button_pressed)
 	current_position = starting_position
-	print(my_level)

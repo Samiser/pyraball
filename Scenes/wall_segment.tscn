@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ca4jbwb7djuc8"]
 
-[ext_resource type="Script" uid="uid://cp85ah556m177" path="res://wall_segment.gd" id="1_d84ds"]
+[ext_resource type="Script" uid="uid://cp85ah556m177" path="res://Scripts/wall_segment.gd" id="1_d84ds"]
 [ext_resource type="PackedScene" uid="uid://hxlx84tjlowl" path="res://Scenes/pyramid.tscn" id="1_fwoq4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fwoq4"]

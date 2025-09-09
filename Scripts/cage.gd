@@ -8,7 +8,6 @@ func _ready() -> void:
 		0, $Ball/MeshInstance3D.get_active_material(0).duplicate())
 
 func open() -> void:
-	print(bars)
 	var tween := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	tween.set_parallel()
 	for i in bars.size():
