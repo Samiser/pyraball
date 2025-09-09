@@ -2,7 +2,6 @@ extends Node3D
 
 @onready var environment: Environment = $WorldEnvironment.environment
 @export var player: Player
-@export var minimap_camera: Camera3D
 
 enum LevelEnum {BACK, PRESENT, FORWARD, VOID}
 var current_level: LevelEnum = LevelEnum.PRESENT
@@ -28,7 +27,6 @@ func _tween_fog_color(new_color: Color, new_density: float) -> void:
 	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(environment, "fog_light_color", new_color, 1)
 	tween.parallel().tween_property(environment, "fog_density", new_density, 1)
-	tween.parallel().tween_property(minimap_camera, "environment:fog_light_color", new_color, 1)
 
 func _tween_daylight(new_rot: Vector3, new_colour: Color) -> void:
 	var tween := create_tween()
