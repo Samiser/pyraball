@@ -55,7 +55,6 @@ as_normal_map = true
 noise = SubResource("FastNoiseLite_rf6x2")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_koq56"]
-transparency = 1
 blend_mode = 1
 albedo_color = Color(0.396078, 0.121569, 1, 0.670588)
 roughness = 0.15
