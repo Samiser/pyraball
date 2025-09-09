@@ -302,7 +302,7 @@ func respawn_player() -> void:
 	# hand moves to drop pos
 	await tween.finished
 	tween = get_tree().create_tween()
-	camera.global_position = last_safe_pos + Vector3.RIGHT * 4.0 + Vector3.UP * 6.0
+	camera.global_position = last_safe_pos + (Vector3.LEFT * 4.0 + Vector3.UP * 6.0) * $MeshInstance3D.mesh.radius
 	tween.tween_property(hand_mesh, "global_position", last_safe_pos, 2.0)
 	tween.parallel().tween_property(self, "global_position", last_safe_pos, 2.0)
 	
