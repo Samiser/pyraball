@@ -270,7 +270,7 @@ func respawn_player() -> void:
 	
 	var fall_pos := global_position
 	var safe_height := last_safe_pos.y
-	last_safe_pos += (last_safe_pos - fall_pos).normalized() * 2.0
+	last_safe_pos += (last_safe_pos - fall_pos).normalized() * 4.0
 	last_safe_pos.y = safe_height
 	
 	if (Time.get_ticks_msec() - respawn_time) < 4000:
