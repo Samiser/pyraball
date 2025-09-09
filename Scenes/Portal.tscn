@@ -89,11 +89,11 @@ shape = SubResource("SphereShape3D_lvd5j")
 
 [node name="portal_particles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.52251, 0)
-amount = 32
 preprocess = 1.0
 speed_scale = 0.5
 randomness = 0.13
 interpolate = false
+local_coords = true
 transform_align = 3
 process_material = SubResource("ParticleProcessMaterial_bseyl")
 draw_pass_1 = SubResource("QuadMesh_mtwac")

@@ -26,11 +26,12 @@ point_count = 3
 curve = SubResource("Curve_fdnlq")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wsu2k"]
+emission_shape_scale = Vector3(2, 2, 2)
 emission_shape = 2
-emission_sphere_radius = 19.56
+emission_sphere_radius = 128.0
 gravity = Vector3(0, 0, 0)
-radial_accel_min = -1.0
-radial_accel_max = 0.999998
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
 attractor_interaction_enabled = false
 scale_min = 6.0
 scale_max = 12.0
@@ -233,7 +234,7 @@ draw_pass_1 = SubResource("QuadMesh_pdsj5")
 [node name="desert_wind" type="GPUParticles3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.78577, 80.4289, -89.0279)
 layers = 16
-amount = 32
+amount = 16
 lifetime = 4.0
 preprocess = 1.0
 fixed_fps = 18
