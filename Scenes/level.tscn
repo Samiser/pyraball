@@ -97,12 +97,12 @@ cap_bottom = false
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_c7le1")
-selected_level = 1
 
 [node name="Base" parent="." instance=ExtResource("2_2klc5")]
 
 [node name="Portal" parent="." node_paths=PackedStringArray("dest") groups=["present"] instance=ExtResource("3_nngtn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.695, -15.2547, -47.7873)
+visible = false
 dest = NodePath("../portal_1_dest")
 
 [node name="portal_1_dest" type="Node3D" parent="."]
@@ -110,6 +110,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.695, -10.0796, -44.1715)
 
 [node name="Portal2" parent="." node_paths=PackedStringArray("dest") groups=["present"] instance=ExtResource("3_nngtn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.7237, -24.7129, -71.3615)
+visible = false
 dest = NodePath("../portal_2_dest")
 
 [node name="portal_2_dest" type="Node3D" parent="." groups=["future", "past", "present"]]
@@ -117,74 +118,89 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.695, -24.6241, -47.8068)
 
 [node name="PastSundial" type="Node3D" parent="." groups=["present"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.512, -25.1253, 27.4014)
+visible = false
 
 [node name="Sundial" parent="PastSundial" node_paths=PackedStringArray("button", "reflectors") instance=ExtResource("4_vofx3")]
 transform = Transform3D(0.082843, 0, -0.996562, 0, 1, 0, 0.996563, 0, 0.0828429, 0.0121002, -2.29754, 0.0447464)
+visible = false
 button = NodePath("../SundialButton")
 reflectors = [NodePath("../Reflector"), NodePath("../Reflector2"), NodePath("../Reflector3"), NodePath("../Reflector4")]
 
 [node name="Reflector" parent="PastSundial" node_paths=PackedStringArray("sundial", "button", "light_shaft") instance=ExtResource("5_00k4y")]
 transform = Transform3D(-0.0819384, -0.996637, -2.5259e-08, -3.76242e-08, -2.22509e-08, 1, -0.996637, 0.0819384, -3.56745e-08, -2.92723, 17.6151, -69.5527)
+visible = false
 sundial = NodePath("../Sundial")
 button = NodePath("../ReflectorButton")
 light_shaft = NodePath("../LightShaft")
 
 [node name="ReflectorButton" parent="PastSundial" instance=ExtResource("6_3a44l")]
 transform = Transform3D(0.529609, 0, -0.848243, 0, 1, 0, 0.848243, 0, 0.529609, -9.00732, 16.3194, -68.1811)
+visible = false
 color = Color(0, 0.600216, 0.692913, 1)
 
 [node name="LightShaft" type="MeshInstance3D" parent="PastSundial"]
 transform = Transform3D(-0.249354, -0.159011, -3.50755, 3.48193, 0.441579, -0.267551, 0.452104, -3.48857, 0.12601, -1.39748, 13.3124, -34.8424)
+visible = false
 mesh = SubResource("ArrayMesh_6fg3j")
 skeleton = NodePath("")
 
 [node name="Reflector2" parent="PastSundial" node_paths=PackedStringArray("sundial", "button", "light_shaft") instance=ExtResource("5_00k4y")]
 transform = Transform3D(-0.808299, 0, -0.588773, 0, 1, 0, 0.588773, 0, -0.808299, -38.7015, -0.919416, -4.28496)
+visible = false
 sundial = NodePath("../Sundial")
 button = NodePath("../ReflectorButton2")
 light_shaft = NodePath("../LightShaft2")
 
 [node name="ReflectorButton2" parent="PastSundial" instance=ExtResource("6_3a44l")]
 transform = Transform3D(0.082843, 0, -0.996563, 0, 1, 0, 0.996563, 0, 0.082843, -35.358, -2.33411, -4.17871)
+visible = false
 color = Color(0, 0.600216, 0.692913, 1)
 
 [node name="LightShaft2" type="MeshInstance3D" parent="PastSundial"]
 transform = Transform3D(-0.496174, -1.90098, -0.201778, 1.91149, -0.496118, -0.0263783, -0.0252968, -0.201917, 1.96449, -19.088, 3.98455, -2.03868)
+visible = false
 mesh = SubResource("ArrayMesh_6fg3j")
 skeleton = NodePath("")
 
 [node name="Reflector3" parent="PastSundial" node_paths=PackedStringArray("sundial", "button", "light_shaft") instance=ExtResource("5_00k4y")]
 transform = Transform3D(0.85794, 0, 0.513751, 0, 1, 0, -0.513751, 0, 0.85794, 12.9331, -0.919416, 57.8528)
+visible = false
 sundial = NodePath("../Sundial")
 button = NodePath("../ReflectorButton3")
 light_shaft = NodePath("../LightShaft3")
 
 [node name="ReflectorButton3" parent="PastSundial" instance=ExtResource("6_3a44l")]
 transform = Transform3D(0.082843, 0, -0.996563, 0, 1, 0, 0.996563, 0, 0.082843, 13.9091, -2.33411, 55.3594)
+visible = false
 color = Color(0, 0.600216, 0.692913, 1)
 
 [node name="LightShaft3" type="MeshInstance3D" parent="PastSundial"]
 transform = Transform3D(1.20116, 0.635719, 2.64645, 2.71473, -0.487193, -1.11512, 0.195102, 2.86516, -0.776808, 6.37586, 3.94311, 28.8925)
+visible = false
 mesh = SubResource("ArrayMesh_6fg3j")
 skeleton = NodePath("")
 
 [node name="Reflector4" parent="PastSundial" node_paths=PackedStringArray("sundial", "button", "light_shaft") instance=ExtResource("5_00k4y")]
 transform = Transform3D(-0.808299, 0, -0.588773, 0, 1, 0, 0.588773, 0, -0.808299, -42.184, -0.919416, -53.4961)
+visible = false
 sundial = NodePath("../Sundial")
 button = NodePath("../ReflectorButton4")
 light_shaft = NodePath("../LightShaft4")
 
 [node name="ReflectorButton4" parent="PastSundial" instance=ExtResource("6_3a44l")]
 transform = Transform3D(0.082843, 0, -0.996563, 0, 1, 0, 0.996563, 0, 0.082843, -40.9784, -2.33411, -50.3247)
+visible = false
 color = Color(0, 0.600216, 0.692913, 1)
 
 [node name="LightShaft4" type="MeshInstance3D" parent="PastSundial"]
 transform = Transform3D(-1.31509, -2.09311, -2.37067, 3.12926, -0.490229, -1.30308, 0.457025, -2.66631, 2.10061, -21.0681, 4.02782, -26.6363)
+visible = false
 mesh = SubResource("ArrayMesh_6fg3j")
 skeleton = NodePath("")
 
 [node name="SundialButton" parent="PastSundial" instance=ExtResource("6_3a44l")]
 transform = Transform3D(0.082843, 0, -0.996563, 0, 1, 0, 0.996562, 0, 0.082843, -3.40466, -2.32235, 4.7885)
+visible = false
 color = Color(0, 0.600216, 0.692913, 1)
 
 [node name="Wall" type="Node3D" parent="."]
@@ -233,26 +249,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.92007, -0.328598, 4.98981)
 
 [node name="Cannon" parent="." groups=["present"] instance=ExtResource("10_gf56v")]
 transform = Transform3D(-0.0784591, 0, -0.996917, 0, 1, 0, 0.996917, 0, -0.0784591, 61.4207, -15.2016, 56.6796)
+visible = false
 dir_y_degrees = 175.0
 dir_x_degrees = 50.0
 force = 25.0
 
 [node name="Cannon2" parent="." groups=["present"] instance=ExtResource("10_gf56v")]
 transform = Transform3D(0.995263, 0, -0.0972182, 0, 1, 0, 0.0972182, 0, 0.995263, 65.4207, -5.4234, 13.6122)
+visible = false
 dir_y_degrees = -104.0
 force = 24.0
 
 [node name="Cannon3" parent="." groups=["present"] instance=ExtResource("10_gf56v")]
 transform = Transform3D(-0.998597, 0, -0.0529633, 0, 1, 0, 0.0529633, 0, -0.998597, -1.00881, -27.4293, -33.3541)
+visible = false
 dir_y_degrees = 15.0
 dir_x_degrees = 80.0
 force = 42.0
 
 [node name="HollowPlanet_Medium_Ball" parent="." groups=["present"] instance=ExtResource("11_6y3s5")]
 transform = Transform3D(0.991669, 0, -0.128813, 0, 1, 0, 0.128813, 0, 0.991669, 1.39115, 32.1701, -26.0288)
+visible = false
 
 [node name="Cannon" parent="HollowPlanet_Medium_Ball" instance=ExtResource("10_gf56v")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 14, 0)
+visible = false
 force = 20.0
 
 [node name="HollowPlanet_Big_Ball" parent="." groups=["future"] instance=ExtResource("11_6y3s5")]
@@ -266,7 +287,6 @@ force = 20.0
 
 [node name="Portal3" parent="." node_paths=PackedStringArray("dest") groups=["past"] instance=ExtResource("3_nngtn")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 69.6981, -24.0411, 1.5068)
-visible = false
 dest = NodePath("../mini_pyramid_entry")
 
 [node name="mini_pyramid_entry" type="Node3D" parent="."]
@@ -274,79 +294,94 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 72.3206, -26.5712, 1.50
 
 [node name="Portal4" parent="." node_paths=PackedStringArray("dest") groups=["past"] instance=ExtResource("3_nngtn")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 74.0729, -26.4454, 7.5068)
-visible = false
 dest = NodePath("../mini_pyramid_exit")
 
 [node name="mini_pyramid_exit" type="Node3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 68.279, -24.7121, 1.5068)
 
 [node name="FutureSundial" type="Node3D" parent="." groups=["present"]]
+visible = false
 
 [node name="Sundial" parent="FutureSundial" node_paths=PackedStringArray("button", "reflectors") instance=ExtResource("4_vofx3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9011, -27.4265, -3.96613)
+visible = false
 button = NodePath("../SundialButton")
 reflectors = [NodePath("../Reflector"), NodePath("../Reflector2"), NodePath("../Reflector3"), NodePath("../Reflector4")]
 
 [node name="SundialButton" parent="FutureSundial" instance=ExtResource("6_3a44l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5235, -27.4745, -7.98668)
+visible = false
 
 [node name="Reflector" parent="FutureSundial" node_paths=PackedStringArray("sundial", "button", "light_shaft") instance=ExtResource("5_00k4y")]
 transform = Transform3D(-0.908391, 0, 0.418121, 0, 1, 0, -0.418121, 0, -0.908391, -0.411017, 15.969, 0.477938)
+visible = false
 sundial = NodePath("../Sundial")
 button = NodePath("../Button")
 light_shaft = NodePath("../LightShaft")
 
 [node name="Button" parent="FutureSundial" instance=ExtResource("6_3a44l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.18461, 15.0227, 4.38556)
+visible = false
 
 [node name="LightShaft" type="MeshInstance3D" parent="FutureSundial"]
 transform = Transform3D(-2.23746, 1.15671, 0.925798, 1.75438, 1.57404, -0.24593, -0.796586, 0.217625, -3.14201, -12.2559, -0.301465, -1.78585)
+visible = false
 mesh = SubResource("ArrayMesh_6fg3j")
 skeleton = NodePath("")
 
 [node name="Reflector2" parent="FutureSundial" node_paths=PackedStringArray("sundial", "button", "light_shaft") instance=ExtResource("5_00k4y")]
 transform = Transform3D(-0.993957, 0, 0.109769, 0.0852752, 0.629673, 0.772166, -0.0691186, 0.77686, -0.625868, -2.8778, -25.3801, -33.8185)
+visible = false
 sundial = NodePath("../Sundial")
 button = NodePath("../Button2")
 light_shaft = NodePath("../LightShaft2")
 
 [node name="Button2" parent="FutureSundial" instance=ExtResource("6_3a44l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.61653, -27.4688, -28.9452)
+visible = false
 
 [node name="LightShaft2" type="MeshInstance3D" parent="FutureSundial"]
 transform = Transform3D(-0.690154, 1.06781, -2.00859, 2.4513, -0.464187, -1.11252, -1.24249, -1.50892, -1.07918, -13.3397, -20.7202, -18.8852)
+visible = false
 mesh = SubResource("ArrayMesh_6fg3j")
 skeleton = NodePath("")
 
 [node name="Reflector3" parent="FutureSundial" node_paths=PackedStringArray("sundial", "button", "light_shaft") instance=ExtResource("5_00k4y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5536, -25.42, -26.7458)
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -7.0249, -9.49813, -2.4442)
+visible = false
 sundial = NodePath("../Sundial")
 button = NodePath("../Button3")
 light_shaft = NodePath("../LightShaft3")
 
 [node name="Button3" parent="FutureSundial" instance=ExtResource("6_3a44l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9688, -27.4688, -26.565)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.44009, -11.5469, 0.338302)
+visible = false
 
 [node name="LightShaft3" type="MeshInstance3D" parent="FutureSundial"]
 transform = Transform3D(-1.35617, -0.348361, -3.12571, 3.12926, -0.490229, -1.30308, -0.314854, -3.37179, 0.512393, -66.8611, -21.0975, 0.7651)
+visible = false
 mesh = SubResource("ArrayMesh_6fg3j")
 skeleton = NodePath("")
 
 [node name="Reflector4" parent="FutureSundial" node_paths=PackedStringArray("sundial", "button", "light_shaft") instance=ExtResource("5_00k4y")]
 transform = Transform3D(1, 0, 0, 0, 0.0128103, 0.999918, 0, -0.999918, 0.0128103, -56.1824, -24.5289, -16.9754)
+visible = false
 sundial = NodePath("../Sundial")
 button = NodePath("../Button4")
 light_shaft = NodePath("../LightShaft4")
 
 [node name="Button4" parent="FutureSundial" instance=ExtResource("6_3a44l")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -56.1846, -27.4688, -16.969)
+visible = false
 
 [node name="LightShaft4" type="MeshInstance3D" parent="FutureSundial"]
 transform = Transform3D(-1.00642, -1.57823, -0.699607, 2.53151, -0.404096, -1.14934, 0.891599, -0.63413, 2.4736, -39.7789, -20.2615, -10.4011)
+visible = false
 mesh = SubResource("ArrayMesh_6fg3j")
 skeleton = NodePath("")
 
 [node name="SimonSaysPuzzle" type="Node3D" parent="." groups=["present"]]
+visible = false
 
 [node name="SimonSays" parent="SimonSaysPuzzle" node_paths=PackedStringArray("cage") instance=ExtResource("12_u0did")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.7332, -27.481, -28.9548)
@@ -354,10 +389,10 @@ cage = NodePath("../Cage")
 
 [node name="Cage" parent="SimonSaysPuzzle" instance=ExtResource("13_53r2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.70135, -23.9149, -29.0007)
+visible = false
 
 [node name="MiniMaze" parent="." node_paths=PackedStringArray("cage") groups=["past"] instance=ExtResource("14_luodc")]
 transform = Transform3D(1.86, 0, 0, 0, 1.86, 0, 0, 0, 1.86, -52.606, -26.6088, -19.2759)
-visible = false
 cage = NodePath("../MazeCage")
 
 [node name="MazeCage" parent="." groups=["past", "present"] instance=ExtResource("15_00k4y")]
@@ -376,9 +411,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.8951, -23.9181, -77.4139)
 
 [node name="Light5" parent="Lights" groups=["present"] instance=ExtResource("15_1cgv8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.972, -4.13383, -45.1958)
+visible = false
 
 [node name="Light6" parent="Lights" instance=ExtResource("15_1cgv8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.10345, -23.9181, -35.1613)
+
+[node name="Light15" parent="Lights" instance=ExtResource("15_1cgv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7799, -23.9181, 25.3973)
 
 [node name="Light7" parent="Lights" instance=ExtResource("15_1cgv8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.1435, -23.9181, -22.1903)
@@ -442,20 +481,24 @@ shape = SubResource("ConcavePolygonShape3D_3a44l")
 
 [node name="Cannon4" parent="CannonPuzzle" groups=["present"] instance=ExtResource("10_gf56v")]
 transform = Transform3D(0.958854, 0, 0.283898, 0, 1, 0, -0.283898, 0, 0.958854, -69.9962, -27.4293, -3.01175)
+visible = false
 dir_y_degrees = -27.429
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="CannonPuzzle" groups=["present"]]
 transform = Transform3D(-0.93636, 0, -0.351041, 0, 1, 0, 0.351041, 0, -0.93636, -110.37, 25.1432, 74.2698)
+visible = false
 mesh = SubResource("CylinderMesh_ul75j")
 skeleton = NodePath("../Cannon5")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="CannonPuzzle" groups=["present"]]
 transform = Transform3D(-0.931151, 0, 0.364633, 0, 1, 0, -0.364633, 0, -0.931151, -76.4261, 23.1434, 74.2622)
+visible = false
 mesh = SubResource("CylinderMesh_ul75j")
 skeleton = NodePath("../Cannon5")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="CannonPuzzle" groups=["present"]]
 transform = Transform3D(-0.931151, 0, 0.364633, 0, 1, 0, -0.364633, 0, -0.931151, 90.6358, 56.6552, -44.7946)
+visible = false
 mesh = SubResource("CylinderMesh_ul75j")
 skeleton = NodePath("../Cannon5")
 
@@ -466,18 +509,21 @@ dir_y_degrees = -27.429
 
 [node name="Cannon6" parent="CannonPuzzle" groups=["present"] instance=ExtResource("10_gf56v")]
 transform = Transform3D(-0.931151, 0, 0.364633, 0, 1, 0, -0.364633, 0, -0.931151, -110.37, 25.649, 74.2698)
+visible = false
 dir_y_degrees = 90.0
 dir_x_degrees = 0.0
 force = 60.0
 
 [node name="Cannon7" parent="CannonPuzzle" groups=["present"] instance=ExtResource("10_gf56v")]
 transform = Transform3D(0.149794, 0, -0.988717, 0, 1, 0, 0.988717, 0, 0.149794, -76.4332, 23.6344, 74.2698)
+visible = false
 dir_y_degrees = 90.0
 dir_x_degrees = 80.0
 force = 60.0
 
 [node name="Cannon8" parent="CannonPuzzle" groups=["present"] instance=ExtResource("10_gf56v")]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 117.636, 30.1184, -47.7946)
+visible = false
 dir_y_degrees = -90.0
 dir_x_degrees = 0.0
 force = 20.0
@@ -488,36 +534,42 @@ dest = NodePath("../../portal_1_dest")
 
 [node name="Sprite3D" type="Sprite3D" parent="CannonPuzzle" groups=["present"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -72.1296, -26.257, -4.23068)
+visible = false
 modulate = Color(0.691357, 0.691357, 0.691357, 1)
 pixel_size = 0.006
 texture = ExtResource("16_vofx3")
 
 [node name="Sprite3D2" type="Sprite3D" parent="CannonPuzzle/Sprite3D" groups=["present"]]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+visible = false
 modulate = Color(0.396078, 0.180392, 1, 1)
 pixel_size = 0.0007
 texture = ExtResource("17_00k4y")
 
 [node name="Sprite3D3" type="Sprite3D" parent="CannonPuzzle" groups=["present"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -72.1296, -26.257, -3.03068)
+visible = false
 modulate = Color(0.691357, 0.691357, 0.691357, 1)
 pixel_size = 0.006
 texture = ExtResource("16_vofx3")
 
 [node name="Sprite3D4" type="Sprite3D" parent="CannonPuzzle/Sprite3D3" groups=["present"]]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+visible = false
 modulate = Color(0.572549, 0, 0, 1)
 pixel_size = 0.0012
 texture = ExtResource("17_00k4y")
 
 [node name="Sprite3D5" type="Sprite3D" parent="CannonPuzzle" groups=["present"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -72.1296, -26.257, -1.83068)
+visible = false
 modulate = Color(0.691357, 0.691357, 0.691357, 1)
 pixel_size = 0.006
 texture = ExtResource("16_vofx3")
 
 [node name="Sprite3D6" type="Sprite3D" parent="CannonPuzzle/Sprite3D5" groups=["present"]]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+visible = false
 modulate = Color(0.396078, 0.180392, 1, 1)
 pixel_size = 0.0007
 texture = ExtResource("17_00k4y")
