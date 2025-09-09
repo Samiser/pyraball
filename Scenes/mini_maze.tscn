@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://birwo03dt36aq"]
 
 [ext_resource type="PackedScene" uid="uid://6c84sulosnrd" path="res://Scenes/maze_part.tscn" id="1_b8wuc"]
-[ext_resource type="Script" uid="uid://c26qwtkgee3dt" path="res://Scenes/mini_maze.gd" id="1_vw0ml"]
+[ext_resource type="Script" uid="uid://c26qwtkgee3dt" path="res://Scripts/mini_maze.gd" id="1_vw0ml"]
 
 [node name="MiniMaze" type="Node3D"]
 script = ExtResource("1_vw0ml")
