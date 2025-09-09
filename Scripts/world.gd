@@ -76,11 +76,19 @@ func _change_current_level(direction: String, levels_unlocked: int) -> void:
 	elif direction == "right":
 		current_level = posmod(current_level + 1, levels_unlocked)
 
+func _freeze_buttons(value: bool) -> void:
+	for button: Node3D in get_tree().get_nodes_in_group("button"):
+		if button.has_method("set_freeze"):
+			print("freeze change")
+			button.set_freeze(value)
+
 func _on_rotation(direction: String, player_position: Vector3, levels_unlocked: int) -> void:
+	_freeze_buttons(true)
 	_change_current_level(direction, levels_unlocked)
 	_apply_world_changes()
 	await _tween_rotation(get_level_rotation(current_level))
 	player.rotation_completed(player_position)
+	_freeze_buttons(false)
 
 func _on_all_crystals_collected(player_position: Vector3) -> void:
 	current_level = 3

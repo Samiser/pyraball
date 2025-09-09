@@ -46,7 +46,7 @@ vertex_color_use_as_albedo = true
 albedo_color = Color(1, 0.5, 0.5, 1)
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = -0.392107
+emission_energy_multiplier = -0.348666
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_r04n3"]
 points = PackedVector3Array(0, 2, -0.5, 2, 0, -0.5, -2, 0, -0.5, 0, 0, 0.5, 0, -2, -0.5)
@@ -57,7 +57,7 @@ size = Vector3(2.00194, 0.420807, 1.99674)
 [sub_resource type="BoxShape3D" id="BoxShape3D_vxja4"]
 size = Vector3(1.3927, 0.578186, 1.37695)
 
-[node name="Button" type="Node3D"]
+[node name="Button" type="Node3D" groups=["button"]]
 script = ExtResource("1_1cmwl")
 
 [node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="."]
