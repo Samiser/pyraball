@@ -114,3 +114,4 @@ environment/ssao/quality=0
 anti_aliasing/screen_space_roughness_limiter/enabled=false
 occlusion_culling/occlusion_rays_per_thread=128
 environment/glow/upscale_mode=0
+occlusion_culling/use_occlusion_culling=true
