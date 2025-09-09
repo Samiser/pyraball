@@ -1,35 +1,16 @@
-[gd_scene load_steps=37 format=3 uid="uid://bxt4ae0qrgpd0"]
+[gd_scene load_steps=41 format=3 uid="uid://bxt4ae0qrgpd0"]
 
 [ext_resource type="Script" uid="uid://bu7eh1ydu658n" path="res://Scripts/main.gd" id="1_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://ccdc33vpni5bd" path="res://Scenes/player.tscn" id="2_hptm8"]
 [ext_resource type="PackedScene" uid="uid://drslnmwg3sumf" path="res://Scenes/world.tscn" id="3_6bp64"]
+[ext_resource type="PackedScene" uid="uid://bx65doinmgwat" path="res://Scenes/ui.tscn" id="4_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="7_wsu2k"]
 [ext_resource type="AudioStream" uid="uid://t5wlstexka75" path="res://Audio/Music/minimal_drums.wav" id="8_344ge"]
-[ext_resource type="Script" uid="uid://sx5ad0yhjku8" path="res://Scripts/ui.gd" id="8_k12tt"]
 [ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="9_h1bgf"]
 [ext_resource type="AudioStream" uid="uid://dic7k3dm0buwh" path="res://Audio/Music/breakbeat.wav" id="9_ynf5e"]
 [ext_resource type="AudioStream" uid="uid://brta4jqtr7kal" path="res://Audio/SoundFX/desert_wind_ambience.mp3" id="10_d1ilt"]
-[ext_resource type="Shader" uid="uid://twjxjt5ypucs" path="res://Scripts/warp.gdshader" id="10_hptm8"]
 [ext_resource type="AudioStream" uid="uid://bnd8u2o8rub0e" path="res://Audio/SoundFX/ice_ambience.mp3" id="11_6iyac"]
 [ext_resource type="AudioStream" uid="uid://brh0k7g2n1c6l" path="res://Audio/SoundFX/forest_ambience.mp3" id="11_fdnlq"]
-
-[sub_resource type="Environment" id="Environment_lquwl"]
-ambient_light_source = 2
-ambient_light_color = Color(0.947199, 0.947199, 0.947199, 1)
-glow_hdr_threshold = 0.4
-fog_light_color = Color(0.384632, 0.551863, 0.818752, 1)
-fog_density = 0.0004
-adjustment_enabled = true
-adjustment_brightness = 1.2
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d1ilt"]
-shader = ExtResource("10_hptm8")
-shader_parameter/speed = 1.0
-shader_parameter/scale = 1.0
-shader_parameter/offset = Vector2(0, 0)
-shader_parameter/use_screen_uv = 0
-shader_parameter/radius = 0.45
-shader_parameter/center = Vector2(0.5, 0.5)
 
 [sub_resource type="Gradient" id="Gradient_fdnlq"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -45,10 +26,9 @@ point_count = 3
 curve = SubResource("Curve_jkdf5")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wsu2k"]
-emission_shape_offset = Vector3(0, -32, 0)
-emission_shape_scale = Vector3(256, 256, 256)
-emission_shape = 2
-emission_sphere_radius = 1.0
+emission_shape_scale = Vector3(56, 8, 40)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
 gravity = Vector3(0, 0, 0)
 radial_accel_min = -1.0
 radial_accel_max = 0.999998
@@ -70,6 +50,49 @@ albedo_texture = SubResource("CompressedTexture2D_k12tt")
 
 [sub_resource type="QuadMesh" id="QuadMesh_h1bgf"]
 material = SubResource("StandardMaterial3D_ul75j")
+
+[sub_resource type="Gradient" id="Gradient_6iyac"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fdnlq"]
+gradient = SubResource("Gradient_6iyac")
+
+[sub_resource type="Curve" id="Curve_wsu2k"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502146, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.561798), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_k12tt"]
+curve = SubResource("Curve_wsu2k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h1bgf"]
+emission_shape_scale = Vector3(56, 8, 40)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -0.200002
+radial_accel_max = 0.199998
+attractor_interaction_enabled = false
+scale_min = 0.1
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_k12tt")
+color_ramp = SubResource("GradientTexture1D_fdnlq")
+turbulence_noise_speed = Vector3(1, 0, 0)
+turbulence_influence_max = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fevyy"]
+transparency = 1
+shading_mode = 2
+disable_fog = true
+albedo_color = Color(1, 1, 1, 0.85098)
+albedo_texture = ExtResource("9_h1bgf")
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 1.5
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_hibaj"]
+material = SubResource("StandardMaterial3D_fevyy")
 
 [sub_resource type="Gradient" id="Gradient_b3802"]
 offsets = PackedFloat32Array(0, 0.492754, 1)
@@ -165,70 +188,11 @@ script = ExtResource("1_ynf5e")
 [node name="Player" parent="." instance=ExtResource("2_hptm8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9475, 42.5794, -97.4137)
 
-[node name="World" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_6bp64")]
+[node name="World" parent="." node_paths=PackedStringArray("player", "ui") instance=ExtResource("3_6bp64")]
 player = NodePath("../Player")
+ui = NodePath("../UI")
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("8_k12tt")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="UI"]
-layout_mode = 0
-offset_right = 120.0
-offset_bottom = 117.0
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="UI/SubViewportContainer"]
-transparent_bg = true
-handle_input_locally = false
-canvas_item_default_texture_filter = 0
-positional_shadow_atlas_16_bits = false
-positional_shadow_atlas_quad_0 = 0
-positional_shadow_atlas_quad_1 = 0
-positional_shadow_atlas_quad_2 = 0
-positional_shadow_atlas_quad_3 = 0
-canvas_cull_mask = 4294967269
-size = Vector2i(120, 117)
-render_target_update_mode = 4
-
-[node name="Camera3D" type="Camera3D" parent="UI/SubViewportContainer/SubViewport"]
-transform = Transform3D(-1, 8.60946e-08, -1.51808e-08, 0, 0.173648, 0.984808, 8.74228e-08, 0.984807, -0.173648, 0, 260, -60)
-cull_mask = 1048559
-environment = SubResource("Environment_lquwl")
-projection = 1
-fov = 28.3684
-size = 256.0
-
-[node name="ProgressOuter" type="TextureRect" parent="UI"]
-modulate = Color(0.652, 0.64, 1, 1)
-layout_mode = 0
-offset_left = 521.0
-offset_top = 4.0
-offset_right = 571.0
-offset_bottom = 54.0
-texture = ExtResource("9_h1bgf")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="ProgressInner" type="TextureRect" parent="UI"]
-modulate = Color(0.478, 0.46, 1, 0.764706)
-material = SubResource("ShaderMaterial_d1ilt")
-layout_mode = 0
-offset_left = 521.0
-offset_top = 4.0
-offset_right = 571.0
-offset_bottom = 54.0
-scale = Vector2(1.13, 1.13)
-pivot_offset = Vector2(25, 25)
-texture = ExtResource("9_h1bgf")
-expand_mode = 1
-stretch_mode = 4
+[node name="UI" parent="." instance=ExtResource("4_d1ilt")]
 
 [node name="stars" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48.7183, -42.597)
@@ -242,6 +206,18 @@ visibility_aabb = AABB(-128, -128, -128, 256, 256, 256)
 transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_wsu2k")
 draw_pass_1 = SubResource("QuadMesh_h1bgf")
+
+[node name="fire_flies" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.3318, 40.2464)
+layers = 16
+lifetime = 14.0
+preprocess = 1.0
+fixed_fps = 12
+interpolate = false
+visibility_aabb = AABB(-128, -128, -128, 256, 256, 256)
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_h1bgf")
+draw_pass_1 = SubResource("QuadMesh_hibaj")
 
 [node name="clouds" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 98.3042, -41.9729)
