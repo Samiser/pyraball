@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjtk4yijo8t5r"]
+[gd_scene load_steps=14 format=3 uid="uid://cfbs3cd75vim1"]
 
 [ext_resource type="Script" uid="uid://bfy05rt0v6is2" path="res://Scripts/portal.gd" id="1_lvd5j"]
 [ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="2_mdgx6"]
@@ -87,7 +87,7 @@ script = ExtResource("1_lvd5j")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_lvd5j")
 
-[node name="portal_particles" type="GPUParticles3D" parent="."]
+[node name="portal_particles" type="GPUParticles3D" parent="." groups=["particles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.52251, 0)
 preprocess = 1.0
 speed_scale = 0.5

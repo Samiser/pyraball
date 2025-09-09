@@ -235,7 +235,7 @@ volume_db = -20.0
 autoplay = true
 parameters/looping = true
 
-[node name="roll_particles" type="GPUParticles3D" parent="."]
+[node name="roll_particles" type="GPUParticles3D" parent="." groups=["particles"]]
 transform = Transform3D(1, 0, 0, 0, 0.984793, 0.173734, 0, -0.173734, 0.984793, 0, 0, 0)
 amount = 16
 lifetime = 0.3
