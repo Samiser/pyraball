@@ -16,6 +16,15 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body is Player and flipping:
 		tween_rotation(Vector3(0, 0, deg_to_rad(90)))
 
+func snap_open() -> void:
+	var bars := $Wall.get_children()
+	var right_bars := bars.slice(0, 6)
+	var left_bars := bars.slice(6, 12)
+	for bar: Pyramid in right_bars:
+		bar.rotation_degrees = Vector3(-85.8, -270., 0.)
+	for bar: Pyramid in left_bars:
+		bar.rotation_degrees = Vector3(-85.8, -45., 135.)
+
 func unfurl() -> void:
 	var tween := create_tween()
 	var bars := $Wall.get_children()
