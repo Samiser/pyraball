@@ -3,6 +3,7 @@ extends Node3D
 @onready var environment: Environment = $WorldEnvironment.environment
 @export var player: Player
 @export var minimap_camera: Camera3D
+@export var ui: UI
 
 enum LevelEnum {BACK, PRESENT, FORWARD, VOID}
 var current_level: LevelEnum = LevelEnum.PRESENT
@@ -68,6 +69,8 @@ func _apply_world_changes() -> void:
 			player.set_new_scale(10, current_level)
 			_tween_fog_color(Color.from_hsv(0.5, 0.4, 1.0), 0.001)
 			_tween_daylight(Vector3(0.0, 0.0, 0.0), Color.BLUE_VIOLET)
+	
+	ui._on_time_change(current_level)
 
 func _change_current_level(direction: String, levels_unlocked: int) -> void:
 	if direction == "left":
