@@ -8,13 +8,9 @@
 radius = 1.4
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bseyl"]
-emission_shape_offset = Vector3(0, -6, 0)
-emission_shape = 6
-emission_ring_axis = Vector3(0, 90, 1)
-emission_ring_height = 2.0
-emission_ring_radius = 8.0
-emission_ring_inner_radius = 7.63
-emission_ring_cone_angle = 90.0
+emission_shape_scale = Vector3(8, 8, 8)
+emission_shape = 2
+emission_sphere_radius = 1.0
 angle_min = 1.07288e-05
 angle_max = 1.07288e-05
 direction = Vector3(0, 1, 0)
@@ -22,6 +18,8 @@ spread = 0.0
 initial_velocity_min = 1.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
+radial_accel_min = -68.63
+radial_accel_max = -68.63
 scale_min = 0.02
 scale_max = 0.12
 turbulence_enabled = true
@@ -61,7 +59,6 @@ albedo_color = Color(0.396078, 0.121569, 1, 0.670588)
 roughness = 0.15
 emission_enabled = true
 emission = Color(0.844395, 0.0019774, 0.999666, 1)
-emission_energy_multiplier = 2.0
 emission_texture = SubResource("NoiseTexture2D_mtwac")
 normal_enabled = true
 normal_texture = SubResource("NoiseTexture2D_av48w")
@@ -88,7 +85,7 @@ script = ExtResource("1_lvd5j")
 shape = SubResource("SphereShape3D_lvd5j")
 
 [node name="portal_particles" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.52251, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.40132, 0)
 preprocess = 1.0
 speed_scale = 0.5
 randomness = 0.13
@@ -98,11 +95,6 @@ transform_align = 3
 process_material = SubResource("ParticleProcessMaterial_bseyl")
 draw_pass_1 = SubResource("QuadMesh_mtwac")
 
-[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.941698, 0)
-strength = 128.0
-radius = 40.0
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 layers = 16
 cast_shadow = 0
@@ -111,6 +103,7 @@ mesh = SubResource("CylinderMesh_mdgx6")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.858032, 0)
 light_color = Color(0.851431, 0.347182, 1, 1)
+light_cull_mask = 4293918721
 distance_fade_enabled = true
 distance_fade_begin = 20.0
 distance_fade_shadow = 40.0
