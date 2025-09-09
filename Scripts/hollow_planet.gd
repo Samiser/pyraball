@@ -1,3 +1,4 @@
+@tool
 extends Node3D
 
 var has_player_entered := false

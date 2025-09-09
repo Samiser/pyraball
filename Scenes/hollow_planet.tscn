@@ -45,6 +45,7 @@ radius = 14.0
 script = ExtResource("1_m4nmd")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(0.691349, 0, 0.722531, 0, 1, 0, -0.722531, 0, 0.691349, 0, 0, 0)
 use_collision = true
 collision_layer = 4
 flip_faces = true

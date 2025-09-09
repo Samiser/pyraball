@@ -32,7 +32,7 @@ cap_top = false
 data = PackedVector3Array(0, 2, 0, 0, 2, 0, 0, -2, 0.2, 0, 2, 0, 0.2, -2, 0, 0, -2, 0.2, 0, 2, 0, 0, 2, 0, 0.2, -2, 0, 0, 2, 0, 0, -2, -0.2, 0.2, -2, 0, 0, 2, 0, 0, 2, 0, 0, -2, -0.2, 0, 2, 0, -0.2, -2, 0, 0, -2, -0.2, 0, 2, 0, 0, 2, 0, -0.2, -2, 0, 0, 2, 0, 0, -2, 0.2, -0.2, -2, 0, 0, -2, 0, 0, -2, 0.2, 0.2, -2, 0, 0, -2, 0, 0.2, -2, 0, 0, -2, -0.2, 0, -2, 0, 0, -2, -0.2, -0.2, -2, 0, 0, -2, 0, -0.2, -2, 0, 0, -2, 0.2)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hdgcg"]
-radius = 9.40249
+radius = 13.3944
 
 [node name="Light" type="Node3D"]
 script = ExtResource("1_hdgcg")
@@ -157,8 +157,8 @@ shape = SubResource("SphereShape3D_5qqhr")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 visible = false
-light_color = Color(0.739333, 0.66, 1, 1)
-light_energy = 2.371
+light_color = Color(0.540693, 0.258421, 0.999962, 1)
+light_energy = 7.0
 omni_range = 12.2842
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
