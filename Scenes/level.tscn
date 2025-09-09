@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bb28plwvmfby2"]
+[gd_scene load_steps=27 format=4 uid="uid://bb28plwvmfby2"]
 
 [ext_resource type="Script" uid="uid://cn1dxroiw2037" path="res://Scripts/level.gd" id="1_c7le1"]
 [ext_resource type="PackedScene" uid="uid://gpwfm6f76n8p" path="res://Meshes/level_base.blend" id="2_2klc5"]
@@ -66,6 +66,20 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_aftgl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vofx3"]
+albedo_color = Color(1, 0.215627, 0.128412, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_00k4y"]
+material = SubResource("StandardMaterial3D_vofx3")
+top_radius = 4.0
+bottom_radius = 0.0
+radial_segments = 4
+rings = 0
+cap_bottom = false
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3a44l"]
+data = PackedVector3Array(0, 1, 4, 4, 1, 0, 0, -1, 0, 4, 1, 0, 0, -1, 0, 0, -1, 0, 4, 1, 0, 0, 1, -4, 0, -1, 0, 0, 1, -4, 0, -1, 0, 0, -1, 0, 0, 1, -4, -4, 1, 0, 0, -1, 0, -4, 1, 0, 0, -1, 0, 0, -1, 0, -4, 1, 0, 0, 1, 4, 0, -1, 0, 0, 1, 4, 0, -1, 0, 0, -1, 0, 0, 1, 0, 4, 1, 0, 0, 1, 4, 0, 1, 0, 0, 1, -4, 4, 1, 0, 0, 1, 0, -4, 1, 0, 0, 1, -4, 0, 1, 0, 0, 1, 4, -4, 1, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_66v8m"]
 shading_mode = 2
@@ -224,11 +238,11 @@ force = 25.0
 
 [node name="Cannon2" parent="." groups=["present"] instance=ExtResource("10_gf56v")]
 transform = Transform3D(0.995263, 0, -0.0972182, 0, 1, 0, 0.0972182, 0, 0.995263, 65.4207, -5.4234, 13.6122)
-dir_y_degrees = -95.0
+dir_y_degrees = -104.0
 force = 24.0
 
 [node name="Cannon3" parent="." groups=["present"] instance=ExtResource("10_gf56v")]
-transform = Transform3D(-0.998597, 0, -0.0529633, 0, 1, 0, 0.0529633, 0, -0.998597, -2.05968, -27.4293, -33.3541)
+transform = Transform3D(-0.998597, 0, -0.0529633, 0, 1, 0, 0.0529633, 0, -0.998597, -1.00881, -27.4293, -33.3541)
 dir_y_degrees = 15.0
 dir_x_degrees = 80.0
 force = 42.0
@@ -236,9 +250,18 @@ force = 42.0
 [node name="HollowPlanet_Medium_Ball" parent="." groups=["present"] instance=ExtResource("11_6y3s5")]
 transform = Transform3D(0.991669, 0, -0.128813, 0, 1, 0, 0.128813, 0, 0.991669, 1.39115, 32.1701, -26.0288)
 
+[node name="Cannon" parent="HollowPlanet_Medium_Ball" instance=ExtResource("10_gf56v")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 14, 0)
+force = 20.0
+
 [node name="HollowPlanet_Big_Ball" parent="." groups=["future"] instance=ExtResource("11_6y3s5")]
 transform = Transform3D(-0.264478, 0, 1.98244, 0, 2, 0, -1.98244, 0, -0.264478, 4.19885, 62.3718, 16.3152)
 visible = false
+
+[node name="Cannon" parent="HollowPlanet_Big_Ball" instance=ExtResource("10_gf56v")]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 0, 14, 0)
+visible = false
+force = 20.0
 
 [node name="Portal3" parent="." node_paths=PackedStringArray("dest") groups=["past"] instance=ExtResource("3_nngtn")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 69.6981, -24.0411, 1.5068)
@@ -374,6 +397,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6554, 19.7708, 19.0078)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4502, 19.7708, 27.2465)
 
 [node name="CannonPuzzle" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6628, 26.5364, 3.01896)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CannonPuzzle"]
+transform = Transform3D(0.958854, 0, 0.283898, 0, 1, 0, -0.283898, 0, 0.958854, -69.9962, -28.4265, -3.01175)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CannonPuzzle/StaticBody3D"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_00k4y")
+skeleton = NodePath("../../Cannon4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CannonPuzzle/StaticBody3D"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_3a44l")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="CannonPuzzle"]
+transform = Transform3D(0.72529, 0, -0.688443, 0, 1, 0, 0.688443, 0, 0.72529, -61.9962, -37.4265, -3.01175)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CannonPuzzle/StaticBody3D2"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_00k4y")
+skeleton = NodePath("../../Cannon4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CannonPuzzle/StaticBody3D2"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_3a44l")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="CannonPuzzle"]
+transform = Transform3D(0.283898, 0, -0.958854, 0, 1, 0, 0.958854, 0, 0.283898, -49.9962, -45.4265, -3.01175)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CannonPuzzle/StaticBody3D3"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_00k4y")
+skeleton = NodePath("../../Cannon4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CannonPuzzle/StaticBody3D3"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_3a44l")
 
 [node name="Cannon4" parent="CannonPuzzle" groups=["present"] instance=ExtResource("10_gf56v")]
 transform = Transform3D(0.958854, 0, 0.283898, 0, 1, 0, -0.283898, 0, 0.958854, -69.9962, -27.4293, -3.01175)
@@ -412,7 +472,7 @@ dir_x_degrees = 80.0
 force = 60.0
 
 [node name="Cannon8" parent="CannonPuzzle" groups=["present"] instance=ExtResource("10_gf56v")]
-transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 90.6358, 57.1184, -44.7946)
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 117.636, 30.1184, -47.7946)
 dir_y_degrees = -90.0
 dir_x_degrees = 0.0
 force = 20.0
@@ -475,7 +535,7 @@ clockwise = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.388, 6.94315, 57.4811)
 
 [node name="SpinningPlatform7" parent="." instance=ExtResource("16_2klc5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.2104, 18.1407, 33.8724)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.2104, 14.1407, 33.8724)
 
 [node name="SpinningPlatform6" parent="." instance=ExtResource("16_2klc5")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -57.388, 13.5742, 57.4811)

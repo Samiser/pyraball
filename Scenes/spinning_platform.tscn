@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://d1icqj5i0g0d5" path="res://Scripts/spinning_platform.gd" id="1_0pydo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0pydo"]
+albedo_color = Color(0.870527, 0.342326, 0.332604, 1)
+metallic_specular = 0.0
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0
 
