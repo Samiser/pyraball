@@ -45,7 +45,7 @@ load_path = "res://.godot/imported/pentagon.png-95562367171be486132d22f667fe6739
 transparency = 1
 shading_mode = 0
 disable_fog = true
-albedo_color = Color(1, 1, 1, 0.0980392)
+albedo_color = Color(1, 1, 1, 0.72549)
 albedo_texture = SubResource("CompressedTexture2D_k12tt")
 
 [sub_resource type="QuadMesh" id="QuadMesh_h1bgf"]
@@ -197,7 +197,6 @@ ui = NodePath("../UI")
 [node name="stars" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48.7183, -42.597)
 layers = 16
-amount = 16
 lifetime = 14.0
 preprocess = 1.0
 fixed_fps = 12
@@ -210,6 +209,7 @@ draw_pass_1 = SubResource("QuadMesh_h1bgf")
 [node name="fire_flies" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.3318, 40.2464)
 layers = 16
+amount = 4
 lifetime = 14.0
 preprocess = 1.0
 fixed_fps = 12
@@ -222,7 +222,6 @@ draw_pass_1 = SubResource("QuadMesh_hibaj")
 [node name="clouds" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 98.3042, -41.9729)
 layers = 16
-amount = 16
 lifetime = 24.0
 preprocess = 4.0
 fixed_fps = 18
@@ -235,7 +234,7 @@ draw_pass_1 = SubResource("QuadMesh_pdsj5")
 [node name="desert_wind" type="GPUParticles3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.78577, 80.4289, -89.0279)
 layers = 16
-amount = 128
+amount = 32
 lifetime = 4.0
 preprocess = 1.0
 fixed_fps = 18

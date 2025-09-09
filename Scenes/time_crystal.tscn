@@ -53,6 +53,7 @@ region_rect = Rect2(0, 10.5, 916, 864.5)
 shape = SubResource("SphereShape3D_hym66")
 
 [node name="Gradual" type="CPUParticles3D" parent="."]
+amount = 4
 lifetime = 1.2
 speed_scale = 0.5
 fixed_fps = 16
@@ -69,7 +70,6 @@ scale_amount_curve = SubResource("Curve_hym66")
 
 [node name="Explosion" type="CPUParticles3D" parent="."]
 emitting = false
-amount = 20
 one_shot = true
 speed_scale = 1.2
 explosiveness = 0.8

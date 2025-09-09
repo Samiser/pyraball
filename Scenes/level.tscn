@@ -1,8 +1,8 @@
-[gd_scene load_steps=22 format=4 uid="uid://bb28plwvmfby2"]
+[gd_scene load_steps=24 format=4 uid="uid://bb28plwvmfby2"]
 
 [ext_resource type="Script" uid="uid://cn1dxroiw2037" path="res://Scripts/level.gd" id="1_c7le1"]
 [ext_resource type="PackedScene" uid="uid://gpwfm6f76n8p" path="res://Meshes/level_base.blend" id="2_2klc5"]
-[ext_resource type="PackedScene" uid="uid://cjtk4yijo8t5r" path="res://Scenes/portal.tscn" id="3_nngtn"]
+[ext_resource type="PackedScene" uid="uid://cjtk4yijo8t5r" path="res://Scenes/Portal.tscn" id="3_nngtn"]
 [ext_resource type="PackedScene" uid="uid://gewj4ymntyra" path="res://Scenes/sundial.tscn" id="4_vofx3"]
 [ext_resource type="PackedScene" uid="uid://bh72vwki5ojnd" path="res://Scenes/reflector.tscn" id="5_00k4y"]
 [ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://Scenes/button.tscn" id="6_3a44l"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://birwo03dt36aq" path="res://Scenes/mini_maze.tscn" id="14_luodc"]
 [ext_resource type="PackedScene" uid="uid://duovf7tmdb7ct" path="res://light.tscn" id="15_1cgv8"]
 [ext_resource type="PackedScene" uid="uid://v1gobxma3w8e" path="res://Scenes/spinning_platform.tscn" id="16_2klc5"]
+[ext_resource type="Texture2D" uid="uid://cwmeg6mfw1xo7" path="res://Textures/circle_outline.png" id="16_vofx3"]
+[ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="17_00k4y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6fg3j"]
 render_priority = 0
@@ -418,6 +420,42 @@ force = 20.0
 [node name="Portal5" parent="CannonPuzzle" node_paths=PackedStringArray("dest") instance=ExtResource("3_nngtn")]
 transform = Transform3D(0.599177, 0, -3.95487, 0, 4, 0, 3.95487, 0, 0.599177, -68.5008, 52.9196, 72.7028)
 dest = NodePath("../../portal_1_dest")
+
+[node name="Sprite3D" type="Sprite3D" parent="CannonPuzzle" groups=["present"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -72.1296, -26.257, -4.23068)
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
+pixel_size = 0.006
+texture = ExtResource("16_vofx3")
+
+[node name="Sprite3D2" type="Sprite3D" parent="CannonPuzzle/Sprite3D" groups=["present"]]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+modulate = Color(0.396078, 0.180392, 1, 1)
+pixel_size = 0.0007
+texture = ExtResource("17_00k4y")
+
+[node name="Sprite3D3" type="Sprite3D" parent="CannonPuzzle" groups=["present"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -72.1296, -26.257, -3.03068)
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
+pixel_size = 0.006
+texture = ExtResource("16_vofx3")
+
+[node name="Sprite3D4" type="Sprite3D" parent="CannonPuzzle/Sprite3D3" groups=["present"]]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+modulate = Color(0.572549, 0, 0, 1)
+pixel_size = 0.0012
+texture = ExtResource("17_00k4y")
+
+[node name="Sprite3D5" type="Sprite3D" parent="CannonPuzzle" groups=["present"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -72.1296, -26.257, -1.83068)
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
+pixel_size = 0.006
+texture = ExtResource("16_vofx3")
+
+[node name="Sprite3D6" type="Sprite3D" parent="CannonPuzzle/Sprite3D5" groups=["present"]]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+modulate = Color(0.396078, 0.180392, 1, 1)
+pixel_size = 0.0007
+texture = ExtResource("17_00k4y")
 
 [node name="SpinningPlatform" parent="." instance=ExtResource("16_2klc5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.59037, -20.5967, 40.3617)

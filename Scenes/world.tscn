@@ -355,7 +355,7 @@ transform = Transform3D(-0.5, 0.75, -0.433013, 0, 0.5, 0.866025, 0.866025, 0.433
 transform = Transform3D(-0.5, 0.75, -0.433013, 0, 0.5, 0.866025, 0.866025, 0.433013, -0.25, 67.2863, 92.8067, 85.4211)
 
 [node name="TimeCrystal99" parent="Crystals" instance=ExtResource("5_5v1tr")]
-transform = Transform3D(-0.5, 0.75, -0.433013, 0, 0.5, 0.866025, 0.866025, 0.433013, -0.25, 64.8863, 91.2067, 84.0355)
+transform = Transform3D(-0.5, 0.75, -0.433013, 0, 0.5, 0.866025, 0.866025, 0.433013, -0.25, 64.8863, 91.5898, 84.0355)
 
 [node name="TimeCrystal91" parent="Crystals" instance=ExtResource("5_5v1tr")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -44.7538, 124.735, -99.4566)
