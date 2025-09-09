@@ -76,7 +76,7 @@ bottom_radius = 1.4
 radial_segments = 4
 cap_top = false
 
-[node name="Portal" type="Node3D"]
+[node name="Portal" type="Node3D" groups=["portal"]]
 script = ExtResource("1_lvd5j")
 
 [node name="Area3D" type="Area3D" parent="."]

@@ -1,9 +1,13 @@
 extends Node3D
+
 @export var dest : Node3D
+@export var going_inside: bool = false
 @onready var mesh : MeshInstance3D = $MeshInstance3D
 var time := 0.0
 var default_scale : Vector3
 signal portalled
+
+signal outside(value: bool)
 
 func _ready() -> void:
 	default_scale = scale
@@ -13,6 +17,10 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		body.global_position = dest.global_position
 		emit_signal("portalled")
 		$AudioStreamPlayer.play()
+		if going_inside:
+			emit_signal("outside", false)
+		else:
+			emit_signal("outside", true)
 
 func _process(delta: float) -> void:
 	time += delta

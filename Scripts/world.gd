@@ -10,6 +10,7 @@ var last_level := 0
 
 signal puzzle_completed(name: String)
 signal portalled
+signal outside(value: bool)
 
 func get_level_rotation(level: LevelEnum) -> Vector3:
 	match level:
@@ -98,6 +99,9 @@ func _on_all_crystals_collected(player_position: Vector3) -> void:
 
 func _ready() -> void:
 	_apply_world_changes()
+	for portal: Node3D in get_tree().get_nodes_in_group("portal"):
+		if portal.has_signal("outside"):
+			portal.outside.connect(func(value: bool) -> void: outside.emit(value))
 	for world: Level in [$PyraWorld/Past, $PyraWorld/Present, $PyraWorld/Future]:
 		world.puzzle_completed.connect(func(name: String) -> void: puzzle_completed.emit(name))
 		world.portalled.connect(func() -> void: portalled.emit())
