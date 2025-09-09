@@ -36,10 +36,11 @@ func _tween_daylight(new_rot: Vector3, new_colour: Color) -> void:
 	tween.parallel().tween_property($DirectionalLight3D as DirectionalLight3D, "light_color", new_colour, 1.0)
 
 func _tween_rotation(new_rotation: Vector3) -> void:
-	var tween := create_tween()
-	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
-	tween.tween_property($PyraWorld, "rotation", new_rotation, 2)
-	await tween.finished
+	#var tween := create_tween()
+	#tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	#tween.tween_property($PyraWorld, "rotation", new_rotation, 2)
+	#await tween.finished
+	$PyraWorld.rotation = new_rotation
 	return
 
 func _apply_world_changes() -> void:
