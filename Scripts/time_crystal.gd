@@ -8,7 +8,6 @@ func _ready() -> void:
 	$MapMarker.visible = true
 
 func _animate_collection() -> void:
-	$Gradual.emitting = false
 	$Explosion.emitting = true
 	var tween := create_tween()
 	tween.tween_property($Sprite3D, "modulate:a", 0, 1.0)

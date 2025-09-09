@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1ft78rr6ksxt"]
+[gd_scene load_steps=7 format=3 uid="uid://c1ft78rr6ksxt"]
 
 [ext_resource type="Script" uid="uid://70wj61rg7o8a" path="res://Scripts/time_crystal.gd" id="1_y1l36"]
 [ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="2_ln717"]
@@ -18,10 +18,6 @@ grow_amount = 0.05
 material = SubResource("StandardMaterial3D_nok4b")
 radius = 0.03
 height = 0.06
-
-[sub_resource type="Curve" id="Curve_hym66"]
-_data = [Vector2(0.568182, 1), 0.0, 1.29562, 0, 0, Vector2(1, 0), 0.116325, 0.0, 0, 0]
-point_count = 2
 
 [sub_resource type="Curve" id="Curve_nspqw"]
 _data = [Vector2(0.568182, 1), 0.0, 1.29562, 0, 0, Vector2(1, 0), 0.116325, 0.0, 0, 0]
@@ -53,24 +49,6 @@ region_rect = Rect2(0, 10.5, 916, 864.5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_hym66")
-
-[node name="Gradual" type="CPUParticles3D" parent="." groups=["particles"]]
-layers = 16
-amount = 4
-lifetime = 1.2
-speed_scale = 0.5
-fixed_fps = 16
-local_coords = true
-mesh = SubResource("SphereMesh_hym66")
-emission_shape = 1
-emission_sphere_radius = 0.25
-direction = Vector3(1, 0, 1)
-spread = 180.0
-gravity = Vector3(0, 1, 0)
-initial_velocity_max = 0.6
-scale_amount_min = 0.8
-scale_amount_max = 1.2
-scale_amount_curve = SubResource("Curve_hym66")
 
 [node name="Explosion" type="CPUParticles3D" parent="." groups=["particles"]]
 layers = 16
