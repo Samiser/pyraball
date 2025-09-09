@@ -13,7 +13,6 @@ func _ready() -> void:
 		index += 1
 
 func child_hit(index: int) -> void:
-	cage.open()
 	if won:
 		return
 	
