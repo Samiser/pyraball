@@ -125,22 +125,22 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -54.71
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.339142, 42.3038, -98.5329)
 
 [node name="TimeCrystal18" parent="Crystals" instance=ExtResource("5_5v1tr")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.339142, 42.3038, -107.958)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -4.27839, 42.3038, -107.334)
 
 [node name="TimeCrystal21" parent="Crystals" instance=ExtResource("5_5v1tr")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.339142, 42.3038, -87.6334)
 
 [node name="TimeCrystal19" parent="Crystals" instance=ExtResource("5_5v1tr")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 8.36304, 42.3038, -103.99)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 8.36304, 42.3038, -104.711)
 
 [node name="TimeCrystal20" parent="Crystals" instance=ExtResource("5_5v1tr")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 8.36304, 42.3038, -93.6908)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 8.36304, 42.3038, -90.8185)
 
 [node name="TimeCrystal22" parent="Crystals" instance=ExtResource("5_5v1tr")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -9.33945, 42.3038, -103.99)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -7.95961, 42.3038, -103.99)
 
 [node name="TimeCrystal23" parent="Crystals" instance=ExtResource("5_5v1tr")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -9.33945, 42.3038, -93.6908)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -9.33945, 42.3038, -97.6252)
 
 [node name="TimeCrystal24" parent="Crystals" instance=ExtResource("5_5v1tr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.6448, 54.6208, -83.5196)

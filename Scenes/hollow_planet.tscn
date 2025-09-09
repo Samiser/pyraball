@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8ajs5k432v2j"]
+[gd_scene load_steps=9 format=3 uid="uid://c8ajs5k432v2j"]
 
 [ext_resource type="Script" uid="uid://dpwjlmp2wbf2r" path="res://Scripts/hollow_planet.gd" id="1_m4nmd"]
 [ext_resource type="PackedScene" uid="uid://cjtk4yijo8t5r" path="res://Scenes/Portal.tscn" id="3_i46i6"]
-[ext_resource type="PackedScene" uid="uid://0p11ariwu823" path="res://Scenes/cannon.tscn" id="4_2byep"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i46i6"]
 noise_type = 4
@@ -45,7 +44,7 @@ radius = 14.0
 script = ExtResource("1_m4nmd")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-transform = Transform3D(0.47816, 0, -0.878275, 0, 1, 0, 0.878275, 0, 0.47816, 0, 0, 0)
+transform = Transform3D(-0.764461, 0, -0.644681, 0, 1, 0, 0.644681, 0, -0.764461, 0, 0, 0)
 use_collision = true
 collision_layer = 4
 flip_faces = true
@@ -61,11 +60,10 @@ shape = SubResource("SphereShape3D_j1618")
 
 [node name="Portal" parent="." node_paths=PackedStringArray("dest") instance=ExtResource("3_i46i6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.68334, 0)
-dest = NodePath("../Cannon")
+dest = NodePath("../portal_dest")
 
-[node name="Cannon" parent="." instance=ExtResource("4_2byep")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 14.0226, 0)
-force = 20.0
+[node name="portal_dest" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 14, 0)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
