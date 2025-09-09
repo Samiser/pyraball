@@ -95,14 +95,24 @@ func rotation_completed(old_position: Vector3) -> void:
 	linear_velocity = last_linear_velocity
 	angular_velocity = last_angular_velocity
 
+func _tween_size(new_scale: float, duration: float = 2.0) -> Tween:
+	var t := create_tween().parallel()
+	t.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+
+	var mesh: SphereMesh = $MeshInstance3D.mesh
+	var shape: SphereShape3D = $CollisionShape3D.shape
+	var arm := spring_arm
+
+	t.tween_property(mesh, "radius", new_scale, duration)
+	t.parallel().tween_property(mesh, "height", new_scale * 2.0, duration)
+	t.parallel().tween_property(shape, "radius", new_scale, duration)
+	t.parallel().tween_property(arm, "spring_length", 6.0 * new_scale, duration)
+	t.parallel().tween_property(arm, "position:y", 2.0 * new_scale, duration)
+	
+	return t
+
 func set_new_scale(new_scale: float, level: int) -> void:
-	$MeshInstance3D.mesh.radius = new_scale
-	$MeshInstance3D.mesh.height = new_scale * 2
-	#$MeshInstance3D/Reflection_Mesh.mesh.radius = new_scale * 0.95
-	#$MeshInstance3D/Reflection_Mesh.mesh.height = new_scale * 2 * 0.95
-	$CollisionShape3D.shape.radius = new_scale
-	spring_arm.spring_length = 6.0 * new_scale
-	spring_arm.transform.origin.y = 2.0 * new_scale
+	_tween_size(new_scale)
 	$FloorCheck.target_position.y = -1.25 * new_scale
 	dust.emitting = false
 	$light.hide()
