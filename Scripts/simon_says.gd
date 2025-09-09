@@ -13,23 +13,17 @@ var active: bool = false
 var game_started: bool = false
 
 func _play_game_animation() -> void:
-	print("starting animation ", game_sequence)
 	while not player_inputting and active:
 		for button in game_sequence:
-			print("starting loop")
 			if player_inputting:
-				print("player inputting during loop, stopping animation")
 				return
-			print("pulsing ", _button_to_color(button), " from sequence ", game_sequence)
 			await cage.pulse(_button_to_color(button))
 			timer.start(0.3)
 			await timer.timeout
 		if player_inputting:
-			print("player inputting during loop, stopping animation")
 			return
 		timer.start(4)
 		await timer.timeout
-	print("player inputting, stopping animation")
 
 func _add_random_button_to_sequence() -> void:
 	game_sequence.append(buttons.pick_random())
@@ -54,11 +48,9 @@ func _button_to_color(button: TriangleButton) -> Color:
 func _win() -> void:
 	var tween := create_tween()
 	tween.set_parallel()
-	# turn indicators purple
 	for indicator in progress_indicators:
 		var material: StandardMaterial3D = indicator.get_child(0).get_material_override()
 		tween.tween_property(material, "emission", Color.PURPLE, 0.5)
-	# turn ball purple
 	var material := cage.get_material()
 	tween.tween_property(material, "emission", Color.PURPLE, 0.5)
 	tween.tween_property(material, "emission_energy_multiplier", 3, 0.5)
@@ -88,17 +80,14 @@ func _on_button_pressed(button: TriangleButton) -> void:
 			if game_sequence.size() == progress_indicators.size():
 				_win()
 				return
-			print("sequence completed!")
 			player_sequence_step = 0
 			player_inputting = false
 			_start_game()
 	else:
-		print("incorrect")
 		game_sequence = []
 		player_sequence_step = 0
 		await cage.pulse(_button_to_color(button))
 		await _reset_indicators()
-		print("indicators reset")
 		player_inputting = false
 		_start_game()
 	
