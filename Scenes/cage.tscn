@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d3eleooqtq6go" path="res://Scripts/cage.gd" id="1_x53gr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x53gr"]
+shading_mode = 2
 metallic = 0.75
 roughness = 0.41
 emission_enabled = true
