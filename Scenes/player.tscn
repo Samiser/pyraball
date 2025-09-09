@@ -168,9 +168,11 @@ impact_sfx = ExtResource("3_2hs0m")
 crystal_pickup_sfx = ExtResource("4_x3wgy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 16
 mesh = SubResource("SphereMesh_sh265")
 
 [node name="Reflection_Mesh" type="MeshInstance3D" parent="MeshInstance3D"]
+layers = 16
 mesh = SubResource("SphereMesh_sweqy")
 skeleton = NodePath("../..")
 
@@ -198,6 +200,7 @@ cull_mask = 1048565
 
 [node name="dust_particles" type="GPUParticles3D" parent="CameraTarget/SpringArm3D/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.946812, -0.321787, 0, 0.321787, 0.946812, 0, 0, 0)
+layers = 16
 lifetime = 6.0
 fixed_fps = 18
 interpolate = false
@@ -243,6 +246,7 @@ hit_back_faces = false
 
 [node name="player_shadow" type="Sprite3D" parent="shadow_ray"]
 transform = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0)
+layers = 16
 material_override = SubResource("StandardMaterial3D_fkybt")
 modulate = Color(0.991164, 0.991164, 0.991164, 1)
 pixel_size = 0.001
