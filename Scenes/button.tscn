@@ -46,7 +46,7 @@ vertex_color_use_as_albedo = true
 albedo_color = Color(1, 0.5, 0.5, 1)
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = -0.26767
+emission_energy_multiplier = -0.392107
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_r04n3"]
 points = PackedVector3Array(0, 2, -0.5, 2, 0, -0.5, -2, 0, -0.5, 0, 0, 0.5, 0, -2, -0.5)
@@ -77,6 +77,7 @@ mass = 0.1
 
 [node name="Cone-col-rigid" type="MeshInstance3D" parent="Actuator"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+layers = 16
 mesh = SubResource("ArrayMesh_0vvm8")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_0kpiu")

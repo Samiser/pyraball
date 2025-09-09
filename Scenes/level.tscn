@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cn1dxroiw2037" path="res://Scripts/level.gd" id="1_c7le1"]
 [ext_resource type="PackedScene" uid="uid://gpwfm6f76n8p" path="res://Meshes/level_base.blend" id="2_2klc5"]
-[ext_resource type="PackedScene" uid="uid://cjtk4yijo8t5r" path="res://Scenes/Portal.tscn" id="3_nngtn"]
+[ext_resource type="PackedScene" uid="uid://cjtk4yijo8t5r" path="res://Scenes/portal.tscn" id="3_nngtn"]
 [ext_resource type="PackedScene" uid="uid://gewj4ymntyra" path="res://Scenes/sundial.tscn" id="4_vofx3"]
 [ext_resource type="PackedScene" uid="uid://bh72vwki5ojnd" path="res://Scenes/reflector.tscn" id="5_00k4y"]
 [ext_resource type="PackedScene" uid="uid://dgsj7t1qj4utm" path="res://Scenes/button.tscn" id="6_3a44l"]
@@ -109,7 +109,7 @@ button = NodePath("../SundialButton")
 reflectors = [NodePath("../Reflector"), NodePath("../Reflector2"), NodePath("../Reflector3"), NodePath("../Reflector4")]
 
 [node name="Reflector" parent="PastSundial" node_paths=PackedStringArray("sundial", "button", "light_shaft") instance=ExtResource("5_00k4y")]
-transform = Transform3D(-0.0819384, -0.996637, -2.5259e-08, -3.76242e-08, -2.22509e-08, 1, -0.996637, 0.0819384, -3.56745e-08, -6.9088, 17.6905, -66.96)
+transform = Transform3D(-0.0819384, -0.996637, -2.5259e-08, -3.76242e-08, -2.22509e-08, 1, -0.996637, 0.0819384, -3.56745e-08, -2.92723, 17.6151, -69.5527)
 sundial = NodePath("../Sundial")
 button = NodePath("../ReflectorButton")
 light_shaft = NodePath("../LightShaft")

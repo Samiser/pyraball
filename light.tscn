@@ -43,6 +43,7 @@ sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="AnimatableBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+layers = 16
 mesh = SubResource("CylinderMesh_eaa0b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D"]
@@ -55,6 +56,7 @@ sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="AnimatableBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+layers = 16
 mesh = SubResource("CylinderMesh_eaa0b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D2"]
@@ -68,6 +70,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66, 0)
 sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls/AnimatableBody3D3"]
+layers = 16
 mesh = SubResource("SphereMesh_we4ua")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/AnimatableBody3D3"]
@@ -78,6 +81,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14, 0.356, 0.14)
 sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls/AnimatableBody3D9"]
+layers = 16
 mesh = SubResource("SphereMesh_we4ua")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/AnimatableBody3D9"]
@@ -88,6 +92,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, 0.356, 0.14)
 sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls/AnimatableBody3D10"]
+layers = 16
 mesh = SubResource("SphereMesh_we4ua")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/AnimatableBody3D10"]
@@ -98,6 +103,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, 0.356, -0.14)
 sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls/AnimatableBody3D11"]
+layers = 16
 mesh = SubResource("SphereMesh_we4ua")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/AnimatableBody3D11"]
@@ -108,6 +114,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14, 0.356, -0.14)
 sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls/AnimatableBody3D12"]
+layers = 16
 mesh = SubResource("SphereMesh_we4ua")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/AnimatableBody3D12"]
@@ -120,6 +127,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.66, 0)
 sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls2/AnimatableBody3D4"]
+layers = 16
 mesh = SubResource("SphereMesh_we4ua")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Balls2/AnimatableBody3D4"]
@@ -130,6 +138,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14, -0.356, 0.14)
 sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls2/AnimatableBody3D5"]
+layers = 16
 mesh = SubResource("SphereMesh_we4ua")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Balls2/AnimatableBody3D5"]
@@ -140,6 +149,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, -0.356, 0.14)
 sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls2/AnimatableBody3D6"]
+layers = 16
 mesh = SubResource("SphereMesh_we4ua")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Balls2/AnimatableBody3D6"]
@@ -150,6 +160,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, -0.356, -0.14)
 sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls2/AnimatableBody3D7"]
+layers = 16
 mesh = SubResource("SphereMesh_we4ua")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Balls2/AnimatableBody3D7"]
@@ -160,6 +171,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14, -0.356, -0.14)
 sync_to_physics = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balls2/AnimatableBody3D8"]
+layers = 16
 mesh = SubResource("SphereMesh_we4ua")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Balls2/AnimatableBody3D8"]
@@ -167,6 +179,7 @@ shape = SubResource("SphereShape3D_5qqhr")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 visible = false
+layers = 16
 light_color = Color(0.540693, 0.258421, 0.999962, 1)
 light_energy = 7.0
 omni_range = 12.2842
@@ -175,6 +188,7 @@ omni_range = 12.2842
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.71722, 0)
+layers = 16
 mesh = SubResource("CylinderMesh_hdgcg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
