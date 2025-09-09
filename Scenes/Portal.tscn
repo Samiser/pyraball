@@ -93,6 +93,7 @@ preprocess = 1.0
 speed_scale = 0.5
 randomness = 0.13
 interpolate = false
+local_coords = true
 transform_align = 3
 process_material = SubResource("ParticleProcessMaterial_bseyl")
 draw_pass_1 = SubResource("QuadMesh_mtwac")

@@ -27,7 +27,7 @@ func get_level_rotation(level: LevelEnum) -> Vector3:
 func _tween_fog_color(new_color: Color, new_density: float) -> void:
 	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(environment, "fog_light_color", new_color, 1)
-	tween.parallel().tween_property(environment, "fog_density", new_density, 1)
+	#tween.parallel().tween_property(environment, "fog_density", new_density, 1)
 
 func _tween_daylight(new_rot: Vector3, new_colour: Color) -> void:
 	var tween := create_tween()

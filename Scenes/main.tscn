@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bxt4ae0qrgpd0"]
+[gd_scene load_steps=33 format=3 uid="uid://bxt4ae0qrgpd0"]
 
 [ext_resource type="Script" uid="uid://bu7eh1ydu658n" path="res://Scripts/main.gd" id="1_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://ccdc33vpni5bd" path="res://Scenes/player.tscn" id="2_hptm8"]
@@ -11,45 +11,6 @@
 [ext_resource type="AudioStream" uid="uid://brta4jqtr7kal" path="res://Audio/SoundFX/desert_wind_ambience.mp3" id="10_d1ilt"]
 [ext_resource type="AudioStream" uid="uid://bnd8u2o8rub0e" path="res://Audio/SoundFX/ice_ambience.mp3" id="11_6iyac"]
 [ext_resource type="AudioStream" uid="uid://brh0k7g2n1c6l" path="res://Audio/SoundFX/forest_ambience.mp3" id="11_fdnlq"]
-
-[sub_resource type="Gradient" id="Gradient_d1ilt"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_6iyac"]
-gradient = SubResource("Gradient_d1ilt")
-
-[sub_resource type="Curve" id="Curve_fdnlq"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502146, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.561798), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_jkdf5"]
-curve = SubResource("Curve_fdnlq")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wsu2k"]
-emission_shape_scale = Vector3(140, 140, 140)
-emission_shape = 2
-emission_sphere_radius = 1.0
-gravity = Vector3(0, 0, 0)
-radial_accel_min = -1.0
-radial_accel_max = 0.999998
-attractor_interaction_enabled = false
-scale_min = 6.0
-scale_max = 12.0
-scale_curve = SubResource("CurveTexture_jkdf5")
-color_ramp = SubResource("GradientTexture1D_6iyac")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k12tt"]
-load_path = "res://.godot/imported/pentagon.png-95562367171be486132d22f667fe6739.s3tc.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ul75j"]
-transparency = 1
-shading_mode = 0
-disable_fog = true
-albedo_color = Color(1, 1, 1, 0.72549)
-albedo_texture = SubResource("CompressedTexture2D_k12tt")
-
-[sub_resource type="QuadMesh" id="QuadMesh_h1bgf"]
-material = SubResource("StandardMaterial3D_ul75j")
 
 [sub_resource type="Gradient" id="Gradient_6iyac"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -194,18 +155,6 @@ ui = NodePath("../UI")
 
 [node name="UI" parent="." instance=ExtResource("4_d1ilt")]
 
-[node name="stars" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48.7183, -42.597)
-layers = 16
-lifetime = 14.0
-preprocess = 1.0
-fixed_fps = 12
-interpolate = false
-visibility_aabb = AABB(-128, -128, -128, 256, 256, 256)
-transform_align = 1
-process_material = SubResource("ParticleProcessMaterial_wsu2k")
-draw_pass_1 = SubResource("QuadMesh_h1bgf")
-
 [node name="fire_flies" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.3318, 40.2464)
 layers = 16
@@ -215,6 +164,7 @@ preprocess = 1.0
 fixed_fps = 12
 interpolate = false
 visibility_aabb = AABB(-128, -128, -128, 256, 256, 256)
+local_coords = true
 transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_h1bgf")
 draw_pass_1 = SubResource("QuadMesh_hibaj")
@@ -240,6 +190,7 @@ preprocess = 1.0
 fixed_fps = 18
 interpolate = false
 visibility_aabb = AABB(-50, -40, -80, 100, 32, 160)
+local_coords = true
 transform_align = 3
 process_material = SubResource("ParticleProcessMaterial_3pmx8")
 draw_pass_1 = SubResource("QuadMesh_u50mg")
