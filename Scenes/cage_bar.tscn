@@ -1,11 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5s56xjarcoai"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hbn0a"]
-metallic = 1.0
-roughness = 0.33
+[ext_resource type="Material" uid="uid://c17d020x87c2y" path="res://Meshes/Transparent_Material.tres" id="1_0wfp6"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_gdv2k"]
-material = SubResource("StandardMaterial3D_hbn0a")
+material = ExtResource("1_0wfp6")
 top_radius = 0.0
 bottom_radius = 0.2
 height = 3.0
