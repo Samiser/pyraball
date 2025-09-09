@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bb28plwvmfby2"]
+[gd_scene load_steps=20 format=4 uid="uid://bb28plwvmfby2"]
 
 [ext_resource type="Script" uid="uid://cn1dxroiw2037" path="res://Level/level.gd" id="1_5noo7"]
 [ext_resource type="PackedScene" uid="uid://gpwfm6f76n8p" path="res://Meshes/level_base.blend" id="3_j3llj"]
@@ -63,6 +63,19 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_aftgl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_66v8m"]
+shading_mode = 2
+albedo_color = Color(0.212305, 0.212305, 0.212305, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ul75j"]
+material = SubResource("StandardMaterial3D_66v8m")
+top_radius = 1.0
+bottom_radius = 0.0
+height = 1.0
+radial_segments = 4
+rings = 0
+cap_bottom = false
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_5noo7")
@@ -293,13 +306,13 @@ mesh = SubResource("ArrayMesh_6fg3j")
 skeleton = NodePath("")
 
 [node name="Reflector4" parent="FutureSundial" node_paths=PackedStringArray("sundial", "button", "light_shaft") instance=ExtResource("9_wp1u0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.037, -25.42, -23.8192)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.8532, -25.42, -15.0297)
 sundial = NodePath("../Sundial")
 button = NodePath("../Button4")
 light_shaft = NodePath("../LightShaft4")
 
 [node name="Button4" parent="FutureSundial" instance=ExtResource("4_i5eh5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4521, -27.4688, -23.6383)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.7003, -27.4688, -15.9954)
 
 [node name="LightShaft4" type="MeshInstance3D" parent="FutureSundial"]
 transform = Transform3D(-1.35617, -0.348361, -3.12571, 3.12926, -0.490229, -1.30308, -0.314854, -3.37179, 0.512393, -72.1406, -21.0975, 0.7651)
@@ -341,3 +354,51 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.1435, -23.9181, -22.1903)
 
 [node name="Light8" parent="Lights" instance=ExtResource("15_ul75j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.2962, -23.9181, 16.1356)
+
+[node name="CannonPuzzle" type="Node3D" parent="."]
+
+[node name="Cannon4" parent="CannonPuzzle" groups=["present"] instance=ExtResource("12_2ld0w")]
+transform = Transform3D(0.958854, 0, 0.283898, 0, 1, 0, -0.283898, 0, 0.958854, -69.9962, -27.4293, -3.01175)
+dir_y_degrees = -27.429
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="CannonPuzzle" groups=["present"]]
+transform = Transform3D(-0.93636, 0, -0.351041, 0, 1, 0, 0.351041, 0, -0.93636, -110.37, 25.1432, 74.2698)
+mesh = SubResource("CylinderMesh_ul75j")
+skeleton = NodePath("../Cannon5")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="CannonPuzzle" groups=["present"]]
+transform = Transform3D(-0.931151, 0, 0.364633, 0, 1, 0, -0.364633, 0, -0.931151, -76.4261, 23.1434, 74.2622)
+mesh = SubResource("CylinderMesh_ul75j")
+skeleton = NodePath("../Cannon5")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="CannonPuzzle" groups=["present"]]
+transform = Transform3D(-0.931151, 0, 0.364633, 0, 1, 0, -0.364633, 0, -0.931151, 90.6358, 56.6552, -44.7946)
+mesh = SubResource("CylinderMesh_ul75j")
+skeleton = NodePath("../Cannon5")
+
+[node name="Cannon5" parent="CannonPuzzle" groups=["future"] instance=ExtResource("12_2ld0w")]
+transform = Transform3D(-2.79345, 0, 1.0939, 0, 3, 0, -1.0939, 0, -2.79345, -91.0256, -0.823925, 36.5977)
+visible = false
+dir_y_degrees = -27.429
+
+[node name="Cannon6" parent="CannonPuzzle" groups=["present"] instance=ExtResource("12_2ld0w")]
+transform = Transform3D(-0.931151, 0, 0.364633, 0, 1, 0, -0.364633, 0, -0.931151, -110.37, 25.649, 74.2698)
+dir_y_degrees = 90.0
+dir_x_degrees = 0.0
+force = 60.0
+
+[node name="Cannon7" parent="CannonPuzzle" groups=["present"] instance=ExtResource("12_2ld0w")]
+transform = Transform3D(0.149794, 0, -0.988717, 0, 1, 0, 0.988717, 0, 0.149794, -76.4332, 23.6344, 74.2698)
+dir_y_degrees = 90.0
+dir_x_degrees = 80.0
+force = 60.0
+
+[node name="Cannon8" parent="CannonPuzzle" groups=["present"] instance=ExtResource("12_2ld0w")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 90.6358, 57.1184, -44.7946)
+dir_y_degrees = -90.0
+dir_x_degrees = 0.0
+force = 20.0
+
+[node name="Portal5" parent="CannonPuzzle" node_paths=PackedStringArray("dest") instance=ExtResource("4_chl2c")]
+transform = Transform3D(0.599177, 0, -3.95487, 0, 4, 0, 3.95487, 0, 0.599177, -68.5008, 52.9196, 72.7028)
+dest = NodePath("../../portal_1_dest")
