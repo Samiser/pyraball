@@ -43,14 +43,17 @@ directional_shadow_mode = 0
 [node name="PyraWorld" parent="." instance=ExtResource("2_5ukr8")]
 transform = Transform3D(-1.95039e-08, 3.91188e-08, 1, 0.894934, 0.446198, 0, -0.446198, 0.894934, -4.37114e-08, 0, 0, 0)
 
-[node name="Present" parent="PyraWorld" node_paths=PackedStringArray("present") instance=ExtResource("3_o06y3")]
+[node name="Present" parent="PyraWorld" node_paths=PackedStringArray("past", "present", "future") instance=ExtResource("3_o06y3")]
 transform = Transform3D(0.446198, 0.894934, 0, -0.894934, 0.446198, 0, 3.55271e-15, 1.18852e-16, 1, 71.3547, 12.1426, 2.84217e-13)
+past = NodePath("../Past")
 present = NodePath(".")
+future = NodePath("../Future")
 
-[node name="Past" parent="PyraWorld" node_paths=PackedStringArray("past", "present") instance=ExtResource("3_o06y3")]
+[node name="Past" parent="PyraWorld" node_paths=PackedStringArray("past", "present", "future") instance=ExtResource("3_o06y3")]
 transform = Transform3D(0, -4.47035e-08, 1, -0.894934, 0.446197, 0, -0.446197, -0.894934, -4.37114e-08, 0, 12.143, -71.355)
 past = NodePath(".")
 present = NodePath("../Present")
+future = NodePath("../Future")
 selected_level = 0
 
 [node name="Future" parent="PyraWorld" node_paths=PackedStringArray("past", "present", "future") instance=ExtResource("3_o06y3")]

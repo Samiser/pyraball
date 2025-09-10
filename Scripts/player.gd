@@ -95,6 +95,7 @@ func on_puzzle_completed(name: String) -> void:
 		_rotate("left")
 	elif name == "FutureSundial":
 		future_unlocked = true
+		_rotate("right")
 
 func _rotate(direction: String) -> void:
 	last_linear_velocity = linear_velocity

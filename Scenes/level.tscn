@@ -237,7 +237,7 @@ lower_button = NodePath("../lift_lower_button")
 upper_button = NodePath("../lift_raise_button")
 
 [node name="lift_lower_button" parent="FirstLift" groups=["past", "present"] instance=ExtResource("6_3a44l")]
-transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 13.8984, -7.48629, 3.8876)
+transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 13.8984, -7.45511, 3.8876)
 
 [node name="lift_raise_button" parent="FirstLift" groups=["past", "present"] instance=ExtResource("6_3a44l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.92007, -0.328598, 4.98981)
@@ -574,13 +574,13 @@ clockwise = false
 curve = SubResource("Curve3D_00k4y")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.450023, -0.0761128, 0.889761, 3.72528e-09, 0.996352, 0.0852313, -0.893015, 0.038356, -0.448383, 6.01044, 40.8675, -45.9021)
+transform = Transform3D(-0.450022, -0.0761137, 0.889761, 3.72528e-09, 0.996352, 0.0852323, -0.893015, 0.0383564, -0.448382, 6.01044, 40.8675, -45.9021)
 
 [node name="Bird" parent="Path3D/PathFollow3D" node_paths=PackedStringArray("path") instance=ExtResource("20_3a44l")]
 path = NodePath("..")
 
 [node name="PathFollow3D2" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.431661, -0.290141, -0.854089, 0.291013, 0.941016, -0.172589, 0.853794, -0.174053, 0.490637, 125.138, 21.6158, -17.6773)
+transform = Transform3D(0.43166, -0.290141, -0.854089, 0.291015, 0.941015, -0.172589, 0.853794, -0.174055, 0.490637, 125.138, 21.6158, -17.6773)
 progress = 360.0
 
 [node name="Bird" parent="Path3D/PathFollow3D2" node_paths=PackedStringArray("path") instance=ExtResource("20_3a44l")]
