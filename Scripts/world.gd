@@ -115,7 +115,3 @@ func _ready() -> void:
 
 func play() -> void: # called when player clicks 'play'
 	[$PyraWorld/Past, $PyraWorld/Present, $PyraWorld/Future][current_level].set_birds_start_view()
-
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("quick_turn"):
-		_on_all_crystals_collected(Vector3.ZERO)

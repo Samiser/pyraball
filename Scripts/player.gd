@@ -299,7 +299,7 @@ func _physics_process(delta: float) -> void:
 			was_grounded = true
 		coyote_timer -= delta
 	
-	if Input.is_action_just_pressed("jump") and (floor_check.is_colliding() || (coyote_timer > 0.0 and !has_jumped)):
+	if Input.is_action_just_pressed("jump") and (floor_check.is_colliding() || (coyote_timer > 0.0 and !has_jumped)) and game_started:
 		apply_impulse(Vector3.UP * jump_force)
 		sfx_stream.pitch_scale = 1.0
 		sfx_stream.stream = jump_sfx
