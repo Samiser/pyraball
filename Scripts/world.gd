@@ -12,7 +12,6 @@ signal puzzle_completed(name: String)
 signal portalled
 signal outside(value: bool)
 
-
 func get_level_rotation(level: LevelEnum) -> Vector3:
 	match level:
 		LevelEnum.BACK:
@@ -94,10 +93,13 @@ func _on_rotation(direction: String, player_position: Vector3, levels_unlocked: 
 
 func _on_all_crystals_collected(player_position: Vector3) -> void:
 	current_level = 3
-	_apply_world_changes()
+	_apply_world_changes(false)
+	await get_tree().create_timer(3.0).timeout
 	await _tween_rotation(get_level_rotation(current_level))
-	player_position = Vector3(0, 0, 0)
+	player_position = Vector3.ZERO
 	player.rotation_completed(player_position)
+	await get_tree().create_timer(8.0).timeout
+	ui.fade_out()
 
 func _ready() -> void:
 	_apply_world_changes(false)
@@ -110,3 +112,7 @@ func _ready() -> void:
 
 func play() -> void: # called when player clicks 'play'
 	[$PyraWorld/Past, $PyraWorld/Present, $PyraWorld/Future][current_level].set_birds_start_view()
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("quick_turn"):
+		_on_all_crystals_collected(Vector3.ZERO)
