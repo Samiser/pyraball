@@ -58,7 +58,9 @@ func fade_out() -> void: # hacky shit for ending only
 	tween.tween_property($end_label, "modulate", Color.TRANSPARENT, 8.0)
 	tween.parallel().tween_property($end_text, "modulate", Color.TRANSPARENT, 8.0)
 	await tween.finished
-	#restart game here?
+	tween = get_tree().create_tween()
+	$end_text.text = "Press ESC or the Start Button to Quit."
+	tween.tween_property($end_text, "modulate", Color.WHITE, 2.0)
 
 func _on_crystal_collected() -> void:
 	crystals = _get_not_collected_crystals()
@@ -73,7 +75,7 @@ func _on_time_change(time_frame: int) -> void:
 	var tween := get_tree().create_tween()
 	var ball_colour := Color.WHITE
 	
-	if time_frame == 0:
+	if time_frame == 0: # dumb ass dummy hackz yippee
 		$player_indicator.visible = true
 	
 	match time_frame:
