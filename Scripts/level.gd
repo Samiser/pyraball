@@ -107,3 +107,7 @@ func _ready() -> void:
 		for sundial: Sundial in sundials:
 			sundial.completed.connect(func() -> void: puzzle_completed.emit(sundial.get_parent().name))
 		$Portal.portalled.connect(func() -> void: portalled.emit())
+
+func set_birds_start_view() -> void:
+	$Path3D/PathFollow3D.progress = 0.0
+	$Path3D/PathFollow3D2.progress = 280.0

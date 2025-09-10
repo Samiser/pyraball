@@ -12,6 +12,7 @@ signal puzzle_completed(name: String)
 signal portalled
 signal outside(value: bool)
 
+
 func get_level_rotation(level: LevelEnum) -> Vector3:
 	match level:
 		LevelEnum.BACK:
@@ -105,3 +106,6 @@ func _ready() -> void:
 	for world: Level in [$PyraWorld/Past, $PyraWorld/Present, $PyraWorld/Future]:
 		world.puzzle_completed.connect(func(name: String) -> void: puzzle_completed.emit(name))
 		world.portalled.connect(func() -> void: portalled.emit())
+
+func play() -> void: # called when player clicks 'play'
+	[$PyraWorld/Past, $PyraWorld/Present, $PyraWorld/Future][current_level].set_birds_start_view()

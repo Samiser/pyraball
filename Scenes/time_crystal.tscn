@@ -36,6 +36,7 @@ layers = 16
 modulate = Color(0.336061, 0.742025, 0.694754, 1)
 billboard = 1
 double_sided = false
+alpha_cut = 1
 texture = ExtResource("2_ln717")
 region_rect = Rect2(0, 10.5, 916, 864.5)
 

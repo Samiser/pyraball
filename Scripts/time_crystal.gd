@@ -10,9 +10,11 @@ func _ready() -> void:
 func _animate_collection() -> void:
 	$Gradual.emitting = false
 	$Explosion.emitting = true
-	var tween := create_tween()
-	tween.tween_property($Sprite3D, "modulate:a", 0, 1.0)
-	tween.tween_callback(queue_free)
+	$Sprite3D.visible = false
+	$Sprite3D2.visible = false
+	
+	await $Explosion.finished
+	self.queue_free()
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player and not is_collected:
