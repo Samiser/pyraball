@@ -86,6 +86,9 @@ func _toggle_node(n: Node, active: bool) -> void:
 		if n.has_method("should_be_visible"):
 			var active_group := LEVEL_GROUPS[selected_level]
 			n.visible = n.should_be_visible(active_group)
+	
+	if n is AudioStreamPlayer3D:
+		n.playing = active and n.autoplay
 
 	if n is PhysicsBody3D:
 		var b := n as PhysicsBody3D

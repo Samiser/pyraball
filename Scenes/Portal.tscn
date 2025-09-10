@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjtk4yijo8t5r"]
+[gd_scene load_steps=15 format=3 uid="uid://cjtk4yijo8t5r"]
 
 [ext_resource type="Script" uid="uid://bfy05rt0v6is2" path="res://Scripts/portal.gd" id="1_lvd5j"]
 [ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="2_mdgx6"]
 [ext_resource type="AudioStream" uid="uid://bxx76ltowkhgp" path="res://Audio/SoundFX/teleport.mp3" id="3_bseyl"]
+[ext_resource type="AudioStream" uid="uid://brta4jqtr7kal" path="res://Audio/SoundFX/desert_wind_ambience.mp3" id="4_mtwac"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lvd5j"]
 radius = 1.4
@@ -111,5 +112,13 @@ omni_range = 16.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_bseyl")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_mtwac")
+volume_db = 4.0
+unit_size = 1.0
+pitch_scale = 4.0
+autoplay = true
+max_distance = 20.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

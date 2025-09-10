@@ -4,6 +4,10 @@ extends Node3D
 @onready var progress_indicators: Array[Node] = $ProgressIndicators.get_children()
 @onready var timer: Timer = $Timer
 @export var cage: Cage
+@onready var correct_sfx := load("res://Audio/SoundFX/simon_correct.mp3")
+@onready var incorrect_sfx := load("res://Audio/SoundFX/simon_incorrect.mp3")
+@onready var win_sfx := load("res://Audio/SoundFX/puzzle.mp3")
+@onready var light_sfx := load("res://Audio/SoundFX/simon_light.mp3")
 
 var input_allowed: bool = true
 var game_sequence: Array[TriangleButton]
@@ -17,6 +21,8 @@ func _play_game_animation() -> void:
 		for button in game_sequence:
 			if player_inputting:
 				return
+			$AudioStreamPlayer3D.stream = light_sfx
+			$AudioStreamPlayer3D.play()
 			await cage.pulse(_button_to_color(button))
 			timer.start(0.3)
 			await timer.timeout
@@ -45,6 +51,8 @@ func _button_to_color(button: TriangleButton) -> Color:
 	return Color.WHITE
 
 func _win() -> void:
+	$AudioStreamPlayer3D.stream = win_sfx
+	$AudioStreamPlayer3D.play()
 	var tween := create_tween()
 	tween.set_parallel()
 	for indicator in progress_indicators:
@@ -72,6 +80,8 @@ func _on_button_pressed(button: TriangleButton) -> void:
 	_begin_button_press()
 
 	if _press_is_correct(button):
+		$AudioStreamPlayer3D.stream = correct_sfx
+		$AudioStreamPlayer3D.play()
 		_set_indicator_on(progress_indicators[player_sequence_step], true)
 		player_sequence_step += 1
 		await cage.pulse(_button_to_color(button))
@@ -83,6 +93,8 @@ func _on_button_pressed(button: TriangleButton) -> void:
 			player_inputting = false
 			_start_game()
 	else:
+		$AudioStreamPlayer3D.stream = incorrect_sfx
+		$AudioStreamPlayer3D.play()
 		game_sequence = []
 		player_sequence_step = 0
 		await cage.pulse(_button_to_color(button))

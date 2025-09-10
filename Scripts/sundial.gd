@@ -38,6 +38,7 @@ func _on_shadow_area_exited(area: Area3D) -> void:
 		_tween_color(marker, original_marker_color)
 
 func _animate_reversal() -> void:
+	$AudioStreamPlayer3D.play()
 	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "speed", 20, 5)
 	tween.tween_property(self, "speed", 0.3, 3)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://gewj4ymntyra"]
+[gd_scene load_steps=11 format=3 uid="uid://gewj4ymntyra"]
 
 [ext_resource type="Script" uid="uid://bukhau85bssm8" path="res://Scripts/sundial.gd" id="1_nwh05"]
 [ext_resource type="Material" uid="uid://c17d020x87c2y" path="res://Meshes/Transparent_Material.tres" id="2_57uoy"]
 [ext_resource type="PackedScene" uid="uid://hxlx84tjlowl" path="res://Scenes/pyramid.tscn" id="2_wwrjg"]
+[ext_resource type="AudioStream" uid="uid://psyfgbfl2lk4" path="res://Audio/SoundFX/sundial_spin.mp3" id="4_57uoy"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_nwh05"]
 material = ExtResource("2_57uoy")
@@ -118,6 +119,9 @@ shape = SubResource("SphereShape3D_x2mgy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.2271, 0)
 mesh = SubResource("SphereMesh_x2mgy")
 surface_material_override/0 = SubResource("StandardMaterial3D_2p86u")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_57uoy")
 
 [connection signal="area_entered" from="LightPivot/Shadow" to="." method="_on_shadow_area_entered"]
 [connection signal="area_exited" from="LightPivot/Shadow" to="." method="_on_shadow_area_exited"]

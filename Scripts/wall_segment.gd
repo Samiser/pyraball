@@ -1,12 +1,15 @@
 extends Node3D
 class_name WallSegment
 
-@export var flipping: bool = true 
+@export var flipping: bool = true
 
 func tween_rotation(new_rotation: Vector3) -> void:
+	$AudioStreamPlayer3D.play()
 	var tween := create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SPRING)
 	tween.tween_property($Wall, "rotation", new_rotation, 1)
+	await tween.finished
+	$AudioStreamPlayer3D.stop()
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Player and flipping:
