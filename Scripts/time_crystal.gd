@@ -6,6 +6,8 @@ signal collected
 
 func _ready() -> void:
 	$MapMarker.visible = true
+	$MapMarker.scale *= 1.0 / scale.length()
+	$MapMarker.global_position.y = 100.0
 
 func _animate_collection() -> void:
 	$Gradual.emitting = false

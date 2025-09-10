@@ -95,10 +95,11 @@ scale_amount_curve = SubResource("Curve_nspqw")
 [node name="MapMarker" type="Sprite3D" parent="."]
 visible = false
 layers = 2
-modulate = Color(0, 0.698039, 0.854902, 0.572549)
+modulate = Color(0, 0.698039, 0.854902, 1)
+pixel_size = 0.03
 billboard = 1
 no_depth_test = true
-render_priority = 127
+render_priority = 120
 texture = ExtResource("2_ln717")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]

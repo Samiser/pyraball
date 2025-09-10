@@ -91,6 +91,15 @@ func _on_time_change(time_frame: int) -> void:
 	tween.parallel().tween_property($player_indicator/player_ball_rect, "scale", Vector2.ONE + Vector2.ONE * time_frame, 2.0)
 	tween.parallel().tween_property($player_indicator/player_ball_rect, "modulate", ball_colour, 2.0)
 
+func display_ui() -> void:
+	await get_tree().create_timer(0.5).timeout
+	
+	$SubViewportContainer.visible = true
+	$SubViewportContainer.modulate = Color.TRANSPARENT
+	
+	var tween := get_tree().create_tween()
+	tween.tween_property($SubViewportContainer, "modulate", Color.WHITE, 3.0)
+
 func _ready() -> void:
 	$CompletionTimer.timeout.connect(func() -> void: completion_seconds += 1)
 	for element: Control in [$SubViewportContainer, $ProgressBar, $player_indicator, $end_label, $end_text]:

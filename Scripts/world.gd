@@ -106,6 +106,7 @@ func _on_all_crystals_collected(player_position: Vector3) -> void:
 
 func _ready() -> void:
 	player.instruction_text.connect(ui.set_instruction_text)
+	player.display_map.connect(ui.display_map)
 	_apply_world_changes(false)
 	for portal: Node3D in get_tree().get_nodes_in_group("portal"):
 		if portal.has_signal("outside"):

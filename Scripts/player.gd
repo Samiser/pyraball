@@ -49,6 +49,7 @@ var all_crystals_are_collected: bool = false
 signal rotate(direction: String, player_position: Vector3, levels_unlocked: int)
 signal all_crystals_collected(player_position: Vector3)
 signal instruction_text(text: String)
+signal display_map()
 
 var last_linear_velocity: Vector3
 var last_angular_velocity: Vector3
@@ -102,7 +103,8 @@ func on_puzzle_completed(name: String) -> void:
 	elif name == "FutureSundial":
 		future_unlocked = true
 		_rotate("right")
-		instruction_text.emit("Unlocked FUTURE Time Frame.")
+		instruction_text.emit("Unlocked FUTURE Time Frame.\nFind the remaining crystals using the Mini-map.")
+		display_map.emit()
 
 func _rotate(direction: String) -> void:
 	last_linear_velocity = linear_velocity
