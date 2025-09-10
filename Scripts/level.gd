@@ -110,4 +110,4 @@ func _ready() -> void:
 
 func set_birds_start_view() -> void:
 	$Path3D/PathFollow3D.progress = 0.0
-	$Path3D/PathFollow3D2.progress = 360.0
+	$Path3D/PathFollow3D2.progress = 280.0
