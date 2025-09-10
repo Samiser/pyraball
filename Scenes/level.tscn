@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://bb28plwvmfby2"]
+[gd_scene load_steps=36 format=4 uid="uid://bb28plwvmfby2"]
 
 [ext_resource type="Script" uid="uid://cn1dxroiw2037" path="res://Scripts/level.gd" id="1_c7le1"]
 [ext_resource type="PackedScene" uid="uid://gpwfm6f76n8p" path="res://Meshes/level_base.blend" id="2_2klc5"]
@@ -125,6 +125,9 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 13
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3a44l"]
+size = Vector3(1, 1, 27)
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_c7le1")
@@ -678,6 +681,22 @@ pixel_size = 0.0007
 billboard = 1
 texture = ExtResource("17_00k4y")
 
+[node name="Sprite3D4" type="Sprite3D" parent="CannonPuzzle" groups=["future", "past"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 88.3306, -40.2619, 53.9118)
+visible = false
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
+pixel_size = 0.006
+billboard = 1
+texture = ExtResource("16_vofx3")
+
+[node name="Sprite3D2" type="Sprite3D" parent="CannonPuzzle/Sprite3D4" groups=["future", "past"]]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+visible = false
+modulate = Color(0.396078, 0.180392, 1, 1)
+pixel_size = 0.0007
+billboard = 1
+texture = ExtResource("17_00k4y")
+
 [node name="Sprite3D3" type="Sprite3D" parent="CannonPuzzle" groups=["present"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -72.1296, -26.257, -3.03068)
 modulate = Color(0.691357, 0.691357, 0.691357, 1)
@@ -737,3 +756,31 @@ progress = 360.0
 
 [node name="Bird" parent="Path3D/PathFollow3D2" node_paths=PackedStringArray("path") instance=ExtResource("20_3a44l")]
 path = NodePath("..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["past"]]
+transform = Transform3D(0.951542, -0.252101, 0.176106, 0.256104, 0.966649, 0, -0.170232, 0.0451013, 0.984371, 64.5707, -27.298, 1.69319)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_3a44l")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." groups=["past"]]
+transform = Transform3D(-0.951841, 0.251487, -0.175367, 0.255446, 0.966823, 0, 0.169549, -0.0447967, -0.984503, 90.9932, -27.4961, -3.49595)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_3a44l")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="." groups=["past"]]
+transform = Transform3D(0.162001, -0.0428026, -0.985862, 0.255446, 0.966823, 1.43106e-09, 0.953155, -0.251834, 0.16756, 74.7653, -27.4961, -14.3694)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+shape = SubResource("BoxShape3D_3a44l")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="." groups=["past"]]
+transform = Transform3D(-0.161236, 0.0426004, 0.985996, 0.255446, 0.966823, 0, -0.953284, 0.251869, -0.166769, 79.9458, -27.4961, 12.4586)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
+shape = SubResource("BoxShape3D_3a44l")
+debug_color = Color(0, 0.6, 0.701961, 1)
