@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2cr2od5g3ch6"]
+
+[ext_resource type="Material" uid="uid://dqddkuot65vkw" path="res://Meshes/Material.tres" id="1_i8bdw"]
+[ext_resource type="Script" uid="uid://dwo12278c1p18" path="res://Scenes/bird.gd" id="1_mcegt"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mcegt"]
+material = ExtResource("1_i8bdw")
+top_radius = 0.0
+bottom_radius = 0.8
+radial_segments = 4
+rings = 0
+cap_top = false
+
+[node name="Bird" type="Node3D"]
+script = ExtResource("1_mcegt")
+
+[node name="wing_r" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1, 0, 0)
+layers = 16
+mesh = SubResource("CylinderMesh_mcegt")
+
+[node name="wing_l" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.37114e-08, 1, 0, -1, 4.37114e-08, 0, 0, 0, -1, -1, 0, 0)
+layers = 16
+mesh = SubResource("CylinderMesh_mcegt")
