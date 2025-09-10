@@ -7,6 +7,20 @@ var fade_in_time := 0.8
 
 var completion_seconds: int = 0
 
+func set_instruction_text(text: String) -> void:
+	$instruction_text.visible_ratio = 0.0
+	$instruction_text.text = text
+	$instruction_text.modulate = Color.WHITE
+	
+	var tween := get_tree().create_tween()
+	tween.tween_property($instruction_text as RichTextLabel, "visible_ratio", 1.0, 3.0)
+	
+	await tween.finished
+	await get_tree().create_timer(12.0).timeout
+	
+	tween = get_tree().create_tween()
+	tween.tween_property($instruction_text as RichTextLabel, "modulate", Color.TRANSPARENT, 6.0)
+
 func get_completion_time() -> String:
 	var seconds := completion_seconds%60
 	var minutes := (completion_seconds/60)%60

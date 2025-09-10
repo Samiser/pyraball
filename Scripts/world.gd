@@ -105,6 +105,7 @@ func _on_all_crystals_collected(player_position: Vector3) -> void:
 	ui.fade_out()
 
 func _ready() -> void:
+	player.instruction_text.connect(ui.set_instruction_text)
 	_apply_world_changes(false)
 	for portal: Node3D in get_tree().get_nodes_in_group("portal"):
 		if portal.has_signal("outside"):
@@ -114,4 +115,6 @@ func _ready() -> void:
 		world.portalled.connect(func() -> void: portalled.emit())
 
 func play() -> void: # called when player clicks 'play'
-	[$PyraWorld/Past, $PyraWorld/Present, $PyraWorld/Future][current_level].set_birds_start_view() 
+	[$PyraWorld/Past, $PyraWorld/Present, $PyraWorld/Future][current_level].set_birds_start_view()
+	await get_tree().create_timer(10.0).timeout
+	ui.set_instruction_text("Collect all the Time Crystals.\nMove with WASD or the Left Joystick.\nJump with Space or the A Button.")
