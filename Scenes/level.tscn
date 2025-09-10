@@ -74,8 +74,9 @@ albedo_color = Color(1, 0.215627, 0.128412, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_00k4y"]
 material = SubResource("StandardMaterial3D_vofx3")
-top_radius = 8.0
+top_radius = 10.0
 bottom_radius = 0.0
+height = 3.0
 radial_segments = 4
 rings = 0
 cap_bottom = false
@@ -202,7 +203,7 @@ mesh = SubResource("ArrayMesh_6fg3j")
 skeleton = NodePath("")
 
 [node name="SundialButton" parent="PastSundial" instance=ExtResource("6_3a44l")]
-transform = Transform3D(0.082843, 0, -0.996563, 0, 1, 0, 0.996562, 0, 0.082843, -3.40466, -2.32235, 4.7885)
+transform = Transform3D(0.082843, 0, -0.996563, 0, 1, 0, 0.996562, 0, 0.082843, -0.790657, -2.32235, 0.967501)
 color = Color(0, 0.600216, 0.692913, 1)
 
 [node name="Wall" type="Node3D" parent="."]
@@ -244,7 +245,7 @@ lower_button = NodePath("../lift_lower_button")
 upper_button = NodePath("../lift_raise_button")
 
 [node name="lift_lower_button" parent="FirstLift" groups=["past", "present"] instance=ExtResource("6_3a44l")]
-transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 13.8984, -7.45511, 3.8876)
+transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 3.59302, -7.45511, 1.33461)
 
 [node name="lift_raise_button" parent="FirstLift" groups=["past", "present"] instance=ExtResource("6_3a44l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.92007, -0.328598, 4.98981)
@@ -268,6 +269,20 @@ force = 56.0
 
 [node name="HollowPlanet_Medium_Ball" parent="." groups=["present"] instance=ExtResource("11_6y3s5")]
 transform = Transform3D(0.991669, 0, -0.128813, 0, 1, 0, 0.128813, 0, 0.991669, 1.39115, 60.1701, -26.0288)
+
+[node name="Sprite3D4" type="Sprite3D" parent="HollowPlanet_Medium_Ball" groups=["present"]]
+transform = Transform3D(-0.128813, 0, 0.991669, 0, 1, 0, -0.991669, 0, -0.128813, -1.83155, 15.9198, 0.237909)
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
+pixel_size = 0.006
+billboard = 1
+texture = ExtResource("16_vofx3")
+
+[node name="Sprite3D4" type="Sprite3D" parent="HollowPlanet_Medium_Ball/Sprite3D4" groups=["present"]]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+modulate = Color(0.572549, 0, 0, 1)
+pixel_size = 0.0012
+billboard = 1
+texture = ExtResource("17_00k4y")
 
 [node name="Cannon" parent="HollowPlanet_Medium_Ball" instance=ExtResource("10_gf56v")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 14, 0)
@@ -316,7 +331,7 @@ button = NodePath("../SundialButton")
 reflectors = [NodePath("../Reflector"), NodePath("../Reflector2"), NodePath("../Reflector3"), NodePath("../Reflector4")]
 
 [node name="SundialButton" parent="FutureSundial" instance=ExtResource("6_3a44l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5235, -27.4745, -7.98668)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9968, -27.4745, -4.91848)
 
 [node name="Reflector" parent="FutureSundial" node_paths=PackedStringArray("sundial", "button", "light_shaft") instance=ExtResource("5_00k4y")]
 transform = Transform3D(-0.908391, 0, 0.418121, 0, 1, 0, -0.418121, 0, -0.908391, -44.2321, -26.5113, 17.9264)
@@ -439,7 +454,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6628, 26.5364, 3.01896)
 transform = Transform3D(0.958854, 0, 0.283898, 0, 1, 0, -0.283898, 0, 0.958854, -69.9962, -28.4265, -3.01175)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="CannonPuzzle/StaticBody3D"]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, -0.531317, 0)
 mesh = SubResource("CylinderMesh_00k4y")
 skeleton = NodePath("../../Cannon4")
 
@@ -554,28 +569,24 @@ pixel_size = 0.0007
 texture = ExtResource("17_00k4y")
 
 [node name="SpinningPlatform" parent="." instance=ExtResource("16_2klc5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.59037, -20.5967, 40.3617)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.273936, -20.5967, 50.5688)
 
 [node name="SpinningPlatform2" parent="." instance=ExtResource("16_2klc5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.6918, -11.4707, 51.6153)
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -22.6918, -11.4707, 51.6153)
 clockwise = false
 
 [node name="SpinningPlatform3" parent="." instance=ExtResource("16_2klc5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.7198, -1.14643, 39.553)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.7198, -4.42109, 70.7299)
 
 [node name="SpinningPlatform4" parent="." instance=ExtResource("16_2klc5")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -57.388, -2.83423, 57.4811)
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, -57.388, -2.83423, 57.4811)
 clockwise = false
 
 [node name="SpinningPlatform5" parent="." instance=ExtResource("16_2klc5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.388, 6.94315, 57.4811)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.388, 10.2012, 57.4811)
 
 [node name="SpinningPlatform7" parent="." instance=ExtResource("16_2klc5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.2104, 14.1407, 33.8724)
-
-[node name="SpinningPlatform6" parent="." instance=ExtResource("16_2klc5")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -57.388, 13.5742, 57.4811)
-clockwise = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.2104, 10.8537, 33.8724)
 
 [node name="Path3D" type="Path3D" parent="."]
 curve = SubResource("Curve3D_00k4y")
@@ -587,7 +598,7 @@ transform = Transform3D(-0.450022, -0.0761137, 0.889761, 3.72528e-09, 0.996352, 
 path = NodePath("..")
 
 [node name="PathFollow3D2" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.43166, -0.290141, -0.854089, 0.291015, 0.941015, -0.172589, 0.853794, -0.174055, 0.490637, 125.138, 21.6158, -17.6773)
+transform = Transform3D(0.43166, -0.290141, -0.854089, 0.291015, 0.941014, -0.172589, 0.853794, -0.174055, 0.490637, 125.138, 21.6158, -17.6773)
 progress = 360.0
 
 [node name="Bird" parent="Path3D/PathFollow3D2" node_paths=PackedStringArray("path") instance=ExtResource("20_3a44l")]

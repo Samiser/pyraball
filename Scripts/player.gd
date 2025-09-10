@@ -123,7 +123,7 @@ func set_new_scale(new_scale: float, level: int) -> void:
 	if level == 3: # hacky ending stuff
 		last_safe_pos = Vector3(0.0, 43.0, -75.0)
 		respawn_time -= 10.0
-		respawn_player()
+		respawn_player(true)
 		
 		in_end = true
 		dust.emitting = true
@@ -157,7 +157,7 @@ func set_new_scale(new_scale: float, level: int) -> void:
 			shadow_sprite.material_override.distance_fade_min_distance = 1.4
 			shadow_sprite.material_override.distance_fade_max_distance = 8.0
 			if global_position.z < -60:
-				add_constant_force(Vector3.LEFT)
+				add_constant_force(Vector3.LEFT * 0.2)
 			dust.emitting = true
 		1: # present/medium
 			# mass = 4.0
@@ -198,11 +198,8 @@ func _input(event: InputEvent) -> void:
 		_rotate("left")
 	elif event.is_action_pressed("rotate_right") and not all_crystals_are_collected and past_unlocked and not freeze:
 		_rotate("right")
-	elif event.is_action_pressed("unlock_all"):
-		past_unlocked = true
-		future_unlocked = true
 	elif event.is_action_pressed("respawn"):
-		respawn_player()
+		respawn_player(true)
 	elif Input.is_action_just_pressed("view_snap"):
 		_view_snap()
 	elif Input.is_action_just_pressed("quick_turn"):
@@ -223,6 +220,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 
 func _view_snap() -> void:
+	sfx_stream.pitch_scale = 1.0
+	sfx_stream.stream = cam_turn_sfx
+	sfx_stream.play()
+	
 	var velocity_dir := Vector2(-linear_velocity.x, linear_velocity.z)
 	var angle := velocity_dir.angle()
 	var desired_angle := wrapf((rad_to_deg(angle) + 90.0), 0.0, 360.0)
@@ -230,21 +231,17 @@ func _view_snap() -> void:
 	var tween:= get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	tween.tween_property(spring_arm, "rotation_degrees:y", desired_angle, 0.2)
-	
+
+func _quick_turn() -> void:
 	sfx_stream.pitch_scale = 1.0
 	sfx_stream.stream = cam_turn_sfx
 	sfx_stream.play()
-
-func _quick_turn() -> void:
+	
 	var turn_angle := spring_arm.rotation_degrees.y + 180.0
 	
 	var tween:= get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	tween.tween_property(spring_arm, "rotation_degrees:y", turn_angle, 0.2)
-	
-	sfx_stream.pitch_scale = 1.0
-	sfx_stream.stream = cam_turn_sfx
-	sfx_stream.play()
 
 func _process(delta: float) -> void:
 	if not game_started:
@@ -330,7 +327,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			shadow_sprite.rotation_degrees = Vector3(90.0, 0.0, 0.0)
 
-func respawn_player() -> void:
+func respawn_player(is_manual: bool) -> void:
 	if is_respawning || in_end:
 		return
 		
@@ -349,7 +346,7 @@ func respawn_player() -> void:
 	last_safe_pos += (last_safe_pos - fall_pos).normalized() * 4.0
 	last_safe_pos.y = safe_height
 	
-	if (Time.get_ticks_msec() - respawn_time) < 4000:
+	if !is_manual and (Time.get_ticks_msec() - respawn_time) < 4000:
 		var closest_dist := 99999
 		var new_pos := Vector3.ZERO
 		for pos in backup_respawn_points:
