@@ -32,7 +32,7 @@ func _on_static_body_3d_body_entered(body: Node3D) -> void:
 		tween = get_tree().create_tween()
 		sfx_stream.stream = turn_sfx
 		sfx_stream.play()
-		tween.tween_property(self, "rotation_degrees:y", dir_y_degrees, 1.2)
+		tween.tween_property(self, "rotation_degrees:y", wrapf(dir_y_degrees, 0.0, 360.0), 1.2)
 		tween.tween_property(barrel, "rotation_degrees:x", 90.0 + -dir_x_degrees, 1.4)
 		
 		await tween.finished

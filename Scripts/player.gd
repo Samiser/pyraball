@@ -176,6 +176,8 @@ func _input(event: InputEvent) -> void:
 		future_unlocked = true
 	elif event.is_action_pressed("respawn"):
 		respawn_player()
+	elif event.is_action_pressed("view_snap"):
+		_view_snap()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -194,6 +196,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		spring_arm.rotation.x -= event.relative.y * mouse_sensitivity * (-1 if invert_x else 1)
 		spring_arm.rotation.x = clampf(spring_arm.rotation.x, -tilt_limit, tilt_limit)
 		spring_arm.rotation.y += -event.relative.x * mouse_sensitivity * (-1 if invert_y else 1)
+
+func _view_snap() -> void:
+	var velocity_dir := Vector2(-linear_velocity.x, linear_velocity.z)
+	var angle := velocity_dir.angle()
+	var desired_angle := wrapf((rad_to_deg(angle) + 90.0), 0.0, 360.0)
+	
+	var tween:= get_tree().create_tween()
+	tween.tween_property(spring_arm, "rotation_degrees:y", desired_angle, 0.2)
 
 func _process(delta: float) -> void:
 	var look_pad_vector: Vector2 = Input.get_vector("look_up", "look_down", "look_right", "look_left")
@@ -352,7 +362,6 @@ func respawn_player() -> void:
 	freeze = false
 	respawn_time = Time.get_ticks_msec()
 	is_respawning = false
-
 
 func _on_body_entered(body: Node) -> void:
 	is_colliding = true
