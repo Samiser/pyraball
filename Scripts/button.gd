@@ -43,6 +43,7 @@ func _on_press_area_exited(body: Node3D) -> void:
 
 func set_freeze(value: bool) -> void:
 	actuator.position = Vector3(0., 0.373, 0.)
+	actuator.rotation = Vector3(-1.570796, 0.0, 0.0)
 	actuator.freeze = value
 
 func _ready() -> void:

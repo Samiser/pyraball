@@ -22,13 +22,17 @@ func _find_level() -> Level:
 	return n
 
 func _snap_to(new_position: Vector3, new_rotation: Vector3) -> void:
+	button.set_freeze(true)
 	position = new_position
 	rotation = new_rotation
 	current_position = !current_position
+	button.set_freeze(false)
 
 func _move_to(new_position: Vector3, new_rotation: Vector3) -> void:
 	var present_lift: Lift
 	var future_lift: Lift
+	
+	button.set_freeze(true)
 	
 	if my_level.selected_level == 0:
 		present_lift = my_level.get_counterpart(self, my_level.present)
@@ -49,6 +53,7 @@ func _move_to(new_position: Vector3, new_rotation: Vector3) -> void:
 	await tween.finished
 	moving = false
 	current_position = !current_position
+	button.set_freeze(false)
 
 func _lift_button_pressed(_button: TriangleButton) -> void:
 	if moving:
