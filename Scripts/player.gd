@@ -177,9 +177,9 @@ func _input(event: InputEvent) -> void:
 		future_unlocked = true
 	elif event.is_action_pressed("respawn"):
 		respawn_player()
-	elif event.is_action_pressed("view_snap"):
+	elif Input.is_action_just_pressed("view_snap"):
 		_view_snap()
-	elif event.is_action_pressed("quick_turn"):
+	elif Input.is_action_just_pressed("quick_turn"):
 		_quick_turn()
 
 func _unhandled_input(event: InputEvent) -> void:
