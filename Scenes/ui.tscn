@@ -63,8 +63,13 @@ size = 256.0
 near = 10.0
 far = 300.0
 
-[node name="ProgressOuter" type="TextureRect" parent="."]
-modulate = Color(0.652, 0.64, 1, 1)
+[node name="ProgressBar" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressOuter" type="TextureRect" parent="ProgressBar"]
+modulate = Color(0.652, 0.64, 1, 0.607)
 layout_mode = 0
 offset_left = 521.0
 offset_top = 4.0
@@ -74,7 +79,7 @@ texture = ExtResource("2_2246s")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="ProgressInner" type="TextureRect" parent="."]
+[node name="ProgressInner" type="TextureRect" parent="ProgressBar"]
 modulate = Color(0.478, 0.46, 1, 0.764706)
 material = SubResource("ShaderMaterial_d1ilt")
 layout_mode = 0

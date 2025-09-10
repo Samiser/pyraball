@@ -3,6 +3,7 @@ class_name UI
 
 var crystals: Array[Node]
 var total_crystals: int
+var fade_in_time := 0.8
 
 func _get_not_collected_crystals() -> Array[Node]:
 	var crystals: Array = get_tree().get_nodes_in_group("time_crystal").filter(
@@ -11,11 +12,16 @@ func _get_not_collected_crystals() -> Array[Node]:
 	
 	return crystals
 
+func fade_in() -> void:
+	var tween := create_tween()
+	for element: Control in [$SubViewportContainer, $ProgressBar, $player_indicator]:
+		tween.parallel().tween_property(element, "modulate:a", 1, fade_in_time)
+
 func _on_crystal_collected() -> void:
 	crystals = _get_not_collected_crystals()
 	var progress: float = float(total_crystals - crystals.size()) / float(total_crystals) * 1.13
 	var tween := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-	tween.tween_property($ProgressInner, "scale", Vector2(progress, progress), 0.3)
+	tween.tween_property($ProgressBar/ProgressInner, "scale", Vector2(progress, progress), 0.3)
 
 func _on_time_change(time_frame: int) -> void:
 	var clock_rot := 90.0 * time_frame
@@ -36,8 +42,10 @@ func _on_time_change(time_frame: int) -> void:
 	tween.parallel().tween_property($player_indicator/player_ball_rect, "modulate", ball_colour, 2.0)
 
 func _ready() -> void:
+	for element: Control in [$SubViewportContainer, $ProgressBar, $player_indicator]:
+		element.modulate.a = 0
 	crystals = _get_not_collected_crystals()
 	total_crystals = crystals.size()
 	for crystal: TimeCrystal in crystals:
 		crystal.collected.connect(_on_crystal_collected)
-	$ProgressInner.scale = Vector2(0, 0)
+	$ProgressBar/ProgressInner.scale = Vector2(0, 0)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbud0mpfsj5tn"]
+[gd_scene load_steps=13 format=3 uid="uid://dbud0mpfsj5tn"]
 
 [ext_resource type="FontFile" uid="uid://btstsvsh6ym4g" path="res://Fonts/jd_lcd_rounded.ttf" id="1_1ehe0"]
 [ext_resource type="Script" uid="uid://cbijfdk011qy0" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="FontFile" uid="uid://dq4t4vp605cbt" path="res://Fonts/ROUND___.TTF" id="3_ce3w2"]
-[ext_resource type="Texture2D" uid="uid://cwmeg6mfw1xo7" path="res://Textures/circle_outline.png" id="4_n45e2"]
+[ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="4_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://cvqvrnbrtxm67" path="res://Textures/logo.png" id="4_n45e2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ce3w2"]
 
@@ -62,6 +63,7 @@ alignment = 1
 layout_mode = 2
 
 [node name="Title" type="RichTextLabel" parent="VBoxContainer/CenterContainer"]
+visible = false
 modulate = Color(3, 1, 1, 1)
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
@@ -70,6 +72,12 @@ theme_override_font_sizes/normal_font_size = 32
 text = "pyraball"
 fit_content = true
 horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(0, 335)
+layout_mode = 2
+texture = ExtResource("4_n45e2")
+expand_mode = 3
 
 [node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -81,21 +89,21 @@ layout_mode = 2
 [node name="Play" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
 layout_mode = 2
 text = " play"
-icon = ExtResource("4_n45e2")
+icon = ExtResource("4_ce3w2")
 alignment = 0
 expand_icon = true
 
 [node name="Options" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
 layout_mode = 2
 text = " options"
-icon = ExtResource("4_n45e2")
+icon = ExtResource("4_ce3w2")
 alignment = 0
 expand_icon = true
 
 [node name="Quit" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
 layout_mode = 2
 text = " quit"
-icon = ExtResource("4_n45e2")
+icon = ExtResource("4_ce3w2")
 alignment = 0
 expand_icon = true
 

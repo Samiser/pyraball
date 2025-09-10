@@ -232,7 +232,7 @@ panning_strength = 0.1
 [node name="MainMenu" parent="." instance=ExtResource("12_6iyac")]
 
 [node name="MenuCamera" type="Camera3D" parent="."]
-transform = Transform3D(0.730162, 0.544968, -0.412156, 0, 0.603208, 0.797584, 0.683274, -0.582366, 0.44044, -51.8531, 54.2327, -91.1888)
-cull_mask = 1048573
+transform = Transform3D(0.814082, -0.307751, -0.492504, 0, 0.848048, -0.529919, 0.58075, 0.431398, 0.690381, -17.7885, 73.6984, -58.3398)
+cull_mask = 1048565
 current = true
-fov = 100.5
+fov = 61.0
