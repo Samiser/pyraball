@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfjha0lliiui8"]
+[gd_scene load_steps=6 format=3 uid="uid://dfjha0lliiui8"]
 
 [ext_resource type="Theme" uid="uid://du8m278hgehf4" path="res://main_menu_theme.tres" id="1_inh3s"]
 [ext_resource type="Script" uid="uid://dgvj4kh6byqf7" path="res://Scripts/options_menu.gd" id="1_uj0ok"]
 [ext_resource type="Texture2D" uid="uid://bai0vlrhkpd6c" path="res://Textures/logo_no_text.png" id="2_l1wg4"]
 [ext_resource type="Texture2D" uid="uid://du8s21m5wlqr7" path="res://Textures/menu_deselect_icon.png" id="3_l1wg4"]
+[ext_resource type="AudioStream" uid="uid://cr01xksmqw68v" path="res://Audio/SoundFX/maze_flip_on.mp3" id="5_m6e8v"]
 
 [node name="OptionsMenu" type="Control" node_paths=PackedStringArray("master_volume_slider", "music_volume_slider", "mouse_sensitivity_slider", "gamepad_sensitivity_slider", "invert_x_toggle", "invert_y_toggle", "graphics_toggle", "close_button")]
 layout_mode = 3
@@ -199,3 +200,7 @@ text = "back"
 icon = ExtResource("3_l1wg4")
 alignment = 0
 expand_icon = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_m6e8v")
+pitch_scale = 2.0

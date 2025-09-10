@@ -13,9 +13,9 @@ var first_control: Control
 
 func _ready() -> void:
 	first_control = play_button
-	play_button.pressed.connect(func() -> void: play.emit())
+	play_button.pressed.connect(func() -> void: play.emit(); $AudioStreamPlayer2D.play())
 	exit_button.pressed.connect(func() -> void: get_tree().quit())
-	options_button.pressed.connect(func() -> void: visible = false; options.emit())
+	options_button.pressed.connect(func() -> void: visible = false; options.emit(); $AudioStreamPlayer2D.play())
 	play_button.grab_focus()
 	visibility_changed.connect(func() -> void: if visible: play_button.grab_focus())
 

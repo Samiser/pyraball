@@ -55,31 +55,35 @@ func _ready() -> void:
 	gamepad_sensitivity_slider.value_changed.connect(_gpad_sens_changed)
 	_gpad_sens_changed(gamepad_sensitivity_slider.value)
 	
-	invert_x_toggle.toggled.connect(func(value: bool) -> void: invert_changed.emit("x", value))
-	invert_y_toggle.toggled.connect(func(value: bool) -> void: invert_changed.emit("y", value))
+	invert_x_toggle.toggled.connect(func(value: bool) -> void: invert_changed.emit("x", value); $AudioStreamPlayer2D.play())
+	invert_y_toggle.toggled.connect(func(value: bool) -> void: invert_changed.emit("y", value); $AudioStreamPlayer2D.play())
 	
-	graphics_toggle.toggled.connect(func(value: bool) -> void: graphics_changed.emit(value))
+	graphics_toggle.toggled.connect(func(value: bool) -> void: graphics_changed.emit(value); $AudioStreamPlayer2D.play())
 
-	close_button.pressed.connect(func() -> void: visible = false; previous_menu.visible = true)
+	close_button.pressed.connect(func() -> void: visible = false; previous_menu.visible = true; $AudioStreamPlayer2D.play())
 	
 	visibility_changed.connect(func() -> void: if visible: master_volume_slider.grab_focus())
 
 func _master_vol_changed(value: float) -> void:
+	$AudioStreamPlayer2D.play()
 	_set_volume(master_bus, value)
 	var percent :int= (value / master_volume_slider.max_value) * 100
 	$MarginContainer/VBoxContainer/HBoxContainer/master_vol_label.text = "master volume:\n" + str(percent) + "%"
 
 func _music_vol_changed(value: float) -> void:
+	$AudioStreamPlayer2D.play()
 	_set_volume(music_bus, value)
 	var percent :int= (value / music_volume_slider.max_value) * 100
 	$MarginContainer/VBoxContainer/HBoxContainer2/music_vol_slider.text = "music volume:\n" + str(percent) + "%"
 
 func _m_sens_changed(value: float) -> void:
+	$AudioStreamPlayer2D.play()
 	sensitivity_changed.emit("mouse", value)
 	var percent :int= (value / mouse_sensitivity_slider.max_value) * 100
 	$MarginContainer/VBoxContainer/HBoxContainer3/mouse_sens_label.text = "mouse sensitivity:\n" + str(percent) + "%"
 
 func _gpad_sens_changed(value: float) -> void:
+	$AudioStreamPlayer2D.play()
 	sensitivity_changed.emit("gamepad", value)
 	var percent :int= (value / gamepad_sensitivity_slider.max_value) * 100
 	$MarginContainer/VBoxContainer/HBoxContainer4/gpad_sens_label.text = "gamepad sensitivity:\n" + str(percent) + "%"
