@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bxt4ae0qrgpd0"]
+[gd_scene load_steps=38 format=3 uid="uid://bxt4ae0qrgpd0"]
 
 [ext_resource type="Script" uid="uid://bu7eh1ydu658n" path="res://Scripts/main.gd" id="1_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://ccdc33vpni5bd" path="res://Scenes/player.tscn" id="2_hptm8"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://brh0k7g2n1c6l" path="res://Audio/SoundFX/forest_ambience.mp3" id="11_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://dbud0mpfsj5tn" path="res://Scenes/main_menu.tscn" id="12_6iyac"]
 [ext_resource type="PackedScene" uid="uid://dfjha0lliiui8" path="res://Scenes/options_menu.tscn" id="13_fdnlq"]
+[ext_resource type="PackedScene" uid="uid://cm6t6qofsh7m6" path="res://Scenes/pause_menu.tscn" id="16_k12tt"]
 
 [sub_resource type="Gradient" id="Gradient_6iyac"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -254,3 +255,6 @@ fov = 61.0
 
 [node name="OptionsMenu" parent="." instance=ExtResource("13_fdnlq")]
 visible = false
+
+[node name="PauseMenu" parent="." node_paths=PackedStringArray("options_menu") instance=ExtResource("16_k12tt")]
+options_menu = NodePath("../OptionsMenu")

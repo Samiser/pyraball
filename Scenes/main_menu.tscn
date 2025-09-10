@@ -1,37 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbud0mpfsj5tn"]
+[gd_scene load_steps=8 format=3 uid="uid://dbud0mpfsj5tn"]
 
-[ext_resource type="FontFile" uid="uid://btstsvsh6ym4g" path="res://Fonts/jd_lcd_rounded.ttf" id="1_1ehe0"]
 [ext_resource type="Script" uid="uid://cbijfdk011qy0" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+[ext_resource type="Theme" uid="uid://dygwjj5jb483k" path="res://Scenes/menu_theme.tres" id="1_opfnp"]
 [ext_resource type="FontFile" uid="uid://dq4t4vp605cbt" path="res://Fonts/ROUND___.TTF" id="3_ce3w2"]
 [ext_resource type="Texture2D" uid="uid://bai0vlrhkpd6c" path="res://Textures/logo_no_text.png" id="4_opfnp"]
 [ext_resource type="Texture2D" uid="uid://dlcnud3cuxb1a" path="res://Textures/logo_text_only.png" id="5_cp0ys"]
 [ext_resource type="Texture2D" uid="uid://du8s21m5wlqr7" path="res://Textures/menu_deselect_icon.png" id="5_n45e2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ce3w2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n45e2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_opfnp"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cp0ys"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yhxw7"]
-
-[sub_resource type="Theme" id="Theme_ce3w2"]
-default_font = ExtResource("1_1ehe0")
-default_font_size = 35
-Button/colors/font_hover_color = Color(0.854902, 0.45098, 1, 1)
-Button/colors/font_pressed_color = Color(0.6671, 0.042, 0.84, 1)
-Button/colors/icon_hover_color = Color(0.539779, 0.00106494, 0.681083, 1)
-Button/colors/icon_hover_pressed_color = Color(0.400719, 0.000558172, 0.508583, 1)
-Button/colors/icon_pressed_color = Color(0.4, 0, 0.509804, 1)
-Button/styles/disabled = SubResource("StyleBoxEmpty_ce3w2")
-Button/styles/focus = SubResource("StyleBoxEmpty_n45e2")
-Button/styles/hover = SubResource("StyleBoxEmpty_opfnp")
-Button/styles/normal = SubResource("StyleBoxEmpty_cp0ys")
-Button/styles/pressed = SubResource("StyleBoxEmpty_yhxw7")
-HBoxContainer/constants/separation = 15
-VBoxContainer/constants/separation = 10
 
 [sub_resource type="Environment" id="Environment_ce3w2"]
 background_mode = 3
@@ -45,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_ce3w2")
+theme = ExtResource("1_opfnp")
 script = ExtResource("1_48xlc")
 play_button = NodePath("VBoxContainer/CenterContainer2/VBoxContainer/Play")
 options_button = NodePath("VBoxContainer/CenterContainer2/VBoxContainer/Options")

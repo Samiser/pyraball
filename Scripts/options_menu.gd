@@ -19,7 +19,8 @@ var cog_speed := 0.2
 signal sensitivity_changed(type: String, value: float)
 signal invert_changed(type: String, value: bool)
 signal graphics_changed(value: bool)
-signal closed
+
+var previous_menu: Control
 
 func _set_volume(bus: int, value: float) -> void:
 	AudioServer.set_bus_volume_linear(bus, value)
@@ -31,7 +32,13 @@ func set_sensitivity(type: String, value: float) -> void:
 		"gamepad":
 			gamepad_sensitivity_slider.value = value
 
+func set_visible_from(menu: Control) -> void:
+	previous_menu = menu
+	visible = true
+
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	master_volume_slider.value = AudioServer.get_bus_volume_linear(master_bus)
 	music_volume_slider.value = AudioServer.get_bus_volume_linear(music_bus)
 	
@@ -50,7 +57,7 @@ func _ready() -> void:
 	
 	graphics_toggle.toggled.connect(func(value: bool) -> void: graphics_changed.emit(value))
 
-	close_button.pressed.connect(func() -> void: visible = false; closed.emit())
+	close_button.pressed.connect(func() -> void: visible = false; previous_menu.visible = true)
 
 func _master_vol_changed(value: float) -> void:
 	_set_volume(master_bus, value)

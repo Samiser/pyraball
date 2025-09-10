@@ -11,6 +11,8 @@ func _switch_music(from: AudioStreamPlayer, to: AudioStreamPlayer, time: float) 
 	tween.parallel().tween_property(to, "volume_linear", 0.4, time)
 
 func start() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$PauseMenu.playing = true
 	$MainMenu.queue_free()
 	$World.play()
 	var tween := create_tween()
@@ -44,9 +46,8 @@ func _ready() -> void:
 	$World.puzzle_completed.connect(player.on_puzzle_completed)
 	$World.outside.connect(func(outside: bool) -> void: _switch_music($minimal_drums, $breakbeat, 2) if outside else _switch_music($breakbeat, $minimal_drums, 2))
 	$MainMenu.play.connect(start)
-	$MainMenu.options.connect(func() -> void: $OptionsMenu.visible = true)
+	$MainMenu.options.connect(func() -> void: $OptionsMenu.set_visible_from($MainMenu))
 	$OptionsMenu.sensitivity_changed.connect($Player.change_sensitivity)
 	$OptionsMenu.invert_changed.connect($Player.change_invert)
-	$OptionsMenu.closed.connect(func() -> void: $MainMenu.visible = !game_started)
 
 	_start_music()

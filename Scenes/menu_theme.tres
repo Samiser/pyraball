@@ -1,0 +1,29 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dygwjj5jb483k"]
+
+[ext_resource type="FontFile" uid="uid://btstsvsh6ym4g" path="res://Fonts/jd_lcd_rounded.ttf" id="1_na15f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ce3w2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n45e2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_opfnp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cp0ys"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yhxw7"]
+
+[resource]
+default_font = ExtResource("1_na15f")
+default_font_size = 35
+Button/colors/font_hover_color = Color(0.854902, 0.45098, 1, 1)
+Button/colors/font_pressed_color = Color(0.6671, 0.042, 0.84, 1)
+Button/colors/icon_hover_color = Color(0.539779, 0.00106494, 0.681083, 1)
+Button/colors/icon_hover_pressed_color = Color(0.400719, 0.000558172, 0.508583, 1)
+Button/colors/icon_pressed_color = Color(0.4, 0, 0.509804, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_ce3w2")
+Button/styles/focus = SubResource("StyleBoxEmpty_n45e2")
+Button/styles/hover = SubResource("StyleBoxEmpty_opfnp")
+Button/styles/normal = SubResource("StyleBoxEmpty_cp0ys")
+Button/styles/pressed = SubResource("StyleBoxEmpty_yhxw7")
+HBoxContainer/constants/separation = 15
+VBoxContainer/constants/separation = 10

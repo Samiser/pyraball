@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://cm6t6qofsh7m6"]
+
+[ext_resource type="Theme" uid="uid://dygwjj5jb483k" path="res://Scenes/menu_theme.tres" id="1_bpi0q"]
+[ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="2_myy0f"]
+[ext_resource type="Script" uid="uid://tot4p8ctdold" path="res://Scenes/pause_menu.gd" id="2_sjs17"]
+[ext_resource type="Shader" uid="uid://twjxjt5ypucs" path="res://Scripts/warp.gdshader" id="2_vmyb1"]
+[ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="3_myy0f"]
+[ext_resource type="Texture2D" uid="uid://du8s21m5wlqr7" path="res://Textures/menu_deselect_icon.png" id="4_sjs17"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u8tnp"]
+shader = ExtResource("2_vmyb1")
+shader_parameter/speed = 0.2
+shader_parameter/scale = 1.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/use_screen_uv = 0
+shader_parameter/radius = 0.5
+shader_parameter/center = Vector2(0.5, 0.5)
+
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("resume_button", "options_button", "exit_button")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bpi0q")
+script = ExtResource("2_sjs17")
+resume_button = NodePath("CenterContainer/VBoxContainer/Resume")
+options_button = NodePath("CenterContainer/VBoxContainer/Options")
+exit_button = NodePath("CenterContainer/VBoxContainer/Quit")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer"]
+modulate = Color(0.111197, 0.111197, 0.111197, 1)
+self_modulate = Color(0, 0, 0, 0.835294)
+custom_minimum_size = Vector2(300, 286)
+layout_mode = 2
+texture = ExtResource("2_myy0f")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+material = SubResource("ShaderMaterial_u8tnp")
+custom_minimum_size = Vector2(300, 286)
+layout_mode = 2
+texture = ExtResource("3_myy0f")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "paused"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = " resume"
+icon = ExtResource("4_sjs17")
+alignment = 0
+expand_icon = true
+
+[node name="Options" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = " options"
+icon = ExtResource("4_sjs17")
+alignment = 0
+expand_icon = true
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = " quit"
+icon = ExtResource("4_sjs17")
+alignment = 0
+expand_icon = true
