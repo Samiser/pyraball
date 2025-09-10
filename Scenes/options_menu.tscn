@@ -93,7 +93,7 @@ text = "master volume
 fit_content = true
 horizontal_alignment = 2
 
-[node name="MasterVolume" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="MasterVolume" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer" groups=["ui_control"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -113,7 +113,7 @@ text = "music volume
 fit_content = true
 horizontal_alignment = 2
 
-[node name="MusicVolume" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="MusicVolume" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer2" groups=["ui_control"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -136,7 +136,7 @@ text = "mouse sensitivity
 fit_content = true
 horizontal_alignment = 2
 
-[node name="MouseSensitivity" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="MouseSensitivity" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer3" groups=["ui_control"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -158,7 +158,7 @@ text = "gamepad sensitivity
 fit_content = true
 horizontal_alignment = 2
 
-[node name="GamepadSensitivity" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="GamepadSensitivity" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer4" groups=["ui_control"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -172,12 +172,12 @@ layout_mode = 2
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="InvertY" type="CheckButton" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="InvertY" type="CheckButton" parent="MarginContainer/VBoxContainer/HBoxContainer5" groups=["ui_control"]]
 layout_mode = 2
 text = "invert x"
 alignment = 2
 
-[node name="InvertX" type="CheckButton" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="InvertX" type="CheckButton" parent="MarginContainer/VBoxContainer/HBoxContainer5" groups=["ui_control"]]
 layout_mode = 2
 text = "invert y"
 alignment = 2
@@ -193,7 +193,7 @@ layout_mode = 2
 text = "lower graphics"
 alignment = 1
 
-[node name="Close" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Close" type="Button" parent="MarginContainer/VBoxContainer" groups=["ui_control"]]
 layout_mode = 2
 text = "back"
 icon = ExtResource("3_l1wg4")

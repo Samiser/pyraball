@@ -3,6 +3,10 @@ extends Node3D
 @onready var player: Player = $Player
 @onready var menu_camera: Camera3D = $MenuCamera
 
+@onready var main_menu := $Menus/MainMenu
+@onready var options_menu := $Menus/OptionsMenu
+@onready var pause_menu := $Menus/PauseMenu
+
 var game_started: bool = false
 
 func _switch_music(from: AudioStreamPlayer, to: AudioStreamPlayer, time: float) -> void:
@@ -12,8 +16,7 @@ func _switch_music(from: AudioStreamPlayer, to: AudioStreamPlayer, time: float) 
 
 func start() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	$PauseMenu.playing = true
-	$MainMenu.queue_free()
+	$Menus.start()
 	$World.play()
 	var tween := create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
@@ -45,9 +48,8 @@ func _ready() -> void:
 	player.all_crystals_collected.connect($World._on_all_crystals_collected)
 	$World.puzzle_completed.connect(player.on_puzzle_completed)
 	$World.outside.connect(func(outside: bool) -> void: _switch_music($minimal_drums, $breakbeat, 2) if outside else _switch_music($breakbeat, $minimal_drums, 2))
-	$MainMenu.play.connect(start)
-	$MainMenu.options.connect(func() -> void: $OptionsMenu.set_visible_from($MainMenu))
-	$OptionsMenu.sensitivity_changed.connect($Player.change_sensitivity)
-	$OptionsMenu.invert_changed.connect($Player.change_invert)
+	main_menu.play.connect(start)
+	options_menu.sensitivity_changed.connect($Player.change_sensitivity)
+	options_menu.invert_changed.connect($Player.change_invert)
 
 	_start_music()

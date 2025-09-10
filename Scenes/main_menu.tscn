@@ -70,21 +70,21 @@ layout_mode = 2
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
-[node name="Play" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+[node name="Play" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer" groups=["ui_control"]]
 layout_mode = 2
 text = " play"
 icon = ExtResource("5_n45e2")
 alignment = 0
 expand_icon = true
 
-[node name="Options" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+[node name="Options" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer" groups=["ui_control"]]
 layout_mode = 2
 text = " options"
 icon = ExtResource("5_n45e2")
 alignment = 0
 expand_icon = true
 
-[node name="Quit" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+[node name="Quit" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer" groups=["ui_control"]]
 layout_mode = 2
 text = " quit"
 icon = ExtResource("5_n45e2")

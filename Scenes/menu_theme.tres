@@ -15,8 +15,10 @@
 [resource]
 default_font = ExtResource("1_na15f")
 default_font_size = 35
+Button/colors/font_focus_color = Color(0.854902, 0.45098, 1, 1)
 Button/colors/font_hover_color = Color(0.854902, 0.45098, 1, 1)
 Button/colors/font_pressed_color = Color(0.6671, 0.042, 0.84, 1)
+Button/colors/icon_focus_color = Color(0.541176, 0, 0.682353, 1)
 Button/colors/icon_hover_color = Color(0.539779, 0.00106494, 0.681083, 1)
 Button/colors/icon_hover_pressed_color = Color(0.400719, 0.000558172, 0.508583, 1)
 Button/colors/icon_pressed_color = Color(0.4, 0, 0.509804, 1)

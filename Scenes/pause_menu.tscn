@@ -64,21 +64,21 @@ theme_override_font_sizes/font_size = 64
 text = "paused"
 horizontal_alignment = 1
 
-[node name="Resume" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="CenterContainer/VBoxContainer" groups=["ui_control"]]
 layout_mode = 2
 text = " resume"
 icon = ExtResource("4_sjs17")
 alignment = 0
 expand_icon = true
 
-[node name="Options" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="CenterContainer/VBoxContainer" groups=["ui_control"]]
 layout_mode = 2
 text = " options"
 icon = ExtResource("4_sjs17")
 alignment = 0
 expand_icon = true
 
-[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer" groups=["ui_control"]]
 layout_mode = 2
 text = " quit"
 icon = ExtResource("4_sjs17")

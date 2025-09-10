@@ -7,6 +7,7 @@ extends Control
 @export var options_menu: OptionsMenu
 
 var playing: bool = false
+var first_control: Control
 
 signal options
 
@@ -18,9 +19,14 @@ func _input(event: InputEvent) -> void:
 		elif visible == true:
 			_resume()
 		else:
-			get_tree().paused = true
-			visible = true
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			_pause()
+			print(event)
+			if event is InputEventKey:
+				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func _pause() -> void:
+	get_tree().paused = true
+	visible = true
 
 func _resume() -> void:
 	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
@@ -29,8 +35,10 @@ func _resume() -> void:
 	get_tree().paused = false
 
 func _ready() -> void:
+	first_control = resume_button
+	get_viewport().gui_focus_changed.connect(func(node: Control) -> void: print(node))
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	resume_button.pressed.connect(_resume)
 	exit_button.pressed.connect(func() -> void: get_tree().quit())
 	options_button.pressed.connect(func() -> void: visible = false; options_menu.set_visible_from(self))
-	resume_button
+	visibility_changed.connect(func() -> void: if visible: resume_button.grab_focus())

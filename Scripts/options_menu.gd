@@ -13,6 +13,8 @@ class_name OptionsMenu
 @onready var master_bus := AudioServer.get_bus_index("Master")
 @onready var music_bus := AudioServer.get_bus_index("Music")
 
+var first_control: Control
+
 var time := 0.0
 var cog_speed := 0.2
 
@@ -38,6 +40,7 @@ func set_visible_from(menu: Control) -> void:
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	first_control = master_volume_slider
 	
 	master_volume_slider.value = AudioServer.get_bus_volume_linear(master_bus)
 	music_volume_slider.value = AudioServer.get_bus_volume_linear(music_bus)
@@ -58,6 +61,8 @@ func _ready() -> void:
 	graphics_toggle.toggled.connect(func(value: bool) -> void: graphics_changed.emit(value))
 
 	close_button.pressed.connect(func() -> void: visible = false; previous_menu.visible = true)
+	
+	visibility_changed.connect(func() -> void: if visible: master_volume_slider.grab_focus())
 
 func _master_vol_changed(value: float) -> void:
 	_set_volume(master_bus, value)
