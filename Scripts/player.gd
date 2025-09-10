@@ -201,6 +201,7 @@ func _view_snap() -> void:
 	var desired_angle := wrapf((rad_to_deg(angle) + 90.0), 0.0, 360.0)
 	
 	var tween:= get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	tween.tween_property(spring_arm, "rotation_degrees:y", desired_angle, 0.2)
 
 func _process(delta: float) -> void:
