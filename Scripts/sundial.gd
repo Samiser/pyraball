@@ -92,9 +92,10 @@ func _reflector_completed() -> void:
 func _ready() -> void:
 	for i in range(markers.size()):
 		markers[i].get_parent().rotation_degrees.y = rotations[i]
-	
-	button.pressed.connect(_on_button_pressed)
-	button.released.connect(_on_button_released)
-	
-	for reflector in reflectors:
-		reflector.completed.connect(_reflector_completed)
+
+	if not Engine.is_editor_hint():
+		button.pressed.connect(_on_button_pressed)
+		button.released.connect(_on_button_released)
+		
+		for reflector in reflectors:
+			reflector.completed.connect(_reflector_completed)
