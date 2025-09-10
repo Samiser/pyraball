@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bai0vlrhkpd6c" path="res://Textures/logo_no_text.png" id="4_opfnp"]
 [ext_resource type="Texture2D" uid="uid://dlcnud3cuxb1a" path="res://Textures/logo_text_only.png" id="5_cp0ys"]
 [ext_resource type="Texture2D" uid="uid://du8s21m5wlqr7" path="res://Textures/menu_deselect_icon.png" id="5_n45e2"]
-[ext_resource type="AudioStream" uid="uid://dxq40tfpg0u36" path="res://Audio/SoundFX/simon_light.mp3" id="7_cp0ys"]
+[ext_resource type="AudioStream" uid="uid://cr01xksmqw68v" path="res://Audio/SoundFX/maze_flip_on.mp3" id="7_cp0ys"]
 
 [sub_resource type="Environment" id="Environment_ce3w2"]
 background_mode = 3

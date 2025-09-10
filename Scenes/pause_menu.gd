@@ -29,6 +29,7 @@ func _pause() -> void:
 	visible = true
 
 func _resume() -> void:
+	$AudioStreamPlayer2D.play()
 	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	visible = false
@@ -39,6 +40,6 @@ func _ready() -> void:
 	get_viewport().gui_focus_changed.connect(func(node: Control) -> void: print(node))
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	resume_button.pressed.connect(_resume)
-	exit_button.pressed.connect(func() -> void: get_tree().quit())
-	options_button.pressed.connect(func() -> void: visible = false; options_menu.set_visible_from(self))
+	exit_button.pressed.connect(func() -> void: get_tree().quit(); $AudioStreamPlayer2D.play())
+	options_button.pressed.connect(func() -> void: visible = false; options_menu.set_visible_from(self); $AudioStreamPlayer2D.play())
 	visibility_changed.connect(func() -> void: if visible: resume_button.grab_focus())
