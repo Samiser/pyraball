@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bxt4ae0qrgpd0"]
+[gd_scene load_steps=37 format=3 uid="uid://bxt4ae0qrgpd0"]
 
 [ext_resource type="Script" uid="uid://bu7eh1ydu658n" path="res://Scripts/main.gd" id="1_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://ccdc33vpni5bd" path="res://Scenes/player.tscn" id="2_hptm8"]
@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="7_wsu2k"]
 [ext_resource type="AudioStream" uid="uid://t5wlstexka75" path="res://Audio/Music/minimal_drums.wav" id="8_344ge"]
 [ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="9_h1bgf"]
+[ext_resource type="AudioStream" uid="uid://cwbaldja2h6qf" path="res://Audio/Music/no_drums.wav" id="9_jkdf5"]
 [ext_resource type="AudioStream" uid="uid://dic7k3dm0buwh" path="res://Audio/Music/breakbeat.wav" id="9_ynf5e"]
 [ext_resource type="AudioStream" uid="uid://brta4jqtr7kal" path="res://Audio/SoundFX/desert_wind_ambience.mp3" id="10_d1ilt"]
+[ext_resource type="AudioStream" uid="uid://ro7a30xfmfwm" path="res://Audio/Music/twinkly.wav" id="10_wsu2k"]
 [ext_resource type="AudioStream" uid="uid://bnd8u2o8rub0e" path="res://Audio/SoundFX/ice_ambience.mp3" id="11_6iyac"]
 [ext_resource type="AudioStream" uid="uid://brh0k7g2n1c6l" path="res://Audio/SoundFX/forest_ambience.mp3" id="11_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://dbud0mpfsj5tn" path="res://Scenes/main_menu.tscn" id="12_6iyac"]
@@ -198,13 +200,23 @@ transform_align = 3
 process_material = SubResource("ParticleProcessMaterial_3pmx8")
 draw_pass_1 = SubResource("QuadMesh_u50mg")
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="minimal_drums" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_344ge")
+volume_db = -80.0
+bus = &"Music"
+
+[node name="breakbeat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ynf5e")
+volume_db = -80.0
+bus = &"Music"
+
+[node name="no_drums" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_jkdf5")
 volume_db = -8.0
 bus = &"Music"
 
-[node name="Music2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_ynf5e")
+[node name="twinkly" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_wsu2k")
 volume_db = -80.0
 bus = &"Music"
 
