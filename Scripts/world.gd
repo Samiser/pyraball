@@ -43,13 +43,14 @@ func _tween_rotation(new_rotation: Vector3) -> void:
 	await tween.finished
 	return
 
-func _apply_world_changes() -> void:
-	var audio_stream :AudioStreamPlayer= $AudioStreamPlayer
-	if last_level < current_level:
-		audio_stream.stream = load("res://Audio/SoundFX/time_forward.mp3")
-	else:
-		audio_stream.stream = load("res://Audio/SoundFX/time_back.mp3")
-	audio_stream.play()
+func _apply_world_changes(play_sound: bool = true) -> void:
+	if play_sound:
+		var audio_stream :AudioStreamPlayer= $AudioStreamPlayer
+		if last_level < current_level:
+			audio_stream.stream = load("res://Audio/SoundFX/time_forward.mp3")
+		else:
+			audio_stream.stream = load("res://Audio/SoundFX/time_back.mp3")
+		audio_stream.play()
 	
 	last_level = current_level
 	match current_level:
@@ -99,7 +100,7 @@ func _on_all_crystals_collected(player_position: Vector3) -> void:
 	player.rotation_completed(player_position)
 
 func _ready() -> void:
-	_apply_world_changes()
+	_apply_world_changes(false)
 	for portal: Node3D in get_tree().get_nodes_in_group("portal"):
 		if portal.has_signal("outside"):
 			portal.outside.connect(func(value: bool) -> void: outside.emit(value))
