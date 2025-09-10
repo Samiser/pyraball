@@ -178,6 +178,8 @@ func _input(event: InputEvent) -> void:
 		respawn_player()
 	elif event.is_action_pressed("view_snap"):
 		_view_snap()
+	elif event.is_action_pressed("quick_turn"):
+		_quick_turn()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
@@ -203,6 +205,13 @@ func _view_snap() -> void:
 	var tween:= get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	tween.tween_property(spring_arm, "rotation_degrees:y", desired_angle, 0.2)
+
+func _quick_turn() -> void:
+	var turn_angle := spring_arm.rotation_degrees.y + 180.0
+	
+	var tween:= get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	tween.tween_property(spring_arm, "rotation_degrees:y", turn_angle, 0.2)
 
 func _process(delta: float) -> void:
 	var look_pad_vector: Vector2 = Input.get_vector("look_up", "look_down", "look_right", "look_left")
