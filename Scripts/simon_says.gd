@@ -24,15 +24,21 @@ func _play_game_animation() -> void:
 			$AudioStreamPlayer3D.stream = light_sfx
 			$AudioStreamPlayer3D.play()
 			await cage.pulse(_button_to_color(button))
+			if player_inputting:
+				return
 			timer.start(0.3)
 			await timer.timeout
 		if player_inputting:
 			return
-		timer.start(4)
+		timer.start(2)
 		await timer.timeout
 
 func _add_random_button_to_sequence() -> void:
-	game_sequence.append(buttons.pick_random())
+	var random_button: TriangleButton = buttons.pick_random()
+	if game_sequence.size() > 0:
+		while random_button == game_sequence[-1]:
+			random_button = buttons.pick_random()
+	game_sequence.append(random_button)
 
 func _start_game() -> void:
 	timer.start(3)

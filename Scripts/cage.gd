@@ -27,7 +27,7 @@ func pulse(color: Color) -> void:
 	material.emission = color
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
-	tween.tween_property(material, "emission_energy_multiplier", 1, 0.7)
+	tween.tween_property(material, "emission_energy_multiplier", 1, 0.3)
 	tween.set_ease(Tween.EASE_IN)
-	tween.tween_property(material, "emission_energy_multiplier", 0, 0.7)
+	tween.tween_property(material, "emission_energy_multiplier", 0, 0.3)
 	await tween.finished
