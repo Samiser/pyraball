@@ -17,6 +17,21 @@ func fade_in() -> void:
 	for element: Control in [$SubViewportContainer, $ProgressBar, $player_indicator]:
 		tween.parallel().tween_property(element, "modulate:a", 1, fade_in_time)
 
+func fade_out() -> void: # hacky shit for ending only
+	var tween := create_tween()
+	for element: Control in [$SubViewportContainer, $ProgressBar, $player_indicator]:
+		tween.parallel().tween_property(element, "modulate:a", 0, fade_in_time * 2.0)
+	await tween.finished
+	await get_tree().create_timer(16.0).timeout
+	tween = create_tween()
+	tween.tween_property($end_label, "modulate", Color.WHITE, 4.0)
+	await tween.finished
+	await get_tree().create_timer(4.0).timeout
+	tween = create_tween()
+	tween.tween_property($end_label, "modulate", Color.TRANSPARENT, 8.0)
+	await tween.finished
+	#restart game here?
+
 func _on_crystal_collected() -> void:
 	crystals = _get_not_collected_crystals()
 	var progress: float = float(total_crystals - crystals.size()) / float(total_crystals) * 1.13

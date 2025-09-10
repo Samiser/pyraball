@@ -37,8 +37,9 @@ var invert_y: bool = false
 @onready var respawn_sfx : AudioStreamPlayer3D = $respawn_hand/respawn_sfx
 @onready var roll_sfx_stream : AudioStreamPlayer3D = $sfx_roll_stream
 
-var past_unlocked: bool = false
-var future_unlocked: bool = false
+var past_unlocked:= false
+var future_unlocked:= false
+var in_end := false
 
 var current_level : Level
 var all_crystals_are_collected: bool = false
@@ -113,6 +114,27 @@ func rotation_completed(old_position: Vector3) -> void:
 	angular_velocity = last_angular_velocity
 
 func set_new_scale(new_scale: float, level: int) -> void:
+	constant_force = Vector3.ZERO
+	dust.emitting = false
+	$light.hide()
+	
+	if level == 3: # hacky ending stuff
+		last_safe_pos = Vector3(0.0, 43.0, -75.0)
+		respawn_time -= 10.0
+		respawn_player()
+		
+		in_end = true
+		dust.emitting = true
+		
+		linear_damp = 1.0
+		
+		await get_tree().create_timer(20.0).timeout
+		camera.reparent(get_tree().root)
+		respawn_camera = true
+		var tween := get_tree().create_tween()
+		tween.tween_property(self, "gravity_scale", -1, 10.0)
+		return
+	
 	$MeshInstance3D.mesh.radius = new_scale
 	$MeshInstance3D.mesh.height = new_scale * 2
 	$MeshInstance3D/Reflection_Mesh.mesh.radius = new_scale * 0.95
@@ -121,9 +143,7 @@ func set_new_scale(new_scale: float, level: int) -> void:
 	spring_arm.spring_length = 6.0 * new_scale
 	spring_arm.transform.origin.y = 2.0 * new_scale
 	$FloorCheck.target_position.y = -1.25 * new_scale
-	dust.emitting = false
-	$light.hide()
-	constant_force = Vector3.ZERO
+	
 	match level:
 		0: # past/small
 			# mass = 0.5
@@ -232,9 +252,6 @@ func _process(delta: float) -> void:
 	if respawn_camera:
 		var new_rot := camera.transform.looking_at(transform.origin, Vector3.UP)
 		camera.transform = camera.transform.interpolate_with(new_rot, 4.0 * delta)
-	else:
-		if Input.is_action_just_pressed("teleport"):
-			global_position += -camera.global_basis.z * 12.0
 		
 func _physics_process(delta: float) -> void:
 	camera_target.global_transform.origin = lerp(
@@ -307,7 +324,7 @@ func _physics_process(delta: float) -> void:
 			shadow_sprite.rotation_degrees = Vector3(90.0, 0.0, 0.0)
 
 func respawn_player() -> void:
-	if is_respawning:
+	if is_respawning || in_end:
 		return
 		
 	is_respawning = true

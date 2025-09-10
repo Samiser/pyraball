@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bx65doinmgwat"]
+[gd_scene load_steps=9 format=3 uid="uid://bx65doinmgwat"]
 
 [ext_resource type="Script" uid="uid://sx5ad0yhjku8" path="res://Scripts/ui.gd" id="1_nf4gj"]
 [ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="2_2246s"]
 [ext_resource type="Shader" uid="uid://twjxjt5ypucs" path="res://Scripts/warp.gdshader" id="3_q7pk6"]
 [ext_resource type="Texture2D" uid="uid://cwmeg6mfw1xo7" path="res://Textures/circle_outline.png" id="4_q7pk6"]
 [ext_resource type="Texture2D" uid="uid://bb7nagy3kxgbg" path="res://Textures/circle_outline_filled.png" id="5_m78vo"]
+[ext_resource type="FontFile" uid="uid://dq4t4vp605cbt" path="res://Fonts/ROUND___.TTF" id="6_m78vo"]
 
 [sub_resource type="Environment" id="Environment_lquwl"]
 ambient_light_source = 2
@@ -158,3 +159,28 @@ offset_bottom = 8.5
 texture = ExtResource("5_m78vo")
 expand_mode = 3
 stretch_mode = 4
+
+[node name="end_label" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.364563, 0.218777, 1, 1)
+theme_override_fonts/normal_font = ExtResource("6_m78vo")
+theme_override_font_sizes/normal_font_size = 32
+text = "world
+restored"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
