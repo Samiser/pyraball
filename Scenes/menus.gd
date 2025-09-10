@@ -13,7 +13,6 @@ func _any_menus_visible() -> bool:
 	return false
 
 func _input(event: InputEvent) -> void:
-	print(event)
 	if _any_menus_visible() and event is InputEventMouseMotion and using_gamepad:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		for control: Control in get_tree().get_nodes_in_group("ui_control"):
@@ -22,7 +21,6 @@ func _input(event: InputEvent) -> void:
 			control.release_focus()
 		using_gamepad = false
 	elif _any_menus_visible() and (event is InputEventJoypadButton or event is InputEventJoypadMotion) and not using_gamepad:
-		print("now here")
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		for control: Control in get_tree().get_nodes_in_group("ui_control"):
 			control.focus_mode = Control.FOCUS_ALL
