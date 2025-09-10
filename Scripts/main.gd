@@ -33,6 +33,7 @@ func start() -> void:
 	tween.parallel().tween_callback(func() -> void: _switch_music($twinkly, $minimal_drums, 8)).set_delay(6 - 4)
 	await tween.finished
 	player.camera.current = true
+	player.game_started = true
 
 func _start_music() -> void:
 	$minimal_drums.play()

@@ -37,6 +37,8 @@ var invert_y: bool = false
 @onready var respawn_sfx : AudioStreamPlayer3D = $respawn_hand/respawn_sfx
 @onready var roll_sfx_stream : AudioStreamPlayer3D = $sfx_roll_stream
 
+var game_started := false
+
 var past_unlocked:= false
 var future_unlocked:= false
 var in_end := false
@@ -188,6 +190,9 @@ func collect_crystal() -> void:
 		all_crystals_are_collected = true
 
 func _input(event: InputEvent) -> void:
+	if not game_started:
+		return
+	
 	if event.is_action_pressed("rotate_left") and not all_crystals_are_collected and past_unlocked and not freeze:
 		_rotate("left")
 	elif event.is_action_pressed("rotate_right") and not all_crystals_are_collected and past_unlocked and not freeze:
@@ -201,22 +206,20 @@ func _input(event: InputEvent) -> void:
 		_view_snap()
 	elif Input.is_action_just_pressed("quick_turn"):
 		_quick_turn()
+	
+	if is_respawning:
+		return
+
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		spring_arm.rotation.x -= event.relative.y * mouse_sensitivity * (-1 if invert_x else 1)
+		spring_arm.rotation.x = clampf(spring_arm.rotation.x, -tilt_limit, tilt_limit)
+		spring_arm.rotation.y += -event.relative.x * mouse_sensitivity * (-1 if invert_y else 1)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			get_viewport().set_input_as_handled()
-	
-	if is_respawning:
-		return
-	
-	var look_vec := Vector2.ZERO
-	
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		spring_arm.rotation.x -= event.relative.y * mouse_sensitivity * (-1 if invert_x else 1)
-		spring_arm.rotation.x = clampf(spring_arm.rotation.x, -tilt_limit, tilt_limit)
-		spring_arm.rotation.y += -event.relative.x * mouse_sensitivity * (-1 if invert_y else 1)
 
 func _view_snap() -> void:
 	var velocity_dir := Vector2(-linear_velocity.x, linear_velocity.z)
@@ -243,6 +246,9 @@ func _quick_turn() -> void:
 	sfx_stream.play()
 
 func _process(delta: float) -> void:
+	if not game_started:
+		return
+
 	var look_pad_vector: Vector2 = Input.get_vector("look_up", "look_down", "look_right", "look_left")
 	if look_pad_vector != Vector2.ZERO:
 		spring_arm.rotation.x -= look_pad_vector.x * gamepad_sensitivity * (-1 if invert_x else 1)
@@ -253,7 +259,7 @@ func _process(delta: float) -> void:
 		var new_rot := camera.transform.looking_at(transform.origin, Vector3.UP)
 		camera.transform = camera.transform.interpolate_with(new_rot, 4.0 * delta)
 		
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:	
 	camera_target.global_transform.origin = lerp(
 		camera_target.global_transform.origin,
 		global_transform.origin, 0.2
