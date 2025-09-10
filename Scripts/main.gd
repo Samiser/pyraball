@@ -3,6 +3,8 @@ extends Node3D
 @onready var player: Player = $Player
 @onready var menu_camera: Camera3D = $MenuCamera
 
+var game_started: bool = false
+
 func _switch_music(from: AudioStreamPlayer, to: AudioStreamPlayer) -> void:
 	var tween := create_tween()
 	tween.tween_property(from, "volume_db", -80, 2)
@@ -34,3 +36,7 @@ func _ready() -> void:
 	$Music.playing = true
 	$World.outside.connect(func(outside: bool) -> void: _switch_music($Music, $Music2) if outside else _switch_music($Music2, $Music))
 	$MainMenu.play.connect(start)
+	$MainMenu.options.connect(func() -> void: $OptionsMenu.visible = true)
+	$OptionsMenu.sensitivity_changed.connect($Player.change_sensitivity)
+	$OptionsMenu.invert_changed.connect($Player.change_invert)
+	$OptionsMenu.closed.connect(func() -> void: $MainMenu.visible = !game_started)

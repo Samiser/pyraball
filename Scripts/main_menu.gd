@@ -7,10 +7,12 @@ extends Control
 var time := 0.0
 
 signal play
+signal options
 
 func _ready() -> void:
 	play_button.pressed.connect(func() -> void: play.emit())
 	exit_button.pressed.connect(func() -> void: get_tree().quit())
+	options_button.pressed.connect(func() -> void: visible = false; options.emit())
 
 func _process(delta: float) -> void:
 	time += delta
