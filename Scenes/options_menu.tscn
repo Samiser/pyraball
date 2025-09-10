@@ -169,14 +169,15 @@ value = 0.02
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 25
 alignment = 1
 
-[node name="InvertX" type="CheckButton" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="InvertY" type="CheckButton" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 text = "invert x"
 alignment = 2
 
-[node name="InvertY" type="CheckButton" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="InvertX" type="CheckButton" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 text = "invert y"
 alignment = 2
