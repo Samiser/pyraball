@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://du8s21m5wlqr7" path="res://Textures/menu_deselect_icon.png" id="3_l1wg4"]
 [ext_resource type="AudioStream" uid="uid://cr01xksmqw68v" path="res://Audio/SoundFX/maze_flip_on.mp3" id="5_m6e8v"]
 
-[node name="OptionsMenu" type="Control" node_paths=PackedStringArray("master_volume_slider", "music_volume_slider", "mouse_sensitivity_slider", "gamepad_sensitivity_slider", "invert_x_toggle", "invert_y_toggle", "graphics_toggle", "close_button")]
+[node name="OptionsMenu" type="Control" node_paths=PackedStringArray("master_volume_slider", "music_volume_slider", "mouse_sensitivity_slider", "gamepad_sensitivity_slider", "invert_x_toggle", "invert_y_toggle", "fullscreen_toggle", "close_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +21,7 @@ mouse_sensitivity_slider = NodePath("MarginContainer/VBoxContainer/HBoxContainer
 gamepad_sensitivity_slider = NodePath("MarginContainer/VBoxContainer/HBoxContainer4/GamepadSensitivity")
 invert_x_toggle = NodePath("MarginContainer/VBoxContainer/HBoxContainer5/InvertX")
 invert_y_toggle = NodePath("MarginContainer/VBoxContainer/HBoxContainer5/InvertY")
-graphics_toggle = NodePath("MarginContainer/VBoxContainer/CenterContainer/Graphics")
+fullscreen_toggle = NodePath("MarginContainer/VBoxContainer/CenterContainer/Fullscreen")
 close_button = NodePath("MarginContainer/VBoxContainer/Close")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -189,9 +189,9 @@ layout_mode = 2
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Graphics" type="CheckButton" parent="MarginContainer/VBoxContainer/CenterContainer"]
+[node name="Fullscreen" type="CheckButton" parent="MarginContainer/VBoxContainer/CenterContainer"]
 layout_mode = 2
-text = "lower graphics"
+text = "fullscreen"
 alignment = 1
 
 [node name="Close" type="Button" parent="MarginContainer/VBoxContainer" groups=["ui_control"]]

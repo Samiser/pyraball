@@ -7,7 +7,7 @@ class_name OptionsMenu
 @export var gamepad_sensitivity_slider: HSlider
 @export var invert_x_toggle: CheckButton
 @export var invert_y_toggle: CheckButton
-@export var graphics_toggle: CheckButton
+@export var fullscreen_toggle: CheckButton
 @export var close_button: Button
 
 @onready var master_bus := AudioServer.get_bus_index("Master")
@@ -20,7 +20,6 @@ var cog_speed := 0.2
 
 signal sensitivity_changed(type: String, value: float)
 signal invert_changed(type: String, value: bool)
-signal graphics_changed(value: bool)
 
 var previous_menu: Control
 
@@ -37,6 +36,14 @@ func set_sensitivity(type: String, value: float) -> void:
 func set_visible_from(menu: Control) -> void:
 	previous_menu = menu
 	visible = true
+
+func toggle_fullscreen(value: bool) -> void:
+	$AudioStreamPlayer2D.play()
+	print(value)
+	if !value:
+		get_viewport().mode = DisplayServer.WINDOW_MODE_WINDOWED
+	else:
+		get_viewport().mode = DisplayServer.WINDOW_MODE_FULLSCREEN
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -58,7 +65,7 @@ func _ready() -> void:
 	invert_x_toggle.toggled.connect(func(value: bool) -> void: invert_changed.emit("x", value); $AudioStreamPlayer2D.play())
 	invert_y_toggle.toggled.connect(func(value: bool) -> void: invert_changed.emit("y", value); $AudioStreamPlayer2D.play())
 	
-	graphics_toggle.toggled.connect(func(value: bool) -> void: graphics_changed.emit(value); $AudioStreamPlayer2D.play())
+	fullscreen_toggle.toggled.connect(toggle_fullscreen)
 
 	close_button.pressed.connect(func() -> void: visible = false; previous_menu.visible = true; $AudioStreamPlayer2D.play())
 	
