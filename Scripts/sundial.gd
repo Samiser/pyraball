@@ -1,10 +1,13 @@
+@tool
 extends Node3D
 class_name Sundial
 
 @export var button: TriangleButton
 @export var reflectors: Array[Reflector]
 
-@onready var markers := [$Three, $Six, $Nine, $Twelve]
+@export var rotations: Array[float] = [0.0, 0.0, 0.0, 0.0]
+
+@onready var markers := [$Marker2/Three, $Marker3/Six, $Marker4/Nine, $Marker1/Twelve]
 var highlighted_markers: Array[Node3D] = []
 
 var original_marker_color: Color = Color.WHITE
@@ -17,7 +20,11 @@ func change_speed(amount: float) -> void:
 	speed += amount
 
 func _process(delta: float) -> void:
-	$LightPivot.rotate_y(speed * delta)
+	if Engine.is_editor_hint():
+		for i in range(markers.size()):
+			markers[i].get_parent().rotation_degrees.y = rotations[i]
+	else:
+		$LightPivot.rotate_y(speed * delta)
 
 func get_target_position() -> Vector3:
 	return $TargetSphere.global_position
@@ -83,6 +90,9 @@ func _reflector_completed() -> void:
 	_tween_color(marker, Color.CYAN)
 
 func _ready() -> void:
+	for i in range(markers.size()):
+		markers[i].get_parent().rotation_degrees.y = rotations[i]
+	
 	button.pressed.connect(_on_button_pressed)
 	button.released.connect(_on_button_released)
 	

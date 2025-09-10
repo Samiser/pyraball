@@ -139,6 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.512, -25.1253, 27.4014)
 transform = Transform3D(0.082843, 0, -0.996562, 0, 1, 0, 0.996563, 0, 0.0828429, 0.0121002, -2.29754, 0.0447464)
 button = NodePath("../SundialButton")
 reflectors = [NodePath("../Reflector"), NodePath("../Reflector2"), NodePath("../Reflector3"), NodePath("../Reflector4")]
+rotations = Array[float]([-3.19, 124.19, -100.65, 97.19])
 
 [node name="Reflector" parent="PastSundial" node_paths=PackedStringArray("sundial", "button", "light_shaft") instance=ExtResource("5_00k4y")]
 transform = Transform3D(-0.0819384, -0.996637, -2.5259e-08, -3.76242e-08, -2.22509e-08, 1, -0.996637, 0.0819384, -3.56745e-08, -2.92723, 17.6151, -69.5527)
