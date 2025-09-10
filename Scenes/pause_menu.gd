@@ -27,6 +27,10 @@ func _input(event: InputEvent) -> void:
 func _pause() -> void:
 	get_tree().paused = true
 	visible = true
+	$ColorRect.modulate = Color.TRANSPARENT
+	var tween := create_tween()
+	tween.tween_property($ColorRect as ColorRect, "modulate", Color.WHITE, 1)
+	
 
 func _resume() -> void:
 	$AudioStreamPlayer2D.play()
@@ -34,6 +38,9 @@ func _resume() -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	visible = false
 	get_tree().paused = false
+
+func _process(delta: float) -> void:
+	$TextureRect2.rotation += delta * 0.2
 
 func _ready() -> void:
 	first_control = resume_button
