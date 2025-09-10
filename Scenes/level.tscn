@@ -267,7 +267,7 @@ transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 14,
 force = 20.0
 
 [node name="Portal" parent="HollowPlanet_Medium_Ball" node_paths=PackedStringArray("dest") instance=ExtResource("3_nngtn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.9216, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.6038, 0)
 dest = NodePath("../Cannon")
 
 [node name="HollowPlanet_Big_Ball" parent="." groups=["future"] instance=ExtResource("11_6y3s5")]
@@ -280,7 +280,7 @@ visible = false
 force = 20.0
 
 [node name="Portal" parent="HollowPlanet_Big_Ball" node_paths=PackedStringArray("dest") instance=ExtResource("3_nngtn")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -7.67588, 0)
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, -5.33362, 0)
 visible = false
 dest = NodePath("../Cannon")
 
