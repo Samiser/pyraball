@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfjha0lliiui8"]
+[gd_scene load_steps=5 format=3 uid="uid://dfjha0lliiui8"]
 
-[ext_resource type="Texture2D" uid="uid://ctkm7nmrthopo" path="res://Textures/pentagon.png" id="1_plplt"]
+[ext_resource type="Theme" uid="uid://du8m278hgehf4" path="res://main_menu_theme.tres" id="1_inh3s"]
 [ext_resource type="Script" uid="uid://dgvj4kh6byqf7" path="res://Scripts/options_menu.gd" id="1_uj0ok"]
+[ext_resource type="Texture2D" uid="uid://bai0vlrhkpd6c" path="res://Textures/logo_no_text.png" id="2_l1wg4"]
 [ext_resource type="Texture2D" uid="uid://du8s21m5wlqr7" path="res://Textures/menu_deselect_icon.png" id="3_l1wg4"]
 
 [node name="OptionsMenu" type="Control" node_paths=PackedStringArray("master_volume_slider", "music_volume_slider", "mouse_sensitivity_slider", "gamepad_sensitivity_slider", "invert_x_toggle", "invert_y_toggle", "graphics_toggle", "close_button")]
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_inh3s")
 script = ExtResource("1_uj0ok")
 master_volume_slider = NodePath("MarginContainer/VBoxContainer/HBoxContainer/MasterVolume")
 music_volume_slider = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/MusicVolume")
@@ -21,16 +23,38 @@ invert_y_toggle = NodePath("MarginContainer/VBoxContainer/HBoxContainer5/InvertY
 graphics_toggle = NodePath("MarginContainer/VBoxContainer/CenterContainer/Graphics")
 close_button = NodePath("MarginContainer/VBoxContainer/Close")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.364706)
+
+[node name="cog_0" type="TextureRect" parent="."]
 modulate = Color(0.195912, 0.147937, 0.31596, 1)
 layout_mode = 0
-offset_left = 71.0
-offset_top = 2.0
-offset_right = 424.0
-offset_bottom = 322.0
-texture = ExtResource("1_plplt")
+offset_left = 14.0
+offset_top = 65.0
+offset_right = 280.0
+offset_bottom = 331.0
+pivot_offset = Vector2(133, 133)
+texture = ExtResource("2_l1wg4")
 expand_mode = 1
-stretch_mode = 4
+stretch_mode = 5
+
+[node name="cog_1" type="TextureRect" parent="."]
+modulate = Color(0.195912, 0.147937, 0.31596, 1)
+layout_mode = 0
+offset_left = 277.0
+offset_top = -1.00001
+offset_right = 578.0
+offset_bottom = 300.0
+pivot_offset = Vector2(150.5, 150.5)
+texture = ExtResource("2_l1wg4")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -60,17 +84,19 @@ fit_content = true
 layout_mode = 2
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="master_vol_label" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
-text = "master volume"
+text = "master volume
+0"
 fit_content = true
 horizontal_alignment = 2
 
 [node name="MasterVolume" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 max_value = 1.0
 step = 0.05
 
@@ -78,17 +104,19 @@ step = 0.05
 layout_mode = 2
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="music_vol_slider" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
-text = "music volume"
+text = "music volume
+0"
 fit_content = true
 horizontal_alignment = 2
 
 [node name="MusicVolume" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 max_value = 1.0
 step = 0.05
 
@@ -99,17 +127,19 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="mouse_sens_label" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
-text = "mouse sensitivity"
+text = "mouse sensitivity
+0"
 fit_content = true
 horizontal_alignment = 2
 
 [node name="MouseSensitivity" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 min_value = 0.001
 max_value = 0.02
 step = 0.001
@@ -119,21 +149,23 @@ value = 0.01
 layout_mode = 2
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="gpad_sens_label" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
-text = "gamepad sensitivity"
+text = "gamepad sensitivity
+0"
 fit_content = true
 horizontal_alignment = 2
 
 [node name="GamepadSensitivity" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
-min_value = 0.05
-max_value = 0.15
-step = 0.01
-value = 0.1
+size_flags_vertical = 4
+min_value = 0.001
+max_value = 0.02
+step = 0.001
+value = 0.02
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
