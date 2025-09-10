@@ -10,6 +10,7 @@ func _switch_music(from: AudioStreamPlayer, to: AudioStreamPlayer) -> void:
 
 func start() -> void:
 	$MainMenu.queue_free()
+	$World.play()
 	var tween := create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_property($MenuCamera, "position", Vector3(-18, 74, -58), 4)

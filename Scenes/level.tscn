@@ -573,14 +573,14 @@ clockwise = false
 curve = SubResource("Curve3D_00k4y")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.00265375, 0.0894909, 0.995984, -3.72528e-09, 0.995985, -0.0894914, -0.999995, -0.000237492, -0.00264311, 6.01044, 6.72017, -63.078)
+transform = Transform3D(-0.00265411, 0.0894913, 0.995984, 0, 0.995985, -0.0894919, -0.999995, -0.000237521, -0.00264347, 6.01044, 6.72017, -63.078)
 
 [node name="Bird" parent="Path3D/PathFollow3D" node_paths=PackedStringArray("path") instance=ExtResource("20_3a44l")]
 path = NodePath("..")
 
 [node name="PathFollow3D2" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.269971, 0.485262, -0.831645, 0.745499, 0.651972, 0.138419, 0.60938, -0.582621, -0.537778, -29.5126, 55.584, 42.7398)
-progress = 200.0
+transform = Transform3D(0.465268, -0.243654, -0.850974, 0.257403, 0.957063, -0.133296, 0.846916, -0.157024, 0.50801, 90.6271, 13.8303, -1.79045)
+progress = 360.0
 
 [node name="Bird" parent="Path3D/PathFollow3D2" node_paths=PackedStringArray("path") instance=ExtResource("20_3a44l")]
 path = NodePath("..")
