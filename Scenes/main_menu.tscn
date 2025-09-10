@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbud0mpfsj5tn"]
+[gd_scene load_steps=14 format=3 uid="uid://dbud0mpfsj5tn"]
 
 [ext_resource type="FontFile" uid="uid://btstsvsh6ym4g" path="res://Fonts/jd_lcd_rounded.ttf" id="1_1ehe0"]
 [ext_resource type="Script" uid="uid://cbijfdk011qy0" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="FontFile" uid="uid://dq4t4vp605cbt" path="res://Fonts/ROUND___.TTF" id="3_ce3w2"]
-[ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="4_ce3w2"]
-[ext_resource type="Texture2D" uid="uid://cvqvrnbrtxm67" path="res://Textures/logo.png" id="4_n45e2"]
+[ext_resource type="Texture2D" uid="uid://bai0vlrhkpd6c" path="res://Textures/logo_no_text.png" id="4_opfnp"]
+[ext_resource type="Texture2D" uid="uid://dlcnud3cuxb1a" path="res://Textures/logo_text_only.png" id="5_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://du8s21m5wlqr7" path="res://Textures/menu_deselect_icon.png" id="5_n45e2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ce3w2"]
 
@@ -73,10 +74,19 @@ text = "pyraball"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/CenterContainer"]
+[node name="logo_text" type="TextureRect" parent="VBoxContainer/CenterContainer"]
 custom_minimum_size = Vector2(0, 335)
 layout_mode = 2
-texture = ExtResource("4_n45e2")
+texture = ExtResource("5_cp0ys")
+expand_mode = 3
+
+[node name="logo_bg" type="TextureRect" parent="VBoxContainer/CenterContainer/logo_text"]
+custom_minimum_size = Vector2(0, 335)
+layout_mode = 2
+offset_right = 335.871
+offset_bottom = 335.0
+pivot_offset = Vector2(167.936, 167.5)
+texture = ExtResource("4_opfnp")
 expand_mode = 3
 
 [node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
@@ -89,21 +99,21 @@ layout_mode = 2
 [node name="Play" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
 layout_mode = 2
 text = " play"
-icon = ExtResource("4_ce3w2")
+icon = ExtResource("5_n45e2")
 alignment = 0
 expand_icon = true
 
 [node name="Options" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
 layout_mode = 2
 text = " options"
-icon = ExtResource("4_ce3w2")
+icon = ExtResource("5_n45e2")
 alignment = 0
 expand_icon = true
 
 [node name="Quit" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
 layout_mode = 2
 text = " quit"
-icon = ExtResource("4_ce3w2")
+icon = ExtResource("5_n45e2")
 alignment = 0
 expand_icon = true
 
