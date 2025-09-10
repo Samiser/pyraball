@@ -114,4 +114,4 @@ func _ready() -> void:
 		world.portalled.connect(func() -> void: portalled.emit())
 
 func play() -> void: # called when player clicks 'play'
-	[$PyraWorld/Past, $PyraWorld/Present, $PyraWorld/Future][current_level].set_birds_start_view()
+	[$PyraWorld/Past, $PyraWorld/Present, $PyraWorld/Future][current_level].set_birds_start_view() 
