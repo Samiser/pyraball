@@ -161,7 +161,6 @@ expand_mode = 3
 stretch_mode = 4
 
 [node name="end_label" type="RichTextLabel" parent="."]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -184,3 +183,27 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="end_text" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -112.03
+offset_right = 100.0
+offset_bottom = -12.03
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "thanks for playing! you restored the world in [color=\"5d38ff\"]15:33:35[/color]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="CompletionTimer" type="Timer" parent="."]
+autostart = true

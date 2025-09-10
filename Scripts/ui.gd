@@ -5,6 +5,15 @@ var crystals: Array[Node]
 var total_crystals: int
 var fade_in_time := 0.8
 
+var completion_seconds: int = 0
+
+func get_completion_time() -> String:
+	var seconds := completion_seconds%60
+	var minutes := (completion_seconds/60)%60
+	var hours := (completion_seconds/60)/60
+	
+	return "%02d:%02d:%02d" % [hours, minutes, seconds]
+
 func _get_not_collected_crystals() -> Array[Node]:
 	var crystals: Array = get_tree().get_nodes_in_group("time_crystal").filter(
 		func(crystal: TimeCrystal) -> bool: return !crystal.is_collected
@@ -18,6 +27,8 @@ func fade_in() -> void:
 		tween.parallel().tween_property(element, "modulate:a", 1, fade_in_time)
 
 func fade_out() -> void: # hacky shit for ending only
+	$CompletionTimer.stop()
+	$end_text.text = "thanks for playing! you restored the world in  [color=\"5d38ff\"]%s[/color]" % get_completion_time()
 	var tween := create_tween()
 	for element: Control in [$SubViewportContainer, $ProgressBar, $player_indicator]:
 		tween.parallel().tween_property(element, "modulate:a", 0, fade_in_time * 2.0)
@@ -25,10 +36,13 @@ func fade_out() -> void: # hacky shit for ending only
 	await get_tree().create_timer(16.0).timeout
 	tween = create_tween()
 	tween.tween_property($end_label, "modulate", Color.WHITE, 4.0)
+	tween.tween_interval(1.0)
+	tween.tween_property($end_text, "modulate", Color.WHITE, 4.0)
 	await tween.finished
 	await get_tree().create_timer(4.0).timeout
 	tween = create_tween()
 	tween.tween_property($end_label, "modulate", Color.TRANSPARENT, 8.0)
+	tween.parallel().tween_property($end_text, "modulate", Color.TRANSPARENT, 8.0)
 	await tween.finished
 	#restart game here?
 
@@ -57,7 +71,8 @@ func _on_time_change(time_frame: int) -> void:
 	tween.parallel().tween_property($player_indicator/player_ball_rect, "modulate", ball_colour, 2.0)
 
 func _ready() -> void:
-	for element: Control in [$SubViewportContainer, $ProgressBar, $player_indicator]:
+	$CompletionTimer.timeout.connect(func() -> void: completion_seconds += 1)
+	for element: Control in [$SubViewportContainer, $ProgressBar, $player_indicator, $end_label, $end_text]:
 		element.modulate.a = 0
 	crystals = _get_not_collected_crystals()
 	total_crystals = crystals.size()

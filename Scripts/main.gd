@@ -7,9 +7,12 @@ extends Node3D
 @onready var options_menu := $Menus/OptionsMenu
 @onready var pause_menu := $Menus/PauseMenu
 
+var current_song: AudioStreamPlayer
+
 var game_started: bool = false
 
 func _switch_music(from: AudioStreamPlayer, to: AudioStreamPlayer, time: float) -> void:
+	current_song = to
 	var tween := create_tween()
 	tween.tween_property(from, "volume_linear", 0, time)
 	tween.parallel().tween_property(to, "volume_linear", 0.4, time)
@@ -52,5 +55,6 @@ func _ready() -> void:
 	main_menu.play.connect(start)
 	options_menu.sensitivity_changed.connect($Player.change_sensitivity)
 	options_menu.invert_changed.connect($Player.change_invert)
+	$World.game_finished.connect(func() -> void: _switch_music(current_song, $twinkly, 10))
 
 	_start_music()

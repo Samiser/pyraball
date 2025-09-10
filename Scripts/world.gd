@@ -12,6 +12,8 @@ signal puzzle_completed(name: String)
 signal portalled
 signal outside(value: bool)
 
+signal game_finished
+
 func get_level_rotation(level: LevelEnum) -> Vector3:
 	match level:
 		LevelEnum.BACK:
@@ -92,6 +94,7 @@ func _on_rotation(direction: String, player_position: Vector3, levels_unlocked: 
 	_freeze_buttons(false)
 
 func _on_all_crystals_collected(player_position: Vector3) -> void:
+	game_finished.emit()
 	current_level = 3
 	_apply_world_changes(false)
 	await get_tree().create_timer(3.0).timeout
