@@ -135,6 +135,7 @@ func set_new_scale(new_scale: float, level: int) -> void:
 		respawn_camera = true
 		var tween := get_tree().create_tween()
 		tween.tween_property(self, "gravity_scale", -1, 10.0)
+		tween.parallel().tween_property(sfx_stream, "pitch_scale", 0.5, 5.0)
 		return
 	
 	$MeshInstance3D.mesh.radius = new_scale
