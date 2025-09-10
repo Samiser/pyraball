@@ -248,7 +248,7 @@ upper_button = NodePath("../lift_raise_button")
 transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 3.59302, -7.45511, 1.33461)
 
 [node name="lift_raise_button" parent="FirstLift" groups=["past", "present"] instance=ExtResource("6_3a44l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.92007, -0.328598, 4.98981)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -5.94219, -0.868624, 4.98981)
 
 [node name="Cannon" parent="." groups=["present"] instance=ExtResource("10_gf56v")]
 transform = Transform3D(-0.0784591, 0, -0.996917, 0, 1, 0, 0.996917, 0, -0.0784591, 61.4207, -15.2016, 56.6796)
@@ -398,6 +398,92 @@ cage = NodePath("../Cage")
 [node name="Cage" parent="SimonSaysPuzzle" instance=ExtResource("13_53r2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.70135, -23.9149, -29.0007)
 
+[node name="Sprite3D4" type="Sprite3D" parent="." groups=["future", "present"]]
+transform = Transform3D(-0.239592, 0, 1.8445, 0, 1.86, 0, -1.8445, 0, -0.239592, -48.9246, -23.174, -15.6782)
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
+pixel_size = 0.006
+billboard = 1
+texture = ExtResource("16_vofx3")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Sprite3D4" groups=["present"]]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+modulate = Color(0, 0.878431, 0.866667, 1)
+pixel_size = 0.0005
+billboard = 1
+texture = ExtResource("17_00k4y")
+
+[node name="Sprite3D6" type="Sprite3D" parent="." groups=["past"]]
+transform = Transform3D(-1.8445, 0, -0.239592, 0, 1.86, 0, 0.239592, 0, -1.8445, -15.9725, -11.7954, 3.68782)
+visible = false
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
+pixel_size = 0.006
+billboard = 1
+texture = ExtResource("16_vofx3")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Sprite3D6" groups=["past"]]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+visible = false
+modulate = Color(0.396078, 0.180392, 1, 1)
+pixel_size = 0.0007
+billboard = 1
+texture = ExtResource("17_00k4y")
+
+[node name="Sprite3D5" type="Sprite3D" parent="." groups=["future", "present"]]
+transform = Transform3D(-0.239592, 0, 1.8445, 0, 1.86, 0, -1.8445, 0, -0.239592, -23.1095, -13.6815, 16.2579)
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
+pixel_size = 0.006
+billboard = 1
+texture = ExtResource("16_vofx3")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Sprite3D5" groups=["present"]]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+modulate = Color(0, 0.878431, 0.866667, 1)
+pixel_size = 0.0005
+billboard = 1
+texture = ExtResource("17_00k4y")
+
+[node name="Sprite3D7" type="Sprite3D" parent="." groups=["future", "present"]]
+transform = Transform3D(-0.239592, 0, 1.8445, 0, 1.86, 0, -1.8445, 0, -0.239592, 69.9287, -21.0073, 1.53934)
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
+pixel_size = 0.006
+billboard = 1
+texture = ExtResource("16_vofx3")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Sprite3D7" groups=["present"]]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+modulate = Color(0, 0.878431, 0.866667, 1)
+pixel_size = 0.0005
+billboard = 1
+texture = ExtResource("17_00k4y")
+
+[node name="Sprite3D8" type="Sprite3D" parent="." groups=["future", "present"]]
+transform = Transform3D(-0.239592, 0, 1.8445, 0, 1.86, 0, -1.8445, 0, -0.239592, 81.3766, -23.7504, 34.7402)
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
+pixel_size = 0.006
+billboard = 1
+texture = ExtResource("16_vofx3")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Sprite3D8" groups=["present"]]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+modulate = Color(0, 0.878431, 0.866667, 1)
+pixel_size = 0.0005
+billboard = 1
+texture = ExtResource("17_00k4y")
+
+[node name="Sprite3D9" type="Sprite3D" parent="." groups=["future", "present"]]
+transform = Transform3D(-0.239592, 0, 1.8445, 0, 1.86, 0, -1.8445, 0, -0.239592, 67.1821, -15.7542, 40.7965)
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
+pixel_size = 0.006
+billboard = 1
+texture = ExtResource("16_vofx3")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Sprite3D9" groups=["present"]]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+modulate = Color(0, 0.878431, 0.866667, 1)
+pixel_size = 0.0005
+billboard = 1
+texture = ExtResource("17_00k4y")
+
 [node name="MiniMaze" parent="." node_paths=PackedStringArray("cage") groups=["past"] instance=ExtResource("14_luodc")]
 transform = Transform3D(1.86, 0, 0, 0, 1.86, 0, 0, 0, 1.86, -52.606, -26.6088, -19.2759)
 visible = false
@@ -542,6 +628,20 @@ texture = ExtResource("16_vofx3")
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
 modulate = Color(0.396078, 0.180392, 1, 1)
 pixel_size = 0.0007
+texture = ExtResource("17_00k4y")
+
+[node name="Sprite3D2" type="Sprite3D" parent="CannonPuzzle" groups=["future", "past"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -70.1296, -24.257, -3.23068)
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
+pixel_size = 0.006
+billboard = 1
+texture = ExtResource("16_vofx3")
+
+[node name="Sprite3D2" type="Sprite3D" parent="CannonPuzzle/Sprite3D2" groups=["future", "past"]]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+modulate = Color(0.396078, 0.180392, 1, 1)
+pixel_size = 0.0007
+billboard = 1
 texture = ExtResource("17_00k4y")
 
 [node name="Sprite3D3" type="Sprite3D" parent="CannonPuzzle" groups=["present"]]
