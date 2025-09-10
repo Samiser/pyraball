@@ -67,9 +67,14 @@ func _on_crystal_collected() -> void:
 	tween.tween_property($ProgressBar/ProgressInner, "scale", Vector2(progress, progress), 0.3)
 
 func _on_time_change(time_frame: int) -> void:
+	await get_tree().create_timer(0.5).timeout # make it animate more after game freeze...
+	
 	var clock_rot := 90.0 * time_frame
 	var tween := get_tree().create_tween()
 	var ball_colour := Color.WHITE
+	
+	if time_frame == 0:
+		$player_indicator.visible = true
 	
 	match time_frame:
 		0:

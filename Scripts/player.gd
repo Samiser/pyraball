@@ -98,11 +98,11 @@ func on_puzzle_completed(name: String) -> void:
 	if name == "PastSundial":
 		past_unlocked = true
 		_rotate("left")
-		instruction_text.emit("Press Q or Left Bumper\nTo Go Back In Time.")
+		instruction_text.emit("Unlocked PAST Time Frame.\nPress Q or Left Bumper to go Back.\nPress E or Right Bumper to go Forward.")
 	elif name == "FutureSundial":
 		future_unlocked = true
 		_rotate("right")
-		instruction_text.emit("Press E or Right Bumper\nTo Go Forward In Time.")
+		instruction_text.emit("Unlocked FUTURE Time Frame.")
 
 func _rotate(direction: String) -> void:
 	last_linear_velocity = linear_velocity
