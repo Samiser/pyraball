@@ -154,6 +154,13 @@ script = ExtResource("1_ynf5e")
 
 [node name="Player" parent="." instance=ExtResource("2_hptm8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.8364, 42.5794, -97.3839)
+mouse_sensitivity = 0.01
+gamepad_sensitivity = 0.1
+tilt_limit = 1.309
+base_fov = 75.0
+max_fov = 110.0
+max_speed = 30.0
+smooth = 8.0
 
 [node name="World" parent="." node_paths=PackedStringArray("player", "ui") instance=ExtResource("3_6bp64")]
 player = NodePath("../Player")
