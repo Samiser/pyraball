@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://ccdc33vpni5bd"]
+[gd_scene load_steps=37 format=3 uid="uid://ccdc33vpni5bd"]
 
 [ext_resource type="Script" uid="uid://dj4hr00xw01je" path="res://Scripts/player.gd" id="1_4flbx"]
 [ext_resource type="AudioStream" uid="uid://cnq7ivmp32tgp" path="res://Audio/SoundFX/jump.mp3" id="2_sweqy"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bdsmrl04kpxbj" path="res://Audio/SoundFX/ball_roll.mp3" id="3_i3pqv"]
 [ext_resource type="AudioStream" uid="uid://mcjf4yij1asd" path="res://Audio/SoundFX/crystal_pickup.mp3" id="4_x3wgy"]
 [ext_resource type="AudioStream" uid="uid://dbs5o1qe2ngpd" path="res://Audio/SoundFX/respawn.mp3" id="5_8erm5"]
+[ext_resource type="AudioStream" uid="uid://dkgx3wmntkjm" path="res://Audio/SoundFX/cam_turn.mp3" id="5_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://brfavfphfpew4" path="res://Textures/circle.png" id="6_x3wgy"]
 [ext_resource type="PackedScene" uid="uid://crib7luyq5nj1" path="res://Meshes/hand.glb" id="7_3smsa"]
 
@@ -166,6 +167,7 @@ script = ExtResource("1_4flbx")
 jump_sfx = ExtResource("2_sweqy")
 impact_sfx = ExtResource("3_2hs0m")
 crystal_pickup_sfx = ExtResource("4_x3wgy")
+cam_turn_sfx = ExtResource("5_f1ek2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 layers = 16

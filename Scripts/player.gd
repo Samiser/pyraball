@@ -32,6 +32,7 @@ var invert_y: bool = false
 @export var jump_sfx : AudioStream
 @export var impact_sfx : AudioStream
 @export var crystal_pickup_sfx : AudioStream
+@export var cam_turn_sfx : AudioStream
 @onready var sfx_stream : AudioStreamPlayer3D = $sfx_stream
 @onready var respawn_sfx : AudioStreamPlayer3D = $respawn_hand/respawn_sfx
 @onready var roll_sfx_stream : AudioStreamPlayer3D = $sfx_roll_stream
@@ -205,6 +206,10 @@ func _view_snap() -> void:
 	var tween:= get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	tween.tween_property(spring_arm, "rotation_degrees:y", desired_angle, 0.2)
+	
+	sfx_stream.pitch_scale = 1.0
+	sfx_stream.stream = cam_turn_sfx
+	sfx_stream.play()
 
 func _quick_turn() -> void:
 	var turn_angle := spring_arm.rotation_degrees.y + 180.0
@@ -212,6 +217,10 @@ func _quick_turn() -> void:
 	var tween:= get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	tween.tween_property(spring_arm, "rotation_degrees:y", turn_angle, 0.2)
+	
+	sfx_stream.pitch_scale = 1.0
+	sfx_stream.stream = cam_turn_sfx
+	sfx_stream.play()
 
 func _process(delta: float) -> void:
 	var look_pad_vector: Vector2 = Input.get_vector("look_up", "look_down", "look_right", "look_left")
