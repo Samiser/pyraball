@@ -48,8 +48,10 @@ func _animate_reversal() -> void:
 	$AudioStreamPlayer3D.play()
 	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "speed", 20, 5)
-	tween.tween_property(self, "speed", 0.3, 3)
 	await tween.finished
+	completed.emit()
+	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "speed", 0.3, 3)
 
 func _all_reflectors_oriented() -> bool:
 	var all_oriented: bool = true
@@ -68,8 +70,7 @@ func _on_button_pressed(_button: TriangleButton) -> void:
 		change_speed(0.2)
 	else:
 		backwards = true
-		await _animate_reversal()
-		completed.emit()
+		_animate_reversal()
 
 func _on_button_released(_button: TriangleButton) -> void:
 	if backwards:
