@@ -118,4 +118,4 @@ func _ready() -> void:
 func play() -> void: # called when player clicks 'play'
 	[$PyraWorld/Past, $PyraWorld/Present, $PyraWorld/Future][current_level].set_birds_start_view()
 	await get_tree().create_timer(10.0).timeout
-	ui.set_instruction_text("Collect all the Time Crystals.\nMove with WASD or the Left Joystick.\nJump with Space or the A Button.")
+	ui.set_instruction_text("Collect all the [color=\"#56bdb1\"]Time Crystals[/color].\nMove with WASD or the Left Joystick.\nJump with Space or the A Button.")

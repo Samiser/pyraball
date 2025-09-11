@@ -99,11 +99,11 @@ func on_puzzle_completed(name: String) -> void:
 	if name == "PastSundial":
 		past_unlocked = true
 		_rotate("left")
-		instruction_text.emit("Unlocked PAST Time Frame.\nPress Q or Left Bumper to go Back.\nPress E or Right Bumper to go Forward.")
+		instruction_text.emit("Unlocked [color=\"#53d5db\"]PAST[/color] Time Frame.\nPress Q or Left Bumper to go Back.\nPress E or Right Bumper to go Forward.")
 	elif name == "FutureSundial":
 		future_unlocked = true
 		_rotate("right")
-		instruction_text.emit("Unlocked FUTURE Time Frame.\nFind the remaining crystals\nusing the Mini-map.")
+		instruction_text.emit("Unlocked [color=\"#c234b8\"]FUTURE[/color] Time Frame.\nFind the remaining crystals\nusing the Mini-map.")
 		display_map.emit()
 
 func _rotate(direction: String) -> void:
@@ -177,7 +177,7 @@ func set_new_scale(new_scale: float, level: int) -> void:
 			# mass = 20.0
 			rolling_force = 10.0
 			jump_force = 15.0
-			air_control_force = 512.0
+			air_control_force = 560.0
 			shadow_sprite.pixel_size = 0.007
 			shadow_sprite.material_override.distance_fade_min_distance = 22.0
 			shadow_sprite.material_override.distance_fade_max_distance = 32.0
