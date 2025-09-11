@@ -759,28 +759,56 @@ path = NodePath("..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." groups=["past"]]
 transform = Transform3D(0.951542, -0.252101, 0.176106, 0.256104, 0.966649, 0, -0.170232, 0.0451013, 0.984371, 64.5707, -27.298, 1.69319)
+visible = false
+collision_layer = 0
+collision_mask = 0
+metadata/_layer = 1
+metadata/_mask = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+visible = false
 shape = SubResource("BoxShape3D_3a44l")
+disabled = true
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="." groups=["past"]]
 transform = Transform3D(-0.951841, 0.251487, -0.175367, 0.255446, 0.966823, 0, 0.169549, -0.0447967, -0.984503, 90.9932, -27.4961, -3.49595)
+visible = false
+collision_layer = 0
+collision_mask = 0
+metadata/_layer = 1
+metadata/_mask = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+visible = false
 shape = SubResource("BoxShape3D_3a44l")
+disabled = true
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="." groups=["past"]]
 transform = Transform3D(0.162001, -0.0428026, -0.985862, 0.255446, 0.966823, 1.43106e-09, 0.953155, -0.251834, 0.16756, 74.7653, -27.4961, -14.3694)
+visible = false
+collision_layer = 0
+collision_mask = 0
+metadata/_layer = 1
+metadata/_mask = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+visible = false
 shape = SubResource("BoxShape3D_3a44l")
+disabled = true
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="." groups=["past"]]
 transform = Transform3D(-0.161236, 0.0426004, 0.985996, 0.255446, 0.966823, 0, -0.953284, 0.251869, -0.166769, 79.9458, -27.4961, 12.4586)
+visible = false
+collision_layer = 0
+collision_mask = 0
+metadata/_layer = 1
+metadata/_mask = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
+visible = false
 shape = SubResource("BoxShape3D_3a44l")
+disabled = true
 debug_color = Color(0, 0.6, 0.701961, 1)

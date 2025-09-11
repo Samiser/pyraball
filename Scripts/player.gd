@@ -103,7 +103,7 @@ func on_puzzle_completed(name: String) -> void:
 	elif name == "FutureSundial":
 		future_unlocked = true
 		_rotate("right")
-		instruction_text.emit("Unlocked FUTURE Time Frame.\nFind the remaining crystals using the Mini-map.")
+		instruction_text.emit("Unlocked FUTURE Time Frame.\nFind the remaining crystals\nusing the Mini-map.")
 		display_map.emit()
 
 func _rotate(direction: String) -> void:
