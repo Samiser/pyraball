@@ -1,7 +1,9 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://du8m278hgehf4"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://du8m278hgehf4"]
 
 [ext_resource type="Texture2D" uid="uid://conppxk5jgeme" path="res://Textures/checkbox_on.png" id="1_6obe0"]
 [ext_resource type="Texture2D" uid="uid://mhdvlgnm5m1g" path="res://Textures/checkbox_off.png" id="2_fjnmx"]
+[ext_resource type="Texture2D" uid="uid://b7ofs7712puye" path="res://Textures/slider_handle_default.png" id="3_geibx"]
+[ext_resource type="Texture2D" uid="uid://bnit48h7eawmr" path="res://Textures/slider_handle_selected.png" id="4_efflf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fjnmx"]
 
@@ -15,6 +17,8 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j0pwc"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0id00"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aohm6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kkcjn"]
@@ -24,12 +28,19 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6obe0"]
 
 [resource]
+Button/colors/icon_focus_color = Color(0.670588, 0, 1, 1)
 Button/colors/icon_hover_color = Color(0.670588, 0, 1, 1)
 Button/styles/disabled = SubResource("StyleBoxEmpty_fjnmx")
 Button/styles/focus = SubResource("StyleBoxEmpty_geibx")
 Button/styles/hover = SubResource("StyleBoxEmpty_efflf")
 Button/styles/normal = SubResource("StyleBoxEmpty_j2y85")
 Button/styles/pressed = SubResource("StyleBoxEmpty_2v572")
+CheckButton/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+CheckButton/colors/font_focus_color = Color(0.601538, 0.410425, 0.997076, 1)
+CheckButton/colors/font_hover_color = Color(0.6, 0.411765, 0.996078, 1)
+CheckButton/colors/icon_focus_color = Color(1, 1, 1, 1)
+CheckButton/colors/icon_hover_color = Color(1, 1, 1, 1)
+CheckButton/colors/icon_normal_color = Color(0.103744, 0.103744, 0.103744, 1)
 CheckButton/icons/checked = ExtResource("1_6obe0")
 CheckButton/icons/checked_disabled = null
 CheckButton/icons/checked_disabled_mirrored = null
@@ -37,7 +48,10 @@ CheckButton/icons/checked_mirrored = null
 CheckButton/icons/unchecked = ExtResource("2_fjnmx")
 CheckButton/icons/unchecked_mirrored = null
 CheckButton/styles/focus = SubResource("StyleBoxEmpty_j0pwc")
-CheckButton/styles/hover = SubResource("StyleBoxEmpty_aohm6")
-CheckButton/styles/hover_pressed = SubResource("StyleBoxEmpty_kkcjn")
+CheckButton/styles/hover = SubResource("StyleBoxEmpty_0id00")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxEmpty_aohm6")
+CheckButton/styles/normal = SubResource("StyleBoxEmpty_kkcjn")
 HSeparator/styles/separator = SubResource("StyleBoxEmpty_m1fmd")
+HSlider/icons/grabber = ExtResource("3_geibx")
+HSlider/icons/grabber_highlight = ExtResource("4_efflf")
 HSlider/styles/slider = SubResource("StyleBoxEmpty_6obe0")

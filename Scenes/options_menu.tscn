@@ -98,6 +98,7 @@ horizontal_alignment = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../CenterContainer/Fullscreen")
 max_value = 1.0
 step = 0.05
 
@@ -175,11 +176,19 @@ alignment = 1
 
 [node name="InvertY" type="CheckButton" parent="MarginContainer/VBoxContainer/HBoxContainer5" groups=["ui_control"]]
 layout_mode = 2
+focus_neighbor_left = NodePath("../InvertX")
+focus_neighbor_top = NodePath("../../HBoxContainer4/GamepadSensitivity")
+focus_neighbor_right = NodePath("../InvertX")
+focus_neighbor_bottom = NodePath("../../CenterContainer/Fullscreen")
 text = "invert x"
 alignment = 2
 
 [node name="InvertX" type="CheckButton" parent="MarginContainer/VBoxContainer/HBoxContainer5" groups=["ui_control"]]
 layout_mode = 2
+focus_neighbor_left = NodePath("../InvertY")
+focus_neighbor_top = NodePath("../../HBoxContainer4/gpad_sens_label")
+focus_neighbor_right = NodePath("../InvertY")
+focus_neighbor_bottom = NodePath("../../CenterContainer/Fullscreen")
 text = "invert y"
 alignment = 2
 
@@ -191,11 +200,15 @@ layout_mode = 2
 
 [node name="Fullscreen" type="CheckButton" parent="MarginContainer/VBoxContainer/CenterContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../../HBoxContainer5/InvertY")
+focus_neighbor_bottom = NodePath("../../Close")
 text = "fullscreen"
 alignment = 1
 
 [node name="Close" type="Button" parent="MarginContainer/VBoxContainer" groups=["ui_control"]]
 layout_mode = 2
+focus_neighbor_top = NodePath("../CenterContainer/Fullscreen")
+focus_neighbor_bottom = NodePath("../HBoxContainer/MasterVolume")
 text = "back"
 icon = ExtResource("3_l1wg4")
 alignment = 0
