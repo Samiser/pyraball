@@ -463,7 +463,7 @@ pixel_size = 0.006
 billboard = 1
 texture = ExtResource("16_vofx3")
 
-[node name="Sprite3D4" type="Sprite3D" parent="Sprite3D4" groups=["present"]]
+[node name="Sprite3D4" type="Sprite3D" parent="Sprite3D4"]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
 modulate = Color(0, 0.878431, 0.866667, 1)
 pixel_size = 0.0005
@@ -478,7 +478,7 @@ pixel_size = 0.006
 billboard = 1
 texture = ExtResource("16_vofx3")
 
-[node name="Sprite3D6" type="Sprite3D" parent="Sprite3D6" groups=["past"]]
+[node name="Sprite3D6" type="Sprite3D" parent="Sprite3D6"]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
 visible = false
 modulate = Color(0.396078, 0.180392, 1, 1)
@@ -493,7 +493,7 @@ pixel_size = 0.006
 billboard = 1
 texture = ExtResource("16_vofx3")
 
-[node name="Sprite3D4" type="Sprite3D" parent="Sprite3D5" groups=["present"]]
+[node name="Sprite3D4" type="Sprite3D" parent="Sprite3D5"]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
 modulate = Color(0, 0.878431, 0.866667, 1)
 pixel_size = 0.0005
@@ -507,7 +507,7 @@ pixel_size = 0.006
 billboard = 1
 texture = ExtResource("16_vofx3")
 
-[node name="Sprite3D4" type="Sprite3D" parent="Sprite3D7" groups=["present"]]
+[node name="Sprite3D4" type="Sprite3D" parent="Sprite3D7"]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
 modulate = Color(0, 0.878431, 0.866667, 1)
 pixel_size = 0.0005
@@ -521,7 +521,7 @@ pixel_size = 0.006
 billboard = 1
 texture = ExtResource("16_vofx3")
 
-[node name="Sprite3D4" type="Sprite3D" parent="Sprite3D8" groups=["present"]]
+[node name="Sprite3D4" type="Sprite3D" parent="Sprite3D8"]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
 modulate = Color(0, 0.878431, 0.866667, 1)
 pixel_size = 0.0005
@@ -535,7 +535,7 @@ pixel_size = 0.006
 billboard = 1
 texture = ExtResource("16_vofx3")
 
-[node name="Sprite3D4" type="Sprite3D" parent="Sprite3D9" groups=["present"]]
+[node name="Sprite3D4" type="Sprite3D" parent="Sprite3D9"]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
 modulate = Color(0, 0.878431, 0.866667, 1)
 pixel_size = 0.0005
@@ -682,7 +682,7 @@ modulate = Color(0.691357, 0.691357, 0.691357, 1)
 pixel_size = 0.006
 texture = ExtResource("16_vofx3")
 
-[node name="Sprite3D2" type="Sprite3D" parent="CannonPuzzle/Sprite3D" groups=["present"]]
+[node name="Sprite3D2" type="Sprite3D" parent="CannonPuzzle/Sprite3D"]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
 modulate = Color(0.396078, 0.180392, 1, 1)
 pixel_size = 0.0007
@@ -696,7 +696,7 @@ pixel_size = 0.006
 billboard = 1
 texture = ExtResource("16_vofx3")
 
-[node name="Sprite3D2" type="Sprite3D" parent="CannonPuzzle/Sprite3D2" groups=["future", "past"]]
+[node name="Sprite3D2" type="Sprite3D" parent="CannonPuzzle/Sprite3D2"]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
 visible = false
 modulate = Color(0.396078, 0.180392, 1, 1)
@@ -712,7 +712,39 @@ pixel_size = 0.006
 billboard = 1
 texture = ExtResource("16_vofx3")
 
-[node name="Sprite3D2" type="Sprite3D" parent="CannonPuzzle/Sprite3D4" groups=["future", "past"]]
+[node name="Sprite3D2" type="Sprite3D" parent="CannonPuzzle/Sprite3D4"]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+visible = false
+modulate = Color(0.396078, 0.180392, 1, 1)
+pixel_size = 0.0007
+billboard = 1
+texture = ExtResource("17_00k4y")
+
+[node name="Sprite3D6" type="Sprite3D" parent="CannonPuzzle" groups=["future", "past"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 99.7487, -45.4366, 38.3278)
+visible = false
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
+pixel_size = 0.006
+billboard = 1
+texture = ExtResource("16_vofx3")
+
+[node name="Sprite3D2" type="Sprite3D" parent="CannonPuzzle/Sprite3D6"]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+visible = false
+modulate = Color(0.396078, 0.180392, 1, 1)
+pixel_size = 0.0007
+billboard = 1
+texture = ExtResource("17_00k4y")
+
+[node name="Sprite3D7" type="Sprite3D" parent="CannonPuzzle" groups=["future", "past"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.3321, -19.9367, 26.4491)
+visible = false
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
+pixel_size = 0.006
+billboard = 1
+texture = ExtResource("16_vofx3")
+
+[node name="Sprite3D2" type="Sprite3D" parent="CannonPuzzle/Sprite3D7"]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
 visible = false
 modulate = Color(0.396078, 0.180392, 1, 1)
