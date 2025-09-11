@@ -380,7 +380,7 @@ transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 24.2493,
 transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 21.7491, 51.2238, -5.71154)
 
 [node name="TimeCrystal120" parent="Crystals" instance=ExtResource("5_5v1tr")]
-transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 18.7491, 55.2238, -0.711541)
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 18.7491, 53.3135, -0.711541)
 
 [node name="TimeCrystal121" parent="Crystals" instance=ExtResource("5_5v1tr")]
 transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 2.63925, 56.9272, -5.61123)
