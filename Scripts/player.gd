@@ -263,10 +263,11 @@ func _process(delta: float) -> void:
 		camera.transform = camera.transform.interpolate_with(new_rot, 4.0 * delta)
 		
 func _physics_process(delta: float) -> void:	
-	camera_target.global_transform.origin = lerp(
-		camera_target.global_transform.origin,
-		global_transform.origin, 0.2
-	)
+	if game_started:
+		camera_target.global_transform.origin = lerp(
+			camera_target.global_transform.origin,
+			global_transform.origin, 0.2
+		)
 	
 	if jump_force == 5.8: # silly way of checking if player is da small ball, for da wind
 		if global_position.z < -60:
@@ -290,7 +291,8 @@ func _physics_process(delta: float) -> void:
 		if global_position.y > 42.0:
 			last_safe_pos = global_position # used for respawning
 	
-	angular_velocity += Vector3(input_vector.x, 0, input_vector.y).rotated(Vector3.UP, spring_arm.rotation.y) * rolling_force * delta
+	if game_started:
+		angular_velocity += Vector3(input_vector.x, 0, input_vector.y).rotated(Vector3.UP, spring_arm.rotation.y) * rolling_force * delta
 	
 	# air control
 	if !floor_check.is_colliding():
